@@ -55,6 +55,7 @@
             this.pnl_list = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pnl_description = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dragControl1 = new Microwave_v1._0.DragControl();
             this.panel2.SuspendLayout();
             this.pnl_menu.SuspendLayout();
@@ -81,6 +82,7 @@
             this.pnl_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.pnl_menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_menu.Controls.Add(this.button4);
+            this.pnl_menu.Controls.Add(this.button11);
             this.pnl_menu.Controls.Add(this.button3);
             this.pnl_menu.Controls.Add(this.button2);
             this.pnl_menu.Controls.Add(this.panel5);
@@ -276,9 +278,9 @@
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(725, 648);
+            this.button11.Location = new System.Drawing.Point(224, 560);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(55, 51);
+            this.button11.Size = new System.Drawing.Size(55, 47);
             this.button11.TabIndex = 6;
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.Button11_Click);
@@ -349,7 +351,7 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.button11);
+            this.panel9.Controls.Add(this.panel1);
             this.panel9.Location = new System.Drawing.Point(287, 47);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(801, 704);
@@ -360,8 +362,16 @@
             this.pnl_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_description.Location = new System.Drawing.Point(1087, 49);
             this.pnl_description.Name = "pnl_description";
-            this.pnl_description.Size = new System.Drawing.Size(252, 699);
+            this.pnl_description.Size = new System.Drawing.Size(252, 702);
             this.pnl_description.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.panel1.Location = new System.Drawing.Point(32, 142);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(716, 1);
+            this.panel1.TabIndex = 7;
             // 
             // dragControl1
             // 
@@ -430,6 +440,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         public System.Windows.Forms.Panel pnl_description;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

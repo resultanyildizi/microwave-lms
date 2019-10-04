@@ -48,7 +48,7 @@ namespace Microwave_v1._0
         { 
             about.lbl_bookname.Text = name;
             about.lbl_description.Text = description;
-            about.lbl_author.Text = author;
+            about.lbl_author.Text = "- " + author;
 
         }
     }

@@ -53,9 +53,9 @@
             // 
             this.lbl_bookname.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_bookname.ForeColor = System.Drawing.Color.White;
-            this.lbl_bookname.Location = new System.Drawing.Point(39, 336);
+            this.lbl_bookname.Location = new System.Drawing.Point(3, 336);
             this.lbl_bookname.Name = "lbl_bookname";
-            this.lbl_bookname.Size = new System.Drawing.Size(163, 53);
+            this.lbl_bookname.Size = new System.Drawing.Size(239, 99);
             this.lbl_bookname.TabIndex = 1;
             this.lbl_bookname.Text = "Book Name";
             this.lbl_bookname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,7 +66,7 @@
             this.lbl_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.lbl_description.Font = new System.Drawing.Font("SansSerif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.lbl_description.ForeColor = System.Drawing.Color.White;
-            this.lbl_description.Location = new System.Drawing.Point(13, 389);
+            this.lbl_description.Location = new System.Drawing.Point(13, 435);
             this.lbl_description.Name = "lbl_description";
             this.lbl_description.Size = new System.Drawing.Size(215, 179);
             this.lbl_description.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             this.lbl_author.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_author.ForeColor = System.Drawing.Color.White;
-            this.lbl_author.Location = new System.Drawing.Point(21, 582);
+            this.lbl_author.Location = new System.Drawing.Point(21, 614);
             this.lbl_author.Name = "lbl_author";
             this.lbl_author.Size = new System.Drawing.Size(198, 62);
             this.lbl_author.TabIndex = 3;
@@ -93,7 +93,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // AboutBook
+            // BookDescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +103,7 @@
             this.Controls.Add(this.lbl_description);
             this.Controls.Add(this.lbl_bookname);
             this.Controls.Add(this.pic_book);
-            this.Name = "AboutBook";
+            this.Name = "BookDescription";
             this.Size = new System.Drawing.Size(242, 676);
             ((System.ComponentModel.ISupportInitialize)(this.pic_book)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
