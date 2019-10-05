@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Microwave));
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnl_left = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -46,36 +47,36 @@
             this.btn_profil = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_author = new System.Windows.Forms.Label();
+            this.lbl_publisher = new System.Windows.Forms.Label();
+            this.lbl_date = new System.Windows.Forms.Label();
+            this.lbl_count = new System.Windows.Forms.Label();
             this.pnl_list = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.pnl_description = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_description = new System.Windows.Forms.Panel();
             this.dragControl1 = new Microwave_v1._0.DragControl();
-            this.panel2.SuspendLayout();
+            this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.pnl_header.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // pnl_left
             // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pnl_menu);
-            this.panel2.Controls.Add(this.pic_logo);
-            this.panel2.Controls.Add(this.lbl_logo);
-            this.panel2.Controls.Add(this.lbl_logo_lms);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 751);
-            this.panel2.TabIndex = 1;
+            this.pnl_left.BackColor = System.Drawing.Color.Black;
+            this.pnl_left.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_left.Controls.Add(this.pnl_menu);
+            this.pnl_left.Controls.Add(this.pic_logo);
+            this.pnl_left.Controls.Add(this.lbl_logo);
+            this.pnl_left.Controls.Add(this.lbl_logo_lms);
+            this.pnl_left.Location = new System.Drawing.Point(0, 0);
+            this.pnl_left.Name = "pnl_left";
+            this.pnl_left.Size = new System.Drawing.Size(287, 751);
+            this.pnl_left.TabIndex = 1;
+            this.pnl_left.Click += new System.EventHandler(this.Pnl_left_Click);
             // 
             // pnl_menu
             // 
@@ -91,6 +92,7 @@
             this.pnl_menu.Name = "pnl_menu";
             this.pnl_menu.Size = new System.Drawing.Size(287, 619);
             this.pnl_menu.TabIndex = 9;
+            this.pnl_menu.Click += new System.EventHandler(this.Pnl_menu_Click);
             // 
             // button4
             // 
@@ -107,6 +109,18 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "      About Us";
             this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.Location = new System.Drawing.Point(224, 560);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(55, 47);
+            this.button11.TabIndex = 6;
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.Button11_Click);
             // 
             // button3
             // 
@@ -173,6 +187,7 @@
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_logo.TabIndex = 4;
             this.pic_logo.TabStop = false;
+            this.pic_logo.Click += new System.EventHandler(this.Pic_logo_Click);
             // 
             // lbl_logo
             // 
@@ -210,6 +225,7 @@
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1052, 49);
             this.pnl_header.TabIndex = 2;
+
             // 
             // panel8
             // 
@@ -228,6 +244,7 @@
             this.tb_search.Size = new System.Drawing.Size(290, 31);
             this.tb_search.TabIndex = 5;
             this.tb_search.Text = "Search A Book...";
+            this.tb_search.Click += new System.EventHandler(this.Tb_search_Click);
             // 
             // btn_search
             // 
@@ -273,72 +290,60 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "BOOKS";
             // 
-            // button11
+            // lbl_name
             // 
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(224, 560);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(55, 47);
-            this.button11.TabIndex = 6;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.Button11_Click);
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_name.ForeColor = System.Drawing.Color.White;
+            this.lbl_name.Location = new System.Drawing.Point(314, 151);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(90, 32);
+            this.lbl_name.TabIndex = 8;
+            this.lbl_name.Text = "Name";
             // 
-            // label4
+            // lbl_author
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(314, 151);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 32);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Name";
+            this.lbl_author.AutoSize = true;
+            this.lbl_author.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_author.ForeColor = System.Drawing.Color.White;
+            this.lbl_author.Location = new System.Drawing.Point(505, 151);
+            this.lbl_author.Name = "lbl_author";
+            this.lbl_author.Size = new System.Drawing.Size(99, 32);
+            this.lbl_author.TabIndex = 10;
+            this.lbl_author.Text = "Author";
             // 
-            // label5
+            // lbl_publisher
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(505, 151);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 32);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Author";
+            this.lbl_publisher.AutoSize = true;
+            this.lbl_publisher.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_publisher.ForeColor = System.Drawing.Color.White;
+            this.lbl_publisher.Location = new System.Drawing.Point(670, 151);
+            this.lbl_publisher.Name = "lbl_publisher";
+            this.lbl_publisher.Size = new System.Drawing.Size(133, 32);
+            this.lbl_publisher.TabIndex = 11;
+            this.lbl_publisher.Text = "Publisher";
             // 
-            // label6
+            // lbl_date
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(670, 151);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 32);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Publisher";
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_date.ForeColor = System.Drawing.Color.White;
+            this.lbl_date.Location = new System.Drawing.Point(848, 151);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(75, 32);
+            this.lbl_date.TabIndex = 12;
+            this.lbl_date.Text = "Date";
             // 
-            // label7
+            // lbl_count
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(848, 151);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 32);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Date";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(953, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 32);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Count";
+            this.lbl_count.AutoSize = true;
+            this.lbl_count.Font = new System.Drawing.Font("SansSerif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_count.ForeColor = System.Drawing.Color.White;
+            this.lbl_count.Location = new System.Drawing.Point(953, 151);
+            this.lbl_count.Name = "lbl_count";
+            this.lbl_count.Size = new System.Drawing.Size(91, 32);
+            this.lbl_count.TabIndex = 13;
+            this.lbl_count.Text = "Count";
             // 
             // pnl_list
             // 
@@ -347,6 +352,7 @@
             this.pnl_list.Name = "pnl_list";
             this.pnl_list.Size = new System.Drawing.Size(748, 505);
             this.pnl_list.TabIndex = 14;
+            this.pnl_list.Click += new System.EventHandler(this.Pnl_list_Click);
             // 
             // panel9
             // 
@@ -356,14 +362,8 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(801, 704);
             this.panel9.TabIndex = 15;
-            // 
-            // pnl_description
-            // 
-            this.pnl_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_description.Location = new System.Drawing.Point(1087, 49);
-            this.pnl_description.Name = "pnl_description";
-            this.pnl_description.Size = new System.Drawing.Size(252, 702);
-            this.pnl_description.TabIndex = 16;
+            this.panel9.Click += new System.EventHandler(this.Panel9_Click);
+
             // 
             // panel1
             // 
@@ -372,6 +372,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(716, 1);
             this.panel1.TabIndex = 7;
+            // 
+            // pnl_description
+            // 
+            this.pnl_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_description.Location = new System.Drawing.Point(1087, 49);
+            this.pnl_description.Name = "pnl_description";
+            this.pnl_description.Size = new System.Drawing.Size(252, 702);
+            this.pnl_description.TabIndex = 16;
             // 
             // dragControl1
             // 
@@ -384,13 +392,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(1341, 752);
             this.Controls.Add(this.pnl_header);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbl_count);
+            this.Controls.Add(this.lbl_date);
+            this.Controls.Add(this.lbl_publisher);
+            this.Controls.Add(this.lbl_author);
+            this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_list);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.pnl_description);
@@ -400,7 +408,7 @@
             this.ShowIcon = false;
             this.Text = "Microwave";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel2.ResumeLayout(false);
+            this.pnl_left.ResumeLayout(false);
             this.pnl_menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.pnl_header.ResumeLayout(false);
@@ -413,7 +421,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnl_left;
         private System.Windows.Forms.Panel pnl_header;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
@@ -431,11 +439,11 @@
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_author;
+        private System.Windows.Forms.Label lbl_publisher;
+        private System.Windows.Forms.Label lbl_date;
+        private System.Windows.Forms.Label lbl_count;
         public System.Windows.Forms.Panel pnl_list;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;

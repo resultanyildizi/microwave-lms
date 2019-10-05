@@ -62,5 +62,36 @@ namespace Microwave_v1._0
             }
             
         }
+
+        private void Tb_search_Click(object sender, EventArgs e)
+        {
+            tb_search.Focus();
+        }
+
+        private void Pnl_menu_Click(object sender, EventArgs e)
+        {
+            pnl_menu.Focus();
+        }
+
+        private void Pic_logo_Click(object sender, EventArgs e)
+        {
+            pic_logo.Focus();
+        }
+
+        private void Pnl_left_Click(object sender, EventArgs e)
+        {
+            pnl_left.Focus();
+        }
+
+        private void Panel9_Click(object sender, EventArgs e)
+        {
+            panel9.Focus();
+        }
+
+        private void Pnl_list_Click(object sender, EventArgs e)
+        {
+            pnl_list.Focus();
+        }
+
     }
 }

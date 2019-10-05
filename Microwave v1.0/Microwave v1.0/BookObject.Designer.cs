@@ -176,7 +176,6 @@
             this.Controls.Add(this.pnl_author);
             this.Name = "BookObject";
             this.Size = new System.Drawing.Size(715, 48);
-            this.Load += new System.EventHandler(this.BookObject_Load);
             this.pnl_name.ResumeLayout(false);
             this.pnl_author.ResumeLayout(false);
             this.pnl_count.ResumeLayout(false);
