@@ -32,7 +32,7 @@
             this.pnl_left = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btn_add_book = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -55,7 +55,7 @@
             this.pnl_list = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnl_description = new System.Windows.Forms.Panel();
+            this.pnl_tag = new System.Windows.Forms.Panel();
             this.dragControl1 = new Microwave_v1._0.DragControl();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
@@ -83,7 +83,7 @@
             this.pnl_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.pnl_menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_menu.Controls.Add(this.button4);
-            this.pnl_menu.Controls.Add(this.button11);
+            this.pnl_menu.Controls.Add(this.btn_add_book);
             this.pnl_menu.Controls.Add(this.button3);
             this.pnl_menu.Controls.Add(this.button2);
             this.pnl_menu.Controls.Add(this.panel5);
@@ -110,17 +110,17 @@
             this.button4.Text = "      About Us";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btn_add_book
             // 
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(224, 560);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(55, 47);
-            this.button11.TabIndex = 6;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.Button11_Click);
+            this.btn_add_book.FlatAppearance.BorderSize = 0;
+            this.btn_add_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_book.Image")));
+            this.btn_add_book.Location = new System.Drawing.Point(224, 560);
+            this.btn_add_book.Name = "btn_add_book";
+            this.btn_add_book.Size = new System.Drawing.Size(55, 47);
+            this.btn_add_book.TabIndex = 6;
+            this.btn_add_book.UseVisualStyleBackColor = true;
+            this.btn_add_book.Click += new System.EventHandler(this.Button11_Click);
             // 
             // button3
             // 
@@ -225,7 +225,6 @@
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1052, 49);
             this.pnl_header.TabIndex = 2;
-
             // 
             // panel8
             // 
@@ -363,7 +362,6 @@
             this.panel9.Size = new System.Drawing.Size(801, 704);
             this.panel9.TabIndex = 15;
             this.panel9.Click += new System.EventHandler(this.Panel9_Click);
-
             // 
             // panel1
             // 
@@ -373,13 +371,13 @@
             this.panel1.Size = new System.Drawing.Size(716, 1);
             this.panel1.TabIndex = 7;
             // 
-            // pnl_description
+            // pnl_tag
             // 
-            this.pnl_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_description.Location = new System.Drawing.Point(1087, 49);
-            this.pnl_description.Name = "pnl_description";
-            this.pnl_description.Size = new System.Drawing.Size(252, 702);
-            this.pnl_description.TabIndex = 16;
+            this.pnl_tag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_tag.Location = new System.Drawing.Point(1087, 49);
+            this.pnl_tag.Name = "pnl_tag";
+            this.pnl_tag.Size = new System.Drawing.Size(252, 702);
+            this.pnl_tag.TabIndex = 16;
             // 
             // dragControl1
             // 
@@ -401,7 +399,7 @@
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_list);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.pnl_description);
+            this.Controls.Add(this.pnl_tag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(18, 47);
             this.Name = "Microwave";
@@ -438,7 +436,7 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btn_add_book;
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Label lbl_author;
         private System.Windows.Forms.Label lbl_publisher;
@@ -447,7 +445,7 @@
         public System.Windows.Forms.Panel pnl_list;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
-        public System.Windows.Forms.Panel pnl_description;
+        public System.Windows.Forms.Panel pnl_tag;
         private System.Windows.Forms.Panel panel1;
     }
 }

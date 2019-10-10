@@ -12,9 +12,9 @@ namespace Microwave_v1._0
         public Book book;
 
         
-        public book_node(Book book)
+        public book_node(Book b)
         {
-            this.book = book;
+            this.book = b;
             this.next = null;
         }
     }
@@ -25,21 +25,21 @@ namespace Microwave_v1._0
         int point_y = 5;
 
 
-        book_node head;
+        book_node root;
         public Book_List()
         {
-            head = null;
+            root = null;
         }
 
         public void Add_Book_to_List(Book book)
         {
-            if (head == null)
+            if (root == null)
             {
-                head = new book_node(book);
+                root = new book_node(book);
                 return;
             }
 
-            book_node iterator = head;
+            book_node iterator = root;
             while (iterator.next != null)
                 iterator = iterator.next;
 
@@ -49,7 +49,7 @@ namespace Microwave_v1._0
         public void Show_All_Books()
         {
             point_y = 5;
-            book_node iterator = head;
+            book_node iterator = root;
             while(iterator != null)
             {
                 iterator.book.Info.Draw_Book_Obj(ref point_y);
@@ -59,7 +59,7 @@ namespace Microwave_v1._0
 
         public void Click_Book_Info_Objects()
         {
-            book_node iterator = head;
+            book_node iterator = root;
             while(iterator != null)
             {
                 iterator.book.Info.Chose_BookObject();
@@ -69,7 +69,7 @@ namespace Microwave_v1._0
 
         public void Make_Infos_Chosen_False()
         {
-            book_node iterator = head;
+            book_node iterator = root;
             while (iterator != null)
             {
                 iterator.book.Info.chosen = false;

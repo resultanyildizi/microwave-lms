@@ -40,10 +40,10 @@ namespace Microwave_v1._0
                 "electronic typesetting, remaining essentially unchanged.";
 
             book_tag = new Book_Tag();
-            book_tag.Edit_Book_Tag(name, description, author);
+            book_tag.Initialize_Book_Tag(name, description, author);
 
             info = new Book_Info();
-            info.Edit_Book_Info(name, author, publisher, date, count, book_tag);
+            info.Initialize_Book_Info(name, author, publisher, date, count, book_tag);
            
         }
     }
