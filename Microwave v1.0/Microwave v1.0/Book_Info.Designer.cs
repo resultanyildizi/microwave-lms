@@ -60,7 +60,7 @@
             // 
             this.lbl_name.AutoEllipsis = true;
             this.lbl_name.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_name.Font = new System.Drawing.Font("SansSerif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_name.ForeColor = System.Drawing.Color.White;
             this.lbl_name.Location = new System.Drawing.Point(3, 15);
             this.lbl_name.Name = "lbl_name";
@@ -84,7 +84,7 @@
             // 
             this.lbl_author.AutoEllipsis = true;
             this.lbl_author.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_author.Font = new System.Drawing.Font("SansSerif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_author.ForeColor = System.Drawing.Color.White;
             this.lbl_author.Location = new System.Drawing.Point(3, 15);
             this.lbl_author.Name = "lbl_author";
@@ -108,7 +108,7 @@
             // 
             this.lbl_count.AutoEllipsis = true;
             this.lbl_count.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_count.Font = new System.Drawing.Font("SansSerif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_count.ForeColor = System.Drawing.Color.White;
             this.lbl_count.Location = new System.Drawing.Point(3, 15);
             this.lbl_count.Name = "lbl_count";
@@ -132,7 +132,7 @@
             // 
             this.lbl_publisher.AutoEllipsis = true;
             this.lbl_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_publisher.Font = new System.Drawing.Font("SansSerif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_publisher.ForeColor = System.Drawing.Color.White;
             this.lbl_publisher.Location = new System.Drawing.Point(3, 15);
             this.lbl_publisher.Name = "lbl_publisher";
@@ -155,7 +155,7 @@
             // lbl_date
             // 
             this.lbl_date.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_date.Font = new System.Drawing.Font("SansSerif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_date.ForeColor = System.Drawing.Color.White;
             this.lbl_date.Location = new System.Drawing.Point(3, 15);
             this.lbl_date.Name = "lbl_date";
@@ -164,7 +164,7 @@
             this.lbl_date.Text = "10.10.1975";
             this.lbl_date.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookObject_Clicked);
             // 
-            // BookObject
+            // Book_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,7 +174,7 @@
             this.Controls.Add(this.pnl_count);
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.pnl_author);
-            this.Name = "BookObject";
+            this.Name = "Book_Info";
             this.Size = new System.Drawing.Size(715, 48);
             this.pnl_name.ResumeLayout(false);
             this.pnl_author.ResumeLayout(false);
