@@ -41,8 +41,6 @@ namespace Microwave_v1._0
             book_list.Add_Book_To_List(new Books("Fareler ve İnsanlar", "John Steinbeck", "YapıKredi Yayınevi", "12/4/1998", "45"));
             book_list.Add_Book_To_List(new Books("Oyunbaz", "Wulf Dorn", "YapıKredi Yayınevi", "12/4/1998", "45"));
             book_list.Add_Book_To_List(new Books("Fareler ve İnsanlar", "John Steinbeck", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Kurk Mantolu Madonna", "Sabahattin Ali", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Marslı", "Andy Weir", "İthaki Yayınları", "12/4/1998", "45"));
             book_list.Print_Book_List();
 
 
