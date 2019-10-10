@@ -21,6 +21,7 @@ namespace Microwave_v1._0
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             book_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998", "45"));
             book_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998", "45"));
             book_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998", "45"));

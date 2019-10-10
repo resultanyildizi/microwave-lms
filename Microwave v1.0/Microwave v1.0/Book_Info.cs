@@ -14,6 +14,7 @@ namespace Microwave_v1._0
     {
         public bool chosen;
         private Book_Tag book_tag;
+
         private Microwave main_page;
         private Book_List main_list;
 
@@ -24,7 +25,7 @@ namespace Microwave_v1._0
             main_list = main_page.book_list;
         }
 
-        public void Edit_Book_Info(string name, string author, string publisher, string date, string count, Book_Tag bt)
+        public void Initialize_Book_Info(string name, string author, string publisher, string date, string count, Book_Tag bt)
         {
             this.lbl_name.Text = name;
             this.lbl_author.Text = author;
