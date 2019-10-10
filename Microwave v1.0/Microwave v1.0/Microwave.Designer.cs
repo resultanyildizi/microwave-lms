@@ -175,7 +175,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(214, 42);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Books";
+            this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // pic_logo

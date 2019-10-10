@@ -9,10 +9,10 @@ namespace Microwave_v1._0
     class book_node
     {
         public book_node next;
-        public Books book;
+        public Book book;
 
         
-        public book_node(Books book)
+        public book_node(Book book)
         {
             this.book = book;
             this.next = null;
@@ -31,7 +31,7 @@ namespace Microwave_v1._0
             head = null;
         }
 
-        public void Add_Book_To_List(Books book)
+        public void Add_Book_to_List(Book book)
         {
             if (head == null)
             {
@@ -46,33 +46,33 @@ namespace Microwave_v1._0
             iterator.next = new book_node(book);
         }
 
-        public void Print_Book_List()
+        public void Show_All_Books()
         {
             point_y = 5;
             book_node iterator = head;
             while(iterator != null)
             {
-                iterator.book.Get_Book_Object().Draw_Book_Obj(ref point_y);
+                iterator.book.Info.Draw_Book_Obj(ref point_y);
                 iterator = iterator.next;
             }
         }
 
-        public void Click_Book_Obj()
+        public void Click_Book_Info_Objects()
         {
             book_node iterator = head;
             while(iterator != null)
             {
-                iterator.book.Get_Book_Object().Chose_BookObject();
+                iterator.book.Info.Chose_BookObject();
                 iterator = iterator.next;
             }
         }
 
-        public void Make_Chosen_False()
+        public void Make_Infos_Chosen_False()
         {
             book_node iterator = head;
             while (iterator != null)
             {
-                iterator.book.Get_Book_Object().chosen = false;
+                iterator.book.Info.chosen = false;
                 iterator = iterator.next;
             }
         }

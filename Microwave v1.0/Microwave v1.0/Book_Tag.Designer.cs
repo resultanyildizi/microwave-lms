@@ -1,6 +1,6 @@
 ﻿namespace Microwave_v1._0
 {
-    partial class BookDescription
+    partial class Book_Tag
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookDescription));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Book_Tag));
             this.pic_book = new System.Windows.Forms.PictureBox();
             this.lbl_bookname = new System.Windows.Forms.Label();
             this.lbl_description = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // BookDescription
+            // Book_Tag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +103,7 @@
             this.Controls.Add(this.lbl_description);
             this.Controls.Add(this.lbl_bookname);
             this.Controls.Add(this.pic_book);
-            this.Name = "BookDescription";
+            this.Name = "Book_Tag";
             this.Size = new System.Drawing.Size(242, 676);
             ((System.ComponentModel.ISupportInitialize)(this.pic_book)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

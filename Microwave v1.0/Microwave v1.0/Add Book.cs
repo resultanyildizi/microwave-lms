@@ -36,10 +36,10 @@ namespace Microwave_v1._0
             date = tb_date.Text;
             count = tb_count.Text;
             
-            Books book = new Books(name, author, publisher, date, count);
-            main_page.book_list.Add_Book_To_List(book);
+            Book book = new Book(name, author, publisher, date, count);
+            main_page.book_list.Add_Book_to_List(book);
             main_page.pnl_list.VerticalScroll.Value = 0;
-            main_page.book_list.Print_Book_List();
+            main_page.book_list.Show_All_Books();
         }
     }
 }

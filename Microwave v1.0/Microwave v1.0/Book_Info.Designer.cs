@@ -1,6 +1,6 @@
 ﻿namespace Microwave_v1._0
 {
-    partial class BookObject
+    partial class Book_Info
     {
         /// <summary> 
         /// Required designer variable.
@@ -187,15 +187,15 @@
 
         #endregion
 
-        public System.Windows.Forms.Panel pnl_name;
-        public System.Windows.Forms.Panel pnl_author;
-        public System.Windows.Forms.Panel pnl_count;
-        public System.Windows.Forms.Panel pnl_publisher;
-        public System.Windows.Forms.Panel pnl_date;
-        public System.Windows.Forms.Label lbl_name;
-        public System.Windows.Forms.Label lbl_author;
-        public System.Windows.Forms.Label lbl_count;
-        public System.Windows.Forms.Label lbl_publisher;
-        public System.Windows.Forms.Label lbl_date;
+        private System.Windows.Forms.Panel pnl_name;
+        private System.Windows.Forms.Panel pnl_author;
+        private System.Windows.Forms.Panel pnl_count;
+        private System.Windows.Forms.Panel pnl_publisher;
+        private System.Windows.Forms.Panel pnl_date;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_author;
+        private System.Windows.Forms.Label lbl_count;
+        private System.Windows.Forms.Label lbl_publisher;
+        private System.Windows.Forms.Label lbl_date;
     }
 }

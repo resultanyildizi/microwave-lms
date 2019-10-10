@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDescription.cs">
+    <Compile Include="Book_Tag.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BookDescription.Designer.cs">
-      <DependentUpon>BookDescription.cs</DependentUpon>
+    <Compile Include="Book_Tag.Designer.cs">
+      <DependentUpon>Book_Tag.cs</DependentUpon>
     </Compile>
     <Compile Include="Add Book.cs">
       <SubType>Form</SubType>
@@ -58,13 +58,13 @@
     <Compile Include="Add Book.Designer.cs">
       <DependentUpon>Add Book.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookObject.cs">
+    <Compile Include="Book_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BookObject.Designer.cs">
-      <DependentUpon>BookObject.cs</DependentUpon>
+    <Compile Include="Book_Info.Designer.cs">
+      <DependentUpon>Book_Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Books.cs" />
+    <Compile Include="Book.cs" />
     <Compile Include="Book_List.cs" />
     <Compile Include="DragControl.cs">
       <SubType>Component</SubType>
@@ -77,14 +77,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BookDescription.resx">
-      <DependentUpon>BookDescription.cs</DependentUpon>
+    <EmbeddedResource Include="Book_Tag.resx">
+      <DependentUpon>Book_Tag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add Book.resx">
       <DependentUpon>Add Book.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookObject.resx">
-      <DependentUpon>BookObject.cs</DependentUpon>
+    <EmbeddedResource Include="Book_Info.resx">
+      <DependentUpon>Book_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Microwave.resx">
       <DependentUpon>Microwave.cs</DependentUpon>

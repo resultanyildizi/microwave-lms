@@ -21,28 +21,27 @@ namespace Microwave_v1._0
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            book_list.Add_Book_To_List(new Books("Kurk Mantolu Madonna", "Sabahattin Ali", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Marslı", "Andy Weir", "İthaki Yayınları", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Uçurtma Avcısı", "Khalid Hosseini", "Everest Yayınları", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Türkiyenin Yakın Tarihi", "İlber Ortaylı", "Timaş Yayınları", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Siyah Lale", "Alexandre Dumas", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Denemeler", "Montaigne", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Mesnevi", "Mevlana", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Oyunbaz", "Wulf Dorn", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Fareler ve İnsanlar", "John Steinbeck", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Kurk Mantolu Madonna", "Sabahattin Ali", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Marslı", "Andy Weir", "İthaki Yayınları", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Uçurtma Avcısı", "Khalid Hosseini", "Everest Yayınları", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Türkiyenin Yakın Tarihi", "İlber Ortaylı", "Timaş Yayınları", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Siyah Lale", "Alexandre Dumas", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Denemeler", "Montaigne", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Mesnevi", "Mevlana", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Oyunbaz", "Wulf Dorn", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Fareler ve İnsanlar", "John Steinbeck", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Oyunbaz", "Wulf Dorn", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Add_Book_To_List(new Books("Fareler ve İnsanlar", "John Steinbeck", "YapıKredi Yayınevi", "12/4/1998", "45"));
-            book_list.Print_Book_List();
-
+            book_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Türkiyenin Yakin Tarihi", "İlber Ortayli", "Timas Yayinlari", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Türkiyenin Yakin Tarihi", "İlber Ortayli", "Timas Yayinlari", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayınevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayınevi", "12/4/1998", "45"));
+            book_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998", "45"));
+            book_list.Show_All_Books();
 
         }
 
