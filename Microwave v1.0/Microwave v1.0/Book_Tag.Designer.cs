@@ -104,7 +104,7 @@
             this.Controls.Add(this.lbl_bookname);
             this.Controls.Add(this.pic_book);
             this.Name = "Book_Tag";
-            this.Size = new System.Drawing.Size(242, 676);
+            this.Size = new System.Drawing.Size(249, 676);
             ((System.ComponentModel.ISupportInitialize)(this.pic_book)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

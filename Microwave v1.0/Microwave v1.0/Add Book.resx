@@ -118,6 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_change_pic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH4woLECMmsTcNwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKsSURBVFhH
+        tZY7aBRBGMfPKokkvkATERsxIqIBsbQK2ElKPW1EG0EbG8E6jRERwSbmob0WNoKNYGGTBBERFQRRFEUw
+        2igq+D5//5lvc3e7s7evux/8YB47M9/ezH43tbw0Go01eBTn8QF+xF+mymqbwyM4ZMOqw2Q78Dp+x7zo
+        2Ws4atMUh8EDeAl/Y1n061zEfps2HwwYxafYLRZxs03fGR7ci9rTbvMOx2yZMDygN+/F4hEKYsSWa4eO
+        fnysp3rMQxywZZvQqAMX5yVqQBU1R5xJW9ZDgz61+Gl/bt2V0Vx+yhW+YnMrqOg7j7NgfbvxZEl32RwL
+        GGdafepUhgslmSiAM75aitM2RyiAbzikTqXXEGUCuIvH8I6rdQ5A1NWp3B6iaADKeoM2RllUv2pWALPq
+        1J9IiKIB/MUtNmYTKqCsAJbU+cmXE6QFcBOVUEK8wMsYnfqsAJbV+dOXE4QC+IAbcMLVPNrvP76YICuA
+        H0UDqKtNUL6Bb3AQQ0lMTOE+fOJqSVwAebfgtlvZoD6Mz3A9rsZXGOI1pm2Z24I8h/ALbnUrt0DbcZy3
+        8jj+wzjasjFfTLCogbpGhYgC2I8TKsehfRWew7VWP4VL2EqnAGY0SHe4EC6AojDuAt7DKB33oYKI6o8w
+        4pAG6BApLcapEsAVqyag75YmB63pEpcadYGMUyWAz6hDKdfhzpZ69LJzNsQN0k1ImauVUn/HjNuOB/Cg
+        JoHQGdCnv82GeGjQ7TVOlQtJtNcn8KwvrjBlyzahUVcy3V57jbJiny3bDh0j+FZP9Yj36P6wUuEB7Vda
+        5qqCXmyPLdMZHtyI9zWqS+hnD1/H02CAEsgkhnJEXnTaz2N4z/PAYJ2LaSwSiJ6dxfZPrQpMpoxZxxlU
+        vl9GvaFUWW1X8TD6DJdJrfYfn2EYFxV8j/gAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btn_add.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

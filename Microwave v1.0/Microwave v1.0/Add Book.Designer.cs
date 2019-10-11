@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBook));
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.btn_change_pic = new System.Windows.Forms.Button();
             this.tb_count = new System.Windows.Forms.TextBox();
             this.lbl_count = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             // pnl_main
             // 
             this.pnl_main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_main.Controls.Add(this.btn_change_pic);
             this.pnl_main.Controls.Add(this.tb_count);
             this.pnl_main.Controls.Add(this.lbl_count);
             this.pnl_main.Controls.Add(this.btn_add);
@@ -66,6 +68,18 @@
             this.pnl_main.Name = "pnl_main";
             this.pnl_main.Size = new System.Drawing.Size(433, 507);
             this.pnl_main.TabIndex = 1;
+            // 
+            // btn_change_pic
+            // 
+            this.btn_change_pic.FlatAppearance.BorderSize = 0;
+            this.btn_change_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_change_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_change_pic.Image")));
+            this.btn_change_pic.Location = new System.Drawing.Point(198, 376);
+            this.btn_change_pic.Name = "btn_change_pic";
+            this.btn_change_pic.Size = new System.Drawing.Size(55, 47);
+            this.btn_change_pic.TabIndex = 20;
+            this.btn_change_pic.UseVisualStyleBackColor = true;
+            this.btn_change_pic.Click += new System.EventHandler(this.Button1_Click);
             // 
             // tb_count
             // 
@@ -231,5 +245,6 @@
         private System.Windows.Forms.TextBox tb_count;
         private System.Windows.Forms.Label lbl_count;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button btn_change_pic;
     }
 }

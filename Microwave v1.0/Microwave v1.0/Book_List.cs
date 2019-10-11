@@ -22,7 +22,7 @@ namespace Microwave_v1._0
     public class Book_List
     {
 
-        int point_y = 5;
+        int point_y = Book.point_y;
 
 
         book_node root;
@@ -48,31 +48,20 @@ namespace Microwave_v1._0
 
         public void Show_All_Books()
         {
-            point_y = 5;
             book_node iterator = root;
             while(iterator != null)
             {
-                iterator.book.Info.Draw_Book_Obj(ref point_y);
+                iterator.book.Info.Draw_Book_Obj(ref Book.point_y);
                 iterator = iterator.next;
             }
         }
 
-        public void Click_Book_Info_Objects()
-        {
-            book_node iterator = root;
-            while(iterator != null)
-            {
-                iterator.book.Info.Chose_BookObject();
-                iterator = iterator.next;
-            }
-        }
-
-        public void Make_Infos_Chosen_False()
+        public void Deselect_All_Book_Infos()
         {
             book_node iterator = root;
             while (iterator != null)
             {
-                iterator.book.Info.chosen = false;
+                iterator.book.Info.Deselect_Book_Info();
                 iterator = iterator.next;
             }
         }
