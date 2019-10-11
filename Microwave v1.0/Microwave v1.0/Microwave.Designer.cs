@@ -285,7 +285,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(311, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 52);
+            this.label3.Size = new System.Drawing.Size(175, 51);
             this.label3.TabIndex = 4;
             this.label3.Text = "BOOKS";
             // 
@@ -401,6 +401,7 @@
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.pnl_tag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(18, 47);
             this.Name = "Microwave";
             this.ShowIcon = false;

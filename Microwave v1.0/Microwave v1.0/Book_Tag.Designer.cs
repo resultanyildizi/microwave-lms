@@ -63,10 +63,11 @@
             // lbl_description
             // 
             this.lbl_description.AllowDrop = true;
+            this.lbl_description.AutoEllipsis = true;
             this.lbl_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.lbl_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_description.ForeColor = System.Drawing.Color.White;
-            this.lbl_description.Location = new System.Drawing.Point(13, 435);
+            this.lbl_description.Location = new System.Drawing.Point(18, 435);
             this.lbl_description.Name = "lbl_description";
             this.lbl_description.Size = new System.Drawing.Size(215, 179);
             this.lbl_description.TabIndex = 2;
@@ -114,9 +115,9 @@
         #endregion
 
         public System.Windows.Forms.PictureBox pic_book;
-        public System.Windows.Forms.Label lbl_bookname;
         public System.Windows.Forms.Label lbl_description;
         public System.Windows.Forms.Label lbl_author;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label lbl_bookname;
     }
 }

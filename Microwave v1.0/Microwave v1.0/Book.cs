@@ -28,19 +28,21 @@ namespace Microwave_v1._0
         public Book_Info Info { get => info; set => info = value; }
         public string Cover_path_file { get => cover_path_file; set => cover_path_file = value; }
 
-        public Book(string name, string author, string publisher, string date, string count, string pic_path_file)
+        public Book(string name, string author, string publisher, string date, string description, string count, string pic_path_file)
         {
             this.name = name;
             this.author = author;
             this.publisher = publisher;
             this.date = date;
             this.count = count;
-            this.description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
-                "when an unknown printer took a galley of type and scrambled it to make a type " +
-                "specimen book. It has survived not only five centuries, but also the leap into " +
-                "electronic typesetting, remaining essentially unchanged.";
+            this.description = description;
             this.cover_path_file = pic_path_file;
+                
+            /*"Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
+            "when an unknown printer took a galley of type and scrambled it to make a type " +
+            "specimen book. It has survived not only five centuries, but also the leap into " +
+            "electronic typesetting, remaining essentially unchanged.";*/
 
            
 
