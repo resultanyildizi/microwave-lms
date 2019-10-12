@@ -44,9 +44,62 @@ namespace Microwave_v1._0
             author = tb_author.Text;
             publisher = tb_publisher.Text;
             date = tb_date.Text;
-            count = tb_count.Text;
+            //count = tb_count.Text;
+            count = numUpDown_count.Value.ToString();
             description = tb_description.Text;
 
+            //******************************\\
+
+            lbl_message.Text = "";
+
+            if (name == "")
+            {
+                lbl_message.Text = "* Please enter the title of the book. / book's name ?";
+                lbl_message.ForeColor = Color.Red;
+                tb_name.Focus();
+                return;
+            }
+
+            if (author == "")
+            {
+                lbl_message.Text = "* Please enter the author's name.";
+                lbl_message.ForeColor = Color.Red;
+                tb_author.Focus();
+                return;
+            }
+
+            if (publisher == "")
+            {
+                lbl_message.Text = "* Please enter the publisher's name.";
+                lbl_message.ForeColor = Color.Red;
+                tb_publisher.Focus();
+                return;
+            }
+            
+            if (description == "")
+            {
+                lbl_message.Text = "* Please enter the book's description";
+                lbl_message.ForeColor = Color.Red;
+                tb_description.Focus();
+                return;
+            }
+
+            if (count == "")
+            {
+                lbl_message.Text = "* Please enter count of the book.";
+                lbl_message.ForeColor = Color.Red;
+                tb_count.Focus();
+                return;
+            }
+
+            if (pic_source_file == null)
+            {
+                lbl_message.Text = "* Please add picture of the book.";
+                lbl_message.ForeColor = Color.Red;
+                return;
+            }
+
+            //******************************\\
 
             Copy_The_Picture();
             Book book = new Book(name, author, publisher, date, description, count, pic_source_file);
@@ -104,6 +157,54 @@ namespace Microwave_v1._0
 
             
 
+        }
+
+        private void tb_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_author_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_publisher_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_description_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_date_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_count_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
