@@ -38,21 +38,21 @@ namespace Microwave_v1._0
             Add_Book();
         }
 
+        
+
         private void Add_Book()
         {
             name = tb_name.Text;
             author = tb_author.Text;
             publisher = tb_publisher.Text;
-            date = tb_date.Text;
-            //count = tb_count.Text;
+            date = DateTime.Today.ToString();
             count = numUpDown_count.Value.ToString();
             description = tb_description.Text;
 
-            //******************************\\
 
             lbl_message.Text = "";
 
-            if (name == "")
+            if (name == "Book's Name")
             {
                 lbl_message.Text = "* Please enter the title of the book. / book's name ?";
                 lbl_message.ForeColor = Color.Red;
@@ -60,7 +60,7 @@ namespace Microwave_v1._0
                 return;
             }
 
-            if (author == "")
+            if (author == "Author's Name")
             {
                 lbl_message.Text = "* Please enter the author's name.";
                 lbl_message.ForeColor = Color.Red;
@@ -68,7 +68,7 @@ namespace Microwave_v1._0
                 return;
             }
 
-            if (publisher == "")
+            if (publisher == "Publisher's Name")
             {
                 lbl_message.Text = "* Please enter the publisher's name.";
                 lbl_message.ForeColor = Color.Red;
@@ -76,19 +76,11 @@ namespace Microwave_v1._0
                 return;
             }
             
-            if (description == "")
+            if (description == "Description...")
             {
                 lbl_message.Text = "* Please enter the book's description";
                 lbl_message.ForeColor = Color.Red;
                 tb_description.Focus();
-                return;
-            }
-
-            if (count == "")
-            {
-                lbl_message.Text = "* Please enter count of the book.";
-                lbl_message.ForeColor = Color.Red;
-                tb_count.Focus();
                 return;
             }
 
@@ -99,7 +91,7 @@ namespace Microwave_v1._0
                 return;
             }
 
-            //******************************\\
+            
 
             Copy_The_Picture();
             Book book = new Book(name, author, publisher, date, description, count, pic_source_file);
@@ -107,7 +99,6 @@ namespace Microwave_v1._0
             main_page.pnl_list.VerticalScroll.Value = 0;
 
             book.Info.Draw_Book_Obj(ref Book.point_y);
-
 
             main_page.book_list.Deselect_All_Book_Infos();
             book.Info.Select_Book_Info();
@@ -138,11 +129,7 @@ namespace Microwave_v1._0
             string pic_target_file;
             string pic_name = name + ".jpg";
 
-
-            //
             pic_target_file = System.IO.Path.Combine(pic_dest_path, pic_name);
-
-
 
             try
             {
@@ -154,11 +141,10 @@ namespace Microwave_v1._0
                 pic_source_file = pic_default_file;
                 System.IO.File.Copy(pic_source_file, pic_target_file, true);
             }
-
-            
-
         }
 
+
+        //
         private void tb_name_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -191,7 +177,7 @@ namespace Microwave_v1._0
             }
         }
 
-        private void tb_date_KeyPress(object sender, KeyPressEventArgs e)
+        private void tb_count_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
@@ -199,11 +185,78 @@ namespace Microwave_v1._0
             }
         }
 
-        private void tb_count_KeyPress(object sender, KeyPressEventArgs e)
+
+
+
+        //
+        private void tb_name_Enter(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            if (tb_name.Text == "Book's Name")
             {
-                e.Handled = true;
+                tb_name.Text = "";
+                tb_name.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_name_Leave(object sender, EventArgs e)
+        {
+            if (tb_name.Text == "")
+            {
+                tb_name.Text = "Book's Name";
+                tb_name.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_author_Enter(object sender, EventArgs e)
+        {
+            if (tb_author.Text == "Author's Name")
+            {
+                tb_author.Text = "";
+                tb_author.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_author_Leave(object sender, EventArgs e)
+        {
+            if (tb_author.Text == "")
+            {
+                tb_author.Text = "Author's Name";
+                tb_author.ForeColor = Color.DimGray;
+            }
+        }
+        private void tb_publisher_Enter(object sender, EventArgs e)
+        {
+            if (tb_publisher.Text == "Publisher's Name")
+            {
+                tb_publisher.Text = "";
+                tb_publisher.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_publisher_Leave(object sender, EventArgs e)
+        {
+            if (tb_publisher.Text == "")
+            {
+                tb_publisher.Text = "Publisher's Name";
+                tb_publisher.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_description_Enter(object sender, EventArgs e)
+        {
+            if (tb_description.Text == "Description...")
+            {
+                tb_description.Text = "";
+                tb_description.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_description_Leave(object sender, EventArgs e)
+        {
+            if (tb_description.Text == "")
+            {
+                tb_description.Text = "Description...";
+                tb_description.ForeColor = Color.Gray;
             }
         }
     }

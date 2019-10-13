@@ -105,5 +105,47 @@ namespace Microwave_v1._0
             pnl_list.Focus();
         }
 
+        private void tb_search_Enter(object sender, EventArgs e)
+        {
+            if(tb_search.Text == "Search A Book...")
+            {
+                tb_search.Text = "";
+                tb_search.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_search_Leave(object sender, EventArgs e)
+        {
+            if (tb_search.Text == "")
+            {
+                tb_search.Text = "Search A Book...";
+                tb_search.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel5.Location = new Point(0, 51);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel5.Location = new Point(0, 91);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel5.Location = new Point(0, 130);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel5.Location = new Point(0, 13);
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
     }
 }

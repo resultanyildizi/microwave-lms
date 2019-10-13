@@ -30,26 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBook));
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.numUpDown_count = new System.Windows.Forms.NumericUpDown();
             this.lbl_message = new System.Windows.Forms.Label();
             this.btn_add_pic = new System.Windows.Forms.Button();
             this.lbl_description = new System.Windows.Forms.Label();
             this.tb_description = new System.Windows.Forms.TextBox();
-            this.tb_count = new System.Windows.Forms.TextBox();
             this.lbl_count = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
             this.pic_book = new System.Windows.Forms.PictureBox();
-            this.lbl_date = new System.Windows.Forms.Label();
-            this.tb_date = new System.Windows.Forms.TextBox();
             this.lbl_publisher = new System.Windows.Forms.Label();
             this.tb_publisher = new System.Windows.Forms.TextBox();
             this.lbl_author = new System.Windows.Forms.Label();
             this.tb_author = new System.Windows.Forms.TextBox();
             this.lbl_name = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.numUpDown_count = new System.Windows.Forms.NumericUpDown();
             this.pnl_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_book)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_count)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_book)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_main
@@ -60,12 +57,9 @@
             this.pnl_main.Controls.Add(this.btn_add_pic);
             this.pnl_main.Controls.Add(this.lbl_description);
             this.pnl_main.Controls.Add(this.tb_description);
-            this.pnl_main.Controls.Add(this.tb_count);
             this.pnl_main.Controls.Add(this.lbl_count);
             this.pnl_main.Controls.Add(this.btn_add);
             this.pnl_main.Controls.Add(this.pic_book);
-            this.pnl_main.Controls.Add(this.lbl_date);
-            this.pnl_main.Controls.Add(this.tb_date);
             this.pnl_main.Controls.Add(this.lbl_publisher);
             this.pnl_main.Controls.Add(this.tb_publisher);
             this.pnl_main.Controls.Add(this.lbl_author);
@@ -78,6 +72,27 @@
             this.pnl_main.Name = "pnl_main";
             this.pnl_main.Size = new System.Drawing.Size(352, 457);
             this.pnl_main.TabIndex = 1;
+            // 
+            // numUpDown_count
+            // 
+            this.numUpDown_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.numUpDown_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.numUpDown_count.ForeColor = System.Drawing.Color.LightGray;
+            this.numUpDown_count.Location = new System.Drawing.Point(104, 282);
+            this.numUpDown_count.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDown_count.Name = "numUpDown_count";
+            this.numUpDown_count.ReadOnly = true;
+            this.numUpDown_count.Size = new System.Drawing.Size(57, 26);
+            this.numUpDown_count.TabIndex = 25;
+            this.numUpDown_count.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lbl_message
             // 
@@ -106,7 +121,7 @@
             this.lbl_description.AutoSize = true;
             this.lbl_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_description.ForeColor = System.Drawing.Color.White;
-            this.lbl_description.Location = new System.Drawing.Point(9, 196);
+            this.lbl_description.Location = new System.Drawing.Point(9, 156);
             this.lbl_description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_description.Name = "lbl_description";
             this.lbl_description.Size = new System.Drawing.Size(87, 18);
@@ -118,34 +133,24 @@
             this.tb_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_description.ForeColor = System.Drawing.Color.White;
-            this.tb_description.Location = new System.Drawing.Point(104, 194);
+            this.tb_description.ForeColor = System.Drawing.Color.DimGray;
+            this.tb_description.Location = new System.Drawing.Point(104, 154);
             this.tb_description.Margin = new System.Windows.Forms.Padding(2);
             this.tb_description.Multiline = true;
             this.tb_description.Name = "tb_description";
             this.tb_description.Size = new System.Drawing.Size(218, 105);
             this.tb_description.TabIndex = 21;
+            this.tb_description.Text = "Description...";
+            this.tb_description.Enter += new System.EventHandler(this.tb_description_Enter);
             this.tb_description.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_description_KeyPress);
-            // 
-            // tb_count
-            // 
-            this.tb_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_count.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_count.ForeColor = System.Drawing.Color.White;
-            this.tb_count.Location = new System.Drawing.Point(104, 320);
-            this.tb_count.Margin = new System.Windows.Forms.Padding(2);
-            this.tb_count.Name = "tb_count";
-            this.tb_count.Size = new System.Drawing.Size(57, 23);
-            this.tb_count.TabIndex = 19;
-            this.tb_count.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_count_KeyPress);
+            this.tb_description.Leave += new System.EventHandler(this.tb_description_Leave);
             // 
             // lbl_count
             // 
             this.lbl_count.AutoSize = true;
             this.lbl_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_count.ForeColor = System.Drawing.Color.White;
-            this.lbl_count.Location = new System.Drawing.Point(9, 322);
+            this.lbl_count.Location = new System.Drawing.Point(9, 282);
             this.lbl_count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_count.Name = "lbl_count";
             this.lbl_count.Size = new System.Drawing.Size(52, 18);
@@ -176,31 +181,6 @@
             this.pic_book.TabIndex = 16;
             this.pic_book.TabStop = false;
             // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_date.Location = new System.Drawing.Point(9, 153);
-            this.lbl_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(43, 18);
-            this.lbl_date.TabIndex = 15;
-            this.lbl_date.Text = "Date:";
-            // 
-            // tb_date
-            // 
-            this.tb_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_date.ForeColor = System.Drawing.Color.White;
-            this.tb_date.Location = new System.Drawing.Point(104, 151);
-            this.tb_date.Margin = new System.Windows.Forms.Padding(2);
-            this.tb_date.Name = "tb_date";
-            this.tb_date.Size = new System.Drawing.Size(218, 23);
-            this.tb_date.TabIndex = 14;
-            this.tb_date.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_date_KeyPress);
-            // 
             // lbl_publisher
             // 
             this.lbl_publisher.AutoSize = true;
@@ -218,13 +198,16 @@
             this.tb_publisher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_publisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_publisher.ForeColor = System.Drawing.Color.White;
+            this.tb_publisher.ForeColor = System.Drawing.Color.DimGray;
             this.tb_publisher.Location = new System.Drawing.Point(104, 111);
             this.tb_publisher.Margin = new System.Windows.Forms.Padding(2);
             this.tb_publisher.Name = "tb_publisher";
             this.tb_publisher.Size = new System.Drawing.Size(218, 23);
             this.tb_publisher.TabIndex = 12;
+            this.tb_publisher.Text = "Publisher\'s Name";
+            this.tb_publisher.Enter += new System.EventHandler(this.tb_publisher_Enter);
             this.tb_publisher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_publisher_KeyPress);
+            this.tb_publisher.Leave += new System.EventHandler(this.tb_publisher_Leave);
             // 
             // lbl_author
             // 
@@ -243,13 +226,16 @@
             this.tb_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_author.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_author.ForeColor = System.Drawing.Color.White;
+            this.tb_author.ForeColor = System.Drawing.Color.DimGray;
             this.tb_author.Location = new System.Drawing.Point(104, 71);
             this.tb_author.Margin = new System.Windows.Forms.Padding(2);
             this.tb_author.Name = "tb_author";
             this.tb_author.Size = new System.Drawing.Size(218, 23);
             this.tb_author.TabIndex = 10;
+            this.tb_author.Text = "Author\'s Name";
+            this.tb_author.Enter += new System.EventHandler(this.tb_author_Enter);
             this.tb_author.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_author_KeyPress);
+            this.tb_author.Leave += new System.EventHandler(this.tb_author_Leave);
             // 
             // lbl_name
             // 
@@ -268,32 +254,16 @@
             this.tb_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_name.ForeColor = System.Drawing.Color.White;
+            this.tb_name.ForeColor = System.Drawing.Color.DimGray;
             this.tb_name.Location = new System.Drawing.Point(104, 32);
             this.tb_name.Margin = new System.Windows.Forms.Padding(2);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(218, 23);
             this.tb_name.TabIndex = 6;
+            this.tb_name.Text = "Book\'s Name";
+            this.tb_name.Enter += new System.EventHandler(this.tb_name_Enter);
             this.tb_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_name_KeyPress);
-            // 
-            // numUpDown_count
-            // 
-            this.numUpDown_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.numUpDown_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.numUpDown_count.Location = new System.Drawing.Point(104, 362);
-            this.numUpDown_count.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDown_count.Name = "numUpDown_count";
-            this.numUpDown_count.Size = new System.Drawing.Size(57, 26);
-            this.numUpDown_count.TabIndex = 25;
-            this.numUpDown_count.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.tb_name.Leave += new System.EventHandler(this.tb_name_Leave);
             // 
             // AddBook
             // 
@@ -309,8 +279,8 @@
             this.Text = "AddBook";
             this.pnl_main.ResumeLayout(false);
             this.pnl_main.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_book)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_count)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_book)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -319,14 +289,11 @@
         private System.Windows.Forms.Panel pnl_main;
         private System.Windows.Forms.TextBox tb_name;
         private System.Windows.Forms.PictureBox pic_book;
-        private System.Windows.Forms.Label lbl_date;
-        private System.Windows.Forms.TextBox tb_date;
         private System.Windows.Forms.Label lbl_publisher;
         private System.Windows.Forms.TextBox tb_publisher;
         private System.Windows.Forms.Label lbl_author;
         private System.Windows.Forms.TextBox tb_author;
         private System.Windows.Forms.Label lbl_name;
-        private System.Windows.Forms.TextBox tb_count;
         private System.Windows.Forms.Label lbl_count;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.TextBox tb_description;
