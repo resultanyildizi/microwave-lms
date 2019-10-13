@@ -19,32 +19,29 @@ namespace Microwave_v1._0
         private string date;
         private string count;
         private string description;
-        private string pic_source_file;
-        private string pic_dest_path = @"..\..\Resources\Book Covers\";
-        private string pic_default_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
         Microwave main_page;
-       
+
+
+        Picture_Events picture_event;
+        private string pic_default_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
+        private string pic_dest_path = @"..\..\Resources\Book Covers\";
+
 
         public AddBook()
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
+            picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
             this.BringToFront();
         }
 
-        private void Btn_Add_Click(object sender, EventArgs e)
-        {
-            Add_Book();
-        }
-
-        
-
         private void Add_Book()
         {
-            name = tb_name.Text;
-            author = tb_author.Text;
-            publisher = tb_publisher.Text;
+           
+            name = tb_name.Text.Trim();
+            author = tb_author.Text.Trim();
+            publisher = tb_publisher.Text.Trim();
             date = DateTime.Today.ToString();
             count = numUpDown_count.Value.ToString();
             description = tb_description.Text;
@@ -52,49 +49,75 @@ namespace Microwave_v1._0
 
             lbl_message.Text = "";
 
-            if (name == "Book's Name")
+            if (name == "Book's Name" || name == "")
             {
-                lbl_message.Text = "* Please enter the title of the book. / book's name ?";
+                lbl_message.Text = "* Please enter book's name.";
                 lbl_message.ForeColor = Color.Red;
                 tb_name.Focus();
                 return;
             }
 
-            if (author == "Author's Name")
+            if (author == "Author's Name" || author == "" )
             {
-                lbl_message.Text = "* Please enter the author's name.";
+                lbl_message.Text = "* Please enter author's name.";
                 lbl_message.ForeColor = Color.Red;
                 tb_author.Focus();
                 return;
             }
 
-            if (publisher == "Publisher's Name")
+            if (publisher == "Publisher's Name" || publisher == "")
             {
-                lbl_message.Text = "* Please enter the publisher's name.";
+                lbl_message.Text = "* Please enter publisher's name.";
                 lbl_message.ForeColor = Color.Red;
                 tb_publisher.Focus();
                 return;
             }
             
-            if (description == "Description...")
+            if (description == "Description..." || description == "")
             {
-                lbl_message.Text = "* Please enter the book's description";
+                lbl_message.Text = "* Please enter description.";
                 lbl_message.ForeColor = Color.Red;
                 tb_description.Focus();
                 return;
             }
 
-            if (pic_source_file == null)
+            if(picture_event.Pic_source_file == null || picture_event.Pic_source_file == pic_default_file)
             {
-                lbl_message.Text = "* Please add picture of the book.";
+                lbl_message.Text = "* Please choose a picture.";
                 lbl_message.ForeColor = Color.Red;
+                tb_description.Focus();
+                picture_event.Choose_Image();
                 return;
             }
 
-            
+            picture_event.Copy_The_Picture(name);
 
-            Copy_The_Picture();
-            Book book = new Book(name, author, publisher, date, description, count, pic_source_file);
+            Create_New_Book_And_Set();
+           
+            Clear();
+
+        }
+
+        private void Clear()
+        {
+            tb_name.Text = "Book's Name";
+            tb_name.ForeColor = Color.DimGray;
+            tb_author.Text = "Author's Name";
+            tb_author.ForeColor = Color.DimGray;
+            tb_publisher.Text = "Publisher's Name";
+            tb_publisher.ForeColor = Color.DimGray;
+            tb_description.Text = "Description...";
+            tb_description.ForeColor = Color.Gray;
+            numUpDown_count.Value = 1;
+
+            picture_event.Pic_source_file = pic_default_file;
+            this.pic_book.Load(pic_default_file);
+        }
+
+        private void Create_New_Book_And_Set()
+        {
+            Book book = new Book(name, author, publisher, date, description, count, picture_event.Pic_source_file);
+
             main_page.book_list.Add_Book_to_List(book);
             main_page.pnl_list.VerticalScroll.Value = 0;
 
@@ -102,57 +125,25 @@ namespace Microwave_v1._0
 
             main_page.book_list.Deselect_All_Book_Infos();
             book.Info.Select_Book_Info();
+        }
 
+        private void Btn_Add_Click(object sender, EventArgs e)
+        {
+            Add_Book();
+        }
+
+        private void Btn_add_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Add_Book();
+            }
         }
 
         private void Change_Image_Click(object sender, EventArgs e)
         {
-            OpenFileDialog choose_pic = new OpenFileDialog();
-            choose_pic.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            choose_pic.ShowDialog();
-            pic_source_file = choose_pic.FileName;
-
-
-            try
-            {
-                this.pic_book.Load(pic_source_file);
-            }catch(System.InvalidOperationException d)
-            {
-                pic_source_file = pic_default_file;
-                this.pic_book.Load(pic_source_file);
-            }
-            
+            picture_event.Choose_Image();
         }
-
-        private void Copy_The_Picture()
-        {
-            string pic_target_file;
-            string pic_name = name + ".jpg";
-
-            pic_target_file = System.IO.Path.Combine(pic_dest_path, pic_name);
-
-            try
-            {
-                System.IO.File.Copy(pic_source_file, pic_target_file, true);
-                pic_source_file = pic_target_file;
-            }
-            catch (System.ArgumentException d)
-            {
-                pic_source_file = pic_default_file;
-                System.IO.File.Copy(pic_source_file, pic_target_file, true);
-            }
-        }
-
-
-        //
-        private void tb_name_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void tb_author_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -163,7 +154,7 @@ namespace Microwave_v1._0
 
         private void tb_publisher_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -185,10 +176,6 @@ namespace Microwave_v1._0
             }
         }
 
-
-
-
-        //
         private void tb_name_Enter(object sender, EventArgs e)
         {
             if (tb_name.Text == "Book's Name")
@@ -259,5 +246,6 @@ namespace Microwave_v1._0
                 tb_description.ForeColor = Color.Gray;
             }
         }
+
     }
 }

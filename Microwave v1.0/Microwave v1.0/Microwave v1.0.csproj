@@ -78,6 +78,7 @@
     <Compile Include="Microwave.Designer.cs">
       <DependentUpon>Microwave.cs</DependentUpon>
     </Compile>
+    <Compile Include="Picture_Events.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Book_Tag.resx">
