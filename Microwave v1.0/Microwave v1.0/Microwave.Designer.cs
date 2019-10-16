@@ -125,7 +125,7 @@
             this.btn_add_book.Size = new System.Drawing.Size(41, 38);
             this.btn_add_book.TabIndex = 6;
             this.btn_add_book.UseVisualStyleBackColor = true;
-            this.btn_add_book.Click += new System.EventHandler(this.Button11_Click);
+            this.btn_add_book.Click += new System.EventHandler(this.Btn_Add_Book_Click);
             // 
             // button3
             // 
@@ -441,7 +441,7 @@
             this.Name = "Microwave";
             this.ShowIcon = false;
             this.Text = "Microwave";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Microwave_Load);
             this.pnl_left.ResumeLayout(false);
             this.pnl_menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();

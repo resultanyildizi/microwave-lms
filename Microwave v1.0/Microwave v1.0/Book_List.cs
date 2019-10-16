@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Microwave_v1._0
 {
+    /* NOTE:
+     * Book List class is a linked list data structure which keeps all the books in 
+     * the database and information about them. 
+     * When the application started to running, all the books are transferred from 
+     * the database to the main book list in the main form. When a book is editted, 
+     * deleted and added, first, it effects the book list then the database.
+     */
+
     class book_node
     {
         public book_node next;

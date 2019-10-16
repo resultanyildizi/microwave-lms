@@ -11,6 +11,10 @@ using System.IO;
 
 namespace Microwave_v1._0
 {
+    /* NOTE:
+     * AddBook is a form which is used for adding a new book to 
+     * the system by taking their information and cover pictures.
+     */ 
     public partial class AddBook : Form
     {
         private string name;
@@ -118,12 +122,12 @@ namespace Microwave_v1._0
         {
             Book book = new Book(name, author, publisher, date, description, count, picture_event.Pic_source_file);
 
-            main_page.book_list.Add_Book_to_List(book);
+            main_page.main_list.Add_Book_to_List(book);
             main_page.pnl_list.VerticalScroll.Value = 0;
 
             book.Info.Draw_Book_Obj(ref Book.point_y);
 
-            main_page.book_list.Deselect_All_Book_Infos();
+            main_page.main_list.Deselect_All_Book_Infos();
             book.Info.Select_Book_Info();
         }
 

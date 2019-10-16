@@ -8,6 +8,11 @@ using System.Windows.Forms;
 
 namespace Microwave_v1._0
 {
+
+    /* NOTE:
+     * Picture events is a class for adding book cover picture and 
+     * also copying that picture to our resource destination with file dialog.
+     */
     class Picture_Events
     {
         private string pic_dest_path;

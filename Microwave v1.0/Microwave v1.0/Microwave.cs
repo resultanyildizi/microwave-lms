@@ -7,66 +7,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/*
+ NOT:
+ -Microwave class'ı C#'ın Form Classından inherit edilmiş bir class'tır. Programımızın ana formu bu classtır.
+ -Bu Class'ta Book List classından programda kullanılacak olan kitapların tutulduğu Main List object yaratılır.
+ ve Program çalışırken liste üzerinde yapılacak bütün değişiklikler main listi etkiler.
+ -diğer classlardan listeyi düzenlemek isteyen bütün fonksiyonlar bu forma ve formun main listine ulaşmak
+ zorundadır.
+ -Ayrıca, Listedeki kitaplar hakkında bilgilerin gösterildiği Book Tag classından main_tag isimli obje oluşturulup
+ seçilen kitabın bilgilerine göre bu obje düzenlenmektedir.
+ -Kitap ekleneceği zaman,Kitap bilgilerinin girileceği AddBook Form Classından add_book objesi de bu classın içersinde 
+ tutulmaktadır 
 
+   /* Microwave class is inherited from C# Form Class. The main form of program is formed from this class. 
+    In this class, Main List object will be created from the books which will be going to use in program 
+    from Book List class.
+    when
+
+
+ */
+ 
 namespace Microwave_v1._0
 {
     public partial class Microwave : Form
     {
-        private AddBook add_book = null;
-        public Book_List book_list = new Book_List();
-        private Book_Tag book_tag;
+        // Variables 
+        private AddBook add_book = null;              
+        public Book_List main_list = null;
+        private Book_Tag main_tag = null;
 
-        public Book_Tag Book_tag { get => book_tag; set => book_tag = value; }
+        // Getters and Setters
+        public Book_Tag Book_tag { get => main_tag; set => main_tag = value; }
 
+        // Constructor
         public Microwave()
         {
             InitializeComponent();
+            main_list = new Book_List(); 
+            main_tag = new Book_Tag();   
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Microwave_Load(object sender, EventArgs e)
         {
             string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
-            book_tag = new Book_Tag();
-            book_tag.Edit_Book_Tag("Select A Book To Show", "Select A Book To Show", "", path_file);
-            book_tag.Draw_Book_Tag();
+            main_tag.Edit_Book_Tag("Select A Book To Show", "Select A Book To Show", "", path_file);
+            main_tag.Draw_Book_Tag();
 
             
-            book_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayınevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayınevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998","", "45",path_file));
-            book_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Türkiyenin Yakin Tarihi", "İlber Ortayli", "Timas Yayinlari", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Türkiyenin Yakin Tarihi", "İlber Ortayli", "Timas Yayinlari", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998", "","45", path_file));
-            book_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
-            book_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayınevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayınevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998","", "45",path_file));
+            main_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Türkiyenin Yakin Tarihi", "İlber Ortayli", "Timas Yayinlari", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Kurk Mantolu Madonna", "Sabahattin Ali", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Marsli", "Andy Weir", "İthaki Yayinlari", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Uçurtma Avcisi", "Khalid Hosseini", "Everest Yayinlari", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Türkiyenin Yakin Tarihi", "İlber Ortayli", "Timas Yayinlari", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998", "","45", path_file));
+            main_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
+            main_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998","", "45", path_file));
           
-            book_list.Show_All_Books();
+            main_list.Show_All_Books();
 
         }
 
-        private void Button11_Click(object sender, EventArgs e)
+        private void Btn_Add_Book_Click(object sender, EventArgs e)
         {
-            
+           
             if(add_book == null)
             {
                 add_book = new AddBook();
             }
-            // IMPORTANT
+           
             try
             {
-                add_book.Show();
+                add_book.Show();  
             }catch(ObjectDisposedException d)
             {
                 add_book = new AddBook();
