@@ -67,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Librarian.cs" />
     <Compile Include="Book_Tag.cs">
       <SubType>UserControl</SubType>
     </Compile>
