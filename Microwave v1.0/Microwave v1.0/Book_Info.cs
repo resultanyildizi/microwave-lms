@@ -33,13 +33,13 @@ namespace Microwave_v1._0
         }
 
        
-        public void Initialize_Book_Info(string name, string author, string publisher, string date, string count, string description, string pic_path_file)
+        public void Initialize_Book_Info(string name, string author, string publisher, string date, int count, string description, string pic_path_file)
         {
             this.lbl_name.Text = name;
             this.lbl_author.Text = author;
             this.lbl_publisher.Text = publisher;
             this.lbl_date.Text = date;
-            this.lbl_count.Text = count;
+            this.lbl_count.Text = count.ToString();
             this.description = description;
             this.author = author;
             this.name = name;

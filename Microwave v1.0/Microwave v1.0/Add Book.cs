@@ -21,8 +21,8 @@ namespace Microwave_v1._0
         private string author;
         private string publisher;
         private string date;
-        private string count;
         private string description;
+        private int count;
         Microwave main_page;
 
 
@@ -47,7 +47,7 @@ namespace Microwave_v1._0
             author = tb_author.Text.Trim();
             publisher = tb_publisher.Text.Trim();
             date = DateTime.Today.ToString();
-            count = numUpDown_count.Value.ToString();
+            count = (int)numUpDown_count.Value;
             description = tb_description.Text;
 
 
@@ -121,6 +121,7 @@ namespace Microwave_v1._0
         private void Create_New_Book_And_Set()
         {
             Book book = new Book(name, author, publisher, date, description, count, picture_event.Pic_source_file);
+            Book.Id++;
 
             main_page.main_list.Add_Book_to_List(book);
             main_page.pnl_list.VerticalScroll.Value = 0;
