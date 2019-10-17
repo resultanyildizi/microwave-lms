@@ -88,29 +88,5 @@ namespace Microwave_v1._0
             this.pnl_publisher.BackColor = back_color;
         }
 
-        private void Pnl_name_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Pnl_author_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Pnl_publisher_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Pnl_date_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Pnl_count_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

@@ -46,7 +46,6 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.btn_profil = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.pnl_tag = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_author = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.pnl_list = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_tag = new System.Windows.Forms.Panel();
             this.dragControl1 = new Microwave_v1._0.DragControl();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
@@ -73,9 +73,9 @@
             this.pnl_left.Controls.Add(this.lbl_logo);
             this.pnl_left.Controls.Add(this.lbl_logo_lms);
             this.pnl_left.Location = new System.Drawing.Point(0, 0);
-            this.pnl_left.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_left.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_left.Name = "pnl_left";
-            this.pnl_left.Size = new System.Drawing.Size(287, 752);
+            this.pnl_left.Size = new System.Drawing.Size(216, 611);
             this.pnl_left.TabIndex = 1;
             this.pnl_left.Click += new System.EventHandler(this.Pnl_left_Click);
             // 
@@ -89,10 +89,10 @@
             this.pnl_menu.Controls.Add(this.button2);
             this.pnl_menu.Controls.Add(this.panel5);
             this.pnl_menu.Controls.Add(this.button1);
-            this.pnl_menu.Location = new System.Drawing.Point(0, 130);
-            this.pnl_menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_menu.Location = new System.Drawing.Point(0, 106);
+            this.pnl_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_menu.Name = "pnl_menu";
-            this.pnl_menu.Size = new System.Drawing.Size(287, 619);
+            this.pnl_menu.Size = new System.Drawing.Size(216, 503);
             this.pnl_menu.TabIndex = 9;
             this.pnl_menu.Click += new System.EventHandler(this.Pnl_menu_Click);
             // 
@@ -105,10 +105,10 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(29, 160);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Location = new System.Drawing.Point(22, 130);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(213, 42);
+            this.button4.Size = new System.Drawing.Size(160, 34);
             this.button4.TabIndex = 7;
             this.button4.Text = "      About Us";
             this.button4.UseVisualStyleBackColor = true;
@@ -119,10 +119,10 @@
             this.btn_add_book.FlatAppearance.BorderSize = 0;
             this.btn_add_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_book.Image")));
-            this.btn_add_book.Location = new System.Drawing.Point(224, 560);
-            this.btn_add_book.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add_book.Location = new System.Drawing.Point(168, 455);
+            this.btn_add_book.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_book.Name = "btn_add_book";
-            this.btn_add_book.Size = new System.Drawing.Size(55, 47);
+            this.btn_add_book.Size = new System.Drawing.Size(41, 38);
             this.btn_add_book.TabIndex = 6;
             this.btn_add_book.UseVisualStyleBackColor = true;
             this.btn_add_book.Click += new System.EventHandler(this.Btn_Add_Book_Click);
@@ -136,10 +136,10 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(29, 112);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Location = new System.Drawing.Point(22, 91);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(213, 42);
+            this.button3.Size = new System.Drawing.Size(160, 34);
             this.button3.TabIndex = 6;
             this.button3.Text = "Email";
             this.button3.UseVisualStyleBackColor = true;
@@ -154,10 +154,10 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(29, 64);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(22, 52);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(213, 42);
+            this.button2.Size = new System.Drawing.Size(160, 34);
             this.button2.TabIndex = 5;
             this.button2.Text = "Users";
             this.button2.UseVisualStyleBackColor = true;
@@ -166,10 +166,10 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.panel5.Location = new System.Drawing.Point(0, 16);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Location = new System.Drawing.Point(0, 13);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(11, 42);
+            this.panel5.Size = new System.Drawing.Size(8, 34);
             this.panel5.TabIndex = 4;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -182,10 +182,10 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(29, 16);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(22, 13);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 42);
+            this.button1.Size = new System.Drawing.Size(160, 34);
             this.button1.TabIndex = 4;
             this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = true;
@@ -194,10 +194,10 @@
             // pic_logo
             // 
             this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
-            this.pic_logo.Location = new System.Drawing.Point(3, 12);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pic_logo.Location = new System.Drawing.Point(2, 10);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
             this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(123, 98);
+            this.pic_logo.Size = new System.Drawing.Size(92, 80);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_logo.TabIndex = 4;
             this.pic_logo.TabStop = false;
@@ -208,9 +208,10 @@
             this.lbl_logo.AutoEllipsis = true;
             this.lbl_logo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_logo.ForeColor = System.Drawing.Color.White;
-            this.lbl_logo.Location = new System.Drawing.Point(131, 30);
+            this.lbl_logo.Location = new System.Drawing.Point(98, 24);
+            this.lbl_logo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_logo.Name = "lbl_logo";
-            this.lbl_logo.Size = new System.Drawing.Size(139, 32);
+            this.lbl_logo.Size = new System.Drawing.Size(104, 26);
             this.lbl_logo.TabIndex = 8;
             this.lbl_logo.Text = "Microwave";
             this.lbl_logo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,9 +220,10 @@
             // 
             this.lbl_logo_lms.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_logo_lms.ForeColor = System.Drawing.Color.White;
-            this.lbl_logo_lms.Location = new System.Drawing.Point(131, 49);
+            this.lbl_logo_lms.Location = new System.Drawing.Point(98, 40);
+            this.lbl_logo_lms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_logo_lms.Name = "lbl_logo_lms";
-            this.lbl_logo_lms.Size = new System.Drawing.Size(143, 74);
+            this.lbl_logo_lms.Size = new System.Drawing.Size(107, 60);
             this.lbl_logo_lms.TabIndex = 4;
             this.lbl_logo_lms.Text = "Library Management System";
             this.lbl_logo_lms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,18 +237,18 @@
             this.pnl_header.Controls.Add(this.btn_search);
             this.pnl_header.Controls.Add(this.btn_profil);
             this.pnl_header.Controls.Add(this.btn_settings);
-            this.pnl_header.Location = new System.Drawing.Point(287, 0);
-            this.pnl_header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_header.Location = new System.Drawing.Point(215, 0);
+            this.pnl_header.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_header.Name = "pnl_header";
-            this.pnl_header.Size = new System.Drawing.Size(1199, 49);
+            this.pnl_header.Size = new System.Drawing.Size(790, 40);
             this.pnl_header.TabIndex = 2;
             // 
             // panel8
             // 
-            this.panel8.Location = new System.Drawing.Point(-1, 47);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Location = new System.Drawing.Point(-1, 38);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(801, 702);
+            this.panel8.Size = new System.Drawing.Size(601, 570);
             this.panel8.TabIndex = 6;
             // 
             // tb_search
@@ -254,10 +256,10 @@
             this.tb_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_search.ForeColor = System.Drawing.Color.DimGray;
-            this.tb_search.Location = new System.Drawing.Point(33, 9);
-            this.tb_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search.Location = new System.Drawing.Point(25, 7);
+            this.tb_search.Margin = new System.Windows.Forms.Padding(2);
             this.tb_search.Name = "tb_search";
-            this.tb_search.Size = new System.Drawing.Size(289, 30);
+            this.tb_search.Size = new System.Drawing.Size(218, 26);
             this.tb_search.TabIndex = 5;
             this.tb_search.Text = "Search A Book...";
             this.tb_search.Click += new System.EventHandler(this.Tb_search_Click);
@@ -269,10 +271,10 @@
             this.btn_search.FlatAppearance.BorderSize = 0;
             this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search.Image = ((System.Drawing.Image)(resources.GetObject("btn_search.Image")));
-            this.btn_search.Location = new System.Drawing.Point(329, 7);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_search.Location = new System.Drawing.Point(247, 6);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(2);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(56, 36);
+            this.btn_search.Size = new System.Drawing.Size(42, 29);
             this.btn_search.TabIndex = 4;
             this.btn_search.UseVisualStyleBackColor = true;
             // 
@@ -281,10 +283,10 @@
             this.btn_profil.FlatAppearance.BorderSize = 0;
             this.btn_profil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_profil.Image = ((System.Drawing.Image)(resources.GetObject("btn_profil.Image")));
-            this.btn_profil.Location = new System.Drawing.Point(1069, 7);
-            this.btn_profil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_profil.Location = new System.Drawing.Point(691, 5);
+            this.btn_profil.Margin = new System.Windows.Forms.Padding(2);
             this.btn_profil.Name = "btn_profil";
-            this.btn_profil.Size = new System.Drawing.Size(56, 36);
+            this.btn_profil.Size = new System.Drawing.Size(42, 29);
             this.btn_profil.TabIndex = 2;
             this.btn_profil.UseVisualStyleBackColor = true;
             // 
@@ -293,30 +295,22 @@
             this.btn_settings.FlatAppearance.BorderSize = 0;
             this.btn_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_settings.Image")));
-            this.btn_settings.Location = new System.Drawing.Point(1131, 7);
-            this.btn_settings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_settings.Location = new System.Drawing.Point(737, 5);
+            this.btn_settings.Margin = new System.Windows.Forms.Padding(2);
             this.btn_settings.Name = "btn_settings";
-            this.btn_settings.Size = new System.Drawing.Size(56, 36);
+            this.btn_settings.Size = new System.Drawing.Size(42, 29);
             this.btn_settings.TabIndex = 1;
             this.btn_settings.UseVisualStyleBackColor = true;
-            // 
-            // pnl_tag
-            // 
-            this.pnl_tag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_tag.Location = new System.Drawing.Point(1227, 48);
-            this.pnl_tag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnl_tag.Name = "pnl_tag";
-            this.pnl_tag.Size = new System.Drawing.Size(259, 702);
-            this.pnl_tag.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(58, 25);
+            this.label3.Location = new System.Drawing.Point(233, 58);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 51);
+            this.label3.Size = new System.Drawing.Size(140, 39);
             this.label3.TabIndex = 4;
             this.label3.Text = "BOOKS";
             // 
@@ -325,9 +319,10 @@
             this.lbl_name.AutoSize = true;
             this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_name.Location = new System.Drawing.Point(79, 108);
+            this.lbl_name.Location = new System.Drawing.Point(236, 123);
+            this.lbl_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(90, 32);
+            this.lbl_name.Size = new System.Drawing.Size(71, 26);
             this.lbl_name.TabIndex = 8;
             this.lbl_name.Text = "Name";
             // 
@@ -336,9 +331,10 @@
             this.lbl_author.AutoSize = true;
             this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_author.ForeColor = System.Drawing.Color.White;
-            this.lbl_author.Location = new System.Drawing.Point(268, 108);
+            this.lbl_author.Location = new System.Drawing.Point(379, 123);
+            this.lbl_author.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_author.Name = "lbl_author";
-            this.lbl_author.Size = new System.Drawing.Size(99, 32);
+            this.lbl_author.Size = new System.Drawing.Size(76, 26);
             this.lbl_author.TabIndex = 10;
             this.lbl_author.Text = "Author";
             // 
@@ -347,9 +343,10 @@
             this.lbl_publisher.AutoSize = true;
             this.lbl_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_publisher.ForeColor = System.Drawing.Color.White;
-            this.lbl_publisher.Location = new System.Drawing.Point(438, 108);
+            this.lbl_publisher.Location = new System.Drawing.Point(502, 123);
+            this.lbl_publisher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_publisher.Name = "lbl_publisher";
-            this.lbl_publisher.Size = new System.Drawing.Size(135, 32);
+            this.lbl_publisher.Size = new System.Drawing.Size(103, 26);
             this.lbl_publisher.TabIndex = 11;
             this.lbl_publisher.Text = "Publisher";
             // 
@@ -358,9 +355,10 @@
             this.lbl_date.AutoSize = true;
             this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_date.Location = new System.Drawing.Point(615, 108);
+            this.lbl_date.Location = new System.Drawing.Point(636, 123);
+            this.lbl_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(75, 32);
+            this.lbl_date.Size = new System.Drawing.Size(58, 26);
             this.lbl_date.TabIndex = 12;
             this.lbl_date.Text = "Date";
             // 
@@ -369,19 +367,20 @@
             this.lbl_count.AutoSize = true;
             this.lbl_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_count.ForeColor = System.Drawing.Color.White;
-            this.lbl_count.Location = new System.Drawing.Point(740, 108);
+            this.lbl_count.Location = new System.Drawing.Point(715, 123);
+            this.lbl_count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_count.Name = "lbl_count";
-            this.lbl_count.Size = new System.Drawing.Size(91, 32);
+            this.lbl_count.Size = new System.Drawing.Size(70, 26);
             this.lbl_count.TabIndex = 13;
             this.lbl_count.Text = "Count";
             // 
             // pnl_list
             // 
             this.pnl_list.AutoScroll = true;
-            this.pnl_list.Location = new System.Drawing.Point(320, 194);
-            this.pnl_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_list.Location = new System.Drawing.Point(240, 158);
+            this.pnl_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_list.Name = "pnl_list";
-            this.pnl_list.Size = new System.Drawing.Size(872, 505);
+            this.pnl_list.Size = new System.Drawing.Size(561, 410);
             this.pnl_list.TabIndex = 14;
             this.pnl_list.Click += new System.EventHandler(this.Pnl_list_Click);
             // 
@@ -389,27 +388,30 @@
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.panel1);
-            this.panel9.Controls.Add(this.lbl_name);
-            this.panel9.Controls.Add(this.label3);
-            this.panel9.Controls.Add(this.lbl_count);
-            this.panel9.Controls.Add(this.lbl_author);
-            this.panel9.Controls.Add(this.lbl_date);
-            this.panel9.Controls.Add(this.lbl_publisher);
-            this.panel9.Location = new System.Drawing.Point(287, 47);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Location = new System.Drawing.Point(215, 38);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(940, 704);
+            this.panel9.Size = new System.Drawing.Size(601, 572);
             this.panel9.TabIndex = 15;
             this.panel9.Click += new System.EventHandler(this.Panel9_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.panel1.Location = new System.Drawing.Point(67, 142);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(24, 115);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(779, 1);
+            this.panel1.Size = new System.Drawing.Size(537, 1);
             this.panel1.TabIndex = 7;
+            // 
+            // pnl_tag
+            // 
+            this.pnl_tag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_tag.Location = new System.Drawing.Point(815, 40);
+            this.pnl_tag.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_tag.Name = "pnl_tag";
+            this.pnl_tag.Size = new System.Drawing.Size(190, 571);
+            this.pnl_tag.TabIndex = 16;
             // 
             // dragControl1
             // 
@@ -417,19 +419,25 @@
             // 
             // Microwave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.ClientSize = new System.Drawing.Size(1487, 752);
-            this.Controls.Add(this.pnl_tag);
+            this.ClientSize = new System.Drawing.Size(1006, 611);
             this.Controls.Add(this.pnl_header);
+            this.Controls.Add(this.lbl_count);
+            this.Controls.Add(this.lbl_date);
+            this.Controls.Add(this.lbl_publisher);
+            this.Controls.Add(this.lbl_author);
+            this.Controls.Add(this.lbl_name);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_list);
             this.Controls.Add(this.panel9);
+            this.Controls.Add(this.pnl_tag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(18, 47);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(18, 45);
             this.Name = "Microwave";
             this.ShowIcon = false;
             this.Text = "Microwave";
@@ -440,8 +448,8 @@
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
