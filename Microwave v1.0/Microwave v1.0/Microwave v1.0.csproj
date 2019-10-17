@@ -90,6 +90,7 @@
     <Compile Include="DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Librarian.cs" />
     <Compile Include="Microwave.cs">
       <SubType>Form</SubType>
     </Compile>

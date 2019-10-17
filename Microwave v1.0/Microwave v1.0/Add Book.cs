@@ -53,7 +53,7 @@ namespace Microwave_v1._0
 
             lbl_message.Text = "";
 
-            if (name == "Book's Name" || name == "")
+            if (tb_name.Text.Trim() == "Book's Name" || tb_name.Text.Trim() == "")
             {
                 lbl_message.Text = "* Please enter book's name.";
                 lbl_message.ForeColor = Color.Red;
@@ -61,7 +61,7 @@ namespace Microwave_v1._0
                 return;
             }
 
-            if (author == "Author's Name" || author == "" )
+            if (tb_author.Text.Trim() == "Author's Name" || tb_author.Text.Trim() == "" )
             {
                 lbl_message.Text = "* Please enter author's name.";
                 lbl_message.ForeColor = Color.Red;
@@ -69,7 +69,7 @@ namespace Microwave_v1._0
                 return;
             }
 
-            if (publisher == "Publisher's Name" || publisher == "")
+            if (tb_publisher.Text.Trim() == "Publisher's Name" || tb_publisher.Text.Trim() == "")
             {
                 lbl_message.Text = "* Please enter publisher's name.";
                 lbl_message.ForeColor = Color.Red;
@@ -77,7 +77,7 @@ namespace Microwave_v1._0
                 return;
             }
             
-            if (description == "Description..." || description == "")
+            if (tb_description.Text == "Description..." || tb_description.Text == "")
             {
                 lbl_message.Text = "* Please enter description.";
                 lbl_message.ForeColor = Color.Red;

@@ -107,6 +107,7 @@
             // btn_add_pic
             // 
             this.btn_add_pic.FlatAppearance.BorderSize = 0;
+            this.btn_add_pic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_pic.Image")));
             this.btn_add_pic.Location = new System.Drawing.Point(227, 500);
@@ -138,6 +139,7 @@
             this.tb_description.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_description.Multiline = true;
             this.tb_description.Name = "tb_description";
+            this.tb_description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_description.Size = new System.Drawing.Size(290, 129);
             this.tb_description.TabIndex = 4;
             this.tb_description.Text = "Description...";
@@ -158,7 +160,9 @@
             // 
             // btn_add
             // 
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add.FlatAppearance.BorderSize = 0;
+            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
             this.btn_add.Location = new System.Drawing.Point(11, 496);
@@ -273,7 +277,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddBook";
+            this.Opacity = 0.95D;
             this.Text = "AddBook";
+            this.TopMost = true;
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
             this.pnl_main.ResumeLayout(false);
             this.pnl_main.PerformLayout();

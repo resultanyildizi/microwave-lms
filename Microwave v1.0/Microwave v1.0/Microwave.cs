@@ -126,7 +126,7 @@ namespace Microwave_v1._0
                 add_book = new AddBook();
                 add_book.Show();
             }
-            
+            pic_logo.Focus();
         }
 
         private void Tb_search_Click(object sender, EventArgs e)

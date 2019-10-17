@@ -30,6 +30,8 @@ namespace Microwave_v1._0
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"]; 
             main_list = main_page.main_list;
+            this.btn_edit.Hide();
+            this.btn_remove.Hide();
         }
 
        
@@ -76,6 +78,9 @@ namespace Microwave_v1._0
             this.pnl_count.BackColor = back_color;
             this.pnl_publisher.BackColor = back_color;
 
+            this.btn_edit.Show();
+            this.btn_remove.Show();
+
         }
 
         public void Deselect_Book_Info()
@@ -86,6 +91,8 @@ namespace Microwave_v1._0
             this.pnl_date.BackColor = back_color;
             this.pnl_count.BackColor = back_color;
             this.pnl_publisher.BackColor = back_color;
+            this.btn_edit.Hide();
+            this.btn_remove.Hide();
         }
 
     }
