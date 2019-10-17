@@ -43,12 +43,12 @@ namespace Microwave_v1._0
         private void Add_Book()
         {
            
-            name = tb_name.Text.Trim();
-            author = tb_author.Text.Trim();
-            publisher = tb_publisher.Text.Trim();
-            date = "deneemememe"; // DateTime.Now.ToString();
+            name = (tb_name.Text.Trim()).Replace('\'', ' ');
+            author = (tb_author.Text.Trim()).Replace('\'', ' ');
+            publisher = (tb_publisher.Text.Trim()).Replace('\'', ' ');
+            date =  DateTime.Now.ToString();
             count = (int)numUpDown_count.Value;
-            description = tb_description.Text;
+            description = tb_description.Text.Replace('\'', ' ');
 
 
             lbl_message.Text = "";

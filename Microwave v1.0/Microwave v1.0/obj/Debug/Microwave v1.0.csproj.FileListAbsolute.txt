@@ -73,3 +73,13 @@ C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\D
 C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.xml
 C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csproj.CopyComplete
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csproj.CopyComplete

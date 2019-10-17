@@ -59,7 +59,7 @@ namespace Microwave_v1._0
             main_tag.Draw_Book_Tag();
 
             
-            main_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998","", 45, path_file));
+            /*main_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayinevi", "12/4/1998","", 45, path_file));
             main_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayınevi", "12/4/1998","",45, path_file));
             main_list.Add_Book_to_List(new Book("Oyunbaz", "Wulf Dorn", "YapiKredi Yayınevi", "12/4/1998","", 45, path_file));
             main_list.Add_Book_to_List(new Book("Fareler ve İnsanlar", "John Steinbeck", "YapiKredi Yayinevi", "12/4/1998","", 45,path_file));
@@ -79,7 +79,7 @@ namespace Microwave_v1._0
             main_list.Add_Book_to_List(new Book("Siyah Lale", "Alexandre Dumas", "YapiKredi Yayinevi", "12/4/1998", "",12, path_file));
             main_list.Add_Book_to_List(new Book("Denemeler", "Montaigne", "YapiKredi Yayinevi", "12/4/1998","", 12, path_file));
             main_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998","", 12, path_file));
-          
+          */
             main_list.Show_All_Books();
 
         }

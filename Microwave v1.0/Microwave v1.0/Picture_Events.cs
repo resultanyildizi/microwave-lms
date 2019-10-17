@@ -19,6 +19,7 @@ namespace Microwave_v1._0
         private string pic_default_file;
         private string pic_source_file;
         private PictureBox picture_box;
+        private string name;
         private OpenFileDialog pic_choose_dialog;
         private int i = 0;
 
@@ -59,7 +60,7 @@ namespace Microwave_v1._0
         }
         public void Copy_The_Picture(string name)
         {
-            
+            this.name = name;
             string pic_target_file;
             string pic_name = name + ".jpg";
 
@@ -78,16 +79,28 @@ namespace Microwave_v1._0
             }
             catch(System.IO.IOException d)
             {
-                /*
-                i++;
-                name += i.ToString();
-                pic_name = name + ".jpg";
-                pic_target_file = System.IO.Path.Combine(pic_dest_path, pic_name);
-                System.IO.File.Copy(pic_source_file, pic_target_file);
-                pic_source_file = pic_target_file;*/
-
-                pic_source_file = pic_default_file;
+                Increate(name, pic_target_file);
             }
         }
+
+        private void Increate(string name, string pic_target_file)
+        {
+            name = this.name;
+            i++;
+            name += i.ToString();
+            string pic_name = name + ".jpg";
+            pic_target_file = System.IO.Path.Combine(pic_dest_path, pic_name);
+            try
+            {
+                System.IO.File.Copy(pic_source_file, pic_target_file);
+            }
+            catch
+            {
+                Increate(name, pic_target_file);
+            }
+            pic_source_file = pic_target_file;
+        }
     }
+    
+   
 }
