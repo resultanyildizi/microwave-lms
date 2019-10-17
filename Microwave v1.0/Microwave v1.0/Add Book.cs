@@ -46,7 +46,7 @@ namespace Microwave_v1._0
             name = tb_name.Text.Trim();
             author = tb_author.Text.Trim();
             publisher = tb_publisher.Text.Trim();
-            date = DateTime.Today.ToString();
+            date = "deneemememe"; // DateTime.Now.ToString();
             count = (int)numUpDown_count.Value;
             description = tb_description.Text;
 
@@ -121,7 +121,6 @@ namespace Microwave_v1._0
         private void Create_New_Book_And_Set()
         {
             Book book = new Book(name, author, publisher, date, description, count, picture_event.Pic_source_file);
-            Book.Id++;
 
             main_page.main_list.Add_Book_to_List(book);
             main_page.pnl_list.VerticalScroll.Value = 0;
@@ -130,6 +129,7 @@ namespace Microwave_v1._0
 
             main_page.main_list.Deselect_All_Book_Infos();
             book.Info.Select_Book_Info();
+            book.Add_Book_To_Database();
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)

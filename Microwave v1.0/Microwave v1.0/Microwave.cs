@@ -37,9 +37,12 @@ namespace Microwave_v1._0
         private AddBook add_book = null;              
         public Book_List main_list = null;
         private Book_Tag main_tag = null;
+        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+
 
         // Getters and Setters
         public Book_Tag Book_tag { get => main_tag; set => main_tag = value; }
+        public SQLiteConnection Connection { get => connection; set => connection = value; }
 
         // Constructor
         public Microwave()
