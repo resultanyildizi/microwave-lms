@@ -46,22 +46,32 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.btn_profil = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_name = new System.Windows.Forms.Label();
-            this.lbl_author = new System.Windows.Forms.Label();
-            this.lbl_publisher = new System.Windows.Forms.Label();
-            this.lbl_date = new System.Windows.Forms.Label();
-            this.lbl_count = new System.Windows.Forms.Label();
+            this.lbl_book_title = new System.Windows.Forms.Label();
+            this.lbl_book_name = new System.Windows.Forms.Label();
+            this.lbl_book_author = new System.Windows.Forms.Label();
+            this.lbl_book_publisher = new System.Windows.Forms.Label();
+            this.lbl_book_date = new System.Windows.Forms.Label();
+            this.lbl_book_count = new System.Windows.Forms.Label();
             this.pnl_list = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_book = new System.Windows.Forms.Panel();
+            this.pnl_seperater = new System.Windows.Forms.Panel();
             this.pnl_tag = new System.Windows.Forms.Panel();
             this.dragControl1 = new Microwave_v1._0.DragControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.pnl_header.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.pnl_book.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_left
@@ -316,71 +326,71 @@
             this.btn_settings.TabIndex = 1;
             this.btn_settings.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // lbl_book_title
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(311, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 51);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "BOOKS";
+            this.lbl_book_title.AutoSize = true;
+            this.lbl_book_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_title.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_title.Location = new System.Drawing.Point(24, 24);
+            this.lbl_book_title.Name = "lbl_book_title";
+            this.lbl_book_title.Size = new System.Drawing.Size(175, 51);
+            this.lbl_book_title.TabIndex = 4;
+            this.lbl_book_title.Text = "BOOKS";
             // 
-            // lbl_name
+            // lbl_book_name
             // 
-            this.lbl_name.AutoSize = true;
-            this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_name.Location = new System.Drawing.Point(315, 151);
-            this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(90, 32);
-            this.lbl_name.TabIndex = 8;
-            this.lbl_name.Text = "Name";
+            this.lbl_book_name.AutoSize = true;
+            this.lbl_book_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_name.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_name.Location = new System.Drawing.Point(27, 99);
+            this.lbl_book_name.Name = "lbl_book_name";
+            this.lbl_book_name.Size = new System.Drawing.Size(90, 32);
+            this.lbl_book_name.TabIndex = 8;
+            this.lbl_book_name.Text = "Name";
             // 
-            // lbl_author
+            // lbl_book_author
             // 
-            this.lbl_author.AutoSize = true;
-            this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_author.ForeColor = System.Drawing.Color.White;
-            this.lbl_author.Location = new System.Drawing.Point(505, 151);
-            this.lbl_author.Name = "lbl_author";
-            this.lbl_author.Size = new System.Drawing.Size(99, 32);
-            this.lbl_author.TabIndex = 10;
-            this.lbl_author.Text = "Author";
+            this.lbl_book_author.AutoSize = true;
+            this.lbl_book_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_author.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_author.Location = new System.Drawing.Point(223, 99);
+            this.lbl_book_author.Name = "lbl_book_author";
+            this.lbl_book_author.Size = new System.Drawing.Size(99, 32);
+            this.lbl_book_author.TabIndex = 10;
+            this.lbl_book_author.Text = "Author";
             // 
-            // lbl_publisher
+            // lbl_book_publisher
             // 
-            this.lbl_publisher.AutoSize = true;
-            this.lbl_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_publisher.ForeColor = System.Drawing.Color.White;
-            this.lbl_publisher.Location = new System.Drawing.Point(669, 151);
-            this.lbl_publisher.Name = "lbl_publisher";
-            this.lbl_publisher.Size = new System.Drawing.Size(135, 32);
-            this.lbl_publisher.TabIndex = 11;
-            this.lbl_publisher.Text = "Publisher";
+            this.lbl_book_publisher.AutoSize = true;
+            this.lbl_book_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_publisher.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_publisher.Location = new System.Drawing.Point(387, 99);
+            this.lbl_book_publisher.Name = "lbl_book_publisher";
+            this.lbl_book_publisher.Size = new System.Drawing.Size(135, 32);
+            this.lbl_book_publisher.TabIndex = 11;
+            this.lbl_book_publisher.Text = "Publisher";
             // 
-            // lbl_date
+            // lbl_book_date
             // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_date.Location = new System.Drawing.Point(848, 151);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(75, 32);
-            this.lbl_date.TabIndex = 12;
-            this.lbl_date.Text = "Date";
+            this.lbl_book_date.AutoSize = true;
+            this.lbl_book_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_date.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_date.Location = new System.Drawing.Point(567, 99);
+            this.lbl_book_date.Name = "lbl_book_date";
+            this.lbl_book_date.Size = new System.Drawing.Size(75, 32);
+            this.lbl_book_date.TabIndex = 12;
+            this.lbl_book_date.Text = "Date";
             // 
-            // lbl_count
+            // lbl_book_count
             // 
-            this.lbl_count.AutoSize = true;
-            this.lbl_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_count.ForeColor = System.Drawing.Color.White;
-            this.lbl_count.Location = new System.Drawing.Point(953, 151);
-            this.lbl_count.Name = "lbl_count";
-            this.lbl_count.Size = new System.Drawing.Size(91, 32);
-            this.lbl_count.TabIndex = 13;
-            this.lbl_count.Text = "Count";
+            this.lbl_book_count.AutoSize = true;
+            this.lbl_book_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_count.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_count.Location = new System.Drawing.Point(678, 99);
+            this.lbl_book_count.Name = "lbl_book_count";
+            this.lbl_book_count.Size = new System.Drawing.Size(91, 32);
+            this.lbl_book_count.TabIndex = 13;
+            this.lbl_book_count.Text = "Count";
             // 
             // pnl_list
             // 
@@ -392,26 +402,33 @@
             this.pnl_list.TabIndex = 14;
             this.pnl_list.Click += new System.EventHandler(this.Pnl_list_Click);
             // 
-            // panel9
+            // pnl_book
             // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.panel1);
-            this.panel9.Controls.Add(this.pnl_list);
-            this.panel9.Location = new System.Drawing.Point(287, 47);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(809, 704);
-            this.panel9.TabIndex = 15;
-            this.panel9.Click += new System.EventHandler(this.Panel9_Click);
+            this.pnl_book.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_book.Controls.Add(this.panel1);
+            this.pnl_book.Controls.Add(this.lbl_book_name);
+            this.pnl_book.Controls.Add(this.lbl_book_title);
+            this.pnl_book.Controls.Add(this.lbl_book_count);
+            this.pnl_book.Controls.Add(this.lbl_book_date);
+            this.pnl_book.Controls.Add(this.lbl_book_publisher);
+            this.pnl_book.Controls.Add(this.lbl_book_author);
+            this.pnl_book.Controls.Add(this.pnl_seperater);
+            this.pnl_book.Controls.Add(this.pnl_list);
+            this.pnl_book.Location = new System.Drawing.Point(287, 48);
+            this.pnl_book.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_book.Name = "pnl_book";
+            this.pnl_book.Size = new System.Drawing.Size(809, 703);
+            this.pnl_book.TabIndex = 15;
+            this.pnl_book.Click += new System.EventHandler(this.Panel9_Click);
             // 
-            // panel1
+            // pnl_seperater
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.panel1.Location = new System.Drawing.Point(32, 142);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 1);
-            this.panel1.TabIndex = 7;
+            this.pnl_seperater.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.pnl_seperater.Location = new System.Drawing.Point(32, 142);
+            this.pnl_seperater.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_seperater.Name = "pnl_seperater";
+            this.pnl_seperater.Size = new System.Drawing.Size(728, 1);
+            this.pnl_seperater.TabIndex = 7;
             // 
             // pnl_tag
             // 
@@ -426,6 +443,107 @@
             // 
             this.dragControl1.SelectControl = this.pnl_header;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Location = new System.Drawing.Point(-1, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(809, 703);
+            this.panel1.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(27, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 32);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(24, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 51);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "BOOKS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(678, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 32);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Count";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(567, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 32);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Date";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(387, 99);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 32);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Publisher";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(223, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 32);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Author";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.panel2.Location = new System.Drawing.Point(32, 142);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(728, 1);
+            this.panel2.TabIndex = 7;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.Location = new System.Drawing.Point(-1, 147);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(770, 505);
+            this.panel3.TabIndex = 14;
+            // 
             // Microwave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -433,15 +551,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(1370, 752);
             this.Controls.Add(this.pnl_header);
-            this.Controls.Add(this.lbl_count);
-            this.Controls.Add(this.lbl_date);
-            this.Controls.Add(this.lbl_publisher);
-            this.Controls.Add(this.lbl_author);
             this.Controls.Add(this.pnl_tag);
-            this.Controls.Add(this.lbl_name);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnl_left);
-            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.pnl_book);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -457,9 +569,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
-            this.panel9.ResumeLayout(false);
+            this.pnl_book.ResumeLayout(false);
+            this.pnl_book.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -481,18 +595,27 @@
         private System.Windows.Forms.Button btn_settings;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.TextBox tb_search;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_book_title;
         private System.Windows.Forms.Button btn_add_book;
-        private System.Windows.Forms.Label lbl_name;
-        private System.Windows.Forms.Label lbl_author;
-        private System.Windows.Forms.Label lbl_publisher;
-        private System.Windows.Forms.Label lbl_date;
-        private System.Windows.Forms.Label lbl_count;
+        private System.Windows.Forms.Label lbl_book_name;
+        private System.Windows.Forms.Label lbl_book_author;
+        private System.Windows.Forms.Label lbl_book_publisher;
+        private System.Windows.Forms.Label lbl_book_date;
+        private System.Windows.Forms.Label lbl_book_count;
         public System.Windows.Forms.Panel pnl_list;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel pnl_book;
         public System.Windows.Forms.Panel pnl_tag;
+        private System.Windows.Forms.Panel pnl_seperater;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Panel panel3;
     }
 }
 

@@ -108,21 +108,21 @@ namespace Microwave_v1._0
 
         private void Btn_Add_Book_Click(object sender, EventArgs e)
         {
-            Warning_Add wa = null;
-            if(wa == null)
+            Warning warning_form = null;
+            if(warning_form == null)
             {
-                wa = new Warning_Add();
-                wa.Initialize_Warning("Do you want to add a book?",Create_Add_Book_Form);
+                warning_form = new Warning();
+                warning_form.Initialize_Warning("Do you want to add a book?",Create_Add_Book_Form);
             }
             try
             {
-                wa.Show();
+                warning_form.Show();
             }
             catch (ObjectDisposedException d)
             {
-                wa = new Warning_Add();
-                wa.Initialize_Warning("Do you want to add a book?", Create_Add_Book_Form);
-                wa.Show();
+                warning_form = new Warning();
+                warning_form.Initialize_Warning("Do you want to add a book?", Create_Add_Book_Form);
+                warning_form.Show();
             }
         }
         
@@ -150,7 +150,7 @@ namespace Microwave_v1._0
 
         private void Panel9_Click(object sender, EventArgs e)
         {
-            panel9.Focus();
+            pnl_book.Focus();
         }
 
         private void Pnl_list_Click(object sender, EventArgs e)

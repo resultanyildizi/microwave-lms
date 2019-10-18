@@ -1,6 +1,6 @@
 ﻿namespace Microwave_v1._0
 {
-    partial class Warning_Add
+    partial class Warning
     {
         /// <summary>
         /// Required designer variable.

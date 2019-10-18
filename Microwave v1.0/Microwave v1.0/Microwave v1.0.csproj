@@ -90,11 +90,17 @@
     <Compile Include="DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Warning_Add.cs">
+    <Compile Include="UserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warning.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Warning_Add.Designer.cs">
-      <DependentUpon>Warning_Add.cs</DependentUpon>
+    <Compile Include="Warning.Designer.cs">
+      <DependentUpon>Warning.cs</DependentUpon>
     </Compile>
     <Compile Include="Librarian.cs" />
     <Compile Include="Microwave.cs">
@@ -115,8 +121,11 @@
     <EmbeddedResource Include="Book_Info.resx">
       <DependentUpon>Book_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Warning_Add.resx">
-      <DependentUpon>Warning_Add.cs</DependentUpon>
+    <EmbeddedResource Include="UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warning.resx">
+      <DependentUpon>Warning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Microwave.resx">
       <DependentUpon>Microwave.cs</DependentUpon>

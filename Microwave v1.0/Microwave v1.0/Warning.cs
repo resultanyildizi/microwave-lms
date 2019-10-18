@@ -11,23 +11,19 @@ using System.Windows.Forms;
 
 namespace Microwave_v1._0
 {
-    public partial class Warning_Add : Form
+    public partial class Warning : Form
     {
         private string message;
-        private bool result = false;
         private string password = "admin";
         private string email = "deneme";
-        private bool clicked = false;
         private Action method = null;
 
         
         public string Message { get => message; set => message = value; }
-        public bool Result { get => result; set => result = value; }
         public string Password { get => password; set => password = value; }
         public string Email { get => email; set => email = value; }
-        public bool Clicked { get => clicked; set => clicked = value; }
 
-        public Warning_Add()
+        public Warning()
         {
             InitializeComponent();
         }
