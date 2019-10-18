@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 namespace Microwave_v1._0
 {
     /* NOTE:
@@ -30,12 +31,14 @@ namespace Microwave_v1._0
     public class Book_List
     {
 
+        static Microwave main_page;
         int point_y = Book.point_y;
 
 
         book_node root;
         public Book_List()
         {
+           
             root = null;
         }
 
@@ -74,9 +77,28 @@ namespace Microwave_v1._0
             }
         }
 
-        void Add_To_DataBase()
+        public static void Read_Database()
         {
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+            SQLiteConnection connection = main_page.Connection;
+            connection.Open();
+            string query = "SELECT * FROM Books ";
+            SQLiteCommand cmd = new SQLiteCommand(query, connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string name = reader.GetString(1);
+                string author = reader.GetString(2);
+                string publisher = reader.GetString(3);
+                string date = reader.GetString(4);
+                int count = reader.GetInt32(5);
+                string description = reader.GetString(6);
+                string cover_path = reader.GetString(7);
 
+                Book book = new Book(name, author, publisher, date, description, count, cover_path);
+                main_page.main_list.Add_Book_to_List(book);
+            }
+            connection.Close();
         }
     }
 }

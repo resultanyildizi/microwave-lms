@@ -81,34 +81,13 @@ namespace Microwave_v1._0
             main_list.Add_Book_to_List(new Book("Mesnevi", "Mevlana", "YapiKredi Yayinevi", "12/4/1998","", 12, path_file));
           */
 
-            Read_Database();
-
+            Book_List.Read_Database();
             main_list.Show_All_Books();
 
         }
 
 
-        private void Read_Database()
-        {
-            connection.Open();
-            string query = "SELECT * FROM Books ";
-            SQLiteCommand cmd = new SQLiteCommand(query, connection);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            while(reader.Read())
-            {
-                string name = reader.GetString(1);
-                string author = reader.GetString(2);
-                string publisher = reader.GetString(3);
-                string date = reader.GetString(4);
-                int count = reader.GetInt32(5);
-                string description = reader.GetString(6);
-                string cover_path = reader.GetString(7);
-
-                Book book = new Book(name, author, publisher, date, description, count, cover_path);
-                main_list.Add_Book_to_List(book);
-            }
-            connection.Close();
-        }
+       
 
         private void Btn_Add_Book_Click(object sender, EventArgs e)
         {
