@@ -95,5 +95,14 @@ namespace Microwave_v1._0
             this.btn_remove.Hide();
         }
 
+        private void lbl_name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

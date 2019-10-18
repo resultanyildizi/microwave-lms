@@ -70,6 +70,7 @@
             this.lbl_name.Size = new System.Drawing.Size(179, 24);
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "Kürk Mantolu Madonna";
+            this.lbl_name.Click += new System.EventHandler(this.lbl_name_Click);
             this.lbl_name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
             // 
             // pnl_author
@@ -180,6 +181,7 @@
             this.btn_edit.Size = new System.Drawing.Size(25, 23);
             this.btn_edit.TabIndex = 3;
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_remove
             // 

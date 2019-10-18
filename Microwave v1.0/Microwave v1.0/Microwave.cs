@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Threading;
 
 /*
  NOT:
@@ -28,7 +29,7 @@ using System.Data.SQLite;
 
 
  */
- 
+
 namespace Microwave_v1._0
 {
     public partial class Microwave : Form
@@ -38,7 +39,6 @@ namespace Microwave_v1._0
         public Book_List main_list = null;
         private Book_Tag main_tag = null;
         private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
-
 
         // Getters and Setters
         public Book_Tag Book_tag { get => main_tag; set => main_tag = value; }
@@ -87,26 +87,46 @@ namespace Microwave_v1._0
         }
 
 
-       
-
-        private void Btn_Add_Book_Click(object sender, EventArgs e)
+        public void Create_Add_Book_Form()
         {
-           
-            if(add_book == null)
+            if (add_book == null)
             {
                 add_book = new AddBook();
             }
-           
+
             try
             {
-                add_book.Show();  
-            }catch(ObjectDisposedException d)
+                add_book.Show();
+            }
+            catch (ObjectDisposedException d)
             {
                 add_book = new AddBook();
                 add_book.Show();
             }
             pic_logo.Focus();
         }
+
+        private void Btn_Add_Book_Click(object sender, EventArgs e)
+        {
+            Warning_Add wa = null;
+            if(wa == null)
+            {
+                wa = new Warning_Add();
+                wa.Initialize_Warning("Do you want to add a book?",Create_Add_Book_Form);
+            }
+            try
+            {
+                wa.Show();
+            }
+            catch (ObjectDisposedException d)
+            {
+                wa = new Warning_Add();
+                wa.Initialize_Warning("Do you want to add a book?", Create_Add_Book_Form);
+                wa.Show();
+            }
+        }
+        
+        
 
         private void Tb_search_Click(object sender, EventArgs e)
         {
