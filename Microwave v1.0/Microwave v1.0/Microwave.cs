@@ -32,13 +32,21 @@ using System.Threading;
 
 namespace Microwave_v1._0
 {
+    public enum MENU_CHOSEN
+    {
+        BOOKS = 0,USERS,EMAİL,ABOUT_US
+    }
     public partial class Microwave : Form
     {
         // Variables 
         private AddBook add_book = null;              
         public Book_List main_list = null;
         private Book_Tag main_tag = null;
+        private AddUser add_user = null;
+        public User_List user_list = null;
         private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+
+        MENU_CHOSEN chosen = MENU_CHOSEN.BOOKS;
 
         // Getters and Setters
         public Book_Tag Book_tag { get => main_tag; set => main_tag = value; }
@@ -49,7 +57,13 @@ namespace Microwave_v1._0
         {
             InitializeComponent();
             main_list = new Book_List(); 
-            main_tag = new Book_Tag();   
+            main_tag = new Book_Tag();
+            user_list = new User_List();
+
+            pnl_tag.Hide();
+            pnl_user.Hide();
+            pnl_book.Hide();
+            pnl_stick.Hide();
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -83,6 +97,9 @@ namespace Microwave_v1._0
 
             Book_List.Read_Database();
             main_list.Show_All_Books();
+            
+            
+            user_list.Show_All_Users();
 
         }
 
@@ -108,11 +125,23 @@ namespace Microwave_v1._0
 
         private void Btn_Add_Book_Click(object sender, EventArgs e)
         {
+            Action method = null;
+            string message = null;
+            if(chosen == MENU_CHOSEN.BOOKS)
+            {
+                method = Create_Add_Book_Form;
+                message = "Do you want to add a book?";
+            }
+            else if(chosen == MENU_CHOSEN.USERS)
+            {
+                method = Create_Add_User_Form;
+                message = "Do you want to add a user?";
+            }
             Warning warning_form = null;
             if(warning_form == null)
             {
                 warning_form = new Warning();
-                warning_form.Initialize_Warning("Do you want to add a book?",Create_Add_Book_Form);
+                warning_form.Initialize_Warning(message,method);
             }
             try
             {
@@ -121,12 +150,33 @@ namespace Microwave_v1._0
             catch (ObjectDisposedException d)
             {
                 warning_form = new Warning();
-                warning_form.Initialize_Warning("Do you want to add a book?", Create_Add_Book_Form);
+                warning_form.Initialize_Warning(message, method);
                 warning_form.Show();
             }
         }
+
+        public void Create_Add_User_Form()
+        {
+            if (add_user == null)
+            {
+                add_user = new AddUser();
+            }
+
+            try
+            {
+                add_user.Show();
+            }
+            catch (ObjectDisposedException d)
+            {
+                add_user = new AddUser();
+                add_user.Show();
+            }
+            pic_logo.Focus();
+        }
+
         
-        
+
+
 
         private void Tb_search_Click(object sender, EventArgs e)
         {
@@ -178,27 +228,59 @@ namespace Microwave_v1._0
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panel5.Location = new Point(0, 51);
+            chosen = MENU_CHOSEN.USERS;
+
+            pnl_stick.Location = new Point(0, 51);
+            pnl_stick.Show();
+            pnl_user.Show();
+            pnl_book.Hide();
+            pnl_tag.Hide();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            panel5.Location = new Point(0, 91);
+            chosen = MENU_CHOSEN.EMAİL;
+            pnl_stick.Location = new Point(0, 91);
+            pnl_stick.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            panel5.Location = new Point(0, 130);
+            chosen = MENU_CHOSEN.ABOUT_US;
+            pnl_stick.Location = new Point(0, 130);
+            pnl_stick.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel5.Location = new Point(0, 13);
+            chosen = MENU_CHOSEN.BOOKS;
+
+            pnl_stick.Location = new Point(0, 13);
+            pnl_stick.Show();           
+            pnl_book.Show();
+            pnl_tag.Show();
+            pnl_user.Hide();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void lbl_user_age_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnl_user_list_Click(object sender, EventArgs e)
+        {
+            pnl_user.Focus();
+        }
+
+        private void pnl_user_Click(object sender, EventArgs e)
+        {
+            pnl_user.Focus();
         }
     }
 }
