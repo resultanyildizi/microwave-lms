@@ -99,6 +99,7 @@
             this.tb_password.Size = new System.Drawing.Size(187, 22);
             this.tb_password.TabIndex = 5;
             this.tb_password.UseSystemPasswordChar = true;
+            this.tb_password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_password_KeyPress);
             // 
             // lbl_email
             // 
@@ -120,7 +121,7 @@
             this.lbl_error.Size = new System.Drawing.Size(0, 20);
             this.lbl_error.TabIndex = 25;
             // 
-            // Warning_Add
+            // Warning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +136,10 @@
             this.Controls.Add(this.btn_yes);
             this.Controls.Add(this.btn_no);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Warning_Add";
+            this.MaximizeBox = false;
+            this.Name = "Warning";
+            this.Opacity = 0.9D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Warning";
             this.TopMost = true;
             this.ResumeLayout(false);

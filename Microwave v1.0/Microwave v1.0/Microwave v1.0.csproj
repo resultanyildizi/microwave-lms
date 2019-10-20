@@ -93,9 +93,6 @@
     </Compile>
     <Compile Include="Book.cs" />
     <Compile Include="Book_List.cs" />
-    <Compile Include="DragControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserInfo.cs">
       <SubType>UserControl</SubType>

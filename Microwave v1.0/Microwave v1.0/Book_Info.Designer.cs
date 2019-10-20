@@ -58,6 +58,8 @@
             this.pnl_name.Size = new System.Drawing.Size(183, 49);
             this.pnl_name.TabIndex = 0;
             this.pnl_name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.pnl_name.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.pnl_name.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // lbl_name
             // 
@@ -72,6 +74,8 @@
             this.lbl_name.Text = "Kürk Mantolu Madonna";
             this.lbl_name.Click += new System.EventHandler(this.lbl_name_Click);
             this.lbl_name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.lbl_name.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.lbl_name.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // pnl_author
             // 
@@ -83,6 +87,8 @@
             this.pnl_author.Size = new System.Drawing.Size(160, 49);
             this.pnl_author.TabIndex = 1;
             this.pnl_author.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.pnl_author.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.pnl_author.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // lbl_author
             // 
@@ -96,6 +102,8 @@
             this.lbl_author.TabIndex = 1;
             this.lbl_author.Text = "Sabahattin Ali";
             this.lbl_author.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.lbl_author.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.lbl_author.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // pnl_count
             // 
@@ -107,6 +115,8 @@
             this.pnl_count.Size = new System.Drawing.Size(72, 49);
             this.pnl_count.TabIndex = 2;
             this.pnl_count.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.pnl_count.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.pnl_count.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // lbl_count
             // 
@@ -120,6 +130,8 @@
             this.lbl_count.TabIndex = 4;
             this.lbl_count.Text = "15";
             this.lbl_count.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.lbl_count.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.lbl_count.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // pnl_publisher
             // 
@@ -131,6 +143,8 @@
             this.pnl_publisher.Size = new System.Drawing.Size(173, 49);
             this.pnl_publisher.TabIndex = 1;
             this.pnl_publisher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.pnl_publisher.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.pnl_publisher.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // lbl_publisher
             // 
@@ -144,6 +158,8 @@
             this.lbl_publisher.TabIndex = 2;
             this.lbl_publisher.Text = "Yapi Kredi Yayinlari";
             this.lbl_publisher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.lbl_publisher.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.lbl_publisher.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // pnl_date
             // 
@@ -155,6 +171,8 @@
             this.pnl_date.Size = new System.Drawing.Size(113, 49);
             this.pnl_date.TabIndex = 1;
             this.pnl_date.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.pnl_date.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.pnl_date.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // lbl_date
             // 
@@ -165,8 +183,10 @@
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(107, 24);
             this.lbl_date.TabIndex = 3;
-            this.lbl_date.Text = "10.10.1975";
+            this.lbl_date.Text = "10/10/1975";
             this.lbl_date.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Book_Info_Click);
+            this.lbl_date.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.lbl_date.MouseLeave += new System.EventHandler(this.Pnl_name_MouseLeave);
             // 
             // btn_edit
             // 
@@ -196,6 +216,7 @@
             this.btn_remove.Size = new System.Drawing.Size(25, 23);
             this.btn_remove.TabIndex = 4;
             this.btn_remove.UseVisualStyleBackColor = true;
+            this.btn_remove.Click += new System.EventHandler(this.Btn_remove_Click);
             // 
             // Book_Info
             // 
@@ -211,6 +232,8 @@
             this.Controls.Add(this.pnl_author);
             this.Name = "Book_Info";
             this.Size = new System.Drawing.Size(761, 49);
+            this.Enter += new System.EventHandler(this.Book_Info_Enter);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Book_Info_KeyPress);
             this.pnl_name.ResumeLayout(false);
             this.pnl_author.ResumeLayout(false);
             this.pnl_count.ResumeLayout(false);

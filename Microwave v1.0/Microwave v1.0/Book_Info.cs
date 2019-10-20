@@ -23,20 +23,25 @@ namespace Microwave_v1._0
         private string description;
         private string name;
         private string author;
-        private string pic_path_file; 
+        private string pic_path_file;
+        private bool chosen = false;
+        private int book_id;
+
+        public int Book_id { get => book_id; set => book_id = value; }
 
         public Book_Info()
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"]; 
-            main_list = main_page.main_list;
+            main_list = main_page.Main_list;
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
 
        
-        public void Initialize_Book_Info(string name, string author, string publisher, string date, int count, string description, string pic_path_file)
+        public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string date, int count, string description, string pic_path_file)
         {
+            this.book_id = book_id;
             this.lbl_name.Text = name;
             this.lbl_author.Text = author;
             this.lbl_publisher.Text = publisher;
@@ -51,7 +56,7 @@ namespace Microwave_v1._0
         
         public void Draw_Book_Obj(ref int y)
         {
-            main_page.pnl_list.Controls.Add(this);
+            main_page.Pnl_book_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
             y += 45;
         }
@@ -68,6 +73,7 @@ namespace Microwave_v1._0
        
         public void Select_Book_Info()
         {
+            chosen = true;
             Book_Tag main_book_tag = main_page.Book_tag;
          
             Color back_color = Color.FromArgb(33, 37, 48);
@@ -85,6 +91,7 @@ namespace Microwave_v1._0
 
         public void Deselect_Book_Info()
         {
+            chosen = false;
             Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
             this.pnl_author.BackColor = back_color;
             this.pnl_name.BackColor = back_color;
@@ -95,6 +102,34 @@ namespace Microwave_v1._0
             this.btn_remove.Hide();
         }
 
+        public void Hover()
+        {
+            if(!chosen)
+            {
+                Color back_color = Color.FromArgb(43, 47, 58);
+
+                this.pnl_author.BackColor = back_color;
+                this.pnl_name.BackColor = back_color;
+                this.pnl_date.BackColor = back_color;
+                this.pnl_count.BackColor = back_color;
+                this.pnl_publisher.BackColor = back_color;
+
+            }
+        }
+
+
+        public void Mouse_Leave()
+        {
+            if (!chosen)
+            {
+                Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
+                this.pnl_author.BackColor = back_color;
+                this.pnl_name.BackColor = back_color;
+                this.pnl_date.BackColor = back_color;
+                this.pnl_count.BackColor = back_color;
+                this.pnl_publisher.BackColor = back_color;
+            }
+        }
         private void lbl_name_Click(object sender, EventArgs e)
         {
 
@@ -104,5 +139,45 @@ namespace Microwave_v1._0
         {
 
         }
+
+        private void Btn_remove_Click(object sender, EventArgs e)
+        {
+            string message = "Do you want to delete a book?";
+            Action method = Remove;
+            main_page.Create_Warning_Form(message, method, Color.DarkRed);
+        }
+
+        private void Remove()
+        {
+            main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", main_page.Path_file);
+
+            main_list.Delete_Book_from_List(book_id);
+            this.Dispose();
+
+            main_page.Pnl_book_list.VerticalScroll.Value = 0;
+            Book.point_y = 5;
+            main_list.Show_All_Books();
+        }
+
+        private void Book_Info_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Delete)
+            {
+                string message = "Do you want to delete a book?";
+                Action method = Remove;
+                main_page.Create_Warning_Form(message, method, Color.DarkRed);
+            }
+        }
+
+        private void Book_Info_Enter(object sender, EventArgs e)
+        {
+            Hover();
+        }
+
+        private void Pnl_name_MouseLeave(object sender, EventArgs e)
+        {
+            Mouse_Leave();
+        }
+
     }
 }

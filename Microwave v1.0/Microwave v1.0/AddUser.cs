@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Microwave_v1._0
 {
@@ -35,7 +28,6 @@ namespace Microwave_v1._0
 
             name = (tb_user_name.Text.Trim());
             email = (tb_user_surname.Text.Trim());
-            gender = 
             email = DateTime.Now.ToString();
             age = (int)numUpDown_age.Value;
             
@@ -81,6 +73,9 @@ namespace Microwave_v1._0
                 lbl_user_message.ForeColor = Color.Red;
                 return;
             }
+
+            Create_New_User_And_Set();
+            Clear();
         }
         private void Clear()
         {
@@ -94,12 +89,12 @@ namespace Microwave_v1._0
             numUpDown_age.Value = 7;
         }
 
-        private void Create_New_Book_And_Set()
+        private void Create_New_User_And_Set()
         {
             User user = new User(name, surname, gender, age, email, date);
 
             main_page.user_list.Add_User_to_List(user);
-            main_page.pnl_user_list.VerticalScroll.Value = 0;
+            main_page.Pnl_user_list.VerticalScroll.Value = 0;
 
             user.Info.Draw_User_Obj(ref Book.point_y);
 
@@ -118,6 +113,11 @@ namespace Microwave_v1._0
         private void btn_add_Click(object sender, EventArgs e)
         {
             Add_User(); 
+        }
+
+        private void AddUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
         }
     }
 }

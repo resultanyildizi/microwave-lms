@@ -79,11 +79,11 @@ namespace Microwave_v1._0
             }
             catch(System.IO.IOException d)
             {
-                Increate(name, pic_target_file);
+                Increase(name, pic_target_file);
             }
         }
 
-        private void Increate(string name, string pic_target_file)
+        private void Increase(string name, string pic_target_file)
         {
             name = this.name;
             i++;
@@ -96,10 +96,23 @@ namespace Microwave_v1._0
             }
             catch
             {
-                Increate(name, pic_target_file);
+                Increase(name, pic_target_file);
             }
             pic_source_file = pic_target_file;
         }
+
+        public static void Delete_The_Picture(string pic_source_file)
+        {
+            try
+            {
+                File.Delete(pic_source_file);
+            }
+            catch(DirectoryNotFoundException d)
+            {
+                MessageBox.Show(d.Message);
+            }
+        }
+
     }
     
    

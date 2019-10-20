@@ -77,6 +77,39 @@ namespace Microwave_v1._0
             }
         }
 
+        public void Delete_Book_from_List(int book_id)
+        {
+
+            book_node iterator = root;
+            if (root.book.Book_id == book_id)
+            {
+                root = root.next; 
+                return;
+            }
+
+            if (root == null)
+            {
+                return;
+            }
+
+            while (iterator.next.book.Book_id != book_id)
+            {
+                iterator = iterator.next;
+                if (iterator.next == null)
+                {
+                    MessageBox.Show("CANT FOUND");
+                    return;
+                }
+            }
+
+            iterator.next.book.Delete_Book_from_Database();
+            Picture_Events.Delete_The_Picture(iterator.next.book.Cover_path_file);
+
+            iterator.next.book = null;
+            iterator.next = iterator.next.next;
+            return;
+        }
+
         public static void Read_Database()
         {
             main_page = (Microwave)Application.OpenForms["Microwave"];
@@ -87,6 +120,7 @@ namespace Microwave_v1._0
             SQLiteDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
+                int book_id = reader.GetInt32(0);
                 string name = reader.GetString(1);
                 string author = reader.GetString(2);
                 string publisher = reader.GetString(3);
@@ -95,8 +129,8 @@ namespace Microwave_v1._0
                 string description = reader.GetString(6);
                 string cover_path = reader.GetString(7);
 
-                Book book = new Book(name, author, publisher, date, description, count, cover_path);
-                main_page.main_list.Add_Book_to_List(book);
+                Book book = new Book(book_id, name, author, publisher, date, description, count, cover_path);
+                main_page.Main_list.Add_Book_to_List(book);
             }
             connection.Close();
         }

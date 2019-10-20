@@ -37,6 +37,7 @@ namespace Microwave_v1._0
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
+
             this.BringToFront();
         }
 
@@ -120,16 +121,17 @@ namespace Microwave_v1._0
 
         private void Create_New_Book_And_Set()
         {
-            Book book = new Book(name, author, publisher, date, description, count, picture_event.Pic_source_file);
+            Book book = new Book(0,name, author, publisher, date, description, count, picture_event.Pic_source_file);
 
-            main_page.main_list.Add_Book_to_List(book);
-            main_page.pnl_list.VerticalScroll.Value = 0;
+            book.Add_Book_To_Database();
+
+            main_page.Main_list.Add_Book_to_List(book);
+            main_page.Pnl_book_list.VerticalScroll.Value = 0;
 
             book.Info.Draw_Book_Obj(ref Book.point_y);
 
-            main_page.main_list.Deselect_All_Book_Infos();
+            main_page.Main_list.Deselect_All_Book_Infos();
             book.Info.Select_Book_Info();
-            book.Add_Book_To_Database();
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
@@ -250,6 +252,16 @@ namespace Microwave_v1._0
                 tb_description.Text = "Description...";
                 tb_description.ForeColor = Color.Gray;
             }
+        }
+
+        private void AddBook_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
+        }
+
+        private void AddBook_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
         }
 
     }

@@ -13,10 +13,12 @@ namespace Microwave_v1._0
 {
     public partial class Warning : Form
     {
+        private Microwave main_page;
         private string message;
         private string password = "admin";
-        private string email = "deneme";
+        private string email = "deneme@gmail.com";
         private Action method = null;
+        public static Color Default_Color = Color.FromArgb(32, 33, 38);
 
         
         public string Message { get => message; set => message = value; }
@@ -26,18 +28,22 @@ namespace Microwave_v1._0
         public Warning()
         {
             InitializeComponent();
+            main_page = (Microwave)Application.OpenForms["Microwave"];
         }
-        
-        public void Initialize_Warning(string message,Action method)
+
+
+        public void Initialize_Warning(string message, Action method, Color color)
         {
+            this.BackColor = color;
+            this.lbl_email.Text = email;
             this.message = message;
             this.lbl_message.Text = this.message;
             this.method = method;
         }
 
-        private void btn_yes_Click(object sender, EventArgs e)
+        private void Yes()
         {
-            if(tb_password.Text == password)
+            if (tb_password.Text == password)
             {
                 method.Invoke();
                 this.Close();
@@ -48,7 +54,11 @@ namespace Microwave_v1._0
                 lbl_error.Text = "Password is incorrect.";
                 lbl_error.ForeColor = Color.Red;
             }
-            
+        }
+
+        private void btn_yes_Click(object sender, EventArgs e)
+        {
+            Yes();
         }
 
         private void btn_no_Click(object sender, EventArgs e)
@@ -56,5 +66,12 @@ namespace Microwave_v1._0
             this.Close();
         }
 
+        private void Tb_password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                Yes();
+            }
+        }
     }
 }

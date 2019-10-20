@@ -27,6 +27,7 @@ namespace Microwave_v1._0
         private Book_Info info;
         private int book_id;
         private int count;
+        private SQLiteConnection con = null;
         // Getters and Setters 
         public string Name { get => name; set => name = value; }
         public string Author { get => author; set => author = value; }
@@ -38,8 +39,9 @@ namespace Microwave_v1._0
         public int Book_id { get => book_id; set => book_id = value; }
         public Book_Info Info { get => info; set => info = value; }
 
-        public Book(string name, string author, string publisher, string date, string description, int count, string pic_path_file)
+        public Book(int book_id, string name, string author, string publisher, string date, string description, int count, string pic_path_file)
         {
+            this.book_id = book_id;
             this.name = name;
             this.author = author;
             this.publisher = publisher;
@@ -48,23 +50,52 @@ namespace Microwave_v1._0
             this.description = description;
             this.cover_path_file = pic_path_file;
             info = new Book_Info();
-            info.Initialize_Book_Info(name, author, publisher, date, count, description, cover_path_file);
-           
+            info.Initialize_Book_Info(book_id, name, author, publisher, date, count, description, cover_path_file);
+            con = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+
         }
         public void Add_Book_To_Database()
         {
             string title = "INSERT INTO Books (NAME,AUTHOR,PUBLISHER,DATE,COUNT,DESCRIPT,COVER_PATH) ";
             string query = title + string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');", name, author, publisher, date, count, description, cover_path_file);
-            
-            main_page = (Microwave)Application.OpenForms["Microwave"];
-            SQLiteConnection con = main_page.Connection;
 
             con.Open();
-            var cmd = con.CreateCommand();
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            con.Close();
+            var cmd_insert = con.CreateCommand();
             
+            cmd_insert.CommandText = query;
+            cmd_insert.ExecuteNonQuery();
+            
+            con.Close();
+            Take_Id();
+        }
+
+        public void Take_Id()
+        {
+            // To take the id of new book.
+            string title = "SELECT * FROM Books ";
+            string query = title + string.Format("Where NAME = '{0}' AND AUTHOR = '{1}' AND PUBLISHER = '{2}' AND COVER_PATH = '{3}';", name, author, publisher, cover_path_file);
+
+            con.Open();
+            var cmd_take_id = con.CreateCommand();
+            cmd_take_id.CommandText = query;
+            cmd_take_id.ExecuteNonQuery();
+
+            int id = int.Parse(cmd_take_id.ExecuteScalar().ToString());
+            this.book_id = id;
+            this.Info.Book_id = id; // IMPORTANT
+            con.Close();
+        }
+
+        public void Delete_Book_from_Database()
+        {
+            string title = "DELETE FROM Books ";
+            string query = title + string.Format("Where BOOK_ID = '{0}';", book_id);
+
+            con.Open();
+            var cmd_delete = con.CreateCommand();
+            cmd_delete.CommandText = query;
+            cmd_delete.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

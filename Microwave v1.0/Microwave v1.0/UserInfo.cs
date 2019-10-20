@@ -15,13 +15,6 @@ namespace Microwave_v1._0
         private Microwave main_page;
         private User_List user_list;
 
-
-        private string name;
-        private string surname;
-        private string email;
-        private string gender;
-        private int age;
-        private string date;
         
         public UserInfo()
         {
@@ -45,7 +38,7 @@ namespace Microwave_v1._0
         }
         public void Draw_User_Obj(ref int y)
         {
-            main_page.pnl_user_list.Controls.Add(this);
+            main_page.Pnl_user_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
             y += 45;
         }

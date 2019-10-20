@@ -276,10 +276,12 @@
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "AddBook";
             this.Opacity = 0.95D;
             this.Text = "AddBook";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddBook_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
             this.pnl_main.ResumeLayout(false);
             this.pnl_main.PerformLayout();

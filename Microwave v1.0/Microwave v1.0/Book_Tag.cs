@@ -23,8 +23,8 @@ namespace Microwave_v1._0
         {
             Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
             this.Location = new System.Drawing.Point(0,0);
-            this.Size = new Size(main_page.pnl_tag.Width, main_page.pnl_tag.Height);
-            main_page.pnl_tag.Controls.Add(this);
+            this.Size = new Size(main_page.Pnl_tag.Width, main_page.Pnl_tag.Height);
+            main_page.Pnl_tag.Controls.Add(this);
             this.BringToFront();
         }
 
