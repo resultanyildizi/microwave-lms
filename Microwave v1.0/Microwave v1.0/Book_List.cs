@@ -110,6 +110,13 @@ namespace Microwave_v1._0
             return;
         }
 
+        public bool Is_List_Empty()
+        {
+            if (root == null)
+                return true;
+            else
+                return false;
+        }
         public static void Read_Database()
         {
             main_page = (Microwave)Application.OpenForms["Microwave"];
