@@ -45,7 +45,7 @@ namespace Microwave_v1._0
         private Book_Tag main_tag = null;
         private AddUser add_user = null;
         public User_List user_list = null;
-        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\Deneme.db");
+        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
         private string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
 
         MENU_CHOSEN chosen = MENU_CHOSEN.BOOKS;
@@ -75,10 +75,12 @@ namespace Microwave_v1._0
         private void Microwave_Load(object sender, EventArgs e)
         {
             
-            main_tag.Edit_Book_Tag("Select A Book To Show", "Select A Book To Show", "", path_file);
+            main_tag.Edit_Book_Tag("Select A Book To Show", "Select A Book To Show", "", "0");
             main_tag.Draw_Book_Tag();
 
             Book_List.Read_Database();
+
+            Main_list.Fill_Cover_Image_List();
             Main_list.Show_All_Books();
             user_list.Show_All_Users();
 
@@ -86,6 +88,8 @@ namespace Microwave_v1._0
 
         private void Btn_Add_Book_Click(object sender, EventArgs e)
         {
+            this.pic_logo.Focus();
+
             Action method = null;
             string message = null;
             Color color = Warning.Default_Color;
@@ -143,7 +147,8 @@ namespace Microwave_v1._0
                 Add_book.Show();
             }
             this.Btn_add.Enabled = false;
-            pic_logo.Focus();
+            this.pic_logo.Focus();
+            Add_book.Focus();
         }
 
         public void Create_Warning_Form(string message, Action method, Color color)
@@ -241,12 +246,12 @@ namespace Microwave_v1._0
 
         private void Panel9_Click(object sender, EventArgs e)
         {
-            pnl_book.Focus();
+            pic_logo.Focus();
         }
 
         private void Pnl_list_Click(object sender, EventArgs e)
         {
-            pnl_book_list.Focus();
+            pic_logo.Focus();
         }
      
 

@@ -39,6 +39,7 @@ namespace Microwave_v1._0
             this.message = message;
             this.lbl_message.Text = this.message;
             this.method = method;
+            this.tb_password.Select();
         }
 
         private void Yes()
@@ -47,7 +48,6 @@ namespace Microwave_v1._0
             {
                 method.Invoke();
                 this.Close();
-
             }
             else
             {

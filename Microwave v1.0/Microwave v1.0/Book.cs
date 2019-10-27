@@ -5,9 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
-
-
-
 namespace Microwave_v1._0
 {   /* NOTE:
      * Book class includes all the information about books.
@@ -52,7 +49,7 @@ namespace Microwave_v1._0
             this.cover_path_file = pic_path_file;
             info = new Book_Info();
             info.Initialize_Book_Info(book_id, name, author, publisher, date, count, description, cover_path_file);
-            con = new SQLiteConnection(@"data source = ..\..\Resources\Databases\Deneme.db");
+            con = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
 
         }
         public void Add_Book_To_Database()
@@ -69,7 +66,7 @@ namespace Microwave_v1._0
             else
             {
                 title = "INSERT INTO Books (NAME,AUTHOR,PUBLISHER,DATE,COUNT,DESCRIPT,COVER_PATH) ";
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',);", name, author, publisher, date, count, description, cover_path_file);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');", name, author, publisher, date, count, description, cover_path_file);
             }
 
             string query = title + values;
@@ -111,5 +108,12 @@ namespace Microwave_v1._0
             cmd_delete.ExecuteNonQuery();
             con.Close();
         }
+
+        public void Add_Cover_Pic_to_Image_List()
+        {
+            main_page.Cover_image_list.Images.Add(this.book_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.cover_path_file));
+        }
+
+        
     }
 }

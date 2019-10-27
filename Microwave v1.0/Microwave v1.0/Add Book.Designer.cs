@@ -282,6 +282,7 @@
             this.Text = "AddBook";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddBook_FormClosing);
+            this.Load += new System.EventHandler(this.AddBook_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
             this.pnl_main.ResumeLayout(false);
             this.pnl_main.PerformLayout();

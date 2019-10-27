@@ -53,7 +53,7 @@
             this.btn_yes.Location = new System.Drawing.Point(55, 177);
             this.btn_yes.Name = "btn_yes";
             this.btn_yes.Size = new System.Drawing.Size(91, 36);
-            this.btn_yes.TabIndex = 1;
+            this.btn_yes.TabIndex = 2;
             this.btn_yes.Text = "Yes";
             this.btn_yes.UseVisualStyleBackColor = true;
             this.btn_yes.Click += new System.EventHandler(this.btn_yes_Click);
@@ -97,7 +97,7 @@
             this.tb_password.Location = new System.Drawing.Point(129, 117);
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(187, 22);
-            this.tb_password.TabIndex = 5;
+            this.tb_password.TabIndex = 1;
             this.tb_password.UseSystemPasswordChar = true;
             this.tb_password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_password_KeyPress);
             // 

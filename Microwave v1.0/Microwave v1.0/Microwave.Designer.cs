@@ -30,6 +30,7 @@ namespace Microwave_v1._0
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Microwave));
             this.pnl_left = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
@@ -58,6 +59,7 @@ namespace Microwave_v1._0
             this.pnl_book = new System.Windows.Forms.Panel();
             this.pnl_seperater = new System.Windows.Forms.Panel();
             this.pnl_user = new System.Windows.Forms.Panel();
+            this.pnl_user_list = new System.Windows.Forms.Panel();
             this.lbl_user_date = new System.Windows.Forms.Label();
             this.lbl_user_surname = new System.Windows.Forms.Label();
             this.lbl_user_name = new System.Windows.Forms.Label();
@@ -66,8 +68,8 @@ namespace Microwave_v1._0
             this.lbl_user_age = new System.Windows.Forms.Label();
             this.lbl_user_email = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pnl_user_list = new System.Windows.Forms.Panel();
             this.pnl_tag = new System.Windows.Forms.Panel();
+            this.cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -452,6 +454,16 @@ namespace Microwave_v1._0
             this.pnl_user.TabIndex = 16;
             this.pnl_user.Click += new System.EventHandler(this.pnl_user_Click);
             // 
+            // pnl_user_list
+            // 
+            this.pnl_user_list.AutoScroll = true;
+            this.pnl_user_list.Location = new System.Drawing.Point(-1, 146);
+            this.pnl_user_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_user_list.Name = "pnl_user_list";
+            this.pnl_user_list.Size = new System.Drawing.Size(1083, 505);
+            this.pnl_user_list.TabIndex = 14;
+            this.pnl_user_list.Click += new System.EventHandler(this.pnl_user_list_Click);
+            // 
             // lbl_user_date
             // 
             this.lbl_user_date.AutoSize = true;
@@ -538,16 +550,6 @@ namespace Microwave_v1._0
             this.panel2.Size = new System.Drawing.Size(1000, 1);
             this.panel2.TabIndex = 7;
             // 
-            // pnl_user_list
-            // 
-            this.pnl_user_list.AutoScroll = true;
-            this.pnl_user_list.Location = new System.Drawing.Point(-1, 146);
-            this.pnl_user_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnl_user_list.Name = "pnl_user_list";
-            this.pnl_user_list.Size = new System.Drawing.Size(1083, 505);
-            this.pnl_user_list.TabIndex = 14;
-            this.pnl_user_list.Click += new System.EventHandler(this.pnl_user_list_Click);
-            // 
             // pnl_tag
             // 
             this.pnl_tag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -556,6 +558,12 @@ namespace Microwave_v1._0
             this.pnl_tag.Name = "pnl_tag";
             this.pnl_tag.Size = new System.Drawing.Size(254, 705);
             this.pnl_tag.TabIndex = 16;
+            // 
+            // cover_image_list
+            // 
+            this.cover_image_list.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("cover_image_list.ImageStream")));
+            this.cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
+            this.cover_image_list.Images.SetKeyName(0, "0");
             // 
             // Microwave
             // 
@@ -631,6 +639,7 @@ namespace Microwave_v1._0
         private System.Windows.Forms.Panel pnl_user_list;
         private System.Windows.Forms.PictureBox pic_logo;
         private System.Windows.Forms.TextBox tb_search;
+        private ImageList cover_image_list;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
         public Button Btn_add { get => btn_add; set => btn_add = value; }
@@ -643,6 +652,7 @@ namespace Microwave_v1._0
         public Button Btn_about { get => btn_about; set => btn_about = value; }
         public Button Btn_email { get => btn_email; set => btn_email = value; }
         public Button Btn_user { get => btn_user; set => btn_user = value; }
+        public ImageList Cover_image_list { get => cover_image_list; set => cover_image_list = value; }
     }
 }
 

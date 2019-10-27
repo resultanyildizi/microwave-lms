@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Microwave_v1._0
 {
@@ -110,6 +111,19 @@ namespace Microwave_v1._0
             catch(DirectoryNotFoundException d)
             {
                 MessageBox.Show(d.Message);
+            }
+            catch(System.IO.IOException d)
+            {
+                MessageBox.Show(d.Message);
+            }
+        }
+
+        public static Image Get_Copy_Image_Bitmap(string path)
+        {
+            using (Image im = Image.FromFile(path))
+            {
+                Bitmap bm = new Bitmap(im);
+                return bm;
             }
         }
 

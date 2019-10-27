@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Threading;
+
 namespace Microwave_v1._0
 {
     /* NOTE:
@@ -42,6 +44,30 @@ namespace Microwave_v1._0
             root = null;
         }
 
+        public static void Read_Database()
+        {
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+            SQLiteConnection connection = main_page.Connection;
+            connection.Open();
+            string query = "SELECT * FROM Books ";
+            SQLiteCommand cmd = new SQLiteCommand(query, connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int book_id = reader.GetInt32(0);
+                string name = reader.GetString(1);
+                string author = reader.GetString(2);
+                string publisher = reader.GetString(3);
+                string date = reader.GetString(4);
+                int count = reader.GetInt32(5);
+                string description = reader.GetString(6);
+                string cover_path = reader.GetString(7);
+
+                Book book = new Book(book_id, name, author, publisher, date, description, count, cover_path);
+                main_page.Main_list.Add_Book_to_List(book);
+            }
+            connection.Close();
+        }
         public void Add_Book_to_List(Book book)
         {
             if (root == null)
@@ -81,14 +107,18 @@ namespace Microwave_v1._0
         {
 
             book_node iterator = root;
-            if (root.book.Book_id == book_id)
-            {
-                root = root.next; 
-                return;
-            }
 
             if (root == null)
             {
+                return;
+            }
+
+            if (root.book.Book_id == book_id)
+            {
+                root.book.Delete_Book_from_Database();
+                Picture_Events.Delete_The_Picture(root.book.Cover_path_file);
+                root.book = null;
+                root = root.next;
                 return;
             }
 
@@ -104,7 +134,6 @@ namespace Microwave_v1._0
 
             iterator.next.book.Delete_Book_from_Database();
             Picture_Events.Delete_The_Picture(iterator.next.book.Cover_path_file);
-
             iterator.next.book = null;
             iterator.next = iterator.next.next;
             return;
@@ -117,29 +146,16 @@ namespace Microwave_v1._0
             else
                 return false;
         }
-        public static void Read_Database()
-        {
-            main_page = (Microwave)Application.OpenForms["Microwave"];
-            SQLiteConnection connection = main_page.Connection;
-            connection.Open();
-            string query = "SELECT * FROM Books ";
-            SQLiteCommand cmd = new SQLiteCommand(query, connection);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                int book_id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                string author = reader.GetString(2);
-                string publisher = reader.GetString(3);
-                string date = reader.GetString(4);
-                int count = reader.GetInt32(5);
-                string description = reader.GetString(6);
-                string cover_path = reader.GetString(7);
 
-                Book book = new Book(book_id, name, author, publisher, date, description, count, cover_path);
-                main_page.Main_list.Add_Book_to_List(book);
+        public void Fill_Cover_Image_List()
+        {
+            book_node iterator = root;
+            while(iterator != null)
+            {
+                iterator.book.Add_Cover_Pic_to_Image_List();
+                iterator = iterator.next;
             }
-            connection.Close();
         }
+       
     }
 }

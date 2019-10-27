@@ -37,7 +37,6 @@ namespace Microwave_v1._0
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
-
             this.BringToFront();
         }
 
@@ -121,10 +120,12 @@ namespace Microwave_v1._0
 
         private void Create_New_Book_And_Set()
         {
-            Book book = new Book(0,name, author, publisher, date, description, count, picture_event.Pic_source_file);
+            string new_pic_source_file = picture_event.Pic_source_file;
+
+            Book book = new Book(0,name, author, publisher, date, description, count, new_pic_source_file);
 
             book.Add_Book_To_Database();
-
+            book.Add_Cover_Pic_to_Image_List();
             main_page.Main_list.Add_Book_to_List(book);
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
 
@@ -264,5 +265,10 @@ namespace Microwave_v1._0
             main_page.Btn_add.Enabled = true;
         }
 
+        private void AddBook_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.tb_name.Select();
+        }
     }
 }

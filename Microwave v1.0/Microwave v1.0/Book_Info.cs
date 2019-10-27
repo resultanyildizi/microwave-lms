@@ -67,7 +67,6 @@ namespace Microwave_v1._0
         {
             main_list.Deselect_All_Book_Infos(); 
             this.Select_Book_Info(); 
-            this.Focus();
         }
 
        
@@ -77,7 +76,7 @@ namespace Microwave_v1._0
             Book_Tag main_book_tag = main_page.Book_tag;
          
             Color back_color = Color.FromArgb(33, 37, 48);
-            main_book_tag.Edit_Book_Tag(name, description, author, pic_path_file);
+            main_book_tag.Edit_Book_Tag(name, description, author, book_id.ToString());
             this.pnl_author.BackColor = back_color;
             this.pnl_name.BackColor = back_color;
             this.pnl_date.BackColor = back_color;
@@ -149,8 +148,9 @@ namespace Microwave_v1._0
 
         private void Remove()
         {
-            main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", main_page.Path_file);
-
+            main_page.Cover_image_list.Images[book_id.ToString()].Dispose();
+            main_page.Cover_image_list.Images.RemoveByKey(Book_id.ToString());
+            main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", "0");
             main_list.Delete_Book_from_List(book_id);
             this.Dispose();
 
