@@ -45,7 +45,7 @@ namespace Microwave_v1._0
         private Book_Tag main_tag = null;
         private AddUser add_user = null;
         public User_List user_list = null;
-        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\Deneme.db");
         private string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
 
         MENU_CHOSEN chosen = MENU_CHOSEN.BOOKS;
@@ -70,6 +70,7 @@ namespace Microwave_v1._0
             pnl_user.Hide();
             pnl_book.Hide();
             pnl_stick.Hide();
+
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace Microwave_v1._0
             main_tag.Draw_Book_Tag();
 
             Book_List.Read_Database();
+            Main_list.Fill_Image_List_for_Book_Covers();
             Main_list.Show_All_Books();
             user_list.Show_All_Users();
 

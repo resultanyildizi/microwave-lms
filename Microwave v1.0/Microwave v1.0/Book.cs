@@ -41,6 +41,7 @@ namespace Microwave_v1._0
 
         public Book(int book_id, string name, string author, string publisher, string date, string description, int count, string pic_path_file)
         {
+            main_page = (Microwave)Application.OpenForms["Microwave"];
             this.book_id = book_id;
             this.name = name;
             this.author = author;
@@ -51,14 +52,28 @@ namespace Microwave_v1._0
             this.cover_path_file = pic_path_file;
             info = new Book_Info();
             info.Initialize_Book_Info(book_id, name, author, publisher, date, count, description, cover_path_file);
-            con = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+            con = new SQLiteConnection(@"data source = ..\..\Resources\Databases\Deneme.db");
 
         }
         public void Add_Book_To_Database()
         {
-            string title = "INSERT INTO Books (NAME,AUTHOR,PUBLISHER,DATE,COUNT,DESCRIPT,COVER_PATH) ";
-            string query = title + string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');", name, author, publisher, date, count, description, cover_path_file);
+            string title;
 
+            string values;
+
+            if(main_page.Main_list.Is_List_Empty())
+            {
+                title = "INSERT INTO Books (BOOK_ID,NAME,AUTHOR,PUBLISHER,DATE,COUNT,DESCRIPT,COVER_PATH) ";
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}');",05101900, name, author, publisher, date, count, description, cover_path_file);
+            }
+            else
+            {
+                title = "INSERT INTO Books (NAME,AUTHOR,PUBLISHER,DATE,COUNT,DESCRIPT,COVER_PATH) ";
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',);", name, author, publisher, date, count, description, cover_path_file);
+            }
+
+            string query = title + values;
             con.Open();
             var cmd_insert = con.CreateCommand();
             
@@ -96,6 +111,11 @@ namespace Microwave_v1._0
             cmd_delete.CommandText = query;
             cmd_delete.ExecuteNonQuery();
             con.Close();
+        }
+
+        public void Add_Picture_to_ImageList()
+        {
+            main_page.Book_cover_image_list.Images.Add(this.book_id.ToString(), System.Drawing.Image.FromFile(cover_path_file)); ;
         }
     }
 }

@@ -75,9 +75,8 @@ namespace Microwave_v1._0
         {
             chosen = true;
             Book_Tag main_book_tag = main_page.Book_tag;
-         
             Color back_color = Color.FromArgb(33, 37, 48);
-            main_book_tag.Edit_Book_Tag(name, description, author, pic_path_file);
+            main_book_tag.Edit_Book_Tag(name, description, author, book_id.ToString());
             this.pnl_author.BackColor = back_color;
             this.pnl_name.BackColor = back_color;
             this.pnl_date.BackColor = back_color;
