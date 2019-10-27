@@ -45,7 +45,7 @@ namespace Microwave_v1._0
         private Book_Tag main_tag = null;
         private AddUser add_user = null;
         public User_List user_list = null;
-        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\Deneme.db");
         private string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
 
         MENU_CHOSEN chosen = MENU_CHOSEN.BOOKS;
