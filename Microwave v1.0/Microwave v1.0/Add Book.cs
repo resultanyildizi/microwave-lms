@@ -124,11 +124,10 @@ namespace Microwave_v1._0
             Book book = new Book(0,name, author, publisher, date, description, count, picture_event.Pic_source_file);
 
             book.Add_Book_To_Database();
+
             main_page.Main_list.Add_Book_to_List(book);
-
-            book.Add_Picture_to_ImageList();
-
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
+
             book.Info.Draw_Book_Obj(ref Book.point_y);
 
             main_page.Main_list.Deselect_All_Book_Infos();

@@ -31,40 +31,15 @@ namespace Microwave_v1._0
     public class Book_List
     {
 
-        private static Microwave main_page;
-        private int point_y = Book.point_y;
+        static Microwave main_page;
+        int point_y = Book.point_y;
+
+
         book_node root;
-
-
         public Book_List()
         {
            
             root = null;
-        }
-
-        public static void Read_Database()
-        {
-            main_page = (Microwave)Application.OpenForms["Microwave"];
-            SQLiteConnection connection = main_page.Connection;
-            connection.Open();
-            string query = "SELECT * FROM Books ";
-            SQLiteCommand cmd = new SQLiteCommand(query, connection);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                int book_id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                string author = reader.GetString(2);
-                string publisher = reader.GetString(3);
-                string date = reader.GetString(4);
-                int count = reader.GetInt32(5);
-                string description = reader.GetString(6);
-                string cover_path = reader.GetString(7);
-
-                Book book = new Book(book_id, name, author, publisher, date, description, count, cover_path);
-                main_page.Main_list.Add_Book_to_List(book);
-            }
-            connection.Close();
         }
 
         public void Add_Book_to_List(Book book)
@@ -134,23 +109,30 @@ namespace Microwave_v1._0
             iterator.next = iterator.next.next;
             return;
         }
-        public void Fill_Image_List_for_Book_Covers()
-        {
-            book_node iterator = root;
-            while (iterator != null)
-            {
-                iterator.book.Add_Picture_to_ImageList();
-                iterator = iterator.next;
-            }
-        }
-        public bool Is_List_Empty()
-        {
-            if (root == null)
-                return true;
-            else
-                return false;
-        }
-       
 
+        public static void Read_Database()
+        {
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+            SQLiteConnection connection = main_page.Connection;
+            connection.Open();
+            string query = "SELECT * FROM Books ";
+            SQLiteCommand cmd = new SQLiteCommand(query, connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int book_id = reader.GetInt32(0);
+                string name = reader.GetString(1);
+                string author = reader.GetString(2);
+                string publisher = reader.GetString(3);
+                string date = reader.GetString(4);
+                int count = reader.GetInt32(5);
+                string description = reader.GetString(6);
+                string cover_path = reader.GetString(7);
+
+                Book book = new Book(book_id, name, author, publisher, date, description, count, cover_path);
+                main_page.Main_list.Add_Book_to_List(book);
+            }
+            connection.Close();
+        }
     }
 }

@@ -113,8 +113,6 @@ namespace Microwave_v1._0
             }
         }
 
-        
-
     }
     
    
