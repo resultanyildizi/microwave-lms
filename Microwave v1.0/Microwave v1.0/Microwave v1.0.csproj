@@ -67,75 +67,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUser.cs">
+    <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.Designer.cs">
+    <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book_Tag.cs">
+    <Compile Include="UserControls\Book_Tag.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Book_Tag.Designer.cs">
+    <Compile Include="UserControls\Book_Tag.Designer.cs">
       <DependentUpon>Book_Tag.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add Book.cs">
+    <Compile Include="Forms\Add Book.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add Book.Designer.cs">
+    <Compile Include="Forms\Add Book.Designer.cs">
       <DependentUpon>Add Book.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book_Info.cs">
+    <Compile Include="UserControls\Book_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Book_Info.Designer.cs">
+    <Compile Include="UserControls\Book_Info.Designer.cs">
       <DependentUpon>Book_Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs" />
-    <Compile Include="Book_List.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserInfo.cs">
+    <Compile Include="Classes\Book.cs" />
+    <Compile Include="Classes\Book_List.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserInfo.Designer.cs">
+    <Compile Include="UserControls\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_List.cs" />
-    <Compile Include="Warning.cs">
+    <Compile Include="Classes\User_List.cs" />
+    <Compile Include="Forms\Warning.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Warning.Designer.cs">
+    <Compile Include="Forms\Warning.Designer.cs">
       <DependentUpon>Warning.cs</DependentUpon>
     </Compile>
-    <Compile Include="Librarian.cs" />
-    <Compile Include="Microwave.cs">
+    <Compile Include="Classes\Librarian.cs" />
+    <Compile Include="Forms\Microwave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Microwave.Designer.cs">
+    <Compile Include="Forms\Microwave.Designer.cs">
       <DependentUpon>Microwave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Picture_Events.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Picture_Events.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddUser.resx">
+    <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Book_Tag.resx">
+    <EmbeddedResource Include="UserControls\Book_Tag.resx">
       <DependentUpon>Book_Tag.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add Book.resx">
+    <EmbeddedResource Include="Forms\Add Book.resx">
       <DependentUpon>Add Book.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Book_Info.resx">
+    <EmbeddedResource Include="UserControls\Book_Info.resx">
       <DependentUpon>Book_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserInfo.resx">
+    <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Warning.resx">
+    <EmbeddedResource Include="Forms\Warning.resx">
       <DependentUpon>Warning.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Microwave.resx">
+    <EmbeddedResource Include="Forms\Microwave.resx">
       <DependentUpon>Microwave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
