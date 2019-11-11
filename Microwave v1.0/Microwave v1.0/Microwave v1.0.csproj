@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Department.cs" />
+    <Compile Include="Classes\Department_List.cs" />
     <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +96,12 @@
     <Compile Include="Classes\Book.cs" />
     <Compile Include="Classes\Book_List.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="UserControls\Department_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Department_Info.Designer.cs">
+      <DependentUpon>Department_Info.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Book_Info.resx">
       <DependentUpon>Book_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Department_Info.resx">
+      <DependentUpon>Department_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>

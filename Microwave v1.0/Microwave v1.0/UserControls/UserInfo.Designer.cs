@@ -199,7 +199,7 @@
             this.btn_user_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_user_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_user_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_user_edit.Image")));
-            this.btn_user_edit.Location = new System.Drawing.Point(2, 0);
+            this.btn_user_edit.Location = new System.Drawing.Point(2, 2);
             this.btn_user_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_user_edit.Name = "btn_user_edit";
             this.btn_user_edit.Size = new System.Drawing.Size(19, 19);
