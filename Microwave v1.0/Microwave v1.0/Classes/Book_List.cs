@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Threading;
+using Microwave_v1._0.Classes;
 
 namespace Microwave_v1._0
 {
@@ -32,12 +33,14 @@ namespace Microwave_v1._0
 
     public class Book_List
     {
-
+        private static SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
         static Microwave main_page;
         int point_y = Book.point_y;
 
 
         book_node root;
+
+
         public Book_List()
         {
            
@@ -47,25 +50,29 @@ namespace Microwave_v1._0
         public static void Read_Database()
         {
             main_page = (Microwave)Application.OpenForms["Microwave"];
-            SQLiteConnection connection = main_page.Connection;
-            connection.Open();
             string query = "SELECT * FROM Books ";
-            SQLiteCommand cmd = new SQLiteCommand(query, connection);
-            SQLiteDataReader reader = cmd.ExecuteReader();
+            SQLiteDataReader reader = DataBaseEvents.ExecuteQuery(connection, query);
+
             while (reader.Read())
             {
                 int book_id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                string author = reader.GetString(2);
-                string publisher = reader.GetString(3);
-                string date = reader.GetString(4);
-                int count = reader.GetInt32(5);
-                string description = reader.GetString(6);
-                string cover_path = reader.GetString(7);
+                int author_id = reader.GetInt32(1);
+                int publisher_id = reader.GetInt32(2);
+                int category_id = reader.GetInt32(3);
+                int librarian_id = reader.GetInt32(4);
+                int shelf_id = reader.GetInt32(5);
+                int popularity_id = reader.GetInt32(6);
+                string name = reader.GetString(7);
+                string date = reader.GetString(8);
+                string description = reader.GetString(9);
+                int count = reader.GetInt32(10);
+                string cover_path = reader.GetString(11);
+                int popularity_score = reader.GetInt32(12);
 
-                Book book = new Book(book_id, name, author, publisher, date, description, count, cover_path);
+                Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
                 main_page.Main_list.Add_Book_to_List(book);
             }
+
             connection.Close();
         }
         public void Add_Book_to_List(Book book)
