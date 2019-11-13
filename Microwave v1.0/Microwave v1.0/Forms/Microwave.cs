@@ -229,50 +229,10 @@ namespace Microwave_v1._0
             tb_search.Focus();
         }
 
-        private void Pnl_menu_Click(object sender, EventArgs e)
+        private void General_Click(object sender, EventArgs e)
         {
-            pnl_menu.Focus();
-        }
-
-        private void Pic_logo_Click(object sender, EventArgs e)
-        {
-            pic_logo.Focus();
-        }
-
-        private void Pnl_left_Click(object sender, EventArgs e)
-        {
-            pnl_left.Focus();
-        }
-
-        private void Panel9_Click(object sender, EventArgs e)
-        {
-            pic_logo.Focus();
-        }
-
-        private void Pnl_list_Click(object sender, EventArgs e)
-        {
-            pic_logo.Focus();
-        }
-     
-
-        private void pnl_user_list_Click(object sender, EventArgs e)
-        {
-            pnl_user.Focus();
-        }
-
-        private void pnl_user_Click(object sender, EventArgs e)
-        {
-            pnl_user.Focus();
-        }
-
-        private void Pnl_header_Click(object sender, EventArgs e)
-        {
-            pnl_header.Focus();
-        }
-
-        private void Microwave_Click(object sender, EventArgs e)
-        {
-            this.Focus();
+            this.pic_logo.Focus();
+            this.pic_logo.Select();
         }
     }
 }

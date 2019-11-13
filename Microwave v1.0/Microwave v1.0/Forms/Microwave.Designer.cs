@@ -91,7 +91,7 @@ namespace Microwave_v1._0
             this.pnl_left.Name = "pnl_left";
             this.pnl_left.Size = new System.Drawing.Size(287, 752);
             this.pnl_left.TabIndex = 1;
-            this.pnl_left.Click += new System.EventHandler(this.Pnl_left_Click);
+            this.pnl_left.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_menu
             // 
@@ -108,7 +108,7 @@ namespace Microwave_v1._0
             this.pnl_menu.Name = "pnl_menu";
             this.pnl_menu.Size = new System.Drawing.Size(287, 619);
             this.pnl_menu.TabIndex = 9;
-            this.pnl_menu.Click += new System.EventHandler(this.Pnl_menu_Click);
+            this.pnl_menu.Click += new System.EventHandler(this.General_Click);
             // 
             // btn_about
             // 
@@ -224,7 +224,7 @@ namespace Microwave_v1._0
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_logo.TabIndex = 4;
             this.pic_logo.TabStop = false;
-            this.pic_logo.Click += new System.EventHandler(this.Pic_logo_Click);
+            this.pic_logo.Click += new System.EventHandler(this.General_Click);
             // 
             // lbl_logo
             // 
@@ -237,6 +237,7 @@ namespace Microwave_v1._0
             this.lbl_logo.TabIndex = 8;
             this.lbl_logo.Text = "Microwave";
             this.lbl_logo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_logo.Click += new System.EventHandler(this.General_Click);
             // 
             // lbl_logo_lms
             // 
@@ -248,6 +249,7 @@ namespace Microwave_v1._0
             this.lbl_logo_lms.TabIndex = 4;
             this.lbl_logo_lms.Text = "Library Management System";
             this.lbl_logo_lms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_logo_lms.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_header
             // 
@@ -263,7 +265,7 @@ namespace Microwave_v1._0
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1085, 49);
             this.pnl_header.TabIndex = 2;
-            this.pnl_header.Click += new System.EventHandler(this.Pnl_header_Click);
+            this.pnl_header.Click += new System.EventHandler(this.General_Click);
             // 
             // panel8
             // 
@@ -406,7 +408,7 @@ namespace Microwave_v1._0
             this.pnl_book_list.Name = "pnl_book_list";
             this.pnl_book_list.Size = new System.Drawing.Size(797, 505);
             this.pnl_book_list.TabIndex = 14;
-            this.pnl_book_list.Click += new System.EventHandler(this.Pnl_list_Click);
+            this.pnl_book_list.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_book
             // 
@@ -424,7 +426,7 @@ namespace Microwave_v1._0
             this.pnl_book.Name = "pnl_book";
             this.pnl_book.Size = new System.Drawing.Size(809, 704);
             this.pnl_book.TabIndex = 15;
-            this.pnl_book.Click += new System.EventHandler(this.Panel9_Click);
+            this.pnl_book.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_seperater
             // 
@@ -452,7 +454,7 @@ namespace Microwave_v1._0
             this.pnl_user.Name = "pnl_user";
             this.pnl_user.Size = new System.Drawing.Size(1077, 707);
             this.pnl_user.TabIndex = 16;
-            this.pnl_user.Click += new System.EventHandler(this.pnl_user_Click);
+            this.pnl_user.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_user_list
             // 
@@ -462,7 +464,6 @@ namespace Microwave_v1._0
             this.pnl_user_list.Name = "pnl_user_list";
             this.pnl_user_list.Size = new System.Drawing.Size(1083, 505);
             this.pnl_user_list.TabIndex = 14;
-            this.pnl_user_list.Click += new System.EventHandler(this.pnl_user_list_Click);
             // 
             // lbl_user_date
             // 
@@ -558,6 +559,7 @@ namespace Microwave_v1._0
             this.pnl_tag.Name = "pnl_tag";
             this.pnl_tag.Size = new System.Drawing.Size(254, 705);
             this.pnl_tag.TabIndex = 16;
+            this.pnl_tag.Click += new System.EventHandler(this.General_Click);
             // 
             // cover_image_list
             // 
@@ -573,9 +575,9 @@ namespace Microwave_v1._0
             this.ClientSize = new System.Drawing.Size(1346, 752);
             this.Controls.Add(this.pnl_header);
             this.Controls.Add(this.pnl_left);
-            this.Controls.Add(this.pnl_book);
             this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_user);
+            this.Controls.Add(this.pnl_book);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -586,7 +588,7 @@ namespace Microwave_v1._0
             this.ShowIcon = false;
             this.Text = "Microwave";
             this.Load += new System.EventHandler(this.Microwave_Load);
-            this.Click += new System.EventHandler(this.Microwave_Click);
+            this.Click += new System.EventHandler(this.General_Click);
             this.pnl_left.ResumeLayout(false);
             this.pnl_menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();

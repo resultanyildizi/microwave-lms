@@ -8,26 +8,49 @@ namespace Microwave_v1._0.Classes
 {
     class DataBaseEvents
     {
-        // Reading data from database
-        public static SQLiteDataReader ExecuteQuery(SQLiteConnection con, string query)
+        // Reads the first coloumn of the first row
+        public static string ExecuteQuery_String(string query, string datasource)
         {
+            string result = null;
+            SQLiteConnection con = new SQLiteConnection(datasource);
             con.Open();
             SQLiteCommand cmd = new SQLiteCommand(query, con);
             SQLiteDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            return reader;
+            result = reader.GetString(0);
+            reader.Close();
+            cmd.Dispose();
+            con.Close();
+            return result;
+        }
+
+        public static int ExecuteQuery_Int32(string query, string datasource)
+        {
+            int result = -1;
+            SQLiteConnection con = new SQLiteConnection(datasource);
+                con.Open();
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            result = reader.GetInt32(0);
+            reader.Close();
+            cmd.Dispose();
+            con.Close();
+            return result;
         }
 
         // Insert, Delete, Update
-        public static int ExecuteNonQuery(SQLiteConnection con, string query)
+        public static int ExecuteNonQuery(string query, string datasource)
         {
-            con.Open();
-            var cmd = con.CreateCommand();
+            SQLiteConnection connect = new SQLiteConnection(datasource);
+            connect.Open();
+            SQLiteCommand cmd = connect.CreateCommand();
             cmd.CommandText = query;
-            // Returns the number of rows which is affected
-            int count = cmd.ExecuteNonQuery();
-            con.Close();
-            return count;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.ExecuteNonQuery();
+            connect.Close();
+            cmd.Connection.Close();
+            return 1;
         }
     }
 }

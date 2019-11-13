@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBook));
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.cb_shelf = new System.Windows.Forms.ComboBox();
+            this.cb_category = new System.Windows.Forms.ComboBox();
+            this.cb_publisher = new System.Windows.Forms.ComboBox();
+            this.cb_author = new System.Windows.Forms.ComboBox();
+            this.lbl_shelf = new System.Windows.Forms.Label();
+            this.lbl_category = new System.Windows.Forms.Label();
             this.numUpDown_count = new System.Windows.Forms.NumericUpDown();
             this.lbl_message = new System.Windows.Forms.Label();
             this.btn_add_pic = new System.Windows.Forms.Button();
@@ -41,13 +47,7 @@
             this.lbl_publisher = new System.Windows.Forms.Label();
             this.lbl_author = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.lbl_category = new System.Windows.Forms.Label();
-            this.lbl_shelf = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.cb_author = new System.Windows.Forms.ComboBox();
-            this.cb_publisher = new System.Windows.Forms.ComboBox();
-            this.cb_category = new System.Windows.Forms.ComboBox();
-            this.cb_shelf = new System.Windows.Forms.ComboBox();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_book)).BeginInit();
@@ -81,6 +81,92 @@
             this.pnl_main.Size = new System.Drawing.Size(455, 562);
             this.pnl_main.TabIndex = 1;
             // 
+            // cb_shelf
+            // 
+            this.cb_shelf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.cb_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_shelf.ForeColor = System.Drawing.Color.Gray;
+            this.cb_shelf.FormattingEnabled = true;
+            this.cb_shelf.Items.AddRange(new object[] {
+            "###"});
+            this.cb_shelf.Location = new System.Drawing.Point(139, 390);
+            this.cb_shelf.Name = "cb_shelf";
+            this.cb_shelf.Size = new System.Drawing.Size(76, 28);
+            this.cb_shelf.TabIndex = 6;
+            this.cb_shelf.SelectedIndexChanged += new System.EventHandler(this.Cb_shelf_SelectedIndexChanged);
+            this.cb_shelf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_shelf_KeyDown);
+            this.cb_shelf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            // 
+            // cb_category
+            // 
+            this.cb_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.cb_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_category.ForeColor = System.Drawing.Color.Gray;
+            this.cb_category.FormattingEnabled = true;
+            this.cb_category.Items.AddRange(new object[] {
+            "Category"});
+            this.cb_category.Location = new System.Drawing.Point(139, 182);
+            this.cb_category.Name = "cb_category";
+            this.cb_category.Size = new System.Drawing.Size(290, 28);
+            this.cb_category.TabIndex = 4;
+            this.cb_category.SelectedIndexChanged += new System.EventHandler(this.Cb_category_SelectedIndexChanged);
+            this.cb_category.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_category_KeyDown);
+            this.cb_category.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            // 
+            // cb_publisher
+            // 
+            this.cb_publisher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.cb_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_publisher.ForeColor = System.Drawing.Color.Gray;
+            this.cb_publisher.FormattingEnabled = true;
+            this.cb_publisher.Items.AddRange(new object[] {
+            "Publisher\'s Name"});
+            this.cb_publisher.Location = new System.Drawing.Point(139, 136);
+            this.cb_publisher.Name = "cb_publisher";
+            this.cb_publisher.Size = new System.Drawing.Size(290, 28);
+            this.cb_publisher.TabIndex = 3;
+            this.cb_publisher.SelectedIndexChanged += new System.EventHandler(this.Cb_publisher_SelectedIndexChanged);
+            this.cb_publisher.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_publisher_KeyDown);
+            this.cb_publisher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            // 
+            // cb_author
+            // 
+            this.cb_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.cb_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_author.ForeColor = System.Drawing.Color.Gray;
+            this.cb_author.FormattingEnabled = true;
+            this.cb_author.Items.AddRange(new object[] {
+            "Author\'s Name"});
+            this.cb_author.Location = new System.Drawing.Point(139, 90);
+            this.cb_author.Name = "cb_author";
+            this.cb_author.Size = new System.Drawing.Size(290, 28);
+            this.cb_author.TabIndex = 2;
+            this.cb_author.SelectedIndexChanged += new System.EventHandler(this.Cb_author_SelectedIndexChanged);
+            this.cb_author.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_author_KeyDown);
+            this.cb_author.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            // 
+            // lbl_shelf
+            // 
+            this.lbl_shelf.AutoSize = true;
+            this.lbl_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_shelf.ForeColor = System.Drawing.Color.White;
+            this.lbl_shelf.Location = new System.Drawing.Point(12, 390);
+            this.lbl_shelf.Name = "lbl_shelf";
+            this.lbl_shelf.Size = new System.Drawing.Size(57, 24);
+            this.lbl_shelf.TabIndex = 28;
+            this.lbl_shelf.Text = "Shelf:";
+            // 
+            // lbl_category
+            // 
+            this.lbl_category.AutoSize = true;
+            this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_category.ForeColor = System.Drawing.Color.White;
+            this.lbl_category.Location = new System.Drawing.Point(12, 182);
+            this.lbl_category.Name = "lbl_category";
+            this.lbl_category.Size = new System.Drawing.Size(90, 24);
+            this.lbl_category.TabIndex = 26;
+            this.lbl_category.Text = "Category:";
+            // 
             // numUpDown_count
             // 
             this.numUpDown_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
@@ -95,7 +181,7 @@
             0});
             this.numUpDown_count.Name = "numUpDown_count";
             this.numUpDown_count.Size = new System.Drawing.Size(76, 30);
-            this.numUpDown_count.TabIndex = 6;
+            this.numUpDown_count.TabIndex = 7;
             this.numUpDown_count.Value = new decimal(new int[] {
             1,
             0,
@@ -148,7 +234,7 @@
             this.tb_description.Name = "tb_description";
             this.tb_description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_description.Size = new System.Drawing.Size(290, 129);
-            this.tb_description.TabIndex = 4;
+            this.tb_description.TabIndex = 5;
             this.tb_description.Text = "Description...";
             this.tb_description.Enter += new System.EventHandler(this.tb_description_Enter);
             this.tb_description.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
@@ -225,28 +311,6 @@
             this.lbl_name.TabIndex = 9;
             this.lbl_name.Text = "Name:";
             // 
-            // lbl_category
-            // 
-            this.lbl_category.AutoSize = true;
-            this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_category.ForeColor = System.Drawing.Color.White;
-            this.lbl_category.Location = new System.Drawing.Point(12, 182);
-            this.lbl_category.Name = "lbl_category";
-            this.lbl_category.Size = new System.Drawing.Size(90, 24);
-            this.lbl_category.TabIndex = 26;
-            this.lbl_category.Text = "Category:";
-            // 
-            // lbl_shelf
-            // 
-            this.lbl_shelf.AutoSize = true;
-            this.lbl_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_shelf.ForeColor = System.Drawing.Color.White;
-            this.lbl_shelf.Location = new System.Drawing.Point(12, 390);
-            this.lbl_shelf.Name = "lbl_shelf";
-            this.lbl_shelf.Size = new System.Drawing.Size(57, 24);
-            this.lbl_shelf.TabIndex = 28;
-            this.lbl_shelf.Text = "Shelf:";
-            // 
             // tb_name
             // 
             this.tb_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
@@ -262,58 +326,6 @@
             this.tb_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
             this.tb_name.Leave += new System.EventHandler(this.tb_name_Leave);
             // 
-            // cb_author
-            // 
-            this.cb_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.cb_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_author.ForeColor = System.Drawing.Color.Gray;
-            this.cb_author.FormattingEnabled = true;
-            this.cb_author.Items.AddRange(new object[] {
-            "Author\'s Name"});
-            this.cb_author.Location = new System.Drawing.Point(139, 90);
-            this.cb_author.Name = "cb_author";
-            this.cb_author.Size = new System.Drawing.Size(290, 28);
-            this.cb_author.TabIndex = 30;
-            // 
-            // cb_publisher
-            // 
-            this.cb_publisher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.cb_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_publisher.ForeColor = System.Drawing.Color.Gray;
-            this.cb_publisher.FormattingEnabled = true;
-            this.cb_publisher.Items.AddRange(new object[] {
-            "Publisher\'s Name"});
-            this.cb_publisher.Location = new System.Drawing.Point(139, 136);
-            this.cb_publisher.Name = "cb_publisher";
-            this.cb_publisher.Size = new System.Drawing.Size(290, 28);
-            this.cb_publisher.TabIndex = 31;
-            // 
-            // cb_category
-            // 
-            this.cb_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.cb_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_category.ForeColor = System.Drawing.Color.Gray;
-            this.cb_category.FormattingEnabled = true;
-            this.cb_category.Items.AddRange(new object[] {
-            "Category"});
-            this.cb_category.Location = new System.Drawing.Point(139, 182);
-            this.cb_category.Name = "cb_category";
-            this.cb_category.Size = new System.Drawing.Size(290, 28);
-            this.cb_category.TabIndex = 32;
-            // 
-            // cb_shelf
-            // 
-            this.cb_shelf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.cb_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_shelf.ForeColor = System.Drawing.Color.Gray;
-            this.cb_shelf.FormattingEnabled = true;
-            this.cb_shelf.Items.AddRange(new object[] {
-            "###"});
-            this.cb_shelf.Location = new System.Drawing.Point(139, 390);
-            this.cb_shelf.Name = "cb_shelf";
-            this.cb_shelf.Size = new System.Drawing.Size(76, 28);
-            this.cb_shelf.TabIndex = 33;
-            // 
             // AddBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,7 +340,6 @@
             this.Name = "AddBook";
             this.Opacity = 0.95D;
             this.Text = "AddBook";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddBook_FormClosing);
             this.Load += new System.EventHandler(this.AddBook_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);

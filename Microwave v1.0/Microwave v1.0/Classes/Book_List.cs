@@ -33,7 +33,7 @@ namespace Microwave_v1._0
 
     public class Book_List
     {
-        private static SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+        private static string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         static Microwave main_page;
         int point_y = Book.point_y;
 
@@ -51,7 +51,10 @@ namespace Microwave_v1._0
         {
             main_page = (Microwave)Application.OpenForms["Microwave"];
             string query = "SELECT * FROM Books ";
-            SQLiteDataReader reader = DataBaseEvents.ExecuteQuery(connection, query);
+            SQLiteConnection con = new SQLiteConnection(datasource);
+            con.Open();
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
@@ -73,7 +76,7 @@ namespace Microwave_v1._0
                 main_page.Main_list.Add_Book_to_List(book);
             }
 
-            connection.Close();
+            con.Close();
         }
         public void Add_Book_to_List(Book book)
         {

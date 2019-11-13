@@ -16,6 +16,7 @@ namespace Microwave_v1._0
         // Global
         public static int point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
         Microwave main_page;
+        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         // ID's
         private int book_id;
         private int author_id;
@@ -38,8 +39,6 @@ namespace Microwave_v1._0
         private string category_name;
         private string shelf_name;
         private string popularity_name;
-
-        private SQLiteConnection con = null;
         // Getters and Setters 
         public string Date { get => date; set => date = value; }
         public int Count { get => count; set => count = value; }
@@ -57,7 +56,7 @@ namespace Microwave_v1._0
 
         public Book(int book_id, int author_id, int publisher_id, int category_id, int librarian_id, int shelf_id, string name, int count, string date, string description, string pic_path_file, int popularity_id, int popularity_score)
         {
-            con = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+            
             main_page = (Microwave)Application.OpenForms["Microwave"];
             this.book_id = book_id;
             this.author_id = author_id;
@@ -83,35 +82,45 @@ namespace Microwave_v1._0
 
         public void Join_Tables()
         {
+            SQLiteConnection con = new SQLiteConnection(datasource);
+
             string que_author     = "Select Authors.NAME from Authors where Authors.AUTHOR_ID = " + author_id.ToString();
             string que_publisher  = "Select Publishers.NAME from Publishers where Publishers.PUBLISHER_ID = " + publisher_id.ToString();
             string que_category   = "Select Categories.NAME from Categories where Categories.CATEGORY_ID = " + category_id.ToString();
             string que_shelf      = "Select Shelves.NAME from Shelves where Shelves.SHELF_ID = " + shelf_id.ToString();
             string que_popularity = "Select Popularity.NAME from Popularity where Popularity.POPULARITY_ID = " + popularity_id.ToString();
 
-            SQLiteDataReader reader = null;
-
+            SQLiteCommand cmd = null;
             // take author name
-            reader = DataBaseEvents.ExecuteQuery(con, que_author);
-            author_name = reader.GetString(0);
+            con.Open();
+            cmd = new SQLiteCommand(que_author, con);
+            author_name = cmd.ExecuteScalar().ToString();
             con.Close();
+            cmd.Connection.Close();
             // take publisher name
-            reader = DataBaseEvents.ExecuteQuery(con, que_publisher);
-            publisher_name = reader.GetString(0);
+            con.Open();
+            cmd = new SQLiteCommand(que_publisher, con);
+            publisher_name = cmd.ExecuteScalar().ToString();
             con.Close();
+            cmd.Connection.Close();
             // take category name
-            reader = DataBaseEvents.ExecuteQuery(con, que_category);
-            category_name = reader.GetString(0);
+            con.Open();
+            cmd = new SQLiteCommand(que_category, con);
+            category_name = cmd.ExecuteScalar().ToString();
             con.Close();
+            cmd.Connection.Close();
             // take shelf name
-            reader = DataBaseEvents.ExecuteQuery(con, que_shelf);
-            shelf_name = reader.GetString(0);
+            con.Open();
+            cmd = new SQLiteCommand(que_shelf, con);
+            shelf_name = cmd.ExecuteScalar().ToString();
             con.Close();
+            cmd.Connection.Close();
             // take popularity name
-            reader = DataBaseEvents.ExecuteQuery(con, que_popularity);
-            popularity_name = reader.GetString(0);
+            con.Open();
+            cmd = new SQLiteCommand(que_popularity, con);
+            popularity_name = cmd.ExecuteScalar().ToString();
             con.Close();
-
+            cmd.Connection.Close();
         }
         public void Add_Book_To_Database()
         {
@@ -122,32 +131,35 @@ namespace Microwave_v1._0
             {
                 int starter_id = 05101900;
                 title = "INSERT INTO Books (BOOK_ID,AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, SHELF_ID, POPULARITY_ID, NAME, DATE, DESCRIPT, COUNT, COVER_PATH, POPULARITY_SCORE) ";
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}','{12}')",starter_id, author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, date,description, count, cover_path_file, popularity_score);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}','{12}')",
+                                       starter_id, author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, 
+                                       date,description, count, cover_path_file, popularity_score);
             }
             else
             {
                 title = "INSERT INTO Books (AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, SHELF_ID, POPULARITY_ID, NAME, DATE, DESCRIPT, COUNT, COVER_PATH, POPULARITY_SCORE) ";
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}')", author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, date, description, count, cover_path_file, popularity_score);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}')", 
+                                        author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, date,
+                                        description, count, cover_path_file, popularity_score);
             }
 
             string query = title + values;
 
-            DataBaseEvents.ExecuteNonQuery(con, query);
+            DataBaseEvents.ExecuteNonQuery(query, datasource);
+
+            // Take book id which is given by database automatically
             Take_Id();
         }
 
         public void Take_Id()
         {
             // To take the id of new book.
-            string title = "SELECT * FROM Books ";
-            string query = title + string.Format("Where NAME = '{0}' AND AUTHOR = '{1}' AND PUBLISHER = '{2}' AND COVER_PATH = '{3}';", name, author_name, publisher_name, cover_path_file);
+            string title = "SELECT Books.BOOK_ID FROM Books ";
+            string query = title + string.Format("Where NAME = '{0}' AND PUBLISHER_ID = '{1}';", name, publisher_id);
 
-            SQLiteDataReader reader = DataBaseEvents.ExecuteQuery(con, query);
-
-            int id = reader.GetInt32(0);
+            int id = DataBaseEvents.ExecuteQuery_Int32(query, datasource);
             this.book_id = id;
             this.Info.Book_id = id; // IMPORTANT
-            con.Close();
         }
 
         public void Delete_Book_from_Database()
@@ -155,9 +167,10 @@ namespace Microwave_v1._0
             string title = "DELETE FROM Books ";
             string query = title + string.Format("Where BOOK_ID = '{0}';", book_id);
 
-            DataBaseEvents.ExecuteNonQuery(con, query);
+            DataBaseEvents.ExecuteNonQuery(query, datasource);
         }
 
+        // Adds the cover picture of this book to the image list on the main form by giving its id as a key
         public void Add_Cover_Pic_to_Image_List()
         {
             main_page.Cover_image_list.Images.Add(this.book_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.cover_path_file));
