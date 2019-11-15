@@ -78,10 +78,11 @@ namespace Microwave_v1._0
             main_tag.Edit_Book_Tag("Select A Book To Show", "Select A Book To Show", "", "0");
             main_tag.Draw_Book_Tag();
 
-            Book_List.Read_Database();
+            DataTable all_books = Book.Read_All_Books();
+            Book_List.Read_Database(all_books);
 
-            Main_list.Fill_Cover_Image_List();
-            Main_list.Show_All_Books();
+            main_list.Fill_Cover_Image_List();
+            main_list.Show_All_Books();
             user_list.Show_All_Users();
 
         }
@@ -90,24 +91,28 @@ namespace Microwave_v1._0
         {
             this.pic_logo.Focus();
 
-            Action method = null;
             string message = null;
             Color color = Warning.Default_Color;
 
             if(chosen == MENU_CHOSEN.BOOKS)
             {
-                method = Create_Add_Book_Form;
                 message = "Do you want to add a book?";
                 color = Color.DarkGreen;
+                Create_Warning_Form(message, color);
+                if (warning_form.Result == true)
+                    Create_Add_Book_Form();
+                warning_form.Refresh_Form();
             }
             else if(chosen == MENU_CHOSEN.USERS)
             {
-                method = Create_Add_User_Form;
                 message = "Do you want to add a user?";
                 color = Color.DarkCyan;
-            }
+                Create_Warning_Form(message, color);
+                if (warning_form.Result == true)
+                    Create_Add_User_Form();
 
-            Create_Warning_Form(message, method, color);
+                warning_form.Refresh_Form();
+            }
         }
 
         public void Create_Add_User_Form()
@@ -151,22 +156,22 @@ namespace Microwave_v1._0
             Add_book.Focus();
         }
 
-        public void Create_Warning_Form(string message, Action method, Color color)
+        public void Create_Warning_Form(string message, Color color)
         {
             if (Warning_form == null)
             {
                 Warning_form = new Warning();
-                Warning_form.Initialize_Warning(message, method, color);
             }
             try
             {
-                Warning_form.Show();
+                Warning_form.Initialize_Warning(message, color);
+                Warning_form.ShowDialog();
             }
             catch (ObjectDisposedException d)
             {
                 Warning_form = new Warning();
-                Warning_form.Initialize_Warning(message, method, color);
-                Warning_form.Show();
+                Warning_form.Initialize_Warning(message, color);
+                Warning_form.ShowDialog();
             }
         }
 
@@ -186,6 +191,10 @@ namespace Microwave_v1._0
                 tb_search.Text = "Search A Book...";
                 tb_search.ForeColor = Color.DimGray;
             }
+        }
+        private void Tb_search_Click(object sender, EventArgs e)
+        {
+            tb_search.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -222,11 +231,6 @@ namespace Microwave_v1._0
             pnl_book.Show();
             pnl_tag.Show();
             pnl_user.Hide();
-        }
-
-        private void Tb_search_Click(object sender, EventArgs e)
-        {
-            tb_search.Focus();
         }
 
         private void General_Click(object sender, EventArgs e)

@@ -39,9 +39,15 @@ namespace Microwave_v1._0
         Picture_Events picture_event;
         private string pic_default_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
         private string pic_dest_path = @"..\..\Resources\Book Covers\";
+        private string pic_new_source_path = "";
+
 
         private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
+
+        private bool is_edit = false;
+        private bool change_image = false;
+        Book book_to_edit = null;
 
         public AddBook()
         {
@@ -49,6 +55,10 @@ namespace Microwave_v1._0
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
+            pic_new_source_path = picture_event.Pic_source_file;
+
+            // Read Authors, Publishers, Categories, Shelves from Database
+            Fill_Comboboxes();
 
             // Make comboboxes default
             this.cb_author.SelectedIndex = 0;
@@ -56,14 +66,48 @@ namespace Microwave_v1._0
             this.cb_category.SelectedIndex = 0;
             this.cb_shelf.SelectedIndex = 0;
 
-            // Read Authors, Publishers, Categories, Shelves from Database
-            Fill_Comboboxes();
+           
 
 
             this.BringToFront();
         }
 
-        private void Add_Book()
+        public AddBook(Book book)
+        {
+            InitializeComponent();
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+            System.IO.Directory.CreateDirectory(pic_dest_path);
+            picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
+
+            book_to_edit = book;
+
+            // Read Authors, Publishers, Categories, Shelves from Database
+            Fill_Comboboxes();
+
+            // Make comboboxes default
+            this.cb_author.SelectedIndex = this.cb_author.Items.IndexOf(book.Author_name);
+            this.cb_publisher.SelectedIndex = this.cb_publisher.Items.IndexOf(book.Publisher_name);
+            this.cb_category.SelectedIndex = this.cb_category.Items.IndexOf(book.Category_name);
+            this.cb_shelf.SelectedIndex = this.cb_shelf.Items.IndexOf(book.Shelf_name);
+
+            // Make other properties default
+            this.tb_name.Text = book.Name;
+            this.tb_name.ForeColor = Color.LightGray;
+            this.tb_description.Text = book.Description;
+            this.tb_description.ForeColor = Color.LightGray;
+            this.numUpDown_count.Value = book.Count;
+
+            pic_new_source_path = picture_event.Pic_source_file = book.Cover_path_file;
+            pic_book.Image = main_page.Cover_image_list.Images[book.Book_id.ToString()];
+
+
+            is_edit = true;
+
+
+            this.BringToFront();
+        }
+
+        private void Add_Book(bool is_edit)
         {
             description = tb_description.Text.Replace('\'', ' ');
             name        = (tb_name.Text.Trim()).Replace('\'', ' ');
@@ -73,9 +117,11 @@ namespace Microwave_v1._0
             shelf       = cb_shelf.SelectedItem.ToString();
             count       = (int)numUpDown_count.Value;
             date        =  DateTime.Now.ToString();
+            pic_new_source_path = picture_event.Pic_source_file;
 
             lbl_message.Text = "";
 
+            // Validations
             if (tb_name.Text.Trim() == "Book's Name" || tb_name.Text.Trim() == "")
             {
                 lbl_message.Text = "* Please enter book's name.";
@@ -83,7 +129,6 @@ namespace Microwave_v1._0
                 tb_name.Focus();
                 return;
             }
-
             if(cb_author.SelectedIndex == 0)
             {
                 lbl_message.Text = "* Please choose an author.";
@@ -91,7 +136,6 @@ namespace Microwave_v1._0
                 cb_author.Focus();
                 return;
             }
-
             if (cb_publisher.SelectedIndex == 0)
             {
                 lbl_message.Text = "* Please choose a publisher.";
@@ -99,7 +143,6 @@ namespace Microwave_v1._0
                 cb_publisher.Focus();
                 return;
             }
-
             if (cb_category.SelectedIndex == 0)
             {
                 lbl_message.Text = "* Please choose a category.";
@@ -107,7 +150,6 @@ namespace Microwave_v1._0
                 cb_category.Focus();
                 return;
             }
-
             if (tb_description.Text == "Description..." || tb_description.Text == "")
             {
                 lbl_message.Text = "* Please enter description.";
@@ -115,7 +157,6 @@ namespace Microwave_v1._0
                 tb_description.Focus();
                 return;
             }
-
             if (cb_shelf.SelectedIndex == 0)
             {
                 lbl_message.Text = "* Please choose a shelf.";
@@ -123,8 +164,7 @@ namespace Microwave_v1._0
                 cb_shelf.Focus();
                 return;
             }
-
-            if (picture_event.Pic_source_file == null || picture_event.Pic_source_file == pic_default_file)
+            if (pic_new_source_path == null || pic_new_source_path == pic_default_file)
             {
                 lbl_message.Text = "* Please choose a picture.";
                 lbl_message.ForeColor = Color.Red;
@@ -132,29 +172,62 @@ namespace Microwave_v1._0
                 picture_event.Choose_Image();
                 return;
             }
+                Join_Tables();
 
-            picture_event.Copy_The_Picture(name);
 
-            Join_Tables();
+            if(is_edit == false)
+            {
+                picture_event.Copy_The_Picture(name);
+                Create_New_Book_And_Set();
+                Clear();
+            }
+            else
+            {
+                if(change_image)
+                {
+                    picture_event.Copy_The_Picture(name);
+                    change_image = false;
+                }
+                lbl_message.Text = "*Book changed successfully";
+                lbl_message.ForeColor = Color.LightGreen;
+                Edit_Book();
+            }
 
-            Create_New_Book_And_Set();
            
-            Clear();
 
         }
+        private void Edit_Book()
+        {
+            book_to_edit.Author_id = author_id;
+            book_to_edit.Publisher_id = publisher_id;
+            book_to_edit.Category_id = category_id;
+            book_to_edit.Shelf_id = shelf_id;
+            book_to_edit.Count = count;
+            book_to_edit.Name = name;
+            book_to_edit.Description = description;
+            book_to_edit.Cover_path_file = picture_event.Pic_source_file;
 
+            book_to_edit.Edit();
+
+        }
         // Reads ID's from database
         private void Join_Tables()
         {
+            DataTable dt = null;
             string que_author = string.Format("Select Authors.AUTHOR_ID from Authors where Authors.NAME = '{0}'", author);
             string que_publisher = string.Format("Select Publishers.PUBLISHER_ID from Publishers where Publishers.NAME = '{0}'", publisher);
             string que_category = string.Format("Select Categories.CATEGORY_ID from Categories where Categories.NAME = '{0}'", category);
             string que_shelf = string.Format("Select Shelves.SHELF_ID from Shelves where Shelves.NAME= '{0}'", shelf);
 
-            author_id = DataBaseEvents.ExecuteQuery_Int32(que_author, datasource);
-            publisher_id = DataBaseEvents.ExecuteQuery_Int32(que_publisher, datasource);
-            category_id = DataBaseEvents.ExecuteQuery_Int32(que_category, datasource);
-            shelf_id = DataBaseEvents.ExecuteQuery_Int32(que_shelf, datasource);
+
+            dt = DataBaseEvents.ExecuteQuery(que_author, datasource);
+            author_id = int.Parse(dt.Rows[0][0].ToString());
+            dt = DataBaseEvents.ExecuteQuery(que_publisher, datasource);
+            publisher_id = int.Parse(dt.Rows[0][0].ToString());
+            dt = DataBaseEvents.ExecuteQuery(que_category, datasource);
+            category_id = int.Parse(dt.Rows[0][0].ToString());
+            dt = DataBaseEvents.ExecuteQuery(que_shelf, datasource);
+            shelf_id = int.Parse(dt.Rows[0][0].ToString());
 
         }
         // Reads Authors, Publishers, Categories, Shelves from Database 
@@ -210,7 +283,7 @@ namespace Microwave_v1._0
             cmd.Dispose();
             con.Close();
         }
-
+        // Clears all textboxes and comboboxes
         private void Clear()
         {
             this.cb_author.SelectedIndex = 0;
@@ -221,42 +294,38 @@ namespace Microwave_v1._0
             this.cb_category.ForeColor = Color.Gray;
             this.cb_shelf.SelectedIndex = 0;
             this.cb_shelf.ForeColor = Color.Gray;
+            tb_name.Text = "Book's Name";
+            tb_name.ForeColor = Color.DimGray;
+            tb_description.Text = "Description...";
+            tb_description.ForeColor = Color.Gray;
         }
-
 
         private void Create_New_Book_And_Set()
         {
             /* ONEMLI */
             int librarian_id = 0;
-            Book book = new Book(0, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, picture_event.Pic_source_file, 1, 0);
-            book.Add_Book_To_Database();
-            book.Add_Cover_Pic_to_Image_List();
+            Book book = new Book(0, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, pic_new_source_path, 1, 0);
 
-            main_page.Main_list.Add_Book_to_List(book);
-            main_page.Pnl_book_list.VerticalScroll.Value = 0;
-
-            book.Info.Draw_Book_Obj(ref Book.point_y);
-
-            main_page.Main_list.Deselect_All_Book_Infos();
-            book.Info.Select_Book_Info();
+            book.Add();
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
         {
-            Add_Book();
+             Add_Book(is_edit);
         }
 
         private void Btn_add_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                Add_Book();
+                Add_Book(is_edit);
             }
 
         }
 
         private void Change_Image_Click(object sender, EventArgs e)
         {
+            change_image = true;
             picture_event.Choose_Image();
         }
 
@@ -331,6 +400,7 @@ namespace Microwave_v1._0
             this.tb_name.Select();
         }
 
+        // Comboboxes Events
         private void Cb_author_SelectedIndexChanged(object sender, EventArgs e)
         {
             int last_index = cb_author.Items.Count - 1;

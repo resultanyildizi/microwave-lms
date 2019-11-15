@@ -17,9 +17,9 @@ namespace Microwave_v1._0
     public partial class Book_Info : UserControl
     {
         private Microwave main_page;
-        private Book_List main_list;  
-        
-       
+        private Book_List main_list;
+        private AddBook edit_form = null;
+
         private string description;
         private string name;
         private string author;
@@ -51,6 +51,7 @@ namespace Microwave_v1._0
             this.author = author;
             this.name = name;
             this.pic_path_file = pic_path_file;
+
         }
 
         
@@ -136,22 +137,30 @@ namespace Microwave_v1._0
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
+            string message = "Do you want to edit this book?";
+            main_page.Create_Warning_Form(message, Color.DarkBlue);
+            if (main_page.Warning_form.Result)
+                Edit();
 
+            main_page.Warning_form.Refresh_Form();
         }
 
         private void Btn_remove_Click(object sender, EventArgs e)
         {
-            string message = "Do you want to delete a book?";
-            Action method = Remove;
-            main_page.Create_Warning_Form(message, method, Color.DarkRed);
+            string message = "Do you want to delete this book?";
+            main_page.Create_Warning_Form(message, Color.DarkRed);
+            if(main_page.Warning_form.Result)
+                Remove();
+
+            main_page.Warning_form.Refresh_Form();
         }
 
-        private void Remove()
+        private void Remove(bool delete_picture = true)
         {
             main_page.Cover_image_list.Images[book_id.ToString()].Dispose();
             main_page.Cover_image_list.Images.RemoveByKey(Book_id.ToString());
             main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", "0");
-            main_list.Delete_Book_from_List(book_id);
+            main_list.Delete_Book_from_List(book_id, delete_picture);
             this.Dispose();
 
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
@@ -159,13 +168,46 @@ namespace Microwave_v1._0
             main_list.Show_All_Books();
         }
 
+        private void Edit()
+        {
+            Book current = main_list.Find_Book_By_ID(book_id);
+            // Don't delete the picture from file
+            Create_Add_Book_Form_With_Book(current);
+        }
+
+
+        private void Create_Add_Book_Form_With_Book(Book book)
+        {
+            
+            if(edit_form == null)
+            {
+                edit_form = new AddBook(book);
+                edit_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    edit_form.Show();
+                }
+                catch(Exception e)
+                {
+                    edit_form = new AddBook(book);
+                    edit_form.Show();
+                }
+            }
+        }
+
         private void Book_Info_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Delete)
             {
                 string message = "Do you want to delete a book?";
-                Action method = Remove;
-                main_page.Create_Warning_Form(message, method, Color.DarkRed);
+
+                main_page.Create_Warning_Form(message, Color.DarkRed);
+                if (main_page.Warning_form.Result)
+                    Remove();
+                main_page.Warning_form.Refresh_Form();
             }
         }
 

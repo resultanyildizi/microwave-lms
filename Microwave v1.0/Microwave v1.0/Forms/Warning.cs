@@ -17,13 +17,14 @@ namespace Microwave_v1._0
         private string message;
         private string password = "admin";
         private string email = "deneme@gmail.com";
-        private Action method = null;
+        private bool result = false;
         public static Color Default_Color = Color.FromArgb(32, 33, 38);
 
         
         public string Message { get => message; set => message = value; }
         public string Password { get => password; set => password = value; }
         public string Email { get => email; set => email = value; }
+        public bool Result { get => result; set => result = value; }
 
         public Warning()
         {
@@ -32,13 +33,12 @@ namespace Microwave_v1._0
         }
 
 
-        public void Initialize_Warning(string message, Action method, Color color)
+        public void Initialize_Warning(string message, Color color)
         {
             this.BackColor = color;
             this.lbl_email.Text = email;
             this.message = message;
             this.lbl_message.Text = this.message;
-            this.method = method;
             this.tb_password.Select();
         }
 
@@ -46,14 +46,23 @@ namespace Microwave_v1._0
         {
             if (tb_password.Text == password)
             {
-                method.Invoke();
+                result = true;
                 this.Close();
             }
             else
             {
+                result = false;
                 lbl_error.Text = "Password is incorrect.";
                 lbl_error.ForeColor = Color.Red;
             }
+        }
+
+        public void Refresh_Form()
+        {
+            this.tb_password.Text = "";
+            this.lbl_message.Text = "";
+            this.lbl_error.Text = "";
+            this.result = false;
         }
 
         private void btn_yes_Click(object sender, EventArgs e)
@@ -63,7 +72,9 @@ namespace Microwave_v1._0
 
         private void btn_no_Click(object sender, EventArgs e)
         {
+            result = false;
             this.Close();
+            
         }
 
         private void Tb_password_KeyPress(object sender, KeyPressEventArgs e)

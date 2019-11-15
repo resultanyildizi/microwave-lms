@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using Microwave_v1._0.Classes;
+using System.Data;
 
 namespace Microwave_v1._0
 {   /* NOTE:
@@ -16,7 +17,7 @@ namespace Microwave_v1._0
         // Global
         public static int point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
         Microwave main_page;
-        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         // ID's
         private int book_id;
         private int author_id;
@@ -39,6 +40,8 @@ namespace Microwave_v1._0
         private string category_name;
         private string shelf_name;
         private string popularity_name;
+
+
         // Getters and Setters 
         public string Date { get => date; set => date = value; }
         public int Count { get => count; set => count = value; }
@@ -53,7 +56,14 @@ namespace Microwave_v1._0
         public int Popularity_id { get => popularity_id; set => popularity_id = value; }
         public int Popularity_score { get => popularity_score; set => popularity_score = value; }
         public string Name { get => name; set => name = value; }
+        public string Author_name { get => author_name; set => author_name = value; }
+        public string Publisher_name { get => publisher_name; set => publisher_name = value; }
+        public string Category_name { get => category_name; set => category_name = value; }
+        public string Shelf_name { get => shelf_name; set => shelf_name = value; }
+        public string Popularity_name { get => popularity_name; set => popularity_name = value; }
 
+        
+        // Constructor
         public Book(int book_id, int author_id, int publisher_id, int category_id, int librarian_id, int shelf_id, string name, int count, string date, string description, string pic_path_file, int popularity_id, int popularity_score)
         {
             
@@ -73,21 +83,52 @@ namespace Microwave_v1._0
             this.popularity_id = popularity_id;
 
             // Take infos from database by matching with ID's
-            Join_Tables();
+            Join_Tables_For_Names();
 
             info = new Book_Info();
             info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
 
         }
 
-        public void Join_Tables()
+        // Methods
+        public void Edit()
+        {
+            Join_Tables_For_Names();
+            if (Update_Book_In_Database() > 0)
+                info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
+            else
+                MessageBox.Show("Update is not valid");
+        }
+        public void Add()
+        {
+            Add_Book_To_Database();
+            Add_Cover_Pic_to_Image_List();
+
+            main_page.Main_list.Add_Book_to_List(this);
+            main_page.Pnl_book_list.VerticalScroll.Value = 0;
+
+            Info.Draw_Book_Obj(ref Book.point_y);
+
+            main_page.Main_list.Deselect_All_Book_Infos();
+            Info.Select_Book_Info();
+        }
+
+        // TODO:
+        public void Show_User_List() { }
+        public void Calculate_Popularity_Score() { }
+        public void Give_Book_To_User() { }
+
+
+
+        // Database Events
+        private void Join_Tables_For_Names()
         {
             SQLiteConnection con = new SQLiteConnection(datasource);
 
-            string que_author     = "Select Authors.NAME from Authors where Authors.AUTHOR_ID = " + author_id.ToString();
-            string que_publisher  = "Select Publishers.NAME from Publishers where Publishers.PUBLISHER_ID = " + publisher_id.ToString();
-            string que_category   = "Select Categories.NAME from Categories where Categories.CATEGORY_ID = " + category_id.ToString();
-            string que_shelf      = "Select Shelves.NAME from Shelves where Shelves.SHELF_ID = " + shelf_id.ToString();
+            string que_author = "Select Authors.NAME from Authors where Authors.AUTHOR_ID = " + author_id.ToString();
+            string que_publisher = "Select Publishers.NAME from Publishers where Publishers.PUBLISHER_ID = " + publisher_id.ToString();
+            string que_category = "Select Categories.NAME from Categories where Categories.CATEGORY_ID = " + category_id.ToString();
+            string que_shelf = "Select Shelves.NAME from Shelves where Shelves.SHELF_ID = " + shelf_id.ToString();
             string que_popularity = "Select Popularity.NAME from Popularity where Popularity.POPULARITY_ID = " + popularity_id.ToString();
 
             SQLiteCommand cmd = null;
@@ -122,7 +163,7 @@ namespace Microwave_v1._0
             con.Close();
             cmd.Connection.Close();
         }
-        public void Add_Book_To_Database()
+        private void Add_Book_To_Database()
         {
             string title;
             string values;
@@ -148,33 +189,66 @@ namespace Microwave_v1._0
             DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             // Take book id which is given by database automatically
-            Take_Id();
+            Take_Id_From_Database();
         }
-
-        public void Take_Id()
+        private void Take_Id_From_Database()
         {
             // To take the id of new book.
             string title = "SELECT Books.BOOK_ID FROM Books ";
             string query = title + string.Format("Where NAME = '{0}' AND PUBLISHER_ID = '{1}';", name, publisher_id);
 
-            int id = DataBaseEvents.ExecuteQuery_Int32(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
+            int id = int.Parse(dt.Rows[0][0].ToString());
             this.book_id = id;
             this.Info.Book_id = id; // IMPORTANT
         }
-
-        public void Delete_Book_from_Database()
+        public int Delete_Book_from_Database()
         {
             string title = "DELETE FROM Books ";
             string query = title + string.Format("Where BOOK_ID = '{0}';", book_id);
 
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+                MessageBox.Show("Delete is not valid");
+            return result;
         }
+        private int Update_Book_In_Database()
+        {
+            string title = "UPDATE Books";
+            string query = title + string.Format(" SET AUTHOR_ID = '{0}', PUBLISHER_ID = '{1}', CATEGORY_ID = '{2}', " +
+                "SHELF_ID = '{3}', NAME = '{4}', DESCRIPT = '{5}', COUNT = '{6}', COVER_PATH = '{7}' " +
+                "WHERE BOOK_ID = '{8}'", author_id, publisher_id, category_id, shelf_id, name, description, count, cover_path_file, book_id);
+
+            return DataBaseEvents.ExecuteNonQuery(query, datasource);
+
+        }
+
+        // TODO:
+        private void Change_Popularity_Stat() { }
+        private void Change_Count_In_Database() { }
+        static public DataTable Read_All_Books()
+        {
+            string query = "Select * From Books ";
+
+            return DataBaseEvents.ExecuteQuery(query, datasource);
+        }
+        static public DataTable Search_Book_By_ID() { return null; }
+        static public DataTable Search_Book_By_Name() { return null; }
+        static public DataTable Search_Book_By_Author() { return null; }
+        static public DataTable Search_Book_By_Publisher() { return null; }
+        static public DataTable Search_Book_By_Category() { return null; }
+        static public DataTable Search_Book_By_Shelf() { return null; }
+        static public DataTable Search_Book_By_Popularity () { return null; }
+
+
 
         // Adds the cover picture of this book to the image list on the main form by giving its id as a key
         public void Add_Cover_Pic_to_Image_List()
         {
             main_page.Cover_image_list.Images.Add(this.book_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.cover_path_file));
         }
+
 
         
     }

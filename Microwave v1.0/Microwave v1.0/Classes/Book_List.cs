@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Threading;
 using Microwave_v1._0.Classes;
+using System.Data;
 
 namespace Microwave_v1._0
 {
@@ -47,36 +48,32 @@ namespace Microwave_v1._0
             root = null;
         }
 
-        public static void Read_Database()
+        public static void Read_Database(DataTable dt)
         {
             main_page = (Microwave)Application.OpenForms["Microwave"];
-            string query = "SELECT * FROM Books ";
-            SQLiteConnection con = new SQLiteConnection(datasource);
-            con.Open();
-            SQLiteCommand cmd = new SQLiteCommand(query, con);
-            SQLiteDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
+            int rows_count = dt.Rows.Count;
+            
+            for(int i = 0; i < rows_count; i++)
             {
-                int book_id = reader.GetInt32(0);
-                int author_id = reader.GetInt32(1);
-                int publisher_id = reader.GetInt32(2);
-                int category_id = reader.GetInt32(3);
-                int librarian_id = reader.GetInt32(4);
-                int shelf_id = reader.GetInt32(5);
-                int popularity_id = reader.GetInt32(6);
-                string name = reader.GetString(7);
-                string date = reader.GetString(8);
-                string description = reader.GetString(9);
-                int count = reader.GetInt32(10);
-                string cover_path = reader.GetString(11);
-                int popularity_score = reader.GetInt32(12);
+                int book_id = int.Parse(dt.Rows[i][0].ToString());
+                int author_id = int.Parse(dt.Rows[i][1].ToString());
+                int publisher_id = int.Parse(dt.Rows[i][2].ToString());
+                int category_id = int.Parse(dt.Rows[i][3].ToString());
+                int librarian_id = int.Parse(dt.Rows[i][4].ToString());
+                int shelf_id = int.Parse(dt.Rows[i][5].ToString());
+                int popularity_id = int.Parse(dt.Rows[i][6].ToString());
+                string name = dt.Rows[i][7].ToString();
+                string date = dt.Rows[i][8].ToString();
+                string description = dt.Rows[i][9].ToString();
+                int count = int.Parse(dt.Rows[i][10].ToString());
+                string cover_path = dt.Rows[i][11].ToString();
+                int popularity_score = int.Parse(dt.Rows[i][12].ToString());
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
                 main_page.Main_list.Add_Book_to_List(book);
             }
-
-            con.Close();
+                
         }
         public void Add_Book_to_List(Book book)
         {
@@ -113,7 +110,7 @@ namespace Microwave_v1._0
             }
         }
 
-        public void Delete_Book_from_List(int book_id)
+        public void Delete_Book_from_List(int book_id, bool delete_picture)
         {
 
             book_node iterator = root;
@@ -126,7 +123,8 @@ namespace Microwave_v1._0
             if (root.book.Book_id == book_id)
             {
                 root.book.Delete_Book_from_Database();
-                Picture_Events.Delete_The_Picture(root.book.Cover_path_file);
+                if(delete_picture == true)
+                    Picture_Events.Delete_The_Picture(root.book.Cover_path_file);
                 root.book = null;
                 root = root.next;
                 return;
@@ -143,10 +141,29 @@ namespace Microwave_v1._0
             }
 
             iterator.next.book.Delete_Book_from_Database();
-            Picture_Events.Delete_The_Picture(iterator.next.book.Cover_path_file);
+            if(delete_picture == true)
+                Picture_Events.Delete_The_Picture(iterator.next.book.Cover_path_file);
             iterator.next.book = null;
             iterator.next = iterator.next.next;
             return;
+        }
+
+        public Book Find_Book_By_ID(int book_id)
+        {
+            if (root == null)
+                return null;
+
+            book_node iterator = root;
+            
+            while(iterator.book.Book_id != book_id)
+            {
+                if (iterator.next == null)
+                    return null;
+
+                iterator = iterator.next;
+            }
+
+            return iterator.book;
         }
 
         public bool Is_List_Empty()
