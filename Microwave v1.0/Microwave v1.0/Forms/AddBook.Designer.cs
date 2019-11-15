@@ -96,6 +96,7 @@
             this.cb_shelf.SelectedIndexChanged += new System.EventHandler(this.Cb_shelf_SelectedIndexChanged);
             this.cb_shelf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_shelf_KeyDown);
             this.cb_shelf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            this.cb_shelf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Cb_shelf_MouseClick);
             // 
             // cb_category
             // 
@@ -112,6 +113,7 @@
             this.cb_category.SelectedIndexChanged += new System.EventHandler(this.Cb_category_SelectedIndexChanged);
             this.cb_category.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_category_KeyDown);
             this.cb_category.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            this.cb_category.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Cb_category_MouseClick);
             // 
             // cb_publisher
             // 
@@ -128,6 +130,7 @@
             this.cb_publisher.SelectedIndexChanged += new System.EventHandler(this.Cb_publisher_SelectedIndexChanged);
             this.cb_publisher.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_publisher_KeyDown);
             this.cb_publisher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            this.cb_publisher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Cb_publisher_MouseClick);
             // 
             // cb_author
             // 
@@ -144,6 +147,7 @@
             this.cb_author.SelectedIndexChanged += new System.EventHandler(this.Cb_author_SelectedIndexChanged);
             this.cb_author.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Cb_author_KeyDown);
             this.cb_author.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
+            this.cb_author.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Cb_author_MouseClick);
             // 
             // lbl_shelf
             // 
@@ -257,7 +261,7 @@
             this.btn_add.FlatAppearance.BorderSize = 0;
             this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
+            this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.correct_symbol__1_;
             this.btn_add.Location = new System.Drawing.Point(11, 496);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";

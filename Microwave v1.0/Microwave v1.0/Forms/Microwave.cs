@@ -74,15 +74,12 @@ namespace Microwave_v1._0
 
         private void Microwave_Load(object sender, EventArgs e)
         {
-            
+            main_list = new Book_List();
             main_tag.Edit_Book_Tag("Select A Book To Show", "Select A Book To Show", "", "0");
             main_tag.Draw_Book_Tag();
 
-            DataTable all_books = Book.Read_All_Books();
-            Book_List.Read_Database(all_books);
+            Book.Show_All_Books();
 
-            main_list.Fill_Cover_Image_List();
-            main_list.Show_All_Books();
             user_list.Show_All_Users();
 
         }
@@ -175,27 +172,6 @@ namespace Microwave_v1._0
             }
         }
 
-        private void tb_search_Enter(object sender, EventArgs e)
-        {
-            if(tb_search.Text == "Search A Book...")
-            {
-                tb_search.Text = "";
-                tb_search.ForeColor = Color.LightGray;
-            }
-        }
-
-        private void tb_search_Leave(object sender, EventArgs e)
-        {
-            if (tb_search.Text == "")
-            {
-                tb_search.Text = "Search A Book...";
-                tb_search.ForeColor = Color.DimGray;
-            }
-        }
-        private void Tb_search_Click(object sender, EventArgs e)
-        {
-            tb_search.Focus();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -237,6 +213,11 @@ namespace Microwave_v1._0
         {
             this.pic_logo.Focus();
             this.pic_logo.Select();
+        }
+        public void Remove_Image_From_Cover_List(int book_id)
+        {
+            Cover_image_list.Images[book_id.ToString()].Dispose();
+            Cover_image_list.Images.RemoveByKey(book_id.ToString());
         }
     }
 }

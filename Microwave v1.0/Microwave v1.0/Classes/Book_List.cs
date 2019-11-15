@@ -34,13 +34,9 @@ namespace Microwave_v1._0
 
     public class Book_List
     {
-        private static string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
-        static Microwave main_page;
         int point_y = Book.point_y;
 
-
         book_node root;
-
 
         public Book_List()
         {
@@ -48,10 +44,8 @@ namespace Microwave_v1._0
             root = null;
         }
 
-        public static void Read_Database(DataTable dt)
+        public void Fill_Book_List(DataTable dt)
         {
-            main_page = (Microwave)Application.OpenForms["Microwave"];
-
             int rows_count = dt.Rows.Count;
             
             for(int i = 0; i < rows_count; i++)
@@ -71,9 +65,10 @@ namespace Microwave_v1._0
                 int popularity_score = int.Parse(dt.Rows[i][12].ToString());
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
-                main_page.Main_list.Add_Book_to_List(book);
+                this.Add_Book_to_List(book);
             }
-                
+
+            Fill_Cover_Image_List();
         }
         public void Add_Book_to_List(Book book)
         {
@@ -89,7 +84,6 @@ namespace Microwave_v1._0
 
             iterator.next = new book_node(book);
         }
-
         public void Show_All_Books()
         {
             book_node iterator = root;
@@ -99,7 +93,6 @@ namespace Microwave_v1._0
                 iterator = iterator.next;
             }
         }
-
         public void Deselect_All_Book_Infos()
         {
             book_node iterator = root;
@@ -109,7 +102,6 @@ namespace Microwave_v1._0
                 iterator = iterator.next;
             }
         }
-
         public void Delete_Book_from_List(int book_id, bool delete_picture)
         {
 
@@ -122,7 +114,7 @@ namespace Microwave_v1._0
 
             if (root.book.Book_id == book_id)
             {
-                root.book.Delete_Book_from_Database();
+                root.book.Delete();
                 if(delete_picture == true)
                     Picture_Events.Delete_The_Picture(root.book.Cover_path_file);
                 root.book = null;
@@ -140,14 +132,13 @@ namespace Microwave_v1._0
                 }
             }
 
-            iterator.next.book.Delete_Book_from_Database();
+            iterator.next.book.Delete();
             if(delete_picture == true)
                 Picture_Events.Delete_The_Picture(iterator.next.book.Cover_path_file);
             iterator.next.book = null;
             iterator.next = iterator.next.next;
             return;
         }
-
         public Book Find_Book_By_ID(int book_id)
         {
             if (root == null)
@@ -165,7 +156,6 @@ namespace Microwave_v1._0
 
             return iterator.book;
         }
-
         public bool Is_List_Empty()
         {
             if (root == null)
@@ -173,13 +163,12 @@ namespace Microwave_v1._0
             else
                 return false;
         }
-
         public void Fill_Cover_Image_List()
         {
             book_node iterator = root;
             while(iterator != null)
             {
-                iterator.book.Add_Cover_Pic_to_Image_List();
+                iterator.book.Cover_Pic_to_Image_List();
                 iterator = iterator.next;
             }
         }

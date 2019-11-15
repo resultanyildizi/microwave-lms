@@ -47,7 +47,7 @@ namespace Microwave_v1._0
 
         private bool is_edit = false;
         private bool change_image = false;
-        Book book_to_edit = null;
+        private Book book_to_edit = null;
 
         public AddBook()
         {
@@ -75,6 +75,8 @@ namespace Microwave_v1._0
         public AddBook(Book book)
         {
             InitializeComponent();
+            this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.pencil__1_;
+
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
@@ -100,14 +102,12 @@ namespace Microwave_v1._0
             pic_new_source_path = picture_event.Pic_source_file = book.Cover_path_file;
             pic_book.Image = main_page.Cover_image_list.Images[book.Book_id.ToString()];
 
-
             is_edit = true;
-
 
             this.BringToFront();
         }
 
-        private void Add_Book(bool is_edit)
+        private void Add_Click_Func(bool is_edit)
         {
             description = tb_description.Text.Replace('\'', ' ');
             name        = (tb_name.Text.Trim()).Replace('\'', ' ');
@@ -178,38 +178,43 @@ namespace Microwave_v1._0
             if(is_edit == false)
             {
                 picture_event.Copy_The_Picture(name);
-                Create_New_Book_And_Set();
+
+                /* ONEMLI */
+                int librarian_id = 0;
+                Book book = new Book(0, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, pic_new_source_path, 1, 0);
+                book.Add();
+
                 Clear();
             }
             else
             {
                 if(change_image)
                 {
+                    Picture_Events.Delete_The_Picture(book_to_edit.Cover_path_file);
                     picture_event.Copy_The_Picture(name);
+                    main_page.Remove_Image_From_Cover_List(book_to_edit.Book_id);
+                    book_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;
                 }
+
                 lbl_message.Text = "*Book changed successfully";
                 lbl_message.ForeColor = Color.LightGreen;
-                Edit_Book();
+
+                book_to_edit.Author_id = author_id;
+                book_to_edit.Publisher_id = publisher_id;
+                book_to_edit.Category_id = category_id;
+                book_to_edit.Shelf_id = shelf_id;
+                book_to_edit.Count = count;
+                book_to_edit.Name = name;
+                book_to_edit.Description = description;
+                book_to_edit.Cover_path_file = picture_event.Pic_source_file;       
+                book_to_edit.Edit();
             }
 
            
 
         }
-        private void Edit_Book()
-        {
-            book_to_edit.Author_id = author_id;
-            book_to_edit.Publisher_id = publisher_id;
-            book_to_edit.Category_id = category_id;
-            book_to_edit.Shelf_id = shelf_id;
-            book_to_edit.Count = count;
-            book_to_edit.Name = name;
-            book_to_edit.Description = description;
-            book_to_edit.Cover_path_file = picture_event.Pic_source_file;
 
-            book_to_edit.Edit();
-
-        }
         // Reads ID's from database
         private void Join_Tables()
         {
@@ -299,30 +304,18 @@ namespace Microwave_v1._0
             tb_description.Text = "Description...";
             tb_description.ForeColor = Color.Gray;
         }
-
-        private void Create_New_Book_And_Set()
-        {
-            /* ONEMLI */
-            int librarian_id = 0;
-            Book book = new Book(0, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, pic_new_source_path, 1, 0);
-
-            book.Add();
-        }
-
         private void Btn_Add_Click(object sender, EventArgs e)
         {
-             Add_Book(is_edit);
+             Add_Click_Func(is_edit);
         }
-
         private void Btn_add_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                Add_Book(is_edit);
+                Add_Click_Func(is_edit);
             }
 
         }
-
         private void Change_Image_Click(object sender, EventArgs e)
         {
             change_image = true;
@@ -338,7 +331,6 @@ namespace Microwave_v1._0
                 e.Handled = true;
             }
         }
-
         private void tb_count_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -346,7 +338,6 @@ namespace Microwave_v1._0
                 e.Handled = true;
             }
         }
-
         private void tb_name_Enter(object sender, EventArgs e)
         {
             if (tb_name.Text == "Book's Name")
@@ -355,7 +346,6 @@ namespace Microwave_v1._0
                 tb_name.ForeColor = Color.LightGray;
             }
         }
-
         private void tb_name_Leave(object sender, EventArgs e)
         {
             if (tb_name.Text == "")
@@ -372,7 +362,6 @@ namespace Microwave_v1._0
                 tb_description.ForeColor = Color.LightGray;
             }
         }
-
         private void tb_description_Leave(object sender, EventArgs e)
         {
             if (tb_description.Text == "")
@@ -388,12 +377,10 @@ namespace Microwave_v1._0
         {
             main_page.Btn_add.Enabled = true;
         }
-
         private void AddBook_FormClosing(object sender, FormClosingEventArgs e)
         {
             main_page.Btn_add.Enabled = true;
         }
-
         private void AddBook_Load(object sender, EventArgs e)
         {
             this.Activate();
@@ -412,7 +399,6 @@ namespace Microwave_v1._0
             else
                 cb_author.ForeColor = Color.LightGray;
         }
-
         private void Cb_author_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
@@ -426,7 +412,6 @@ namespace Microwave_v1._0
                 e.SuppressKeyPress = true;
 
         }
-
         private void Cb_publisher_SelectedIndexChanged(object sender, EventArgs e)
         {
             int last_index = cb_publisher.Items.Count - 1;
@@ -438,7 +423,6 @@ namespace Microwave_v1._0
             else
                 cb_publisher.ForeColor = Color.LightGray;
         }
-
         private void Cb_publisher_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
@@ -451,7 +435,6 @@ namespace Microwave_v1._0
             else
                 e.SuppressKeyPress = true;
         }
-
         private void Cb_category_SelectedIndexChanged(object sender, EventArgs e)
         {
             int last_index = cb_category.Items.Count - 1;
@@ -463,7 +446,6 @@ namespace Microwave_v1._0
             else
                 cb_category.ForeColor = Color.LightGray;
         }
-
         private void Cb_category_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
@@ -476,7 +458,6 @@ namespace Microwave_v1._0
             else
                 e.SuppressKeyPress = true;
         }
-
         private void Cb_shelf_SelectedIndexChanged(object sender, EventArgs e)
         {
             int last_index = cb_shelf.Items.Count - 1;
@@ -488,7 +469,6 @@ namespace Microwave_v1._0
             else
                 cb_shelf.ForeColor = Color.LightGray;
         }
-
         private void Cb_shelf_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
@@ -502,5 +482,24 @@ namespace Microwave_v1._0
                 e.SuppressKeyPress = true;
         }
 
+        private void Cb_author_MouseClick(object sender, MouseEventArgs e)
+        {
+            cb_author.ForeColor = Color.LightGray;
+        }
+
+        private void Cb_publisher_MouseClick(object sender, MouseEventArgs e)
+        {
+            cb_publisher.ForeColor = Color.LightGray;
+        }
+
+        private void Cb_category_MouseClick(object sender, MouseEventArgs e)
+        {
+            cb_category.ForeColor = Color.LightGray;
+        }
+
+        private void Cb_shelf_MouseClick(object sender, MouseEventArgs e)
+        {
+            cb_shelf.ForeColor = Color.LightGray;
+        }
     }
 }

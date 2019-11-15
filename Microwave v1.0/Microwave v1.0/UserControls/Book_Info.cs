@@ -157,8 +157,7 @@ namespace Microwave_v1._0
 
         private void Remove(bool delete_picture = true)
         {
-            main_page.Cover_image_list.Images[book_id.ToString()].Dispose();
-            main_page.Cover_image_list.Images.RemoveByKey(Book_id.ToString());
+            main_page.Remove_Image_From_Cover_List(book_id);
             main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", "0");
             main_list.Delete_Book_from_List(book_id, delete_picture);
             this.Dispose();
