@@ -65,6 +65,7 @@ namespace Microwave_v1._0
                 int popularity_score = int.Parse(dt.Rows[i][12].ToString());
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
+                book.Set_Book();
                 this.Add_Book_to_List(book);
             }
 

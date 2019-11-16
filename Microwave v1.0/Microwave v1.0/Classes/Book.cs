@@ -64,6 +64,11 @@ namespace Microwave_v1._0
 
         
         // Constructor
+        public Book()
+        {
+
+        }
+
         public Book(int book_id, int author_id, int publisher_id, 
                     int category_id, int librarian_id, int shelf_id, 
                     string name, int count, string date, string description, 
@@ -85,14 +90,10 @@ namespace Microwave_v1._0
             this.popularity_score = popularity_score;
             this.popularity_id = popularity_id;
 
-            // Take infos from database by matching with ID's
-            Join_Tables_For_Names();
-
-            info = new Book_Info();
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
 
         }
 
+       
         // Methods
         public void Add()
         {
@@ -124,7 +125,12 @@ namespace Microwave_v1._0
             DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             // Take book id which is given by database automatically
+            info = new Book_Info();
             Take_Id_From_Database();
+
+            Join_Tables_For_Names();
+            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
+
 
             Cover_Pic_to_Image_List();
             main_page.Main_list.Add_Book_to_List(this);
@@ -183,6 +189,13 @@ namespace Microwave_v1._0
 
         static public void Show_All_Books(User user)
         {
+        }
+        public void Set_Book()
+        {
+            Join_Tables_For_Names();
+
+            info = new Book_Info();
+            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
         }
 
 

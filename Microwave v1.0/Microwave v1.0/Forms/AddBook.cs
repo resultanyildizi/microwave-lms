@@ -178,7 +178,7 @@ namespace Microwave_v1._0
             if(is_edit == false)
             {
                 picture_event.Copy_The_Picture(name);
-
+                pic_new_source_path = picture_event.Pic_source_file;
                 /* ONEMLI */
                 int librarian_id = 0;
                 Book book = new Book(0, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, pic_new_source_path, 1, 0);
