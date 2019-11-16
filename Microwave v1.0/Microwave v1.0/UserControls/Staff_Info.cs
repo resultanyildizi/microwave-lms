@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Microwave_v1._0.UserControls
 {
-    public partial class Department_Info : UserControl
+    public partial class Staff_Info : UserControl
     {
-        public Department_Info()
+        public Staff_Info()
         {
             InitializeComponent();
+        }
+
+        private void Staff_Info_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

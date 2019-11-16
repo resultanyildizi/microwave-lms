@@ -70,12 +70,19 @@
   <ItemGroup>
     <Compile Include="Classes\DataBaseEvents.cs" />
     <Compile Include="Classes\Department.cs" />
-    <Compile Include="Classes\Department_List.cs" />
+    <Compile Include="Classes\Staff.cs" />
+    <Compile Include="Classes\Staff_List.cs" />
     <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ShowStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShowStaff.Designer.cs">
+      <DependentUpon>ShowStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book_Tag.cs">
       <SubType>UserControl</SubType>
@@ -98,11 +105,11 @@
     <Compile Include="Classes\Book.cs" />
     <Compile Include="Classes\Book_List.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="UserControls\Department_Info.cs">
+    <Compile Include="UserControls\Staff_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Department_Info.Designer.cs">
-      <DependentUpon>Department_Info.cs</DependentUpon>
+    <Compile Include="UserControls\Staff_Info.Designer.cs">
+      <DependentUpon>Staff_Info.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
@@ -130,6 +137,9 @@
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowStaff.resx">
+      <DependentUpon>ShowStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Book_Tag.resx">
       <DependentUpon>Book_Tag.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,8 +149,8 @@
     <EmbeddedResource Include="UserControls\Book_Info.resx">
       <DependentUpon>Book_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Department_Info.resx">
-      <DependentUpon>Department_Info.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Staff_Info.resx">
+      <DependentUpon>Staff_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Threading;
-
 /*
  NOT:
  -Microwave class'ı C#'ın Form Classından inherit edilmiş bir class'tır. Programımızın ana formu bu classtır.
@@ -34,7 +33,7 @@ namespace Microwave_v1._0
 {
     public enum MENU_CHOSEN
     {
-        BOOKS = 0,USERS,EMAİL,ABOUT_US
+        BOOKS = 0,USERS,EMAİL,ABOUT_US,DEPARTMENT
     }
     public partial class Microwave : Form
     {
@@ -70,6 +69,8 @@ namespace Microwave_v1._0
             pnl_user.Hide();
             pnl_book.Hide();
             pnl_stick.Hide();
+            pnl_department.Hide();
+         
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -197,6 +198,7 @@ namespace Microwave_v1._0
             pnl_user.Show();
             pnl_book.Hide();
             pnl_tag.Hide();
+            pnl_department.Hide();
 
         }
         private void button3_Click(object sender, EventArgs e)
@@ -211,6 +213,8 @@ namespace Microwave_v1._0
             chosen = MENU_CHOSEN.ABOUT_US;
             pnl_stick.Location = new Point(0, 130);
             pnl_stick.Show();
+            pnl_department.Hide();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -222,6 +226,8 @@ namespace Microwave_v1._0
             pnl_book.Show();
             pnl_tag.Show();
             pnl_user.Hide();
+            pnl_department.Hide();
+
         }
 
         private void Tb_search_Click(object sender, EventArgs e)
@@ -233,6 +239,17 @@ namespace Microwave_v1._0
         {
             this.pic_logo.Focus();
             this.pic_logo.Select();
+        }
+
+        private void btn_department_Click(object sender, EventArgs e)
+        {
+            chosen = MENU_CHOSEN.DEPARTMENT;
+
+            pnl_department.Show();
+            pnl_user.Hide();
+            pnl_book.Hide();
+            pnl_tag.Hide();
+
         }
     }
 }
