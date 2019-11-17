@@ -100,7 +100,7 @@ namespace Microwave_v1._0
             string title;
             string values;
 
-            if(main_page.Main_list.Is_List_Empty())
+            if(main_page.Main_book_list.Is_List_Empty())
             {
                 int starter_id = 05101900;
                 title = "INSERT INTO Books (BOOK_ID,AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, " +
@@ -133,13 +133,13 @@ namespace Microwave_v1._0
 
 
             Cover_Pic_to_Image_List();
-            main_page.Main_list.Add_Book_to_List(this);
+            main_page.Main_book_list.Add_Book_to_List(this);
 
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
 
             Info.Draw_Book_Obj(ref Book.point_y);
 
-            main_page.Main_list.Deselect_All_Book_Infos();
+            main_page.Main_book_list.Deselect_All_Book_Infos();
             Info.Select_Book_Info();
         }
         public void Edit()
@@ -182,8 +182,8 @@ namespace Microwave_v1._0
             // For User Interface
             main_page = (Microwave)Application.OpenForms["Microwave"];
             // Fills Book_List with DataTable
-            main_page.Main_list.Fill_Book_List(dt);
-            main_page.Main_list.Show_All_Books();
+            main_page.Main_book_list.Fill_Book_List(dt);
+            main_page.Main_book_list.Show_All_Books();
 
         }
 

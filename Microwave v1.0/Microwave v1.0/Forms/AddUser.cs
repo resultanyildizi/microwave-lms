@@ -93,12 +93,12 @@ namespace Microwave_v1._0
         {
             User user = new User(name, surname, gender, age, email, date);
 
-            main_page.user_list.Add_User_to_List(user);
+            main_page.Main_user_list.Add_User_to_List(user);
             main_page.Pnl_user_list.VerticalScroll.Value = 0;
 
             user.Info.Draw_User_Obj(ref Book.point_y);
 
-            main_page.user_list.Deselect_All_User_Infos();
+            main_page.Main_user_list.Deselect_All_User_Infos();
             user.Info.Select_User_Info();
             //user.Add_User_To_Database();
         }

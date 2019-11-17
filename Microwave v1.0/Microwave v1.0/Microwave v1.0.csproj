@@ -71,6 +71,14 @@
     <Compile Include="Classes\DataBaseEvents.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Department_List.cs" />
+    <Compile Include="Classes\Publisher.cs" />
+    <Compile Include="Classes\Publisher_List.cs" />
+    <Compile Include="Forms\AddPublisher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPublisher.Designer.cs">
+      <DependentUpon>AddPublisher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +118,12 @@
     <Compile Include="UserControls\Department_Info.Designer.cs">
       <DependentUpon>Department_Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Publisher_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Publisher_Info.designer.cs">
+      <DependentUpon>Publisher_Info.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +147,9 @@
     <Compile Include="Classes\Picture_Events.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddPublisher.resx">
+      <DependentUpon>AddPublisher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Department_Info.resx">
       <DependentUpon>Department_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Publisher_Info.resx">
+      <DependentUpon>Publisher_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>

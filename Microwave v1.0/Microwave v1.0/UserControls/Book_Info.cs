@@ -33,7 +33,7 @@ namespace Microwave_v1._0
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"]; 
-            main_list = main_page.Main_list;
+            main_list = main_page.Main_book_list;
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
@@ -102,34 +102,7 @@ namespace Microwave_v1._0
             this.btn_remove.Hide();
         }
 
-        public void Hover()
-        {
-            if(!chosen)
-            {
-                Color back_color = Color.FromArgb(43, 47, 58);
-
-                this.pnl_author.BackColor = back_color;
-                this.pnl_name.BackColor = back_color;
-                this.pnl_date.BackColor = back_color;
-                this.pnl_count.BackColor = back_color;
-                this.pnl_publisher.BackColor = back_color;
-
-            }
-        }
-
-
-        public void Mouse_Leave()
-        {
-            if (!chosen)
-            {
-                Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
-                this.pnl_author.BackColor = back_color;
-                this.pnl_name.BackColor = back_color;
-                this.pnl_date.BackColor = back_color;
-                this.pnl_count.BackColor = back_color;
-                this.pnl_publisher.BackColor = back_color;
-            }
-        }
+       
         private void lbl_name_Click(object sender, EventArgs e)
         {
 
@@ -210,11 +183,37 @@ namespace Microwave_v1._0
             }
         }
 
+        public void Hover()
+        {
+            if (!chosen)
+            {
+                Color back_color = Color.FromArgb(43, 47, 58);
+
+                this.pnl_author.BackColor = back_color;
+                this.pnl_name.BackColor = back_color;
+                this.pnl_date.BackColor = back_color;
+                this.pnl_count.BackColor = back_color;
+                this.pnl_publisher.BackColor = back_color;
+
+            }
+        }
         private void Book_Info_Enter(object sender, EventArgs e)
         {
             Hover();
         }
 
+        public void Mouse_Leave()
+        {
+            if (!chosen)
+            {
+                Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
+                this.pnl_author.BackColor = back_color;
+                this.pnl_name.BackColor = back_color;
+                this.pnl_date.BackColor = back_color;
+                this.pnl_count.BackColor = back_color;
+                this.pnl_publisher.BackColor = back_color;
+            }
+        }
         private void Pnl_name_MouseLeave(object sender, EventArgs e)
         {
             Mouse_Leave();

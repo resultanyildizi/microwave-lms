@@ -372,7 +372,6 @@ namespace Microwave_v1._0
         }
 
         // Form closed - closing
-
         private void AddBook_FormClosed(object sender, FormClosedEventArgs e)
         {
             main_page.Btn_add.Enabled = true;
@@ -481,22 +480,18 @@ namespace Microwave_v1._0
             else
                 e.SuppressKeyPress = true;
         }
-
         private void Cb_author_MouseClick(object sender, MouseEventArgs e)
         {
             cb_author.ForeColor = Color.LightGray;
         }
-
         private void Cb_publisher_MouseClick(object sender, MouseEventArgs e)
         {
             cb_publisher.ForeColor = Color.LightGray;
         }
-
         private void Cb_category_MouseClick(object sender, MouseEventArgs e)
         {
             cb_category.ForeColor = Color.LightGray;
         }
-
         private void Cb_shelf_MouseClick(object sender, MouseEventArgs e)
         {
             cb_shelf.ForeColor = Color.LightGray;

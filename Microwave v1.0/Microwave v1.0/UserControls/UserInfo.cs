@@ -20,7 +20,7 @@ namespace Microwave_v1._0
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
-            user_list = main_page.user_list;
+            user_list = main_page.Main_user_list;
             this.btn_user_edit.Hide();
             this.btn_user_remove.Hide();
         }
