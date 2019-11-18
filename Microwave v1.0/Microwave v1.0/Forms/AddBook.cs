@@ -193,6 +193,7 @@ namespace Microwave_v1._0
                     Picture_Events.Delete_The_Picture(book_to_edit.Cover_path_file);
                     picture_event.Copy_The_Picture(name);
                     main_page.Remove_Image_From_Cover_List(book_to_edit.Book_id);
+                    book_to_edit.Cover_path_file = picture_event.Pic_source_file;
                     book_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;
                 }
@@ -207,7 +208,7 @@ namespace Microwave_v1._0
                 book_to_edit.Count = count;
                 book_to_edit.Name = name;
                 book_to_edit.Description = description;
-                book_to_edit.Cover_path_file = picture_event.Pic_source_file;       
+                
                 book_to_edit.Edit();
             }
 
