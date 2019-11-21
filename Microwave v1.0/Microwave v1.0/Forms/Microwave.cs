@@ -36,19 +36,21 @@ namespace Microwave_v1._0
 {
     public enum MENU_CHOSEN
     {
-        BOOKS = 0,USERS,EMAIL, PUBLISHER,ABOUT_US
+        BOOKS = 0,USERS,EMAIL, PUBLISHER,DEPARTMENT,ABOUT_US
     }
     public partial class Microwave : Form
     {
         // Variables 
         private Warning warning_form = null;
         private AddBook add_book = null;              
-        private Book_List main_book_list = null;
+        private AddDepartment add_department = null;
         private Book_Tag main_tag = null;
         private AddUser add_user = null;
         private AddPublisher add_publisher = null;
+        private Book_List main_book_list = null;
         private Publisher_List main_pub_list = null;
         private User_List main_user_list = null;
+        private Department_List main_department_list = null;
         private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
         private string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
 
@@ -65,24 +67,24 @@ namespace Microwave_v1._0
         public User_List Main_user_list { get => main_user_list; set => main_user_list = value; }
         public Book_Tag Book_tag { get => main_tag; set => main_tag = value; }
         public string Path_file { get => path_file; set => path_file = value; }
+        public AddDepartment Add_department { get => add_department; set => add_department = value; }
+        public Department_List Main_department_list { get => main_department_list; set => main_department_list = value; }
 
         // Constructor
         public Microwave()
         {
             InitializeComponent();
-            Main_book_list = new Book_List(); 
             main_tag = new Book_Tag();
+            Main_book_list = new Book_List();
+            main_department_list = new Department_List();
             main_user_list = new User_List();
             main_pub_list = new Publisher_List();
 
             pnl_tag.Hide();
             pnl_user.Hide();
             pnl_book.Hide();
-            pnl_stick.Hide();
             pnl_pub.Hide();
-            pnl_menu.Hide();
-            pnl_left.Hide();
-            pnl_header.Hide();
+
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -133,6 +135,16 @@ namespace Microwave_v1._0
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
                     Create_Add_Publisher_Form();
+
+                warning_form.Refresh_Form();
+            }
+            else if (chosen == MENU_CHOSEN.DEPARTMENT)
+            {
+                message = "Do you want to add a Department?";
+                color = Color.Chocolate;
+                Create_Warning_Form(message, color);
+                if (warning_form.Result == true)
+                    Create_Add_Department_Form();
 
                 warning_form.Refresh_Form();
             }
@@ -198,6 +210,27 @@ namespace Microwave_v1._0
             this.pic_logo.Focus();
             Add_publisher.Focus();
         }
+
+        public void Create_Add_Department_Form()
+        {
+            if (add_department == null)
+            {
+                add_department = new AddDepartment();
+            }
+            try
+            {
+                add_department.Show();
+            }
+            catch (ObjectDisposedException d)
+            {
+                add_department = new AddDepartment();
+                add_department.Show();
+            }
+            this.Btn_add.Enabled = false;
+            pic_logo.Focus();
+            add_department.Focus();
+        }
+
         public void Create_Warning_Form(string message, Color color)
         {
             if (Warning_form == null)
@@ -222,18 +255,19 @@ namespace Microwave_v1._0
         {
             chosen = MENU_CHOSEN.USERS;
 
-            pnl_stick.Location = new Point(0, 51);
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_user.Location.Y);
             pnl_stick.Show();
             pnl_user.Show();
             pnl_book.Hide();
             pnl_pub.Hide();
             pnl_tag.Hide();
+            pnl_department.Hide();
 
         }
         private void btn_email_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.EMAIL;
-            pnl_stick.Location = new Point(0, 91);
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_email.Location.Y);
             pnl_stick.Show();
         }
 
@@ -241,28 +275,41 @@ namespace Microwave_v1._0
         {
             chosen = MENU_CHOSEN.BOOKS;
 
-            pnl_stick.Location = new Point(0, 13);
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_book.Location.Y);
             pnl_stick.Show();
             pnl_book.Show();
             pnl_tag.Show();
             pnl_user.Hide();
             pnl_pub.Hide();
+            pnl_department.Hide();
         }
         private void btn_publisher_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.PUBLISHER;
 
-            pnl_stick.Location = new Point(0, 177);
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_publisher.Location.Y);
             pnl_stick.Show();
             pnl_pub.Show();
             pnl_book.Hide();
             pnl_tag.Hide();
             pnl_user.Hide();
+            pnl_department.Hide();
+        }
+        private void btn_department_Click(object sender, EventArgs e)
+        {
+            chosen = MENU_CHOSEN.DEPARTMENT;
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_department.Location.Y);
+            pnl_stick.Show();
+            pnl_pub.Hide();
+            pnl_book.Hide();
+            pnl_tag.Hide();
+            pnl_user.Hide();
+            pnl_department.Show();
         }
         private void btn_about_us_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.ABOUT_US;
-            pnl_stick.Location = new Point(0, 130);
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_about.Location.Y);
             pnl_stick.Show();
         }
 
@@ -279,17 +326,6 @@ namespace Microwave_v1._0
             Cover_image_list.Images.RemoveByKey(book_id.ToString());
         }
 
-        private void pnl_main_page_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            pnl_header.Show();
-            pnl_left.Show();
-            pnl_menu.Show();
-            pnl_main_page.Hide();
-        }
     }
 }

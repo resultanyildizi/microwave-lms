@@ -28,71 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnl_user_age = new System.Windows.Forms.Panel();
-            this.pnl_user_gender = new System.Windows.Forms.Panel();
-            this.pnl_user_name = new System.Windows.Forms.Panel();
-            this.pnl_user_surname = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Department_Info));
+            this.pic_dprtmnt = new System.Windows.Forms.PictureBox();
+            this.lbl_department = new System.Windows.Forms.Label();
+            this.btn_user_remove = new System.Windows.Forms.Button();
+            this.btn_user_edit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_dprtmnt)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnl_user_age
+            // pic_dprtmnt
             // 
-            this.pnl_user_age.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_user_age.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_user_age.Location = new System.Drawing.Point(395, 0);
-            this.pnl_user_age.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_user_age.Name = "pnl_user_age";
-            this.pnl_user_age.Size = new System.Drawing.Size(370, 42);
-            this.pnl_user_age.TabIndex = 12;
+            this.pic_dprtmnt.Image = ((System.Drawing.Image)(resources.GetObject("pic_dprtmnt.Image")));
+            this.pic_dprtmnt.Location = new System.Drawing.Point(35, 25);
+            this.pic_dprtmnt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pic_dprtmnt.Name = "pic_dprtmnt";
+            this.pic_dprtmnt.Size = new System.Drawing.Size(140, 190);
+            this.pic_dprtmnt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_dprtmnt.TabIndex = 0;
+            this.pic_dprtmnt.TabStop = false;
             // 
-            // pnl_user_gender
+            // lbl_department
             // 
-            this.pnl_user_gender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_user_gender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_user_gender.Location = new System.Drawing.Point(312, 0);
-            this.pnl_user_gender.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_user_gender.Name = "pnl_user_gender";
-            this.pnl_user_gender.Size = new System.Drawing.Size(79, 42);
-            this.pnl_user_gender.TabIndex = 13;
+            this.lbl_department.AutoSize = true;
+            this.lbl_department.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_department.ForeColor = System.Drawing.Color.Snow;
+            this.lbl_department.Location = new System.Drawing.Point(54, 228);
+            this.lbl_department.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_department.Name = "lbl_department";
+            this.lbl_department.Size = new System.Drawing.Size(101, 23);
+            this.lbl_department.TabIndex = 1;
+            this.lbl_department.Text = "CLEANER";
             // 
-            // pnl_user_name
+            // btn_user_remove
             // 
-            this.pnl_user_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_user_name.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_user_name.Location = new System.Drawing.Point(0, 0);
-            this.pnl_user_name.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_user_name.Name = "pnl_user_name";
-            this.pnl_user_name.Size = new System.Drawing.Size(155, 42);
-            this.pnl_user_name.TabIndex = 11;
+            this.btn_user_remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_user_remove.FlatAppearance.BorderSize = 0;
+            this.btn_user_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_user_remove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btn_user_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_user_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_user_remove.Image")));
+            this.btn_user_remove.Location = new System.Drawing.Point(3, 25);
+            this.btn_user_remove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_user_remove.Name = "btn_user_remove";
+            this.btn_user_remove.Size = new System.Drawing.Size(25, 23);
+            this.btn_user_remove.TabIndex = 11;
+            this.btn_user_remove.UseVisualStyleBackColor = true;
             // 
-            // pnl_user_surname
+            // btn_user_edit
             // 
-            this.pnl_user_surname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_user_surname.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_user_surname.Location = new System.Drawing.Point(151, 0);
-            this.pnl_user_surname.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_user_surname.Name = "pnl_user_surname";
-            this.pnl_user_surname.Size = new System.Drawing.Size(157, 42);
-            this.pnl_user_surname.TabIndex = 14;
+            this.btn_user_edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_user_edit.FlatAppearance.BorderSize = 0;
+            this.btn_user_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_user_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btn_user_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_user_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_user_edit.Image")));
+            this.btn_user_edit.Location = new System.Drawing.Point(3, 2);
+            this.btn_user_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_user_edit.Name = "btn_user_edit";
+            this.btn_user_edit.Size = new System.Drawing.Size(25, 23);
+            this.btn_user_edit.TabIndex = 10;
+            this.btn_user_edit.UseVisualStyleBackColor = true;
             // 
             // Department_Info
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pnl_user_age);
-            this.Controls.Add(this.pnl_user_gender);
-            this.Controls.Add(this.pnl_user_name);
-            this.Controls.Add(this.pnl_user_surname);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btn_user_remove);
+            this.Controls.Add(this.btn_user_edit);
+            this.Controls.Add(this.lbl_department);
+            this.Controls.Add(this.pic_dprtmnt);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Department_Info";
-            this.Size = new System.Drawing.Size(765, 42);
+            this.Size = new System.Drawing.Size(203, 268);
+            this.Load += new System.EventHandler(this.Department_Info_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_dprtmnt)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnl_user_age;
-        private System.Windows.Forms.Panel pnl_user_gender;
-        private System.Windows.Forms.Panel pnl_user_name;
-        private System.Windows.Forms.Panel pnl_user_surname;
+        private System.Windows.Forms.PictureBox pic_dprtmnt;
+        private System.Windows.Forms.Label lbl_department;
+        private System.Windows.Forms.Button btn_user_remove;
+        private System.Windows.Forms.Button btn_user_edit;
     }
 }

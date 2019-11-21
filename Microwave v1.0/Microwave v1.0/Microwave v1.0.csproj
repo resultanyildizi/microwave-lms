@@ -57,6 +57,7 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.111.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +74,12 @@
     <Compile Include="Classes\Department_List.cs" />
     <Compile Include="Classes\Publisher.cs" />
     <Compile Include="Classes\Publisher_List.cs" />
+    <Compile Include="Forms\AddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDepartment.designer.cs">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPublisher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,12 +91,6 @@
     </Compile>
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Search_Book_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Search_Book_Form.Designer.cs">
-      <DependentUpon>Search_Book_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book_Tag.cs">
       <SubType>UserControl</SubType>
@@ -147,14 +148,14 @@
     <Compile Include="Classes\Picture_Events.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddDepartment.resx">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPublisher.resx">
       <DependentUpon>AddPublisher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Search_Book_Form.resx">
-      <DependentUpon>Search_Book_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Book_Tag.resx">
       <DependentUpon>Book_Tag.cs</DependentUpon>
