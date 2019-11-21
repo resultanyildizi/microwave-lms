@@ -84,8 +84,7 @@ namespace Microwave_v1._0
             pnl_user.Hide();
             pnl_book.Hide();
             pnl_pub.Hide();
-            pnl_department.Hide();
-            pnl_stick.Hide();
+
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -96,8 +95,8 @@ namespace Microwave_v1._0
 
             Book.Show_All_Books();
 
-            // It's need to change
-            Main_pub_list.Show_All_Publishers();
+            
+            Publisher.Show_All_Publishers();
             // It's need to change
             main_user_list.Show_All_Users();
 
