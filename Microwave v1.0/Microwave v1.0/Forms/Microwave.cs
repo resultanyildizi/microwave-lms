@@ -70,6 +70,9 @@ namespace Microwave_v1._0
         public AddDepartment Add_department { get => add_department; set => add_department = value; }
         public Department_List Main_department_list { get => main_department_list; set => main_department_list = value; }
 
+        // Booleans
+        private bool show_pnl_book_st = false;
+
         // Constructor
         public Microwave()
         {
@@ -84,7 +87,12 @@ namespace Microwave_v1._0
             pnl_user.Hide();
             pnl_book.Hide();
             pnl_pub.Hide();
+            pnl_department.Hide();
 
+
+            // Book search category
+            pnl_book_st.Hide();
+            rb_book_name.Checked = true;
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -254,6 +262,7 @@ namespace Microwave_v1._0
         private void btn_users_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.USERS;
+            tb_search.Text = "Search a user";
 
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_user.Location.Y);
             pnl_stick.Show();
@@ -274,6 +283,7 @@ namespace Microwave_v1._0
         private void btn_book_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.BOOKS;
+            tb_search.Text = "Search a book";
 
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_book.Location.Y);
             pnl_stick.Show();
@@ -286,6 +296,7 @@ namespace Microwave_v1._0
         private void btn_publisher_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.PUBLISHER;
+            tb_search.Text = "Search a publisher";
 
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_publisher.Location.Y);
             pnl_stick.Show();
@@ -298,6 +309,8 @@ namespace Microwave_v1._0
         private void btn_department_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.DEPARTMENT;
+            tb_search.Text = "Search a department";
+
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_department.Location.Y);
             pnl_stick.Show();
             pnl_pub.Hide();
@@ -326,6 +339,89 @@ namespace Microwave_v1._0
             Cover_image_list.Images.RemoveByKey(book_id.ToString());
         }
 
+        public void Remove_Image_From_Dep_Cover_List(int dep_id)
+        {
+            Dep_cover_image_list.Images[dep_id.ToString()].Dispose();
+            Dep_cover_image_list.Images.RemoveByKey(dep_id.ToString());
+        }
 
+        public void Remove_Image_From_Pub_Cover_List(int dep_id)
+        {
+            Dep_cover_image_list.Images[dep_id.ToString()].Dispose();
+            Dep_cover_image_list.Images.RemoveByKey(dep_id.ToString());
+        }
+
+
+        private void Btn_show_search_types_Click(object sender, EventArgs e)
+        {
+            if (show_pnl_book_st == false)
+            {
+                this.pnl_book_st.Show();
+                show_pnl_book_st = true;
+            }
+            else
+            {
+                this.pnl_book_st.Hide();
+                show_pnl_book_st = false;
+            }
+        }
+
+        private void Tb_search_Leave(object sender, EventArgs e)
+        {
+            if(chosen == MENU_CHOSEN.BOOKS)
+            {
+                if(tb_search.Text == "")
+                {
+                    tb_search.Text = "Search a book";
+                    tb_search.ForeColor = Color.Gray;
+                }
+            }
+            else if(chosen == MENU_CHOSEN.USERS)
+            {
+                if (tb_search.Text == "")
+                {
+                    tb_search.Text = "Search a user";
+                    tb_search.ForeColor = Color.Gray;
+                }
+
+            }
+            else if(chosen == MENU_CHOSEN.PUBLISHER)
+            {
+                if (tb_search.Text == "")
+                {
+                    tb_search.Text = "Search a publisher";
+                    tb_search.ForeColor = Color.Gray;
+                }
+
+            }
+            else if(chosen == MENU_CHOSEN.DEPARTMENT)
+            {
+                if (tb_search.Text == "")
+                {
+                    tb_search.Text = "Search a department";
+                    tb_search.ForeColor = Color.Gray;
+                }
+
+            }
+            else
+            {
+                if (tb_search.Text == "")
+                {
+                    tb_search.Text = "Search a book";
+                    tb_search.ForeColor = Color.DimGray;
+                }
+
+            }
+        }
+
+        private void Tb_search_Enter(object sender, EventArgs e)
+        {
+            if(tb_search.Text == "Search a book" || tb_search.Text == "Search a user" || tb_search.Text == "Search a publisher" || tb_search.Text == "Search a department")
+            {
+                tb_search.Text = "";
+            }
+
+            tb_search.ForeColor = Color.LightGray;
+        }
     }
 }

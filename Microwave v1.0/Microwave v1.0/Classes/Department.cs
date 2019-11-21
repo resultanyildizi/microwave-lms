@@ -16,9 +16,9 @@ namespace Microwave_v1._0.Classes
     {
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         public static int point_y = 5;
-
+        public static int point_x = 5;
         private string name;
-        private int department_ıd;
+        private int department_id;
         private int staff_count;
         private string Cover_path_file;
         Microwave main_page = null;
@@ -27,7 +27,7 @@ namespace Microwave_v1._0.Classes
        
 
         public string Name { get => name; set => name = value; }
-        public int Department_ıd { get => department_ıd; set => department_ıd = value; }
+        public int Department_id { get => department_id; set => department_id = value; }
         public int Staff_count { get => staff_count; set => staff_count = value; }
         public string Cover_path_file1 { get => Cover_path_file; set => Cover_path_file = value; }
         public Department_Info Info { get => info; set => info = value; }
@@ -36,6 +36,11 @@ namespace Microwave_v1._0.Classes
         {
             this.name = name;
             this.Cover_path_file = Cover_path_file;
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+        }
+        public Department()
+        {
+
         }
         public void Add()
         {
@@ -50,7 +55,14 @@ namespace Microwave_v1._0.Classes
             DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             info = new Department_Info();
-            
+            Take_Id_From_Database();
+            Cover_Pic_to_Image_List();
+            info.Initialize_Department_Info(name, Cover_path_file);
+
+            main_page.Main_department_list.Add_Department_to_List(this);
+            main_page.Pnl_department_list.VerticalScroll.Value = 0;
+            info.Draw_Department_Obj(ref Department.point_x, ref Department.point_y);
+
         }
         public void Set_Department()
         {
@@ -59,7 +71,7 @@ namespace Microwave_v1._0.Classes
         }
         public void Cover_Pic_to_Image_List()
         {
-            main_page.Cover_image_list.Images.Add(this.Department_ıd.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Cover_path_file));
+            main_page.Dep_cover_image_list.Images.Add(this.Department_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Cover_path_file));
         }
         private void Take_Id_From_Database()
         {
@@ -70,11 +82,11 @@ namespace Microwave_v1._0.Classes
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
-            this.department_ıd = id;
+            this.department_id = id;
 
 
             // For user inteface
-            this.Info.Department_ıd = id; // IMPORTANT
+            this.Info.Department_id = id; // IMPORTANT
         }
 
     }

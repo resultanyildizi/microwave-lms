@@ -56,7 +56,7 @@ namespace Microwave_v1._0.Forms
             publisher_to_edit = pub;
 
             pic_new_source_path = picture_event.Pic_source_file = pub.Pub_cover_path_file;
-            pic_book.Image = main_page.Cover_image_list.Images[pub.Publisher_id.ToString()];
+            pic_book.Image = main_page.Pub_cover_image_list.Images[pub.Publisher_id.ToString()];
 
             is_edit = true;
         }

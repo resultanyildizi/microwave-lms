@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SQLite;
 using Microwave_v1._0.Classes;
-
+using Microwave_v1._0.Forms;
 
 namespace Microwave_v1._0.UserControls
 {
@@ -18,11 +18,12 @@ namespace Microwave_v1._0.UserControls
     {
         private Microwave main_page;
         private Department_List department_list;
+        private AddDepartment edit_form = null;
 
         private string name;
         private string pic_path_file;
-        private int department_ıd;
-        public int Department_ıd { get => department_ıd; set => department_ıd = value; }
+        private int department_id;
+        public int Department_id { get => department_id; set => department_id = value; }
 
         public Department_Info()
         {
@@ -34,12 +35,20 @@ namespace Microwave_v1._0.UserControls
         {
             this.name = name;
             this.pic_path_file = pic_path_file;
+            pic_department.Image = main_page.Dep_cover_image_list.Images[department_id.ToString()];
+            this.lbl_department.Text = name;
         }
-        public void Draw_Department_Obj(int y = 5)
+        public void Draw_Department_Obj(ref int x ,ref int y)
         {
             main_page.Pnl_department_list.Controls.Add(this);
-            this.Location = new System.Drawing.Point(0, y);
-            y += 90;
+            this.Location = new System.Drawing.Point(x, y);
+            if(department_list.Department_count % 3 == 0)
+            {
+                y += 220;
+                x = 5;
+            }
+            else
+                x += 305;
         }
 
         private void Department_Info_Load(object sender, EventArgs e)

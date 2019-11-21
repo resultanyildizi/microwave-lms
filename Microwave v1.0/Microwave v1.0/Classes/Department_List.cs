@@ -16,7 +16,7 @@ namespace Microwave_v1._0.Classes
     {
         public department_node next;
         public Department department;
-
+        
         public  department_node(Department a)
         {
             this.department = a;
@@ -26,8 +26,11 @@ namespace Microwave_v1._0.Classes
    public class Department_List
     {
         int point_y = Department.point_y;
-
+        private int department_count;
         department_node root;
+
+        public int Department_count { get => department_count; set => department_count = value; }
+
         public Department_List()
         {
             root = null;
@@ -64,6 +67,7 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
             iterator.next = new department_node(department);
+            department_count++;
         }
         public void Fill_Cover_Image_List()
         {
@@ -74,5 +78,7 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
         }
+
+        // SİLERKEN COUNT AZALTILACAK!!!!
     }
 }

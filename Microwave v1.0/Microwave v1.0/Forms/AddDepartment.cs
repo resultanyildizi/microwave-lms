@@ -19,7 +19,7 @@ namespace Microwave_v1._0.Forms
         Microwave main_page;
 
         Picture_Events picture_event;
-        private string pic_default_file = @"..\..\Resources\Department Covers\security.png";
+        private string pic_default_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
         private string pic_dest_path = @"..\..\Resources\Department Covers\";
         private string pic_new_source_path = "";
 
@@ -55,7 +55,7 @@ namespace Microwave_v1._0.Forms
             this.tb_department.ForeColor = Color.LightGray;
 
             pic_new_source_path = picture_event.Pic_source_file = department.Cover_path_file1;
-            pic_department.Image = main_page.Cover_image_list.Images[department.Department_ıd.ToString()];
+            pic_department.Image = main_page.Dep_cover_image_list.Images[department.Department_id.ToString()];
 
             is_edit = true;
         }
@@ -96,7 +96,7 @@ namespace Microwave_v1._0.Forms
                 {
                     Picture_Events.Delete_The_Picture(department_to_edit.Cover_path_file1);
                     picture_event.Copy_The_Picture(name);
-                    main_page.Remove_Image_From_Cover_List(department_to_edit.Department_ıd);
+                    main_page.Remove_Image_From_Cover_List(department_to_edit.Department_id);
                     department_to_edit.Cover_path_file1 = picture_event.Pic_source_file;
                     department_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;

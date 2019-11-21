@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Department_Info));
-            this.pic_dprtmnt = new System.Windows.Forms.PictureBox();
+            this.pic_department = new System.Windows.Forms.PictureBox();
             this.lbl_department = new System.Windows.Forms.Label();
-            this.btn_user_remove = new System.Windows.Forms.Button();
-            this.btn_user_edit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_dprtmnt)).BeginInit();
+            this.btn_dprt_remove = new System.Windows.Forms.Button();
+            this.btn_dprt_edit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_department)).BeginInit();
             this.SuspendLayout();
             // 
-            // pic_dprtmnt
+            // pic_department
             // 
-            this.pic_dprtmnt.Image = ((System.Drawing.Image)(resources.GetObject("pic_dprtmnt.Image")));
-            this.pic_dprtmnt.Location = new System.Drawing.Point(35, 25);
-            this.pic_dprtmnt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pic_dprtmnt.Name = "pic_dprtmnt";
-            this.pic_dprtmnt.Size = new System.Drawing.Size(140, 190);
-            this.pic_dprtmnt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_dprtmnt.TabIndex = 0;
-            this.pic_dprtmnt.TabStop = false;
+            this.pic_department.Image = ((System.Drawing.Image)(resources.GetObject("pic_department.Image")));
+            this.pic_department.Location = new System.Drawing.Point(35, 25);
+            this.pic_department.Margin = new System.Windows.Forms.Padding(4);
+            this.pic_department.Name = "pic_department";
+            this.pic_department.Size = new System.Drawing.Size(140, 190);
+            this.pic_department.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_department.TabIndex = 0;
+            this.pic_department.TabStop = false;
             // 
             // lbl_department
             // 
@@ -59,35 +59,35 @@
             this.lbl_department.TabIndex = 1;
             this.lbl_department.Text = "CLEANER";
             // 
-            // btn_user_remove
+            // btn_dprt_remove
             // 
-            this.btn_user_remove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_user_remove.FlatAppearance.BorderSize = 0;
-            this.btn_user_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_user_remove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
-            this.btn_user_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_user_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_user_remove.Image")));
-            this.btn_user_remove.Location = new System.Drawing.Point(3, 25);
-            this.btn_user_remove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_user_remove.Name = "btn_user_remove";
-            this.btn_user_remove.Size = new System.Drawing.Size(25, 23);
-            this.btn_user_remove.TabIndex = 11;
-            this.btn_user_remove.UseVisualStyleBackColor = true;
+            this.btn_dprt_remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_dprt_remove.FlatAppearance.BorderSize = 0;
+            this.btn_dprt_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_dprt_remove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btn_dprt_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_dprt_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_dprt_remove.Image")));
+            this.btn_dprt_remove.Location = new System.Drawing.Point(3, 25);
+            this.btn_dprt_remove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_dprt_remove.Name = "btn_dprt_remove";
+            this.btn_dprt_remove.Size = new System.Drawing.Size(25, 23);
+            this.btn_dprt_remove.TabIndex = 11;
+            this.btn_dprt_remove.UseVisualStyleBackColor = true;
             // 
-            // btn_user_edit
+            // btn_dprt_edit
             // 
-            this.btn_user_edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_user_edit.FlatAppearance.BorderSize = 0;
-            this.btn_user_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_user_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
-            this.btn_user_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_user_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_user_edit.Image")));
-            this.btn_user_edit.Location = new System.Drawing.Point(3, 2);
-            this.btn_user_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_user_edit.Name = "btn_user_edit";
-            this.btn_user_edit.Size = new System.Drawing.Size(25, 23);
-            this.btn_user_edit.TabIndex = 10;
-            this.btn_user_edit.UseVisualStyleBackColor = true;
+            this.btn_dprt_edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_dprt_edit.FlatAppearance.BorderSize = 0;
+            this.btn_dprt_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_dprt_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btn_dprt_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_dprt_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_dprt_edit.Image")));
+            this.btn_dprt_edit.Location = new System.Drawing.Point(3, 2);
+            this.btn_dprt_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_dprt_edit.Name = "btn_dprt_edit";
+            this.btn_dprt_edit.Size = new System.Drawing.Size(25, 23);
+            this.btn_dprt_edit.TabIndex = 10;
+            this.btn_dprt_edit.UseVisualStyleBackColor = true;
             // 
             // Department_Info
             // 
@@ -95,15 +95,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.btn_user_remove);
-            this.Controls.Add(this.btn_user_edit);
+            this.Controls.Add(this.btn_dprt_remove);
+            this.Controls.Add(this.btn_dprt_edit);
             this.Controls.Add(this.lbl_department);
-            this.Controls.Add(this.pic_dprtmnt);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.pic_department);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Department_Info";
-            this.Size = new System.Drawing.Size(203, 268);
+            this.Size = new System.Drawing.Size(200, 270);
             this.Load += new System.EventHandler(this.Department_Info_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_dprtmnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_department)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,9 +111,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pic_dprtmnt;
+        private System.Windows.Forms.PictureBox pic_department;
         private System.Windows.Forms.Label lbl_department;
-        private System.Windows.Forms.Button btn_user_remove;
-        private System.Windows.Forms.Button btn_user_edit;
+        private System.Windows.Forms.Button btn_dprt_remove;
+        private System.Windows.Forms.Button btn_dprt_edit;
     }
 }
