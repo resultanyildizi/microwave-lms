@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.UserControls;
 using Microwave_v1._0.Forms;
+using System.Data;
 
 namespace Microwave_v1._0.Classes
 {
@@ -35,6 +36,25 @@ namespace Microwave_v1._0.Classes
 
             root = null;
         }
+
+        public void Fill_Pub_List(DataTable dt)
+        {
+            int rows_count = dt.Rows.Count;
+
+            for(int i = 0; i < rows_count; i++)
+            {
+                int publisher_id = int.Parse(dt.Rows[i][0].ToString());
+                string pub_name = dt.Rows[i][1].ToString();
+                string pub_date_of_est = dt.Rows[i][2].ToString();
+                string pub_cover_path = dt.Rows[i][3].ToString();
+
+                Publisher publisher = new Publisher(publisher_id, pub_name, pub_date_of_est, pub_cover_path);
+                publisher.Set_Publisher();
+                this.Add_Publisher_to_List(publisher);
+            }
+            Fill_Cover_Image_List();
+        }
+
         public void Add_Publisher_to_List(Publisher pub)
         {
             if (root == null)

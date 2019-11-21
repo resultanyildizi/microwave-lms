@@ -17,7 +17,7 @@ namespace Microwave_v1._0.Forms
         private string pub_name;
         private string pub_date_of_est;
         private string pub_description;
-        private int publisher_id;
+        
 
 
         Microwave main_page;
@@ -27,6 +27,8 @@ namespace Microwave_v1._0.Forms
         private string pic_default_file = @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg";
         private string pic_dest_path = @"..\..\Resources\Publisher Covers\";
         private string pic_new_source_path = "";
+
+        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
 
         private bool is_edit = false;
@@ -96,9 +98,7 @@ namespace Microwave_v1._0.Forms
             {
                 picture_event.Copy_The_Picture(pub_name);
                 pic_new_source_path = picture_event.Pic_source_file;
-                /* ONEMLI */
-                int publisher_id = 0;
-                Publisher publisher= new Publisher(0,pub_name,pub_date_of_est,pub_description,pic_new_source_path);
+                Publisher publisher= new Publisher(0,pub_name,pub_date_of_est,pic_new_source_path);
                 publisher.Add_Publisher();
 
                 Clear();

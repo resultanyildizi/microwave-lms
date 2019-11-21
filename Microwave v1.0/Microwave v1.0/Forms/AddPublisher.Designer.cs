@@ -46,10 +46,9 @@
             // 
             this.lbl_pub_message.AutoSize = true;
             this.lbl_pub_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_pub_message.Location = new System.Drawing.Point(19, 10);
-            this.lbl_pub_message.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_pub_message.Location = new System.Drawing.Point(14, 8);
             this.lbl_pub_message.Name = "lbl_pub_message";
-            this.lbl_pub_message.Size = new System.Drawing.Size(0, 20);
+            this.lbl_pub_message.Size = new System.Drawing.Size(0, 16);
             this.lbl_pub_message.TabIndex = 44;
             // 
             // lbl_pub_description
@@ -57,9 +56,10 @@
             this.lbl_pub_description.AutoSize = true;
             this.lbl_pub_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_pub_description.ForeColor = System.Drawing.Color.White;
-            this.lbl_pub_description.Location = new System.Drawing.Point(19, 84);
+            this.lbl_pub_description.Location = new System.Drawing.Point(14, 68);
+            this.lbl_pub_description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_pub_description.Name = "lbl_pub_description";
-            this.lbl_pub_description.Size = new System.Drawing.Size(109, 24);
+            this.lbl_pub_description.Size = new System.Drawing.Size(87, 18);
             this.lbl_pub_description.TabIndex = 42;
             this.lbl_pub_description.Text = "Description:";
             // 
@@ -68,12 +68,12 @@
             this.tb_pub_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_pub_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pub_description.ForeColor = System.Drawing.Color.DimGray;
-            this.tb_pub_description.Location = new System.Drawing.Point(139, 84);
-            this.tb_pub_description.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_pub_description.Location = new System.Drawing.Point(104, 68);
+            this.tb_pub_description.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_pub_description.Multiline = true;
             this.tb_pub_description.Name = "tb_pub_description";
             this.tb_pub_description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_pub_description.Size = new System.Drawing.Size(274, 130);
+            this.tb_pub_description.Size = new System.Drawing.Size(206, 106);
             this.tb_pub_description.TabIndex = 33;
             this.tb_pub_description.Text = "Description...";
             this.tb_pub_description.Enter += new System.EventHandler(this.tb_pub_description_Enter);
@@ -84,9 +84,10 @@
             this.lbl_date_of_est.AutoSize = true;
             this.lbl_date_of_est.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_date_of_est.ForeColor = System.Drawing.Color.White;
-            this.lbl_date_of_est.Location = new System.Drawing.Point(19, 229);
+            this.lbl_date_of_est.Location = new System.Drawing.Point(14, 186);
+            this.lbl_date_of_est.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_date_of_est.Name = "lbl_date_of_est";
-            this.lbl_date_of_est.Size = new System.Drawing.Size(53, 24);
+            this.lbl_date_of_est.Size = new System.Drawing.Size(43, 18);
             this.lbl_date_of_est.TabIndex = 37;
             this.lbl_date_of_est.Text = "Date:";
             // 
@@ -95,9 +96,10 @@
             this.lbl_pub_name.AutoSize = true;
             this.lbl_pub_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_pub_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_pub_name.Location = new System.Drawing.Point(19, 43);
+            this.lbl_pub_name.Location = new System.Drawing.Point(14, 35);
+            this.lbl_pub_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_pub_name.Name = "lbl_pub_name";
-            this.lbl_pub_name.Size = new System.Drawing.Size(66, 24);
+            this.lbl_pub_name.Size = new System.Drawing.Size(52, 18);
             this.lbl_pub_name.TabIndex = 36;
             this.lbl_pub_name.Text = "Name:";
             // 
@@ -106,10 +108,10 @@
             this.tb_pub_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_pub_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pub_name.ForeColor = System.Drawing.Color.DimGray;
-            this.tb_pub_name.Location = new System.Drawing.Point(139, 43);
-            this.tb_pub_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_pub_name.Location = new System.Drawing.Point(104, 35);
+            this.tb_pub_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_pub_name.Name = "tb_pub_name";
-            this.tb_pub_name.Size = new System.Drawing.Size(274, 27);
+            this.tb_pub_name.Size = new System.Drawing.Size(206, 23);
             this.tb_pub_name.TabIndex = 29;
             this.tb_pub_name.Text = "Publisher\'s Name";
             this.tb_pub_name.Enter += new System.EventHandler(this.tb_pub_name_Enter);
@@ -121,10 +123,10 @@
             this.btn_add_pic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_pic.Image")));
-            this.btn_add_pic.Location = new System.Drawing.Point(211, 428);
-            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add_pic.Location = new System.Drawing.Point(158, 348);
+            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_add_pic.Name = "btn_add_pic";
-            this.btn_add_pic.Size = new System.Drawing.Size(63, 52);
+            this.btn_add_pic.Size = new System.Drawing.Size(47, 42);
             this.btn_add_pic.TabIndex = 43;
             this.btn_add_pic.UseVisualStyleBackColor = true;
             this.btn_add_pic.Click += new System.EventHandler(this.Change_Image_Click);
@@ -136,10 +138,10 @@
             this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.correct_symbol__1_;
-            this.btn_add.Location = new System.Drawing.Point(23, 423);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add.Location = new System.Drawing.Point(17, 344);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(55, 57);
+            this.btn_add.Size = new System.Drawing.Size(41, 46);
             this.btn_add.TabIndex = 40;
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
@@ -148,30 +150,33 @@
             // pic_book
             // 
             this.pic_book.Image = ((System.Drawing.Image)(resources.GetObject("pic_book.Image")));
-            this.pic_book.Location = new System.Drawing.Point(280, 311);
-            this.pic_book.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pic_book.Location = new System.Drawing.Point(210, 253);
+            this.pic_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pic_book.Name = "pic_book";
-            this.pic_book.Size = new System.Drawing.Size(133, 169);
+            this.pic_book.Size = new System.Drawing.Size(100, 137);
             this.pic_book.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_book.TabIndex = 39;
             this.pic_book.TabStop = false;
             // 
             // dtp_publisher
             // 
+            this.dtp_publisher.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtp_publisher.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.dtp_publisher.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtp_publisher.Location = new System.Drawing.Point(139, 231);
-            this.dtp_publisher.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtp_publisher.CustomFormat = "yyyy";
+            this.dtp_publisher.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_publisher.Location = new System.Drawing.Point(104, 188);
             this.dtp_publisher.Name = "dtp_publisher";
-            this.dtp_publisher.Size = new System.Drawing.Size(274, 22);
+            this.dtp_publisher.ShowUpDown = true;
+            this.dtp_publisher.Size = new System.Drawing.Size(206, 20);
             this.dtp_publisher.TabIndex = 47;
             // 
             // AddPublisher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(440, 497);
+            this.ClientSize = new System.Drawing.Size(330, 404);
             this.Controls.Add(this.dtp_publisher);
             this.Controls.Add(this.lbl_pub_message);
             this.Controls.Add(this.btn_add_pic);
@@ -184,7 +189,6 @@
             this.Controls.Add(this.tb_pub_name);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "AddPublisher";
             this.Opacity = 0.95D;

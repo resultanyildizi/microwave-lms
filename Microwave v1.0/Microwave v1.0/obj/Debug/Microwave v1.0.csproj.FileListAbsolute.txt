@@ -130,3 +130,32 @@ C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\M
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csprojAssemblyReference.cache
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddPublisher.resources
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Publisher_Info.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csprojAssemblyReference.cache
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddPublisher.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.AddUser.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Search_Book_Form.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Book_Tag.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.AddBook.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Book_Info.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Department_Info.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Publisher_Info.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserInfo.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Warning.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Microwave.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Properties.Resources.resources
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csproj.GenerateResource.cache
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.exe
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.pdb
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\Microwave v1.0.exe.config
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\Microwave v1.0.exe
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\Microwave v1.0.pdb
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.dll
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.dll
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.xml
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.xml
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Selim\Desktop\Microwave-LMS-v1.0-yedek\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csproj.CopyComplete

@@ -80,6 +80,9 @@ namespace Microwave_v1._0
             pnl_book.Hide();
             pnl_stick.Hide();
             pnl_pub.Hide();
+            pnl_menu.Hide();
+            pnl_left.Hide();
+            pnl_header.Hide();
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -90,8 +93,8 @@ namespace Microwave_v1._0
 
             Book.Show_All_Books();
 
-            // It's need to change
-            Main_pub_list.Show_All_Publishers();
+            
+            Publisher.Show_All_Publishers();
             // It's need to change
             main_user_list.Show_All_Users();
 
@@ -274,6 +277,19 @@ namespace Microwave_v1._0
         {
             Cover_image_list.Images[book_id.ToString()].Dispose();
             Cover_image_list.Images.RemoveByKey(book_id.ToString());
+        }
+
+        private void pnl_main_page_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pnl_header.Show();
+            pnl_left.Show();
+            pnl_menu.Show();
+            pnl_main_page.Hide();
         }
     }
 }

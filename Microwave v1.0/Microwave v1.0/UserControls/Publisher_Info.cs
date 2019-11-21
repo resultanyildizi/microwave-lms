@@ -34,13 +34,12 @@ namespace Microwave_v1._0.UserControls
             this.btn_pub_edit.Hide();
             this.btn_pub_remove.Hide();
         }
-        public void Initialize_Publisher_Info(int publisher_id, string pub_name, string pub_description,string pub_date_of_est, string pub_pic_path_file)
+        public void Initialize_Publisher_Info(int publisher_id, string pub_name, string pub_date_of_est, string pub_pic_path_file)
         {
             this.publisher_id = publisher_id;
             this.lbl_pub_name.Text = pub_name;
             this.lbl_date_of_est.Text = pub_date_of_est;
             this.pub_name = pub_name;
-            this.pub_description = pub_description;
             this.pub_date_of_est = pub_date_of_est;
             this.pub_pic_path_file = pub_pic_path_file;
         }
