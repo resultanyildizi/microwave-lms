@@ -59,7 +59,8 @@ namespace Microwave_v1._0.Classes
             if(root == null)
             {
                 root = new department_node(department);
-
+                department_count++;
+                return;
             }
             department_node iterator = root;
             while (iterator.next != null)
@@ -74,7 +75,7 @@ namespace Microwave_v1._0.Classes
             department_node iterator = root;
             while (iterator != null)
             {
-                iterator.department.Cover_Pic_to_Image_List();
+                //iterator.department.Cover_Pic_to_Image_List();
                 iterator = iterator.next;
             }
         }

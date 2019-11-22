@@ -36,7 +36,8 @@ namespace Microwave_v1._0.UserControls
             this.name = name;
             this.pic_path_file = pic_path_file;
             this.lbl_author.Text = name;
-            this.pb_author.Image = main_page.Author_cover_image_list.Images[author_id.ToString()];
+            //this.pb_author.Image = main_page.Author_cover_image_list.Images[author_id.ToString()];
+            this.pb_author.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
         }
 
         public void Draw_Author_Obj(ref int x, ref int y)

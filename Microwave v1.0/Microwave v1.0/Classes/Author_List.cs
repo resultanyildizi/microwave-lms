@@ -42,6 +42,7 @@ namespace Microwave_v1._0.Classes
             if (root == null)
             {
                 root = new author_node(author);
+                author_count++;
                 return;
             }
 
@@ -120,7 +121,7 @@ namespace Microwave_v1._0.Classes
             author_node iterator = root;
             while (iterator != null)
             {
-                iterator.author.Cover_Pic_to_Image_List();
+                //iterator.author.Cover_Pic_to_Image_List();
                 iterator = iterator.next;
             }
         }

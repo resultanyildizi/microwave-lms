@@ -56,7 +56,7 @@ namespace Microwave_v1._0.Classes
 
             info = new Department_Info();
             Take_Id_From_Database();
-            Cover_Pic_to_Image_List();
+            //Cover_Pic_to_Image_List();
             info.Initialize_Department_Info(name, Cover_path_file);
 
             main_page.Main_department_list.Add_Department_to_List(this);
@@ -69,10 +69,10 @@ namespace Microwave_v1._0.Classes
             info = new Department_Info();
             info.Initialize_Department_Info(name, Cover_path_file);
         }
-        public void Cover_Pic_to_Image_List()
+        /*public void Cover_Pic_to_Image_List()
         {
             main_page.Dep_cover_image_list.Images.Add(this.Department_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Cover_path_file));
-        }
+        }*/
         private void Take_Id_From_Database()
         {
             // To take the id of new book.

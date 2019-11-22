@@ -40,6 +40,8 @@
             // 
             // pb_department
             // 
+            this.pb_department.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_department.ErrorImage = null;
             this.pb_department.Image = ((System.Drawing.Image)(resources.GetObject("pb_department.Image")));
             this.pb_department.Location = new System.Drawing.Point(35, 25);
             this.pb_department.Margin = new System.Windows.Forms.Padding(4);
@@ -82,7 +84,7 @@
             // pnl_name
             // 
             this.pnl_name.AllowDrop = true;
-            this.pnl_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(65)))));
             this.pnl_name.Controls.Add(this.lbl_department_name);
             this.pnl_name.Location = new System.Drawing.Point(3, 233);
             this.pnl_name.Name = "pnl_name";

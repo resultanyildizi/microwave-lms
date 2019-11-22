@@ -139,8 +139,8 @@ namespace Microwave_v1._0.Forms
                 {
                     Picture_Events.Delete_The_Picture(author_to_edit.Cover_path_file);
                     picture_event.Copy_The_Picture(name);
-                    main_page.Remove_Image_From_Aut_Cover_List(author_to_edit.Author_id);
-                    author_to_edit.Cover_Pic_to_Image_List();
+                    //main_page.Remove_Image_From_Aut_Cover_List(author_to_edit.Author_id);
+                    //author_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;
                 }
 

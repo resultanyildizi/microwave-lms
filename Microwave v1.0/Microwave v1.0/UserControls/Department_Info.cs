@@ -35,7 +35,8 @@ namespace Microwave_v1._0.UserControls
         {
             this.name = name;
             this.pic_path_file = pic_path_file;
-            pb_department.Image = main_page.Dep_cover_image_list.Images[department_id.ToString()];
+            //pb_department.Image = main_page.Dep_cover_image_list.Images[department_id.ToString()];
+            pb_department.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
             this.lbl_department_name.Text = name;
         }
         public void Draw_Department_Obj(ref int x ,ref int y)

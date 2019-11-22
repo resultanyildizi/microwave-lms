@@ -75,7 +75,7 @@ namespace Microwave_v1._0.Classes
             author_info.Initialize_Author_Info(author_name, author_cover_path_file);
             Take_ID_From_Database();
             Join_Tables();
-            Cover_Pic_to_Image_List();
+            //Cover_Pic_to_Image_List();
             main_page.Main_author_list.Add_Author_to_List(this);
             main_page.Pnl_author_list.VerticalScroll.Value = 0;
             author_info.Draw_Author_Obj(ref Author.author_point_x, ref Author.author_point_y);
@@ -114,10 +114,10 @@ namespace Microwave_v1._0.Classes
             author_popularity_name = db.Rows[0][0].ToString();
         }
         
-        public void Cover_Pic_to_Image_List()
+        /*public void Cover_Pic_to_Image_List()
         {
             main_page.Author_cover_image_list.Images.Add(this.Author_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Author_cover_path_file));
-        }
+        }*/
 
 
     }

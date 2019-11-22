@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Author_Info));
             this.pb_author = new System.Windows.Forms.PictureBox();
             this.pnl_name = new System.Windows.Forms.Panel();
+            this.lbl_author = new System.Windows.Forms.Label();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.lbl_author = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_author)).BeginInit();
             this.pnl_name.SuspendLayout();
             this.SuspendLayout();
@@ -51,12 +51,23 @@
             // pnl_name
             // 
             this.pnl_name.AllowDrop = true;
-            this.pnl_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(65)))));
             this.pnl_name.Controls.Add(this.lbl_author);
-            this.pnl_name.Location = new System.Drawing.Point(3, 233);
+            this.pnl_name.Location = new System.Drawing.Point(5, 233);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(194, 34);
             this.pnl_name.TabIndex = 2;
+            // 
+            // lbl_author
+            // 
+            this.lbl_author.AutoSize = true;
+            this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_author.ForeColor = System.Drawing.Color.White;
+            this.lbl_author.Location = new System.Drawing.Point(38, 5);
+            this.lbl_author.Name = "lbl_author";
+            this.lbl_author.Size = new System.Drawing.Size(127, 25);
+            this.lbl_author.TabIndex = 0;
+            this.lbl_author.Text = "Author Name";
             // 
             // btn_remove
             // 
@@ -85,17 +96,6 @@
             this.btn_edit.Size = new System.Drawing.Size(25, 23);
             this.btn_edit.TabIndex = 5;
             this.btn_edit.UseVisualStyleBackColor = true;
-            // 
-            // lbl_author
-            // 
-            this.lbl_author.AutoSize = true;
-            this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_author.ForeColor = System.Drawing.Color.White;
-            this.lbl_author.Location = new System.Drawing.Point(38, 5);
-            this.lbl_author.Name = "lbl_author";
-            this.lbl_author.Size = new System.Drawing.Size(127, 25);
-            this.lbl_author.TabIndex = 0;
-            this.lbl_author.Text = "Author Name";
             // 
             // Author_Info
             // 

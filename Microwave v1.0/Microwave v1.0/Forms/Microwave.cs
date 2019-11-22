@@ -391,10 +391,11 @@ namespace Microwave_v1._0
             Cover_image_list.Images[book_id.ToString()].Dispose();
             Cover_image_list.Images.RemoveByKey(book_id.ToString());
         }
-        public void Remove_Image_From_Aut_Cover_List(int aut_id)
+
+        /* public void Remove_Image_From_Aut_Cover_List(int aut_id)
         {
             Author_cover_image_list.Images[aut_id.ToString()].Dispose();
-            Author_cover_image_list.Images.RemoveByKey(aut_id.ToString());
+            Author_cove
         }
         public void Remove_Image_From_Pub_Cover_List(int pub_id)
         {
@@ -405,7 +406,7 @@ namespace Microwave_v1._0
         {
             Dep_cover_image_list.Images[dep_id.ToString()].Dispose();
             Dep_cover_image_list.Images.RemoveByKey(dep_id.ToString());
-        }
+        }*/
 
         private void Btn_show_search_types_Click(object sender, EventArgs e)
         {

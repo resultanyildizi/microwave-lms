@@ -823,7 +823,7 @@ namespace Microwave_v1._0
             this.pnl_department_list.Location = new System.Drawing.Point(1, 130);
             this.pnl_department_list.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pnl_department_list.Name = "pnl_department_list";
-            this.pnl_department_list.Size = new System.Drawing.Size(1035, 730);
+            this.pnl_department_list.Size = new System.Drawing.Size(1035, 543);
             this.pnl_department_list.TabIndex = 15;
             // 
             // pnl_department
@@ -927,19 +927,19 @@ namespace Microwave_v1._0
             // pub_cover_image_list
             // 
             this.pub_cover_image_list.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.pub_cover_image_list.ImageSize = new System.Drawing.Size(16, 16);
+            this.pub_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
             this.pub_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // dep_cover_image_list
             // 
             this.dep_cover_image_list.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.dep_cover_image_list.ImageSize = new System.Drawing.Size(16, 16);
+            this.dep_cover_image_list.ImageSize = new System.Drawing.Size(200, 225);
             this.dep_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // author_cover_image_list
             // 
             this.author_cover_image_list.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.author_cover_image_list.ImageSize = new System.Drawing.Size(16, 16);
+            this.author_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
             this.author_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Microwave
