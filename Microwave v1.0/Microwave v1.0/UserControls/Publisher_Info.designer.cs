@@ -31,71 +31,38 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Publisher_Info));
             this.pnl_pub_name = new System.Windows.Forms.Panel();
             this.lbl_pub_name = new System.Windows.Forms.Label();
-            this.pnl_date_of_est = new System.Windows.Forms.Panel();
-            this.lbl_date_of_est = new System.Windows.Forms.Label();
             this.btn_pub_remove = new System.Windows.Forms.Button();
             this.btn_pub_edit = new System.Windows.Forms.Button();
+            this.pb_publisher = new System.Windows.Forms.PictureBox();
             this.pnl_pub_name.SuspendLayout();
-            this.pnl_date_of_est.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_publisher)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_pub_name
             // 
-            this.pnl_pub_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.pnl_pub_name.AllowDrop = true;
             this.pnl_pub_name.Controls.Add(this.lbl_pub_name);
-            this.pnl_pub_name.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_pub_name.Location = new System.Drawing.Point(32, 0);
+            this.pnl_pub_name.Location = new System.Drawing.Point(16, 235);
             this.pnl_pub_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_pub_name.Name = "pnl_pub_name";
-            this.pnl_pub_name.Size = new System.Drawing.Size(255, 49);
-            this.pnl_pub_name.TabIndex = 5;
-            this.pnl_pub_name.Click += new System.EventHandler(this.Publisher_Info_Click);
-            this.pnl_pub_name.MouseEnter += new System.EventHandler(this.Publisher_Info_Enter);
-            this.pnl_pub_name.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
+            this.pnl_pub_name.Size = new System.Drawing.Size(175, 34);
+            this.pnl_pub_name.TabIndex = 16;
+            this.pnl_pub_name.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_pub_name_Paint);
             // 
             // lbl_pub_name
             // 
-            this.lbl_pub_name.AutoEllipsis = true;
-            this.lbl_pub_name.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_pub_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pub_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_pub_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_pub_name.Location = new System.Drawing.Point(4, 16);
+            this.lbl_pub_name.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_pub_name.Location = new System.Drawing.Point(-1, 1);
             this.lbl_pub_name.Name = "lbl_pub_name";
-            this.lbl_pub_name.Size = new System.Drawing.Size(179, 25);
+            this.lbl_pub_name.Size = new System.Drawing.Size(175, 33);
             this.lbl_pub_name.TabIndex = 0;
-            this.lbl_pub_name.Text = "Kürk Mantolu Madonna";
-            this.lbl_pub_name.Click += new System.EventHandler(this.Publisher_Info_Click);
-            this.lbl_pub_name.MouseEnter += new System.EventHandler(this.Publisher_Info_Enter);
+            this.lbl_pub_name.Text = "Publisher Name";
+            this.lbl_pub_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_pub_name.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.lbl_pub_name.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.lbl_pub_name.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
-            // 
-            // pnl_date_of_est
-            // 
-            this.pnl_date_of_est.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_date_of_est.Controls.Add(this.lbl_date_of_est);
-            this.pnl_date_of_est.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_date_of_est.Location = new System.Drawing.Point(292, 0);
-            this.pnl_date_of_est.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnl_date_of_est.Name = "pnl_date_of_est";
-            this.pnl_date_of_est.Size = new System.Drawing.Size(248, 49);
-            this.pnl_date_of_est.TabIndex = 8;
-            this.pnl_date_of_est.Click += new System.EventHandler(this.Publisher_Info_Click);
-            this.pnl_date_of_est.MouseEnter += new System.EventHandler(this.Publisher_Info_Enter);
-            this.pnl_date_of_est.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
-            // 
-            // lbl_date_of_est
-            // 
-            this.lbl_date_of_est.AutoEllipsis = true;
-            this.lbl_date_of_est.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_date_of_est.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date_of_est.ForeColor = System.Drawing.Color.White;
-            this.lbl_date_of_est.Location = new System.Drawing.Point(3, 16);
-            this.lbl_date_of_est.Name = "lbl_date_of_est";
-            this.lbl_date_of_est.Size = new System.Drawing.Size(155, 25);
-            this.lbl_date_of_est.TabIndex = 1;
-            this.lbl_date_of_est.Text = "Sabahattin Ali";
-            this.lbl_date_of_est.Click += new System.EventHandler(this.Publisher_Info_Click);
-            this.lbl_date_of_est.MouseEnter += new System.EventHandler(this.Publisher_Info_Enter);
-            this.lbl_date_of_est.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             // 
             // btn_pub_remove
             // 
@@ -109,9 +76,9 @@
             this.btn_pub_remove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_pub_remove.Name = "btn_pub_remove";
             this.btn_pub_remove.Size = new System.Drawing.Size(25, 23);
-            this.btn_pub_remove.TabIndex = 11;
+            this.btn_pub_remove.TabIndex = 15;
             this.btn_pub_remove.UseVisualStyleBackColor = true;
-            this.btn_pub_remove.Click += new System.EventHandler(this.btn_pub_remove_Click);
+            this.btn_pub_remove.Click += new System.EventHandler(this.Btn_remove_Click);
             // 
             // btn_pub_edit
             // 
@@ -121,43 +88,54 @@
             this.btn_pub_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_pub_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pub_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_pub_edit.Image")));
-            this.btn_pub_edit.Location = new System.Drawing.Point(3, 0);
+            this.btn_pub_edit.Location = new System.Drawing.Point(3, 2);
             this.btn_pub_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_pub_edit.Name = "btn_pub_edit";
             this.btn_pub_edit.Size = new System.Drawing.Size(25, 23);
-            this.btn_pub_edit.TabIndex = 10;
+            this.btn_pub_edit.TabIndex = 14;
             this.btn_pub_edit.UseVisualStyleBackColor = true;
             this.btn_pub_edit.Click += new System.EventHandler(this.btn_pub_edit_Click);
+            // 
+            // pb_publisher
+            // 
+            this.pb_publisher.Image = ((System.Drawing.Image)(resources.GetObject("pb_publisher.Image")));
+            this.pb_publisher.Location = new System.Drawing.Point(35, 25);
+            this.pb_publisher.Name = "pb_publisher";
+            this.pb_publisher.Size = new System.Drawing.Size(140, 190);
+            this.pb_publisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_publisher.TabIndex = 13;
+            this.pb_publisher.TabStop = false;
+            this.pb_publisher.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.pb_publisher.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
+            this.pb_publisher.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             // 
             // Publisher_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.Controls.Add(this.pnl_pub_name);
             this.Controls.Add(this.btn_pub_remove);
             this.Controls.Add(this.btn_pub_edit);
-            this.Controls.Add(this.pnl_pub_name);
-            this.Controls.Add(this.pnl_date_of_est);
+            this.Controls.Add(this.pb_publisher);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Publisher_Info";
-            this.Size = new System.Drawing.Size(545, 49);
-            this.Load += new System.EventHandler(this.Publisher_Info_Load);
-            this.Click += new System.EventHandler(this.Publisher_Info_Click);
-            this.Enter += new System.EventHandler(this.Publisher_Info_Enter);
-            this.MouseEnter += new System.EventHandler(this.Publisher_Info_Enter);
+            this.Size = new System.Drawing.Size(207, 282);
+            this.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             this.pnl_pub_name.ResumeLayout(false);
-            this.pnl_date_of_est.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_publisher)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btn_pub_remove;
-        private System.Windows.Forms.Button btn_pub_edit;
         private System.Windows.Forms.Panel pnl_pub_name;
         private System.Windows.Forms.Label lbl_pub_name;
-        private System.Windows.Forms.Panel pnl_date_of_est;
-        private System.Windows.Forms.Label lbl_date_of_est;
+        private System.Windows.Forms.Button btn_pub_remove;
+        private System.Windows.Forms.Button btn_pub_edit;
+        private System.Windows.Forms.PictureBox pb_publisher;
     }
 }

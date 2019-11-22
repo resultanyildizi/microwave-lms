@@ -99,7 +99,7 @@ namespace Microwave_v1._0.Forms
                 picture_event.Copy_The_Picture(pub_name);
                 pic_new_source_path = picture_event.Pic_source_file;
                 Publisher publisher= new Publisher(0,pub_name,pub_date_of_est,pic_new_source_path);
-                publisher.Add_Publisher();
+                publisher.Add();
 
                 Clear();
             }
@@ -110,7 +110,6 @@ namespace Microwave_v1._0.Forms
                     Picture_Events.Delete_The_Picture(publisher_to_edit.Pub_cover_path_file);
                     picture_event.Copy_The_Picture(pub_name);
                     main_page.Remove_Image_From_Cover_List(publisher_to_edit.Publisher_id);
-                    publisher_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;
                 }
 
@@ -121,7 +120,7 @@ namespace Microwave_v1._0.Forms
                 publisher_to_edit.Pub_description= pub_description;
                 publisher_to_edit.Pub_date_of_est = pub_date_of_est;
                 publisher_to_edit.Pub_cover_path_file= picture_event.Pic_source_file;
-                publisher_to_edit.Edit_Publisher();
+                publisher_to_edit.Edit();
             }
         }
 

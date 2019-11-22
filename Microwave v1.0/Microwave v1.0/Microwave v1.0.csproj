@@ -69,13 +69,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Author.cs" />
-    <Compile Include="Classes\Author_List.cs" />
-    <Compile Include="Classes\DataBaseEvents.cs" />
-    <Compile Include="Classes\Department.cs" />
-    <Compile Include="Classes\Department_List.cs" />
-    <Compile Include="Classes\Publisher.cs" />
-    <Compile Include="Classes\Publisher_List.cs" />
+    <Compile Include="Model\Author.cs" />
+    <Compile Include="Model\Author_List.cs" />
+    <Compile Include="Model\DataBaseEvents.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Department_List.cs" />
+    <Compile Include="Model\Publisher.cs" />
+    <Compile Include="Model\Publisher_List.cs" />
     <Compile Include="Forms\AddAuthor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +124,9 @@
     <Compile Include="UserControls\Book_Info.Designer.cs">
       <DependentUpon>Book_Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Book.cs" />
-    <Compile Include="Classes\Book_List.cs" />
-    <Compile Include="Classes\User.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\Book_List.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="UserControls\Department_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,22 +145,22 @@
     <Compile Include="UserControls\UserInfo.Designer.cs">
       <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\User_List.cs" />
+    <Compile Include="Model\User_List.cs" />
     <Compile Include="Forms\Warning.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Warning.Designer.cs">
       <DependentUpon>Warning.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Librarian.cs" />
+    <Compile Include="Model\Librarian.cs" />
     <Compile Include="Forms\Microwave.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Microwave.Designer.cs">
       <DependentUpon>Microwave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Picture_Events.cs" />
-    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Model\Picture_Events.cs" />
+    <Compile Include="Model\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddAuthor.resx">
       <DependentUpon>AddAuthor.cs</DependentUpon>
