@@ -69,11 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Author.cs" />
+    <Compile Include="Classes\Author_List.cs" />
     <Compile Include="Classes\DataBaseEvents.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Department_List.cs" />
     <Compile Include="Classes\Publisher.cs" />
     <Compile Include="Classes\Publisher_List.cs" />
+    <Compile Include="Forms\AddAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddAuthor.designer.cs">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +99,12 @@
     </Compile>
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Author_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Author_Info.designer.cs">
+      <DependentUpon>Author_Info.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book_Tag.cs">
       <SubType>UserControl</SubType>
@@ -148,6 +162,9 @@
     <Compile Include="Classes\Picture_Events.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddAuthor.resx">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddDepartment.resx">
       <DependentUpon>AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Author_Info.resx">
+      <DependentUpon>Author_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Book_Tag.resx">
       <DependentUpon>Book_Tag.cs</DependentUpon>
