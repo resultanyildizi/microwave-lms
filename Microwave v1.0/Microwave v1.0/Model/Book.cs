@@ -144,7 +144,7 @@ namespace Microwave_v1._0
         }
         public void Edit()
         {
-            Join_Tables_For_Names();
+            
 
             string title = "UPDATE Books";
             string query = title + string.Format(" SET AUTHOR_ID = '{0}', PUBLISHER_ID = '{1}', CATEGORY_ID = '{2}', " +
@@ -157,7 +157,7 @@ namespace Microwave_v1._0
                 MessageBox.Show("Invalid update event");
                 return;
             }
-
+            Join_Tables_For_Names();
 
             // For user interface
             info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
