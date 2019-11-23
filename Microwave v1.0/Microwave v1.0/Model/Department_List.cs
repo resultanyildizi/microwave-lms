@@ -41,7 +41,7 @@ namespace Microwave_v1._0.Classes
         {
             int rows_count = dt.Rows.Count;
 
-            for(int i = 0; i<rows_count; i++)
+            for(int i = 1; i<rows_count; i++)
             {
                 int department_id = int.Parse(dt.Rows[i][0].ToString());
                 string department_name = dt.Rows[i][1].ToString();

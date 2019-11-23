@@ -96,9 +96,7 @@ namespace Microwave_v1._0.Forms
                 {
                     Picture_Events.Delete_The_Picture(department_to_edit.Cover_path_file1);
                     picture_event.Copy_The_Picture(name);
-                    //main_page.Remove_Image_From_Cover_List(department_to_edit.Department_id);
                     department_to_edit.Cover_path_file1 = picture_event.Pic_source_file;
-                    //department_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;
                 }
                 lbl_message.Text = "* Department changed succesfully";

@@ -68,7 +68,6 @@ namespace Microwave_v1._0.UserControls
         }
         private void Remove(bool delete_picture = true)
         {
-            main_page.Remove_Image_From_Cover_List(department_id);
             department_list.Delete_Department_from_List(department_id , delete_picture);
             this.Dispose();
 
