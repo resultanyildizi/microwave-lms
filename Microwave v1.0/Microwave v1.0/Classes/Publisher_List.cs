@@ -28,7 +28,7 @@ namespace Microwave_v1._0.Classes
     public class Publisher_List
     {
         int point_y = Publisher.pub_point_y;
-
+        
         pub_node root;
 
         public Publisher_List()

@@ -21,7 +21,7 @@ namespace Microwave_v1._0.Classes
         private int department_id;
         private int staff_count;
         private string Cover_path_file;
-        Microwave main_page = null;
+        static Microwave main_page = null;
         private Department_Info info;
         
        
@@ -69,10 +69,18 @@ namespace Microwave_v1._0.Classes
             info = new Department_Info();
             info.Initialize_Department_Info(name, Cover_path_file);
         }
-        /*public void Cover_Pic_to_Image_List()
+      public void Delete()
         {
-            main_page.Dep_cover_image_list.Images.Add(this.Department_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Cover_path_file));
-        }*/
+            string title = "DELETE FROM Department ";
+            string query = title + string.Format("Where DEPARTMENT_ID = '{0}' ;", department_id);
+
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if ( result <= 0)
+            {
+                MessageBox.Show("Delete is not valid");
+                return;
+            }
+        }
         private void Take_Id_From_Database()
         {
             // To take the id of new book.
@@ -88,7 +96,17 @@ namespace Microwave_v1._0.Classes
             // For user inteface
             this.Info.Department_id = id; // IMPORTANT
         }
+       static public void Show_All_Departments()
+        {
+            string query = "SELECT * FROM Department";
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+
+            main_page.Main_department_list.Fill_Department_list(dt);
+            main_page.Main_department_list.Show_All_Departments();
+
+        }
     }
 }
     

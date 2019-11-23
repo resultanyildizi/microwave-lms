@@ -115,7 +115,7 @@ namespace Microwave_v1._0
 
             Book.Show_All_Books();
 
-            
+            Department.Show_All_Departments();
             Publisher.Show_All_Publishers();
             // It's need to change
             main_user_list.Show_All_Users();
