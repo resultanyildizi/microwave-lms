@@ -81,7 +81,11 @@ namespace Microwave_v1._0
         public string Path_file { get => path_file; set => path_file = value; }
         public SQLiteConnection Connection { get => connection; set => connection = value; }
         // Booleans
-        private bool show_pnl_book_st = false;
+        private bool show_pnl_book_st   = false;
+        private bool show_pnl_user_st   = false;
+        private bool show_pnl_author_st = false;
+        private bool show_pnl_pub_st    = false;
+        private bool show_pnl_depart_st = false;
 
         // Constructor
         public Microwave()
@@ -104,8 +108,16 @@ namespace Microwave_v1._0
             btn_show_search_types.Hide();
 
             // Book search category
+            // Search category
             pnl_book_st.Hide();
             rb_book_name.Checked = true;
+
+            pnl_user_st.Hide();
+            pnl_author_st.Hide();
+            pnl_publisher_st.Hide();
+            pnl_department_st.Hide();
+            
+
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -422,16 +434,72 @@ namespace Microwave_v1._0
 
         private void Btn_show_search_types_Click(object sender, EventArgs e)
         {
-            if (show_pnl_book_st == false)
+            if(chosen == MENU_CHOSEN.BOOKS)
             {
-                this.pnl_book_st.Show();
-                show_pnl_book_st = true;
+                if (show_pnl_book_st == false)
+                {
+                    this.pnl_book_st.Show();
+                    show_pnl_book_st = true;
+                }
+                else
+                {
+                    this.pnl_book_st.Hide();
+                    show_pnl_book_st = false;
+                }
             }
-            else
+            else if(chosen == MENU_CHOSEN.USERS)
             {
-                this.pnl_book_st.Hide();
-                show_pnl_book_st = false;
+                if (show_pnl_user_st == false)
+                {
+                    this.pnl_user_st.Show();
+                    show_pnl_user_st = true;
+                }
+                else
+                {
+                    this.pnl_user_st.Hide();
+                    show_pnl_user_st = false;
+                }
             }
+            else if(chosen == MENU_CHOSEN.AUTHOR)
+            {
+                if(show_pnl_author_st == false)
+                {
+                    this.pnl_author_st.Show();
+                    show_pnl_author_st = true;
+                }
+                else
+                {
+                    this.pnl_author_st.Hide();
+                    show_pnl_author_st = false;
+                }
+            }
+            else if (chosen == MENU_CHOSEN.PUBLISHER)
+            {
+                if (show_pnl_pub_st == false)
+                {
+                    this.pnl_publisher_st.Show();
+                    show_pnl_pub_st = true;
+                }
+                else
+                {
+                    this.pnl_publisher_st.Hide();
+                    show_pnl_pub_st = false;
+                }
+            }
+            else if (chosen == MENU_CHOSEN.DEPARTMENT)
+            {
+                if (show_pnl_depart_st == false)
+                {
+                    this.pnl_department_st.Show();
+                    show_pnl_depart_st = true;
+                }
+                else
+                {
+                    this.pnl_department_st.Hide();
+                    show_pnl_depart_st = false;
+                }
+            }
+
         }
         private void Tb_search_Leave(object sender, EventArgs e)
         {
