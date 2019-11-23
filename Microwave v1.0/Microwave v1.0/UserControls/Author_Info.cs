@@ -45,14 +45,14 @@ namespace Microwave_v1._0.UserControls
             main_page.Pnl_author_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(x, y);
             
-            if(author_list.Author_count % 4 == 0)
+            if(x>500)
             {
-                y += 220;
-                x = 5;
+                y += 240;
+                x = 35;
             }
             else
             {
-                x += 210;
+                x += 180;
             }
         }
 

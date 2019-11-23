@@ -38,27 +38,35 @@ namespace Microwave_v1._0.UserControls
         {
             this.publisher_id = publisher_id;
             this.lbl_pub_name.Text = pub_name;
-            this.lbl_date_of_est.Text = pub_date_of_est;
             this.pub_name = pub_name;
             this.pub_date_of_est = pub_date_of_est;
             this.pub_pic_path_file = pub_pic_path_file;
         }
 
 
-        public void Draw_Publisher_Obj(ref int y)
+
+        public void Draw_Publisher_Obj(ref int x, ref int y)
         {
             main_page.Pnl_pub_list.Controls.Add(this);
-            this.Location = new System.Drawing.Point(0, y);
-            y += 45;
+            this.Location = new System.Drawing.Point(x, y);
+            if (x > 500)
+            {
+                y += 240;
+                x = 35;
+            }
+            else
+            {
+                x += 180;
+            }
         }
         public void Select_Publisher_Info()
         {
             chosen = true;
 
             Color back_color = Color.FromArgb(33, 37, 48);
-            this.pnl_date_of_est.BackColor = back_color;
-            this.pnl_pub_name.BackColor = back_color;
-
+            Color back_color2 = Color.FromArgb(48, 52, 64);
+            this.pnl_pub_name.BackColor = back_color2;
+            this.BackColor = back_color;
             this.btn_pub_edit.Show();
             this.btn_pub_remove.Show();
 
@@ -67,8 +75,9 @@ namespace Microwave_v1._0.UserControls
         {
             chosen = false;
             Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
-            this.pnl_date_of_est.BackColor = back_color;
-            this.pnl_pub_name.BackColor = back_color;
+            this.BackColor = back_color;
+            Color back_color2 = Color.FromArgb(55, 57, 68);
+            this.pnl_pub_name.BackColor = back_color2;
             this.btn_pub_edit.Hide();
             this.btn_pub_remove.Hide();
         }
@@ -78,16 +87,41 @@ namespace Microwave_v1._0.UserControls
             this.Select_Publisher_Info();
         }
 
-
-
-        private void Publisher_Info_Load(object sender, EventArgs e)
+        private void Btn_remove_Click(object sender, EventArgs e)
         {
+            string message = "Do you want to delete this book?";
+            main_page.Create_Warning_Form(message, Color.DarkRed);
+            bool delete_pic = true;
+            if(pub_pic_path_file == @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg")
+            {
+                delete_pic = false;
+            }
 
+            if (main_page.Warning_form.Result)
+                Remove(delete_pic);
+
+            main_page.Warning_form.Refresh_Form();
+        }
+
+        private void Remove(bool delete_picture = true)
+        {
+            main_pub_list.Delete_Publisher_from_List(publisher_id, delete_picture);
+            this.Dispose();
+
+            main_page.Pnl_book_list.VerticalScroll.Value = 0;
+            Publisher.pub_point_y = 5;
+            Publisher.pub_point_x = 35;
+            main_pub_list.Show_All_Publishers();
         }
 
         private void btn_pub_edit_Click(object sender, EventArgs e)
         {
+            string message = "Do you want to edit this publisher?";
+            main_page.Create_Warning_Form(message, Color.DarkBlue);
+            if (main_page.Warning_form.Result)
+                Edit();
 
+            main_page.Warning_form.Refresh_Form();
         }
 
         private void btn_pub_remove_Click(object sender, EventArgs e)
@@ -95,38 +129,74 @@ namespace Microwave_v1._0.UserControls
 
         }
 
+        private void Edit()
+        {
+            Publisher current = main_pub_list.Find_Publisher_By_ID(publisher_id);
+            // Don't delete the picture from file
+            Create_Add_Publisher_Form_With_Publisher(current);
+        }
+        private void Create_Add_Publisher_Form_With_Publisher(Publisher publisher)
+        {
 
-        
-
-   
+            if (edit_pub_form == null)
+            {
+                edit_pub_form = new AddPublisher(publisher);
+                edit_pub_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    edit_pub_form.Show();
+                }
+                catch (Exception e)
+                {
+                    edit_pub_form = new AddPublisher(publisher);
+                    edit_pub_form.Show();
+                }
+            }
+        }
 
         public void Pub_Hover()
         {
             if (!chosen)
             {
                 Color back_color = Color.FromArgb(43, 47, 58);
-
-                this.pnl_date_of_est.BackColor = back_color;
-                this.pnl_pub_name.BackColor = back_color;
+                this.BackColor = back_color;
+                Color back_color2 = Color.FromArgb(55, 57, 68);
+                this.pnl_pub_name.BackColor = back_color2;
             }
         }
-        private void Publisher_Info_Enter(object sender, EventArgs e)
-        {
-            Pub_Hover();
-        }
-
         public void Pub_Mouse_Leave()
         {
             if (!chosen)
             {
                 Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
-                this.pnl_pub_name.BackColor = back_color;
-                this.pnl_date_of_est.BackColor = back_color;
+                this.BackColor = back_color;
+                Color back_color2 = Color.FromArgb(55, 57, 68);
+                this.pnl_pub_name.BackColor = back_color2;
             }
         }
         private void lbl_pub_name_MouseLeave(object sender, EventArgs e)
         {
             Pub_Mouse_Leave();
         }
+
+        private void lbl_pub_name_MouseEnter(object sender, EventArgs e)
+        {
+            Pub_Hover();
+        }
+
+        private void lbl_pub_name_Click(object sender, EventArgs e)
+        {
+            main_pub_list.Deselect_All_Publisher_Infos();
+            this.Select_Publisher_Info();
+        }
+
+        private void pnl_pub_name_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }

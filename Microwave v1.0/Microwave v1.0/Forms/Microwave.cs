@@ -100,7 +100,8 @@ namespace Microwave_v1._0
             pnl_pub.Hide();
             pnl_department.Hide();
             pnl_authors.Hide();
-
+            tb_search.Hide();
+            btn_show_search_types.Hide();
 
             // Book search category
             pnl_book_st.Hide();
@@ -306,10 +307,13 @@ namespace Microwave_v1._0
             pnl_stick.Show();
             pnl_book.Show();
             pnl_tag.Show();
+            tb_search.Show();
+            btn_show_search_types.Show();
             pnl_user.Hide();
             pnl_pub.Hide();
             pnl_authors.Hide();
             pnl_department.Hide();
+            
         }
         private void btn_users_Click(object sender, EventArgs e)
         {
@@ -319,6 +323,8 @@ namespace Microwave_v1._0
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_user.Location.Y);
             pnl_stick.Show();
             pnl_user.Show();
+            tb_search.Show();
+            btn_show_search_types.Show();
             pnl_book.Hide();
             pnl_pub.Hide();
             pnl_tag.Hide();
@@ -331,6 +337,8 @@ namespace Microwave_v1._0
 
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_author.Location.Y);
             pnl_stick.Show();
+            tb_search.Show();
+            btn_show_search_types.Show();
             pnl_pub.Hide();
             pnl_book.Hide();
             pnl_tag.Hide();
@@ -347,6 +355,8 @@ namespace Microwave_v1._0
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_publisher.Location.Y);
             pnl_stick.Show();
             pnl_pub.Show();
+            tb_search.Show();
+            btn_show_search_types.Show();
             pnl_book.Hide();
             pnl_tag.Hide();
             pnl_user.Hide();
@@ -360,6 +370,8 @@ namespace Microwave_v1._0
 
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_department.Location.Y);
             pnl_stick.Show();
+            tb_search.Show();
+            btn_show_search_types.Show();
             pnl_pub.Hide();
             pnl_book.Hide();
             pnl_tag.Hide();

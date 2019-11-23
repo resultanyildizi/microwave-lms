@@ -7,7 +7,7 @@ namespace Microwave_v1._0.Classes
     public class Author
     {
         public static int author_point_y = 5; // Author infoları ekrana çizdirirken kullanılan offset.
-        public static int author_point_x = 5;
+        public static int author_point_x = 35;
         static Microwave main_page = null;
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 

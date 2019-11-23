@@ -53,21 +53,22 @@
             this.pnl_name.AllowDrop = true;
             this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(65)))));
             this.pnl_name.Controls.Add(this.lbl_author);
-            this.pnl_name.Location = new System.Drawing.Point(5, 233);
+            this.pnl_name.Location = new System.Drawing.Point(16, 235);
+            this.pnl_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_name.Name = "pnl_name";
-            this.pnl_name.Size = new System.Drawing.Size(194, 34);
+            this.pnl_name.Size = new System.Drawing.Size(175, 34);
             this.pnl_name.TabIndex = 2;
             // 
             // lbl_author
             // 
-            this.lbl_author.AutoSize = true;
             this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbl_author.ForeColor = System.Drawing.Color.White;
-            this.lbl_author.Location = new System.Drawing.Point(38, 5);
+            this.lbl_author.Location = new System.Drawing.Point(-1, 1);
             this.lbl_author.Name = "lbl_author";
-            this.lbl_author.Size = new System.Drawing.Size(127, 25);
+            this.lbl_author.Size = new System.Drawing.Size(175, 33);
             this.lbl_author.TabIndex = 0;
             this.lbl_author.Text = "Author Name";
+            this.lbl_author.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_remove
             // 
@@ -102,16 +103,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.pb_author);
             this.Name = "Author_Info";
-            this.Size = new System.Drawing.Size(205, 280);
+            this.Size = new System.Drawing.Size(207, 282);
             ((System.ComponentModel.ISupportInitialize)(this.pb_author)).EndInit();
             this.pnl_name.ResumeLayout(false);
-            this.pnl_name.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -15,6 +15,7 @@ namespace Microwave_v1._0.Classes
     public class Publisher
     {
         public static int pub_point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
+        public static int pub_point_x = 35;
         static Microwave main_page = null;
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
@@ -42,7 +43,7 @@ namespace Microwave_v1._0.Classes
         public string Pub_date_of_est { get => pub_date_of_est; set => pub_date_of_est = value; }
         public string Pub_description { get => pub_description; set => pub_description = value; }
 
-        public void Add_Publisher()
+        public void Add()
         {
             string title;
             string values;
@@ -65,43 +66,40 @@ namespace Microwave_v1._0.Classes
             DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             pub_info = new Publisher_Info();
-
-
+            Take_Pub_Id_From_Database();
 
             pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
-            Cover_Pic_to_Image_List();
             main_page.Main_pub_list.Add_Publisher_to_List(this);
-
             main_page.Pnl_pub_list.VerticalScroll.Value = 0;
 
-            Pub_info.Draw_Publisher_Obj(ref Publisher.pub_point_y);
+            Pub_info.Draw_Publisher_Obj(ref Publisher.pub_point_x, ref Publisher.pub_point_y);
 
             main_page.Main_pub_list.Deselect_All_Publisher_Infos();
             Pub_info.Select_Publisher_Info();
 
         }
 
-        public void Edit_Publisher()
+        public void Edit()
         {
             string title = "UPDATE Publishers";
             string query = title + string.Format(" SET ,NAME = '{0}',DATE_OF_EST = '{1}',PICTURE_PATH = '{2}'" +
-            "Where PUBLISHER_ID = '{3}'",pub_name,pub_date_of_est,pub_cover_path_file,publisher_id);
+            "Where PUBLISHER_ID = '{3}'", pub_name, pub_date_of_est, pub_cover_path_file, publisher_id);
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
-            if(result <= 0)
+            if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
                 return;
             }
 
 
-            Pub_info.Initialize_Publisher_Info(publisher_id, pub_name,pub_date_of_est,pub_cover_path_file);
+            Pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
             Pub_info.Select_Publisher_Info();
         }
 
-        public void Delete_Publisher()
+        public void Delete()
         {
-            string title = "DELETE FROM Publishers";
+            string title = "DELETE FROM Publishers ";
             string query = title + string.Format("Where PUBLISHER_ID = '{0}'", publisher_id);
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
@@ -125,7 +123,7 @@ namespace Microwave_v1._0.Classes
         public void Set_Publisher()
         {
             pub_info = new Publisher_Info();
-            pub_info.Initialize_Publisher_Info(publisher_id,pub_name,pub_date_of_est,pub_cover_path_file);
+            pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
 
         }
 
@@ -146,10 +144,10 @@ namespace Microwave_v1._0.Classes
 
         }
 
-        public void Cover_Pic_to_Image_List()
+        /*public void Cover_Pic_to_Image_List()
         {
             main_page.Pub_cover_image_list.Images.Add(this.Publisher_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Pub_cover_path_file));
-        }
+        }*/
     }
 
 }
