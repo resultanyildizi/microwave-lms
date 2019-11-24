@@ -109,7 +109,7 @@ namespace Microwave_v1._0.UserControls
             main_pub_list.Delete_Publisher_from_List(publisher_id, delete_picture);
             this.Dispose();
 
-            main_page.Pnl_book_list.VerticalScroll.Value = 0;
+            main_page.Pnl_pub_list.VerticalScroll.Value = 0;
             Publisher.pub_point_y = 5;
             Publisher.pub_point_x = 35;
             main_pub_list.Show_All_Publishers();
