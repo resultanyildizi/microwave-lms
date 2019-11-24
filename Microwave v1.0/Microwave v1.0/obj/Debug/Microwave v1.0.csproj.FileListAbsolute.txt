@@ -196,4 +196,9 @@ C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\D
 C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddPublisher.resources
 C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Author_Info.resources
 C:\Users\Dell\Desktop\s2s\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Publisher_Info.resources
-
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddAuthor.resources
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddDepartment.resources
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddPublisher.resources
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Author_Info.resources
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Department_Info.resources
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Publisher_Info.resources

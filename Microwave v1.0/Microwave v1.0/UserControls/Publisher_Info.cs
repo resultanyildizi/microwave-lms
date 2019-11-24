@@ -58,6 +58,7 @@ namespace Microwave_v1._0.UserControls
             {
                 x += 180;
             }
+            pb_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(pub_pic_path_file);
         }
         public void Select_Publisher_Info()
         {
