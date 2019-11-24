@@ -56,6 +56,20 @@ namespace Microwave_v1._0.Classes
             Fill_Cover_Image_List();
         }
 
+        public void Delete_All_List()
+        {
+            pub_node iterator = root;
+            pub_node current;
+
+            while (iterator != null)
+            {
+                current = iterator.next;
+                iterator.pub.Pub_info.Dispose();
+                iterator.pub = null;
+                iterator = current;
+            }
+            root = null;
+        }
 
         public void Add_Publisher_to_List(Publisher pub)
         {
@@ -90,6 +104,16 @@ namespace Microwave_v1._0.Classes
             while (iterator != null)
             {
                 iterator.pub.Pub_info.Deselect_Publisher_Info();
+                iterator = iterator.next;
+            }
+        }
+
+        public void Hide_All_Publisher_Objects()
+        {
+            pub_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.pub.Pub_info.Hide();
                 iterator = iterator.next;
             }
         }

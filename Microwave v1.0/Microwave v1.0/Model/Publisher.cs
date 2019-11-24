@@ -127,8 +127,18 @@ namespace Microwave_v1._0.Classes
 
         }
 
-        static public DataTable Search_Publisher_By_ID() { return null; }
-        static public DataTable Search_Publisher_By_Name() { return null; }
+        static public DataTable Search_Publisher_By_Name(string name)
+        {
+            string query = string.Format("Select * From Publishers Where Publishers.NAME Like '{0}%'", name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Publisher_By_ID(string publisher_id)
+        {
+            string query = string.Format("Select * From Publishers Where Publishers.PUBLISHER_ID Like '{0}%'",publisher_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
 
         private void Take_Pub_Id_From_Database()
         {

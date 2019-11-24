@@ -65,6 +65,8 @@ namespace Microwave_v1._0
         // Searching stuff
         public Book_List book_searchinf_list = null;
         string book_last_search_text;
+        public Publisher_List publisher_searchinf_list = null;
+        string pub_last_search_text;
         // Getters and Setters
 
         public Warning Warning_form { get => warning_form; set => warning_form = value; }
@@ -104,6 +106,7 @@ namespace Microwave_v1._0
 
             // deneme
             book_searchinf_list = new Book_List();
+            publisher_searchinf_list = new Publisher_List();
 
             pnl_tag.Hide();
             pnl_user.Hide();
@@ -652,6 +655,49 @@ namespace Microwave_v1._0
         {
             this.pnl_book_st.Hide();
             this.show_pnl_book_st = false;
+        }
+
+        private void tb_search_publisher_TextChanged(object sender, EventArgs e)
+        {
+            string text = tb_search_publisher.Text;
+
+            text = text.Trim();
+            if (chosen == MENU_CHOSEN.PUBLISHER)
+            {
+                if (text == "")
+                {
+                    publisher_searchinf_list.Delete_All_List();
+                    main_pub_list.Show_All_Publishers();
+                    return;
+                }
+                else if (text == "Search a publisher")
+                {
+                    publisher_searchinf_list.Delete_All_List();
+                    main_pub_list.Show_All_Publishers();
+                    return;
+                }
+                else
+                {
+                    this.pnl_pub_list.VerticalScroll.Value = 0;
+                    main_pub_list.Hide_All_Publisher_Objects();
+                    publisher_searchinf_list.Delete_All_List();
+                    if (rb_pub_name.Checked)
+                    {
+                        publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_Name(text));
+                        publisher_searchinf_list.Show_All_Publishers();
+                        return;
+                    }
+                    if (rb_pub_ıd.Checked)
+                    {
+                        publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_ID(text));
+                        publisher_searchinf_list.Show_All_Publishers();
+                        return;
+                    }
+                }
+
+            }
+
+            pub_last_search_text = tb_search_publisher.Text;
         }
     }
 }
