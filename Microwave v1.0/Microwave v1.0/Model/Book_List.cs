@@ -35,7 +35,7 @@ namespace Microwave_v1._0
     public class Book_List
     {
         int point_y = Book.point_y;
-
+        static int book_count = 0;
         book_node root;
 
         public Book_List()
@@ -44,9 +44,13 @@ namespace Microwave_v1._0
             root = null;
         }
 
-        public void Fill_Book_List(DataTable dt)
+        public void Fill_Book_List(DataTable dt, INFO_COLOR_MODE color_mode)
         {
-            int rows_count = dt.Rows.Count;
+            int rows_count = book_count = dt.Rows.Count;
+            
+            // IMPORTANT
+            if(rows_count == 0)
+                return;
             
             for(int i = 0; i < rows_count; i++)
             {
@@ -65,11 +69,25 @@ namespace Microwave_v1._0
                 int popularity_score = int.Parse(dt.Rows[i][12].ToString());
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
-                book.Set_Book();
+                book.Set_Book(color_mode);
                 this.Add_Book_to_List(book);
             }
 
             Fill_Cover_Image_List();
+        }
+        public void Delete_All_List()
+        {
+            book_node iterator = root;
+            book_node current;
+            
+            while(iterator != null)
+            {
+                current = iterator.next;
+                iterator.book.Info.Dispose();
+                iterator.book = null;
+                iterator = current;
+            }
+            root = null;
         }
         public void Add_Book_to_List(Book book)
         {
@@ -87,6 +105,8 @@ namespace Microwave_v1._0
         }
         public void Show_All_Books()
         {
+            Book.point_y = 5;
+
             book_node iterator = root;
             while(iterator != null)
             {
@@ -100,6 +120,15 @@ namespace Microwave_v1._0
             while (iterator != null)
             {
                 iterator.book.Info.Deselect_Book_Info();
+                iterator = iterator.next;
+            }
+        }
+        public void Hide_All_Book_Objects()
+        {
+            book_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.book.Info.Hide();
                 iterator = iterator.next;
             }
         }
