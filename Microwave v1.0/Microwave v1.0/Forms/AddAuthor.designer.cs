@@ -39,11 +39,11 @@
             this.rdo_female = new System.Windows.Forms.RadioButton();
             this.rdo_male = new System.Windows.Forms.RadioButton();
             this.lbl_gender = new System.Windows.Forms.Label();
-            this.mtb_year = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_add_pic = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.pic_author = new System.Windows.Forms.PictureBox();
+            this.dtp_author = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pic_author)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,16 +165,6 @@
             this.lbl_gender.TabIndex = 47;
             this.lbl_gender.Text = "Gender:";
             // 
-            // mtb_year
-            // 
-            this.mtb_year.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.mtb_year.Location = new System.Drawing.Point(140, 178);
-            this.mtb_year.Mask = "0000";
-            this.mtb_year.Name = "mtb_year";
-            this.mtb_year.Size = new System.Drawing.Size(38, 22);
-            this.mtb_year.TabIndex = 50;
-            this.mtb_year.ValidatingType = typeof(int);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -185,6 +175,7 @@
             this.label1.Size = new System.Drawing.Size(96, 24);
             this.label1.TabIndex = 51;
             this.label1.Text = "Birth Year:";
+            
             // 
             // btn_add_pic
             // 
@@ -226,14 +217,28 @@
             this.pic_author.TabIndex = 39;
             this.pic_author.TabStop = false;
             // 
+            // dtp_author
+            // 
+            this.dtp_author.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dtp_author.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.dtp_author.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtp_author.CustomFormat = "yyyy";
+            this.dtp_author.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_author.Location = new System.Drawing.Point(140, 180);
+            this.dtp_author.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_author.Name = "dtp_author";
+            this.dtp_author.ShowUpDown = true;
+            this.dtp_author.Size = new System.Drawing.Size(273, 22);
+            this.dtp_author.TabIndex = 52;
+            // 
             // AddAuthor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(437, 555);
+            this.Controls.Add(this.dtp_author);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.mtb_year);
             this.Controls.Add(this.rdo_female);
             this.Controls.Add(this.rdo_male);
             this.Controls.Add(this.lbl_gender);
@@ -270,7 +275,7 @@
         private System.Windows.Forms.RadioButton rdo_female;
         private System.Windows.Forms.RadioButton rdo_male;
         private System.Windows.Forms.Label lbl_gender;
-        private System.Windows.Forms.MaskedTextBox mtb_year;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtp_author;
     }
 }

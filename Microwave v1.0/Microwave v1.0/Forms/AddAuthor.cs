@@ -69,7 +69,7 @@ namespace Microwave_v1._0.Forms
             
             name = (tb_name.Text.Trim()).Replace('\'', ' ');
             country = (tb_country.Text.Trim()).Replace('\'', ' ');
-            year = mtb_year.ToString();
+            year = dtp_author.Value.ToString();
             biography = tb_biography.Text.Replace('\'', ' ');
             pic_new_source_path = picture_event.Pic_source_file;
 
@@ -93,11 +93,11 @@ namespace Microwave_v1._0.Forms
                 return;
             }
 
-            if (mtb_year.Text.Trim() == "Year" || mtb_year.Text.Trim() == "")
+            if (dtp_author.Text.Trim() == "Year" || dtp_author.Text.Trim() == "")
             {
                 lbl_message.Text = "* Please enter birth year.";
                 lbl_message.ForeColor = Color.Red;
-                mtb_year.Focus();
+                dtp_author.Focus();
                 return;
             }
 
@@ -168,8 +168,7 @@ namespace Microwave_v1._0.Forms
             tb_name.ForeColor = Color.DimGray;
             tb_country.Text = "Country";
             tb_country.ForeColor = Color.DimGray;
-            mtb_year.Text = "Year";
-            mtb_year.ForeColor = Color.DimGray;
+            
             tb_biography.ForeColor = Color.DimGray;
             tb_biography.Text = "Biography";
             tb_biography.ForeColor = Color.DimGray;
@@ -195,5 +194,6 @@ namespace Microwave_v1._0.Forms
             picture_event.Choose_Image();
         }
 
+        
     }
 }
