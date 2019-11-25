@@ -51,7 +51,6 @@ namespace Microwave_v1._0.Classes
                 department.Set_Department();
                 this.Add_Department_to_List(department);
             }
-                Fill_Cover_Image_List();
         }
 
         public void Add_Department_to_List(Department department)
@@ -89,48 +88,40 @@ namespace Microwave_v1._0.Classes
             {
                 return;
             }
-            if(root.department.Department_id == department_id)
+
+            if (root.department.Department_id == department_id)
             {
+
+                if (delete_picture == true)
+                    Picture_Events.Delete_The_Picture(root.department.Cover_path_file);
+
                 root.department.Delete();
-                if(delete_picture == true)
-                {
-                    Picture_Events.Delete_The_Picture(root.department.Cover_path_file1);
-                    root.department = null;
-                    root = root.next;
-                    return;
-                }
-                while(iterator.next.department.Department_id != department_id)
-                {
-                    iterator = iterator.next;
-                    if(iterator.next ==null)
-                    {
-                        MessageBox.Show("CAN'T FOUND");
-                        return;
-
-                    }
-                }
-
-                iterator.next.department.Delete();
-                if(delete_picture == true)
-                {
-                    Picture_Events.Delete_The_Picture(iterator.next.department.Cover_path_file1);
-                    iterator.next.department = null;
-                    iterator.next = iterator.next.next;
-                    return;
-                }
+                root.department = null;
+                root = root.next;
                 --department_count;
+                return;
             }
-        }
-        public void Fill_Cover_Image_List()
-        {
-            department_node iterator = root;
-            while (iterator != null)
-            {
-                //iterator.department.Cover_Pic_to_Image_List();
-                iterator = iterator.next;
-            }
-        }
 
-        // SİLERKEN COUNT AZALTILACAK!!!!
+            while (iterator.next.department.Department_id != department_id)
+            {
+                iterator = iterator.next;
+                if (iterator.next == null)
+                {
+                    MessageBox.Show("CAN'T FOUND");
+                    return;
+
+                }
+            }
+
+            if (delete_picture == true)
+                Picture_Events.Delete_The_Picture(iterator.next.department.Cover_path_file);
+
+            iterator.next.department.Delete();
+            iterator.next.department = null;
+            iterator.next = iterator.next.next;
+            --department_count;
+            return;
+    }
+
     }
 }

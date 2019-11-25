@@ -20,7 +20,7 @@ namespace Microwave_v1._0.Classes
         private string name;
         private int department_id;
         private int staff_count;
-        private string Cover_path_file;
+        private string cover_path_file;
         static Microwave main_page = null;
         private Department_Info info;
         
@@ -29,13 +29,13 @@ namespace Microwave_v1._0.Classes
         public string Name { get => name; set => name = value; }
         public int Department_id { get => department_id; set => department_id = value; }
         public int Staff_count { get => staff_count; set => staff_count = value; }
-        public string Cover_path_file1 { get => Cover_path_file; set => Cover_path_file = value; }
+        public string Cover_path_file { get => cover_path_file; set => cover_path_file = value; }
         public Department_Info Info { get => info; set => info = value; }
 
         public Department(string name,string Cover_path_file)
         {
             this.name = name;
-            this.Cover_path_file = Cover_path_file;
+            this.cover_path_file = Cover_path_file;
             main_page = (Microwave)Application.OpenForms["Microwave"];
         }
         public Department()
@@ -48,7 +48,7 @@ namespace Microwave_v1._0.Classes
             string values;
 
             title = " INSERT INTO Department (NAME, COVER_PATH)";
-            values = string.Format("VALUES('{0}','{1}')", name, Cover_path_file);
+            values = string.Format("VALUES('{0}','{1}')", name, cover_path_file);
 
             string query = title + values;
 
@@ -57,7 +57,7 @@ namespace Microwave_v1._0.Classes
             info = new Department_Info();
             Take_Id_From_Database();
             //Cover_Pic_to_Image_List();
-            info.Initialize_Department_Info(name, Cover_path_file);
+            info.Initialize_Department_Info(name, cover_path_file);
 
             main_page.Main_department_list.Add_Department_to_List(this);
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
@@ -67,7 +67,7 @@ namespace Microwave_v1._0.Classes
         public void Set_Department()
         {
             info = new Department_Info();
-            info.Initialize_Department_Info(name, Cover_path_file);
+            info.Initialize_Department_Info(name, cover_path_file);
         }
       public void Delete()
         {

@@ -58,7 +58,6 @@ namespace Microwave_v1._0.Classes
                 author.Set_Author();
                 this.Add_Author_to_List(author);
             }
-            Fill_Cover_Image_List();
         }
 
         public void Add_Author_to_List(Author author)
@@ -83,7 +82,7 @@ namespace Microwave_v1._0.Classes
             author_node iterator = root;
             while (iterator != null)
             {
-                iterator.author.Author_info.Draw_Author_Obj(ref Author.author_point_y, ref Author.author_point_x);
+                iterator.author.Author_info.Draw_Author_Obj(ref Author.author_point_x, ref Author.author_point_y);
                 iterator = iterator.next;
             }
         }
@@ -120,6 +119,7 @@ namespace Microwave_v1._0.Classes
 
             if (delete_picture == true)
                 Picture_Events.Delete_The_Picture(iterator.next.author.Author_cover_path_file);
+            iterator.next.author.Delete();
             iterator.next.author = null;
             iterator.next = iterator.next.next;
             return;

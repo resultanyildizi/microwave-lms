@@ -16,6 +16,7 @@ namespace Microwave_v1._0.Classes
     {
         public static int author_point_y = 5; // Author infoları ekrana çizdirirken kullanılan offset.
         public static int author_point_x = 35;
+
         static Microwave main_page = null;
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
@@ -72,26 +73,16 @@ namespace Microwave_v1._0.Classes
             string title;
             string values;
 
-            if (main_page.Main_author_list.Is_Author_List_Empty())
-            {
-                int author_starter_id = 0;
-                title = "INSERT INTO Authors ( POPULARITY_ID, NAME, COUNTRY, GENDER, BIRTHDAY, BIOGRAPHY, PICTURE_PATH, POPULARITY_SCORE) ";
-                values = string.Format("VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}') ",
+            title = "INSERT INTO Authors ( POPULARITY_ID, NAME, COUNTRY, GENDER, BIRTHDAY, BIOGRAPHY, PICTURE_PATH, POPULARITY_SCORE) ";
+            values = string.Format("VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}') ",
                          popularity_id, author_name, author_country, author_gender, author_birthday, author_biography,
                          author_cover_path_file, popularity_score);
-            }
-            else {
-                title = "INSERT INTO Authors ( NAME, COUNTRY, GENDER, BIRTHDAY, BIOGRAPHY, PICTURE_PATH, POPULARITY_SCORE) ";
-                values = string.Format("VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}') ",
-                         author_name, author_country, author_gender, author_birthday, author_biography,
-                         author_cover_path_file, popularity_score);
-            }
             
 
             string query = title + values;
             DataBaseEvents.ExecuteNonQuery(query, datasource);
             author_info = new Author_Info();
-            author_info.Initialize_Author_Info(author_name, author_cover_path_file);
+            author_info.Initialize_Author_Info(author_id,author_name, author_cover_path_file);
             Take_ID_From_Database();
             Join_Tables();
             //Cover_Pic_to_Image_List();
@@ -116,13 +107,13 @@ namespace Microwave_v1._0.Classes
                 return;
             }
 
-            author_info.Initialize_Author_Info(author_name, author_cover_path_file); 
+            author_info.Initialize_Author_Info(author_id, author_name, author_cover_path_file); 
 
         }
 
         public void Delete()
         {
-            string title = "DELETE FROM Author ";
+            string title = "DELETE FROM Authors ";
             string query = title + string.Format("Where AUTHOR_ID = '{0}' ;", author_id);
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
@@ -148,7 +139,7 @@ namespace Microwave_v1._0.Classes
         public void Set_Author()
         {
             author_info = new Author_Info();
-            author_info.Initialize_Author_Info(author_name, author_cover_path_file);
+            author_info.Initialize_Author_Info(author_id, author_name, author_cover_path_file);
 
         }
 

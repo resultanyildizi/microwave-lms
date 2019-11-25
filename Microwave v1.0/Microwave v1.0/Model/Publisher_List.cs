@@ -125,6 +125,7 @@ namespace Microwave_v1._0.Classes
 
             if (delete_picture == true)
                 Picture_Events.Delete_The_Picture(iterator.next.pub.Pub_cover_path_file);
+            iterator.next.pub.Delete();
             iterator.next.pub = null;
             iterator.next = iterator.next.next;
             publisher_count--;

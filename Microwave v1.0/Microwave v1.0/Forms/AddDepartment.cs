@@ -54,7 +54,7 @@ namespace Microwave_v1._0.Forms
             this.tb_department.Text = department.Name;
             this.tb_department.ForeColor = Color.LightGray;
 
-            pic_new_source_path = picture_event.Pic_source_file = department.Cover_path_file1;
+            pic_new_source_path = picture_event.Pic_source_file = department.Cover_path_file;
             pic_department.Image = main_page.Dep_cover_image_list.Images[department.Department_id.ToString()];
 
             is_edit = true;
@@ -94,9 +94,9 @@ namespace Microwave_v1._0.Forms
             {
                 if (change_image)
                 {
-                    Picture_Events.Delete_The_Picture(department_to_edit.Cover_path_file1);
+                    Picture_Events.Delete_The_Picture(department_to_edit.Cover_path_file);
                     picture_event.Copy_The_Picture(name);
-                    department_to_edit.Cover_path_file1 = picture_event.Pic_source_file;
+                    department_to_edit.Cover_path_file = picture_event.Pic_source_file;
                     change_image = false;
                 }
                 lbl_message.Text = "* Department changed succesfully";

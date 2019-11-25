@@ -30,10 +30,13 @@ namespace Microwave_v1._0.UserControls
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
             author_list = main_page.Main_author_list;
+            this.btn_edit.Hide();
+            this.btn_remove.Hide();
         }
 
-        public void Initialize_Author_Info(string name, string pic_path_file)
+        public void Initialize_Author_Info(int author_id, string name, string pic_path_file)
         {
+            this.author_id = author_id;
             this.name = name;
             this.pic_path_file = pic_path_file;
             this.lbl_author.Text = name;
@@ -92,7 +95,8 @@ namespace Microwave_v1._0.UserControls
             string message = "Do you want to delete this author?";
             main_page.Create_Warning_Form(message, Color.DarkRed);
             bool delete_pic = true;
-            if (pic_path_file == @"..\..\Resources\Author Covers\default.jpg")
+
+            if (pic_path_file == @"..\..\Resources\Author Covers\DefaultAuthor.jpg")
             {
                 delete_pic = false;
             }
@@ -105,12 +109,12 @@ namespace Microwave_v1._0.UserControls
 
         private void Remove(bool delete_picture = true)
         {
+
             author_list.Delete_Author_from_List(author_id, delete_picture);
             this.Dispose();
-
             main_page.Pnl_author_list.VerticalScroll.Value = 0;
-            Publisher.pub_point_y = 5;
-            Publisher.pub_point_x = 35;
+            Author.author_point_y = 5;
+            Author.author_point_x = 35;
             author_list.Show_All_Authors();
         }
 
@@ -185,11 +189,6 @@ namespace Microwave_v1._0.UserControls
             Author_Hover();
         }
 
-        private void lbl_name_Click(object sender, EventArgs e)
-        {
-            author_list.Deselect_All_Author_Infos();
-            this.Select_Author_Info();
-        }
 
     }
 }
