@@ -12,6 +12,9 @@ namespace Microwave_v1._0
 {   /* NOTE:
      * Book class includes all the information about books.
     */
+
+
+
     public class Book
     {
         // Global
@@ -129,7 +132,7 @@ namespace Microwave_v1._0
             Take_Id_From_Database();
 
             Join_Tables_For_Names();
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
+            info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
 
 
             Cover_Pic_to_Image_List();
@@ -160,7 +163,7 @@ namespace Microwave_v1._0
             Join_Tables_For_Names();
 
             // For user interface
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
+            info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
             info.Select_Book_Info();
         }
         public void Delete()
@@ -178,35 +181,84 @@ namespace Microwave_v1._0
             string query = "Select * From Books ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-
             // For User Interface
             main_page = (Microwave)Application.OpenForms["Microwave"];
             // Fills Book_List with DataTable
-            main_page.Main_book_list.Fill_Book_List(dt);
+            main_page.Main_book_list.Fill_Book_List(dt, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Show_All_Books();
 
         }
-
         static public void Show_All_Books(User user)
         {
         }
-        public void Set_Book()
+
+
+        public void Set_Book(INFO_COLOR_MODE color_mode)
         {
             Join_Tables_For_Names();
 
             info = new Book_Info();
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, date, count, description, cover_path_file);
+            info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name,shelf_name, date, count, description, cover_path_file, color_mode);
         }
 
 
-        // TODO:
-        static public DataTable Search_Book_By_ID() { return null; }
-        static public DataTable Search_Book_By_Name() { return null; }
-        static public DataTable Search_Book_By_Author() { return null; }
-        static public DataTable Search_Book_By_Publisher() { return null; }
-        static public DataTable Search_Book_By_Category() { return null; }
-        static public DataTable Search_Book_By_Shelf() { return null; }
-        static public DataTable Search_Book_By_Popularity() { return null; }
+        static public DataTable Search_Book_By_Name(string name)
+        {
+            string query = string.Format("Select * From Books Where Books.NAME Like '{0}%'", name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Book_By_ID(string book_id)
+        {
+            string query = string.Format("Select * From Books Where Books.BOOK_ID Like '{0}%'", book_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Book_By_Author(string author_name)
+        {
+            string query = string.Format("Select Books.BOOK_ID, Books.AUTHOR_ID, Books.PUBLISHER_ID, Books.CATEGORY_ID, Books.LIBRARIAN_ID, Books.SHELF_ID, " +
+                                         "Books.POPULARITY_ID, Books.NAME, Books.DATE, Books.DESCRIPT, Books.COUNT, Books.COVER_PATH, " +
+                                         "Books.POPULARITY_SCORE, Authors.NAME  From Books Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
+                                         "Where Authors.NAME Like '{0}%'", author_name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Book_By_Publisher(string pub_name)
+        {
+            string query = string.Format("Select Books.BOOK_ID, Books.AUTHOR_ID, Books.PUBLISHER_ID, Books.CATEGORY_ID, Books.LIBRARIAN_ID, Books.SHELF_ID, " +
+                                         "Books.POPULARITY_ID, Books.NAME, Books.DATE, Books.DESCRIPT, Books.COUNT, Books.COVER_PATH, " +
+                                         "Books.POPULARITY_SCORE, Publishers.NAME  From Books Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
+                                         "Where Publishers.NAME Like '{0}%'", pub_name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Book_By_Category(string ctg_name)
+        {
+            string query = string.Format("Select Books.BOOK_ID, Books.AUTHOR_ID, Books.PUBLISHER_ID, Books.CATEGORY_ID, Books.LIBRARIAN_ID, Books.SHELF_ID, " +
+                                         "Books.POPULARITY_ID, Books.NAME, Books.DATE, Books.DESCRIPT, Books.COUNT, Books.COVER_PATH, " +
+                                         "Books.POPULARITY_SCORE, Categories.NAME From Books Join Categories On Books.CATEGORY_ID = Categories.CATEGORY_ID " +
+                                         "Where Categories.NAME Like '{0}%'", ctg_name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Book_By_Shelf(string shelf_name)
+        {
+            string query = string.Format("Select Books.BOOK_ID, Books.AUTHOR_ID, Books.PUBLISHER_ID, Books.CATEGORY_ID, Books.LIBRARIAN_ID, Books.SHELF_ID, " +
+                                         "Books.POPULARITY_ID, Books.NAME, Books.DATE, Books.DESCRIPT, Books.COUNT, Books.COVER_PATH, " +
+                                         "Books.POPULARITY_SCORE, Shelves.NAME  From Books Join Shelves On Books.SHELF_ID = Shelves.SHELF_ID " +
+                                         "Where Shelves.NAME Like '{0}%'", shelf_name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Book_By_Popularity(string pop_name)
+        {
+            string query = string.Format("Select Books.BOOK_ID, Books.AUTHOR_ID, Books.PUBLISHER_ID, Books.CATEGORY_ID, Books.LIBRARIAN_ID, Books.SHELF_ID, " +
+                                         "Books.POPULARITY_ID, Books.NAME, Books.DATE, Books.DESCRIPT, Books.COUNT, Books.COVER_PATH, " +
+                                         "Books.POPULARITY_SCORE, Popularity.NAME  From Books Join Popularity On Books.POPULARITY_ID = Popularity.POPULARITY_ID " +
+                                         "Where Popularity.NAME Like '{0}%'", pop_name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
         public void Calculate_Popularity_Score() { }
         public void Give_Book_To_User() { }
         private void Change_Popularity_Stat() { }

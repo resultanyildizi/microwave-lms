@@ -47,8 +47,12 @@ namespace Microwave_v1._0
             this.lbl_logo = new System.Windows.Forms.Label();
             this.lbl_logo_lms = new System.Windows.Forms.Label();
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.tb_search_publisher = new System.Windows.Forms.TextBox();
+            this.tb_search_author = new System.Windows.Forms.TextBox();
+            this.tb_search_department = new System.Windows.Forms.TextBox();
+            this.tb_search_user = new System.Windows.Forms.TextBox();
             this.btn_show_search_types = new System.Windows.Forms.Button();
-            this.tb_search = new System.Windows.Forms.TextBox();
+            this.tb_search_book = new System.Windows.Forms.TextBox();
             this.btn_profil = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
             this.pnl_authors = new System.Windows.Forms.Panel();
@@ -118,6 +122,7 @@ namespace Microwave_v1._0
             this.lbl_department_title = new System.Windows.Forms.Label();
             this.pnl_sep_dep = new System.Windows.Forms.Panel();
             this.pnl_pub = new System.Windows.Forms.Panel();
+            this.pnl_pub_list = new System.Windows.Forms.Panel();
             this.pnl_publisher_st = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -129,10 +134,13 @@ namespace Microwave_v1._0
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.lbl_pub_title = new System.Windows.Forms.Label();
             this.pnl_pub_stick = new System.Windows.Forms.Panel();
-            this.pnl_pub_list = new System.Windows.Forms.Panel();
             this.pub_cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.dep_cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.author_cover_image_list = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbl_book_id = new System.Windows.Forms.Label();
+            this.lbl_book_category = new System.Windows.Forms.Label();
+            this.lbl_book_shelf = new System.Windows.Forms.Label();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -158,7 +166,7 @@ namespace Microwave_v1._0
             this.pnl_left.Controls.Add(this.lbl_logo);
             this.pnl_left.Controls.Add(this.lbl_logo_lms);
             this.pnl_left.Location = new System.Drawing.Point(0, 0);
-            this.pnl_left.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_left.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_left.Name = "pnl_left";
             this.pnl_left.Size = new System.Drawing.Size(216, 611);
             this.pnl_left.TabIndex = 1;
@@ -178,9 +186,9 @@ namespace Microwave_v1._0
             this.pnl_menu.Controls.Add(this.pnl_stick);
             this.pnl_menu.Controls.Add(this.btn_book);
             this.pnl_menu.Location = new System.Drawing.Point(0, 106);
-            this.pnl_menu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_menu.Name = "pnl_menu";
-            this.pnl_menu.Size = new System.Drawing.Size(216, 503);
+            this.pnl_menu.Size = new System.Drawing.Size(216, 502);
             this.pnl_menu.TabIndex = 9;
             this.pnl_menu.Click += new System.EventHandler(this.General_Click);
             // 
@@ -236,7 +244,7 @@ namespace Microwave_v1._0
             this.btn_author.Image = ((System.Drawing.Image)(resources.GetObject("btn_author.Image")));
             this.btn_author.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_author.Location = new System.Drawing.Point(29, 117);
-            this.btn_author.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_author.Margin = new System.Windows.Forms.Padding(2);
             this.btn_author.Name = "btn_author";
             this.btn_author.Size = new System.Drawing.Size(160, 34);
             this.btn_author.TabIndex = 9;
@@ -272,7 +280,7 @@ namespace Microwave_v1._0
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
             this.btn_add.Location = new System.Drawing.Point(168, 456);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(41, 44);
             this.btn_add.TabIndex = 6;
@@ -340,7 +348,7 @@ namespace Microwave_v1._0
             this.btn_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_book.Image")));
             this.btn_book.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_book.Location = new System.Drawing.Point(29, 20);
-            this.btn_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_book.Margin = new System.Windows.Forms.Padding(2);
             this.btn_book.Name = "btn_book";
             this.btn_book.Size = new System.Drawing.Size(160, 34);
             this.btn_book.TabIndex = 4;
@@ -352,7 +360,7 @@ namespace Microwave_v1._0
             // 
             this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
             this.pic_logo.Location = new System.Drawing.Point(2, 10);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
             this.pic_logo.Name = "pic_logo";
             this.pic_logo.Size = new System.Drawing.Size(92, 80);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -391,16 +399,76 @@ namespace Microwave_v1._0
             // 
             this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.pnl_header.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_header.Controls.Add(this.tb_search_publisher);
+            this.pnl_header.Controls.Add(this.tb_search_author);
+            this.pnl_header.Controls.Add(this.tb_search_department);
+            this.pnl_header.Controls.Add(this.tb_search_user);
             this.pnl_header.Controls.Add(this.btn_show_search_types);
-            this.pnl_header.Controls.Add(this.tb_search);
+            this.pnl_header.Controls.Add(this.tb_search_book);
             this.pnl_header.Controls.Add(this.btn_profil);
             this.pnl_header.Controls.Add(this.btn_settings);
             this.pnl_header.Location = new System.Drawing.Point(215, 0);
-            this.pnl_header.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_header.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_header.Name = "pnl_header";
-            this.pnl_header.Size = new System.Drawing.Size(796, 40);
+            this.pnl_header.Size = new System.Drawing.Size(984, 40);
             this.pnl_header.TabIndex = 2;
             this.pnl_header.Click += new System.EventHandler(this.General_Click);
+            // 
+            // tb_search_publisher
+            // 
+            this.tb_search_publisher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_publisher.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_publisher.Location = new System.Drawing.Point(60, 8);
+            this.tb_search_publisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_publisher.Name = "tb_search_publisher";
+            this.tb_search_publisher.Size = new System.Drawing.Size(206, 24);
+            this.tb_search_publisher.TabIndex = 67;
+            this.tb_search_publisher.Text = "Search a publisher";
+            this.tb_search_publisher.Enter += new System.EventHandler(this.Tb_search_Enter);
+            this.tb_search_publisher.Leave += new System.EventHandler(this.Tb_search_Leave);
+            // 
+            // tb_search_author
+            // 
+            this.tb_search_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_author.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_author.Location = new System.Drawing.Point(60, 8);
+            this.tb_search_author.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_author.Name = "tb_search_author";
+            this.tb_search_author.Size = new System.Drawing.Size(206, 24);
+            this.tb_search_author.TabIndex = 66;
+            this.tb_search_author.Text = "Search an author";
+            this.tb_search_author.Enter += new System.EventHandler(this.Tb_search_Enter);
+            this.tb_search_author.Leave += new System.EventHandler(this.Tb_search_Leave);
+            // 
+            // tb_search_department
+            // 
+            this.tb_search_department.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_department.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_department.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_department.Location = new System.Drawing.Point(60, 8);
+            this.tb_search_department.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_department.Name = "tb_search_department";
+            this.tb_search_department.Size = new System.Drawing.Size(206, 24);
+            this.tb_search_department.TabIndex = 65;
+            this.tb_search_department.Text = "Search a department";
+            this.tb_search_department.Enter += new System.EventHandler(this.Tb_search_Enter);
+            this.tb_search_department.Leave += new System.EventHandler(this.Tb_search_Leave);
+            // 
+            // tb_search_user
+            // 
+            this.tb_search_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_user.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_user.Location = new System.Drawing.Point(60, 8);
+            this.tb_search_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_user.Name = "tb_search_user";
+            this.tb_search_user.Size = new System.Drawing.Size(206, 24);
+            this.tb_search_user.TabIndex = 64;
+            this.tb_search_user.Text = "Search a user";
+            this.tb_search_user.Enter += new System.EventHandler(this.Tb_search_Enter);
+            this.tb_search_user.Leave += new System.EventHandler(this.Tb_search_Leave);
             // 
             // btn_show_search_types
             // 
@@ -421,19 +489,20 @@ namespace Microwave_v1._0
             this.btn_show_search_types.UseVisualStyleBackColor = true;
             this.btn_show_search_types.Click += new System.EventHandler(this.Btn_show_search_types_Click);
             // 
-            // tb_search
+            // tb_search_book
             // 
-            this.tb_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_search.ForeColor = System.Drawing.Color.Gray;
-            this.tb_search.Location = new System.Drawing.Point(60, 8);
-            this.tb_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_search.Name = "tb_search";
-            this.tb_search.Size = new System.Drawing.Size(206, 24);
-            this.tb_search.TabIndex = 63;
-            this.tb_search.Text = "Search a book";
-            this.tb_search.Enter += new System.EventHandler(this.Tb_search_Enter);
-            this.tb_search.Leave += new System.EventHandler(this.Tb_search_Leave);
+            this.tb_search_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_book.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_book.Location = new System.Drawing.Point(60, 8);
+            this.tb_search_book.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_book.Name = "tb_search_book";
+            this.tb_search_book.Size = new System.Drawing.Size(206, 24);
+            this.tb_search_book.TabIndex = 63;
+            this.tb_search_book.Text = "Search a book";
+            this.tb_search_book.TextChanged += new System.EventHandler(this.Tb_search_book_TextChanged);
+            this.tb_search_book.Enter += new System.EventHandler(this.Tb_search_Enter);
+            this.tb_search_book.Leave += new System.EventHandler(this.Tb_search_Leave);
             // 
             // btn_profil
             // 
@@ -442,8 +511,8 @@ namespace Microwave_v1._0
             this.btn_profil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_profil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_profil.Image = ((System.Drawing.Image)(resources.GetObject("btn_profil.Image")));
-            this.btn_profil.Location = new System.Drawing.Point(691, 5);
-            this.btn_profil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_profil.Location = new System.Drawing.Point(884, 5);
+            this.btn_profil.Margin = new System.Windows.Forms.Padding(2);
             this.btn_profil.Name = "btn_profil";
             this.btn_profil.Size = new System.Drawing.Size(42, 29);
             this.btn_profil.TabIndex = 2;
@@ -456,8 +525,8 @@ namespace Microwave_v1._0
             this.btn_settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_settings.Image")));
-            this.btn_settings.Location = new System.Drawing.Point(737, 5);
-            this.btn_settings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_settings.Location = new System.Drawing.Point(930, 5);
+            this.btn_settings.Margin = new System.Windows.Forms.Padding(2);
             this.btn_settings.Name = "btn_settings";
             this.btn_settings.Size = new System.Drawing.Size(42, 29);
             this.btn_settings.TabIndex = 1;
@@ -472,9 +541,9 @@ namespace Microwave_v1._0
             this.pnl_authors.Controls.Add(this.pnl_author_sep);
             this.pnl_authors.Controls.Add(this.pnl_author_list);
             this.pnl_authors.Location = new System.Drawing.Point(215, 39);
-            this.pnl_authors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_authors.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_authors.Name = "pnl_authors";
-            this.pnl_authors.Size = new System.Drawing.Size(796, 575);
+            this.pnl_authors.Size = new System.Drawing.Size(795, 570);
             this.pnl_authors.TabIndex = 17;
             // 
             // pnl_author_st
@@ -490,7 +559,7 @@ namespace Microwave_v1._0
             this.pnl_author_st.Controls.Add(this.radioButton27);
             this.pnl_author_st.Controls.Add(this.radioButton28);
             this.pnl_author_st.Location = new System.Drawing.Point(34, 0);
-            this.pnl_author_st.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_author_st.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_author_st.Name = "pnl_author_st";
             this.pnl_author_st.Size = new System.Drawing.Size(232, 116);
             this.pnl_author_st.TabIndex = 19;
@@ -511,7 +580,7 @@ namespace Microwave_v1._0
             this.radioButton22.AutoSize = true;
             this.radioButton22.ForeColor = System.Drawing.Color.White;
             this.radioButton22.Location = new System.Drawing.Point(133, 64);
-            this.radioButton22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton22.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton22.Name = "radioButton22";
             this.radioButton22.Size = new System.Drawing.Size(71, 17);
             this.radioButton22.TabIndex = 6;
@@ -524,7 +593,7 @@ namespace Microwave_v1._0
             this.radioButton23.AutoSize = true;
             this.radioButton23.ForeColor = System.Drawing.Color.White;
             this.radioButton23.Location = new System.Drawing.Point(133, 42);
-            this.radioButton23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton23.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton23.Name = "radioButton23";
             this.radioButton23.Size = new System.Drawing.Size(49, 17);
             this.radioButton23.TabIndex = 5;
@@ -537,7 +606,7 @@ namespace Microwave_v1._0
             this.radioButton24.AutoSize = true;
             this.radioButton24.ForeColor = System.Drawing.Color.White;
             this.radioButton24.Location = new System.Drawing.Point(133, 20);
-            this.radioButton24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton24.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton24.Name = "radioButton24";
             this.radioButton24.Size = new System.Drawing.Size(67, 17);
             this.radioButton24.TabIndex = 4;
@@ -550,7 +619,7 @@ namespace Microwave_v1._0
             this.radioButton25.AutoSize = true;
             this.radioButton25.ForeColor = System.Drawing.Color.White;
             this.radioButton25.Location = new System.Drawing.Point(5, 86);
-            this.radioButton25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton25.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton25.Name = "radioButton25";
             this.radioButton25.Size = new System.Drawing.Size(68, 17);
             this.radioButton25.TabIndex = 3;
@@ -563,7 +632,7 @@ namespace Microwave_v1._0
             this.radioButton26.AutoSize = true;
             this.radioButton26.ForeColor = System.Drawing.Color.White;
             this.radioButton26.Location = new System.Drawing.Point(5, 64);
-            this.radioButton26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton26.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton26.Name = "radioButton26";
             this.radioButton26.Size = new System.Drawing.Size(56, 17);
             this.radioButton26.TabIndex = 2;
@@ -576,7 +645,7 @@ namespace Microwave_v1._0
             this.radioButton27.AutoSize = true;
             this.radioButton27.ForeColor = System.Drawing.Color.White;
             this.radioButton27.Location = new System.Drawing.Point(5, 42);
-            this.radioButton27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton27.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton27.Name = "radioButton27";
             this.radioButton27.Size = new System.Drawing.Size(36, 17);
             this.radioButton27.TabIndex = 1;
@@ -589,7 +658,7 @@ namespace Microwave_v1._0
             this.radioButton28.AutoSize = true;
             this.radioButton28.ForeColor = System.Drawing.Color.White;
             this.radioButton28.Location = new System.Drawing.Point(5, 20);
-            this.radioButton28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton28.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton28.Name = "radioButton28";
             this.radioButton28.Size = new System.Drawing.Size(53, 17);
             this.radioButton28.TabIndex = 0;
@@ -626,7 +695,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_author_sep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_author_sep.Location = new System.Drawing.Point(24, 115);
-            this.pnl_author_sep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_author_sep.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_author_sep.Name = "pnl_author_sep";
             this.pnl_author_sep.Size = new System.Drawing.Size(728, 1);
             this.pnl_author_sep.TabIndex = 7;
@@ -636,9 +705,9 @@ namespace Microwave_v1._0
             this.pnl_author_list.AutoScroll = true;
             this.pnl_author_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
             this.pnl_author_list.Location = new System.Drawing.Point(-1, 119);
-            this.pnl_author_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_author_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_author_list.Name = "pnl_author_list";
-            this.pnl_author_list.Size = new System.Drawing.Size(772, 410);
+            this.pnl_author_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_author_list.TabIndex = 14;
             // 
             // lbl_book_title
@@ -659,7 +728,7 @@ namespace Microwave_v1._0
             this.lbl_book_name.AutoSize = true;
             this.lbl_book_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_book_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_book_name.Location = new System.Drawing.Point(20, 80);
+            this.lbl_book_name.Location = new System.Drawing.Point(77, 82);
             this.lbl_book_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_book_name.Name = "lbl_book_name";
             this.lbl_book_name.Size = new System.Drawing.Size(71, 26);
@@ -671,7 +740,7 @@ namespace Microwave_v1._0
             this.lbl_book_author.AutoSize = true;
             this.lbl_book_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_book_author.ForeColor = System.Drawing.Color.White;
-            this.lbl_book_author.Location = new System.Drawing.Point(167, 80);
+            this.lbl_book_author.Location = new System.Drawing.Point(215, 82);
             this.lbl_book_author.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_book_author.Name = "lbl_book_author";
             this.lbl_book_author.Size = new System.Drawing.Size(76, 26);
@@ -683,7 +752,7 @@ namespace Microwave_v1._0
             this.lbl_book_publisher.AutoSize = true;
             this.lbl_book_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_book_publisher.ForeColor = System.Drawing.Color.White;
-            this.lbl_book_publisher.Location = new System.Drawing.Point(290, 80);
+            this.lbl_book_publisher.Location = new System.Drawing.Point(330, 82);
             this.lbl_book_publisher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_book_publisher.Name = "lbl_book_publisher";
             this.lbl_book_publisher.Size = new System.Drawing.Size(103, 26);
@@ -695,7 +764,7 @@ namespace Microwave_v1._0
             this.lbl_book_date.AutoSize = true;
             this.lbl_book_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_book_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_book_date.Location = new System.Drawing.Point(425, 80);
+            this.lbl_book_date.Location = new System.Drawing.Point(622, 82);
             this.lbl_book_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_book_date.Name = "lbl_book_date";
             this.lbl_book_date.Size = new System.Drawing.Size(58, 26);
@@ -707,7 +776,7 @@ namespace Microwave_v1._0
             this.lbl_book_count.AutoSize = true;
             this.lbl_book_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_book_count.ForeColor = System.Drawing.Color.White;
-            this.lbl_book_count.Location = new System.Drawing.Point(508, 80);
+            this.lbl_book_count.Location = new System.Drawing.Point(693, 82);
             this.lbl_book_count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_book_count.Name = "lbl_book_count";
             this.lbl_book_count.Size = new System.Drawing.Size(70, 26);
@@ -719,9 +788,9 @@ namespace Microwave_v1._0
             this.pnl_book_list.AutoScroll = true;
             this.pnl_book_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
             this.pnl_book_list.Location = new System.Drawing.Point(-1, 119);
-            this.pnl_book_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_book_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_book_list.Name = "pnl_book_list";
-            this.pnl_book_list.Size = new System.Drawing.Size(598, 410);
+            this.pnl_book_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_book_list.TabIndex = 14;
             this.pnl_book_list.Click += new System.EventHandler(this.General_Click);
             // 
@@ -729,6 +798,9 @@ namespace Microwave_v1._0
             // 
             this.pnl_book.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_book.Controls.Add(this.pnl_book_st);
+            this.pnl_book.Controls.Add(this.lbl_book_shelf);
+            this.pnl_book.Controls.Add(this.lbl_book_category);
+            this.pnl_book.Controls.Add(this.lbl_book_id);
             this.pnl_book.Controls.Add(this.lbl_book_name);
             this.pnl_book.Controls.Add(this.lbl_book_title);
             this.pnl_book.Controls.Add(this.lbl_book_count);
@@ -738,9 +810,9 @@ namespace Microwave_v1._0
             this.pnl_book.Controls.Add(this.pnl_seperater);
             this.pnl_book.Controls.Add(this.pnl_book_list);
             this.pnl_book.Location = new System.Drawing.Point(215, 38);
-            this.pnl_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_book.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_book.Name = "pnl_book";
-            this.pnl_book.Size = new System.Drawing.Size(607, 572);
+            this.pnl_book.Size = new System.Drawing.Size(795, 571);
             this.pnl_book.TabIndex = 15;
             this.pnl_book.Click += new System.EventHandler(this.General_Click);
             // 
@@ -757,7 +829,7 @@ namespace Microwave_v1._0
             this.pnl_book_st.Controls.Add(this.rb_book_id);
             this.pnl_book_st.Controls.Add(this.rb_book_name);
             this.pnl_book_st.Location = new System.Drawing.Point(34, 0);
-            this.pnl_book_st.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_book_st.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_book_st.Name = "pnl_book_st";
             this.pnl_book_st.Size = new System.Drawing.Size(232, 116);
             this.pnl_book_st.TabIndex = 17;
@@ -778,99 +850,106 @@ namespace Microwave_v1._0
             this.rb_book_pop.AutoSize = true;
             this.rb_book_pop.ForeColor = System.Drawing.Color.White;
             this.rb_book_pop.Location = new System.Drawing.Point(133, 64);
-            this.rb_book_pop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_pop.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_pop.Name = "rb_book_pop";
             this.rb_book_pop.Size = new System.Drawing.Size(71, 17);
             this.rb_book_pop.TabIndex = 6;
             this.rb_book_pop.TabStop = true;
             this.rb_book_pop.Text = "Popularity";
             this.rb_book_pop.UseVisualStyleBackColor = true;
+            this.rb_book_pop.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // rb_book_shelf
             // 
             this.rb_book_shelf.AutoSize = true;
             this.rb_book_shelf.ForeColor = System.Drawing.Color.White;
             this.rb_book_shelf.Location = new System.Drawing.Point(133, 42);
-            this.rb_book_shelf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_shelf.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_shelf.Name = "rb_book_shelf";
             this.rb_book_shelf.Size = new System.Drawing.Size(49, 17);
             this.rb_book_shelf.TabIndex = 5;
             this.rb_book_shelf.TabStop = true;
             this.rb_book_shelf.Text = "Shelf";
             this.rb_book_shelf.UseVisualStyleBackColor = true;
+            this.rb_book_shelf.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // rb_book_category
             // 
             this.rb_book_category.AutoSize = true;
             this.rb_book_category.ForeColor = System.Drawing.Color.White;
             this.rb_book_category.Location = new System.Drawing.Point(133, 20);
-            this.rb_book_category.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_category.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_category.Name = "rb_book_category";
             this.rb_book_category.Size = new System.Drawing.Size(67, 17);
             this.rb_book_category.TabIndex = 4;
             this.rb_book_category.TabStop = true;
             this.rb_book_category.Text = "Category";
             this.rb_book_category.UseVisualStyleBackColor = true;
+            this.rb_book_category.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // rb_book_publis
             // 
             this.rb_book_publis.AutoSize = true;
             this.rb_book_publis.ForeColor = System.Drawing.Color.White;
             this.rb_book_publis.Location = new System.Drawing.Point(5, 86);
-            this.rb_book_publis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_publis.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_publis.Name = "rb_book_publis";
             this.rb_book_publis.Size = new System.Drawing.Size(68, 17);
             this.rb_book_publis.TabIndex = 3;
             this.rb_book_publis.TabStop = true;
             this.rb_book_publis.Text = "Publisher";
             this.rb_book_publis.UseVisualStyleBackColor = true;
+            this.rb_book_publis.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // rb_book_author
             // 
             this.rb_book_author.AutoSize = true;
             this.rb_book_author.ForeColor = System.Drawing.Color.White;
             this.rb_book_author.Location = new System.Drawing.Point(5, 64);
-            this.rb_book_author.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_author.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_author.Name = "rb_book_author";
             this.rb_book_author.Size = new System.Drawing.Size(56, 17);
             this.rb_book_author.TabIndex = 2;
             this.rb_book_author.TabStop = true;
             this.rb_book_author.Text = "Author";
             this.rb_book_author.UseVisualStyleBackColor = true;
+            this.rb_book_author.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // rb_book_id
             // 
             this.rb_book_id.AutoSize = true;
             this.rb_book_id.ForeColor = System.Drawing.Color.White;
             this.rb_book_id.Location = new System.Drawing.Point(5, 42);
-            this.rb_book_id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_id.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_id.Name = "rb_book_id";
             this.rb_book_id.Size = new System.Drawing.Size(36, 17);
             this.rb_book_id.TabIndex = 1;
             this.rb_book_id.TabStop = true;
             this.rb_book_id.Text = "ID";
             this.rb_book_id.UseVisualStyleBackColor = true;
+            this.rb_book_id.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // rb_book_name
             // 
             this.rb_book_name.AutoSize = true;
             this.rb_book_name.ForeColor = System.Drawing.Color.White;
             this.rb_book_name.Location = new System.Drawing.Point(5, 20);
-            this.rb_book_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rb_book_name.Margin = new System.Windows.Forms.Padding(2);
             this.rb_book_name.Name = "rb_book_name";
             this.rb_book_name.Size = new System.Drawing.Size(53, 17);
             this.rb_book_name.TabIndex = 0;
             this.rb_book_name.TabStop = true;
             this.rb_book_name.Text = "Name";
             this.rb_book_name.UseVisualStyleBackColor = true;
+            this.rb_book_name.CheckedChanged += new System.EventHandler(this.Rb_book_name_CheckedChanged);
             // 
             // pnl_seperater
             // 
             this.pnl_seperater.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_seperater.Location = new System.Drawing.Point(24, 115);
-            this.pnl_seperater.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_seperater.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_seperater.Name = "pnl_seperater";
-            this.pnl_seperater.Size = new System.Drawing.Size(546, 1);
+            this.pnl_seperater.Size = new System.Drawing.Size(750, 1);
             this.pnl_seperater.TabIndex = 7;
             // 
             // pnl_user
@@ -887,9 +966,9 @@ namespace Microwave_v1._0
             this.pnl_user.Controls.Add(this.lbl_user_email);
             this.pnl_user.Controls.Add(this.pnl_sep_user);
             this.pnl_user.Location = new System.Drawing.Point(215, 39);
-            this.pnl_user.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_user.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_user.Name = "pnl_user";
-            this.pnl_user.Size = new System.Drawing.Size(796, 575);
+            this.pnl_user.Size = new System.Drawing.Size(795, 570);
             this.pnl_user.TabIndex = 16;
             this.pnl_user.Click += new System.EventHandler(this.General_Click);
             // 
@@ -906,7 +985,7 @@ namespace Microwave_v1._0
             this.pnl_user_st.Controls.Add(this.radioButton20);
             this.pnl_user_st.Controls.Add(this.radioButton21);
             this.pnl_user_st.Location = new System.Drawing.Point(34, 0);
-            this.pnl_user_st.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_user_st.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_user_st.Name = "pnl_user_st";
             this.pnl_user_st.Size = new System.Drawing.Size(232, 116);
             this.pnl_user_st.TabIndex = 20;
@@ -927,7 +1006,7 @@ namespace Microwave_v1._0
             this.radioButton15.AutoSize = true;
             this.radioButton15.ForeColor = System.Drawing.Color.White;
             this.radioButton15.Location = new System.Drawing.Point(133, 64);
-            this.radioButton15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton15.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton15.Name = "radioButton15";
             this.radioButton15.Size = new System.Drawing.Size(71, 17);
             this.radioButton15.TabIndex = 6;
@@ -940,7 +1019,7 @@ namespace Microwave_v1._0
             this.radioButton16.AutoSize = true;
             this.radioButton16.ForeColor = System.Drawing.Color.White;
             this.radioButton16.Location = new System.Drawing.Point(133, 42);
-            this.radioButton16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton16.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton16.Name = "radioButton16";
             this.radioButton16.Size = new System.Drawing.Size(49, 17);
             this.radioButton16.TabIndex = 5;
@@ -953,7 +1032,7 @@ namespace Microwave_v1._0
             this.radioButton17.AutoSize = true;
             this.radioButton17.ForeColor = System.Drawing.Color.White;
             this.radioButton17.Location = new System.Drawing.Point(133, 20);
-            this.radioButton17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton17.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton17.Name = "radioButton17";
             this.radioButton17.Size = new System.Drawing.Size(67, 17);
             this.radioButton17.TabIndex = 4;
@@ -966,7 +1045,7 @@ namespace Microwave_v1._0
             this.radioButton18.AutoSize = true;
             this.radioButton18.ForeColor = System.Drawing.Color.White;
             this.radioButton18.Location = new System.Drawing.Point(5, 86);
-            this.radioButton18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton18.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton18.Name = "radioButton18";
             this.radioButton18.Size = new System.Drawing.Size(68, 17);
             this.radioButton18.TabIndex = 3;
@@ -979,7 +1058,7 @@ namespace Microwave_v1._0
             this.radioButton19.AutoSize = true;
             this.radioButton19.ForeColor = System.Drawing.Color.White;
             this.radioButton19.Location = new System.Drawing.Point(5, 64);
-            this.radioButton19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton19.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton19.Name = "radioButton19";
             this.radioButton19.Size = new System.Drawing.Size(56, 17);
             this.radioButton19.TabIndex = 2;
@@ -992,7 +1071,7 @@ namespace Microwave_v1._0
             this.radioButton20.AutoSize = true;
             this.radioButton20.ForeColor = System.Drawing.Color.White;
             this.radioButton20.Location = new System.Drawing.Point(5, 42);
-            this.radioButton20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton20.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton20.Name = "radioButton20";
             this.radioButton20.Size = new System.Drawing.Size(36, 17);
             this.radioButton20.TabIndex = 1;
@@ -1005,7 +1084,7 @@ namespace Microwave_v1._0
             this.radioButton21.AutoSize = true;
             this.radioButton21.ForeColor = System.Drawing.Color.White;
             this.radioButton21.Location = new System.Drawing.Point(5, 20);
-            this.radioButton21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton21.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton21.Name = "radioButton21";
             this.radioButton21.Size = new System.Drawing.Size(53, 17);
             this.radioButton21.TabIndex = 0;
@@ -1017,9 +1096,9 @@ namespace Microwave_v1._0
             // 
             this.pnl_user_list.AutoScroll = true;
             this.pnl_user_list.Location = new System.Drawing.Point(-1, 119);
-            this.pnl_user_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_user_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_user_list.Name = "pnl_user_list";
-            this.pnl_user_list.Size = new System.Drawing.Size(812, 410);
+            this.pnl_user_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_user_list.TabIndex = 14;
             // 
             // lbl_user_date
@@ -1110,7 +1189,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_sep_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_sep_user.Location = new System.Drawing.Point(24, 115);
-            this.pnl_sep_user.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_sep_user.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_sep_user.Name = "pnl_sep_user";
             this.pnl_sep_user.Size = new System.Drawing.Size(750, 1);
             this.pnl_sep_user.TabIndex = 7;
@@ -1118,10 +1197,10 @@ namespace Microwave_v1._0
             // pnl_tag
             // 
             this.pnl_tag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_tag.Location = new System.Drawing.Point(820, 38);
-            this.pnl_tag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_tag.Location = new System.Drawing.Point(1008, 38);
+            this.pnl_tag.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_tag.Name = "pnl_tag";
-            this.pnl_tag.Size = new System.Drawing.Size(191, 573);
+            this.pnl_tag.Size = new System.Drawing.Size(190, 571);
             this.pnl_tag.TabIndex = 16;
             this.pnl_tag.Click += new System.EventHandler(this.General_Click);
             // 
@@ -1137,7 +1216,7 @@ namespace Microwave_v1._0
             this.pnl_department_list.Location = new System.Drawing.Point(1, 106);
             this.pnl_department_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_department_list.Name = "pnl_department_list";
-            this.pnl_department_list.Size = new System.Drawing.Size(776, 441);
+            this.pnl_department_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_department_list.TabIndex = 15;
             // 
             // pnl_department
@@ -1150,7 +1229,7 @@ namespace Microwave_v1._0
             this.pnl_department.Location = new System.Drawing.Point(215, 38);
             this.pnl_department.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_department.Name = "pnl_department";
-            this.pnl_department.Size = new System.Drawing.Size(796, 707);
+            this.pnl_department.Size = new System.Drawing.Size(795, 570);
             this.pnl_department.TabIndex = 17;
             // 
             // pnl_department_st
@@ -1166,7 +1245,7 @@ namespace Microwave_v1._0
             this.pnl_department_st.Controls.Add(this.radioButton13);
             this.pnl_department_st.Controls.Add(this.radioButton14);
             this.pnl_department_st.Location = new System.Drawing.Point(34, 0);
-            this.pnl_department_st.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_department_st.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_department_st.Name = "pnl_department_st";
             this.pnl_department_st.Size = new System.Drawing.Size(232, 116);
             this.pnl_department_st.TabIndex = 19;
@@ -1187,7 +1266,7 @@ namespace Microwave_v1._0
             this.radioButton8.AutoSize = true;
             this.radioButton8.ForeColor = System.Drawing.Color.White;
             this.radioButton8.Location = new System.Drawing.Point(133, 64);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(71, 17);
             this.radioButton8.TabIndex = 6;
@@ -1200,7 +1279,7 @@ namespace Microwave_v1._0
             this.radioButton9.AutoSize = true;
             this.radioButton9.ForeColor = System.Drawing.Color.White;
             this.radioButton9.Location = new System.Drawing.Point(133, 42);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton9.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton9.Name = "radioButton9";
             this.radioButton9.Size = new System.Drawing.Size(49, 17);
             this.radioButton9.TabIndex = 5;
@@ -1213,7 +1292,7 @@ namespace Microwave_v1._0
             this.radioButton10.AutoSize = true;
             this.radioButton10.ForeColor = System.Drawing.Color.White;
             this.radioButton10.Location = new System.Drawing.Point(133, 20);
-            this.radioButton10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton10.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton10.Name = "radioButton10";
             this.radioButton10.Size = new System.Drawing.Size(67, 17);
             this.radioButton10.TabIndex = 4;
@@ -1226,7 +1305,7 @@ namespace Microwave_v1._0
             this.radioButton11.AutoSize = true;
             this.radioButton11.ForeColor = System.Drawing.Color.White;
             this.radioButton11.Location = new System.Drawing.Point(5, 86);
-            this.radioButton11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton11.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(68, 17);
             this.radioButton11.TabIndex = 3;
@@ -1239,7 +1318,7 @@ namespace Microwave_v1._0
             this.radioButton12.AutoSize = true;
             this.radioButton12.ForeColor = System.Drawing.Color.White;
             this.radioButton12.Location = new System.Drawing.Point(5, 64);
-            this.radioButton12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton12.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(56, 17);
             this.radioButton12.TabIndex = 2;
@@ -1252,7 +1331,7 @@ namespace Microwave_v1._0
             this.radioButton13.AutoSize = true;
             this.radioButton13.ForeColor = System.Drawing.Color.White;
             this.radioButton13.Location = new System.Drawing.Point(5, 42);
-            this.radioButton13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton13.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton13.Name = "radioButton13";
             this.radioButton13.Size = new System.Drawing.Size(36, 17);
             this.radioButton13.TabIndex = 1;
@@ -1265,7 +1344,7 @@ namespace Microwave_v1._0
             this.radioButton14.AutoSize = true;
             this.radioButton14.ForeColor = System.Drawing.Color.White;
             this.radioButton14.Location = new System.Drawing.Point(5, 20);
-            this.radioButton14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton14.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton14.Name = "radioButton14";
             this.radioButton14.Size = new System.Drawing.Size(53, 17);
             this.radioButton14.TabIndex = 0;
@@ -1297,15 +1376,25 @@ namespace Microwave_v1._0
             // pnl_pub
             // 
             this.pnl_pub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_pub.Controls.Add(this.pnl_pub_list);
             this.pnl_pub.Controls.Add(this.pnl_publisher_st);
             this.pnl_pub.Controls.Add(this.lbl_pub_title);
             this.pnl_pub.Controls.Add(this.pnl_pub_stick);
-            this.pnl_pub.Controls.Add(this.pnl_pub_list);
             this.pnl_pub.Location = new System.Drawing.Point(215, 39);
-            this.pnl_pub.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_pub.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_pub.Name = "pnl_pub";
-            this.pnl_pub.Size = new System.Drawing.Size(796, 575);
+            this.pnl_pub.Size = new System.Drawing.Size(795, 570);
             this.pnl_pub.TabIndex = 17;
+            // 
+            // pnl_pub_list
+            // 
+            this.pnl_pub_list.AutoScroll = true;
+            this.pnl_pub_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
+            this.pnl_pub_list.Location = new System.Drawing.Point(-1, 119);
+            this.pnl_pub_list.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_pub_list.Name = "pnl_pub_list";
+            this.pnl_pub_list.Size = new System.Drawing.Size(775, 410);
+            this.pnl_pub_list.TabIndex = 14;
             // 
             // pnl_publisher_st
             // 
@@ -1320,7 +1409,7 @@ namespace Microwave_v1._0
             this.pnl_publisher_st.Controls.Add(this.radioButton6);
             this.pnl_publisher_st.Controls.Add(this.radioButton7);
             this.pnl_publisher_st.Location = new System.Drawing.Point(34, 0);
-            this.pnl_publisher_st.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_publisher_st.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_publisher_st.Name = "pnl_publisher_st";
             this.pnl_publisher_st.Size = new System.Drawing.Size(232, 116);
             this.pnl_publisher_st.TabIndex = 18;
@@ -1341,7 +1430,7 @@ namespace Microwave_v1._0
             this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.Color.White;
             this.radioButton1.Location = new System.Drawing.Point(133, 64);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(71, 17);
             this.radioButton1.TabIndex = 6;
@@ -1354,7 +1443,7 @@ namespace Microwave_v1._0
             this.radioButton2.AutoSize = true;
             this.radioButton2.ForeColor = System.Drawing.Color.White;
             this.radioButton2.Location = new System.Drawing.Point(133, 42);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(49, 17);
             this.radioButton2.TabIndex = 5;
@@ -1367,7 +1456,7 @@ namespace Microwave_v1._0
             this.radioButton3.AutoSize = true;
             this.radioButton3.ForeColor = System.Drawing.Color.White;
             this.radioButton3.Location = new System.Drawing.Point(133, 20);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(67, 17);
             this.radioButton3.TabIndex = 4;
@@ -1380,7 +1469,7 @@ namespace Microwave_v1._0
             this.radioButton4.AutoSize = true;
             this.radioButton4.ForeColor = System.Drawing.Color.White;
             this.radioButton4.Location = new System.Drawing.Point(5, 86);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(68, 17);
             this.radioButton4.TabIndex = 3;
@@ -1393,7 +1482,7 @@ namespace Microwave_v1._0
             this.radioButton5.AutoSize = true;
             this.radioButton5.ForeColor = System.Drawing.Color.White;
             this.radioButton5.Location = new System.Drawing.Point(5, 64);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(56, 17);
             this.radioButton5.TabIndex = 2;
@@ -1406,7 +1495,7 @@ namespace Microwave_v1._0
             this.radioButton6.AutoSize = true;
             this.radioButton6.ForeColor = System.Drawing.Color.White;
             this.radioButton6.Location = new System.Drawing.Point(5, 42);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(36, 17);
             this.radioButton6.TabIndex = 1;
@@ -1419,7 +1508,7 @@ namespace Microwave_v1._0
             this.radioButton7.AutoSize = true;
             this.radioButton7.ForeColor = System.Drawing.Color.White;
             this.radioButton7.Location = new System.Drawing.Point(5, 20);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton7.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(53, 17);
             this.radioButton7.TabIndex = 0;
@@ -1443,20 +1532,10 @@ namespace Microwave_v1._0
             // 
             this.pnl_pub_stick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_pub_stick.Location = new System.Drawing.Point(24, 115);
-            this.pnl_pub_stick.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_pub_stick.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_pub_stick.Name = "pnl_pub_stick";
             this.pnl_pub_stick.Size = new System.Drawing.Size(750, 1);
             this.pnl_pub_stick.TabIndex = 7;
-            // 
-            // pnl_pub_list
-            // 
-            this.pnl_pub_list.AutoScroll = true;
-            this.pnl_pub_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
-            this.pnl_pub_list.Location = new System.Drawing.Point(-1, 119);
-            this.pnl_pub_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pnl_pub_list.Name = "pnl_pub_list";
-            this.pnl_pub_list.Size = new System.Drawing.Size(775, 410);
-            this.pnl_pub_list.TabIndex = 14;
             // 
             // pub_cover_image_list
             // 
@@ -1476,23 +1555,59 @@ namespace Microwave_v1._0
             this.author_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
             this.author_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // lbl_book_id
+            // 
+            this.lbl_book_id.AutoSize = true;
+            this.lbl_book_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_id.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_id.Location = new System.Drawing.Point(29, 82);
+            this.lbl_book_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_book_id.Name = "lbl_book_id";
+            this.lbl_book_id.Size = new System.Drawing.Size(34, 26);
+            this.lbl_book_id.TabIndex = 18;
+            this.lbl_book_id.Text = "ID";
+            // 
+            // lbl_book_category
+            // 
+            this.lbl_book_category.AutoSize = true;
+            this.lbl_book_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_category.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_category.Location = new System.Drawing.Point(453, 82);
+            this.lbl_book_category.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_book_category.Name = "lbl_book_category";
+            this.lbl_book_category.Size = new System.Drawing.Size(100, 26);
+            this.lbl_book_category.TabIndex = 19;
+            this.lbl_book_category.Text = "Category";
+            // 
+            // lbl_book_shelf
+            // 
+            this.lbl_book_shelf.AutoSize = true;
+            this.lbl_book_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_book_shelf.ForeColor = System.Drawing.Color.White;
+            this.lbl_book_shelf.Location = new System.Drawing.Point(556, 82);
+            this.lbl_book_shelf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_book_shelf.Name = "lbl_book_shelf";
+            this.lbl_book_shelf.Size = new System.Drawing.Size(62, 26);
+            this.lbl_book_shelf.TabIndex = 20;
+            this.lbl_book_shelf.Text = "Shelf";
+            // 
             // Microwave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.ClientSize = new System.Drawing.Size(1010, 609);
-            this.Controls.Add(this.pnl_pub);
+            this.ClientSize = new System.Drawing.Size(1199, 609);
             this.Controls.Add(this.pnl_header);
             this.Controls.Add(this.pnl_left);
+            this.Controls.Add(this.pnl_tag);
+            this.Controls.Add(this.pnl_book);
+            this.Controls.Add(this.pnl_pub);
             this.Controls.Add(this.pnl_department);
             this.Controls.Add(this.pnl_user);
             this.Controls.Add(this.pnl_authors);
-            this.Controls.Add(this.pnl_book);
-            this.Controls.Add(this.pnl_tag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(18, 45);
             this.Name = "Microwave";
@@ -1574,7 +1689,7 @@ namespace Microwave_v1._0
         private Button btn_publisher;
         private ImageList pub_cover_image_list;
 
-        private TextBox tb_search;
+        private TextBox tb_search_book;
         private Panel pnl_department_list;
         private Button btn_department;
         private Panel pnl_department;
@@ -1634,6 +1749,14 @@ namespace Microwave_v1._0
         private RadioButton radioButton5;
         private RadioButton radioButton6;
         private RadioButton radioButton7;
+        private Timer timer1;
+        private TextBox tb_search_author;
+        private TextBox tb_search_department;
+        private TextBox tb_search_user;
+        private TextBox tb_search_publisher;
+        private Label lbl_book_id;
+        private Label lbl_book_shelf;
+        private Label lbl_book_category;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
         public Panel Pnl_pub_list { get => pnl_pub_list; set => pnl_pub_list = value; }

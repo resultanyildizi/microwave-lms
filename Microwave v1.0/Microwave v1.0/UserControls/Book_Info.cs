@@ -14,6 +14,12 @@ namespace Microwave_v1._0
      * Book Info class shows information taken form Book Class's objects to user.
      * It is iherited from C# UserControl class.
      */
+
+    public enum INFO_COLOR_MODE
+    {
+        NORMAL,ID, NAME, AUTHOR, PUBLISHER, CATEGORY, SHELF
+    }
+
     public partial class Book_Info : UserControl
     {
         private Microwave main_page;
@@ -24,8 +30,11 @@ namespace Microwave_v1._0
         private string name;
         private string author;
         private string pic_path_file;
-        private bool chosen = false;
+        private string shelf;
+        private string category;
         private int book_id;
+        private bool chosen = false;
+        private INFO_COLOR_MODE color_mode;
 
         public int Book_id { get => book_id; set => book_id = value; }
 
@@ -39,18 +48,40 @@ namespace Microwave_v1._0
         }
 
        
-        public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string date, int count, string description, string pic_path_file)
+        public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string category, string shelf, string date, int count, string description, string pic_path_file, INFO_COLOR_MODE mode)
         {
             this.book_id = book_id;
+            this.lbl_id.Text = book_id.ToString(); ;
             this.lbl_name.Text = name;
             this.lbl_author.Text = author;
             this.lbl_publisher.Text = publisher;
+            this.lbl_category.Text = category;
+            this.lbl_shelf.Text = shelf;
             this.lbl_date.Text = date;
             this.lbl_count.Text = count.ToString();
             this.description = description;
             this.author = author;
             this.name = name;
+            this.shelf = shelf;
+            this.category = category;
             this.pic_path_file = pic_path_file;
+            this.color_mode = mode;
+
+            Color new_color = Color.FromArgb(59, 180, 193);
+
+            if(mode == INFO_COLOR_MODE.ID)
+                this.pnl_id.BackColor = new_color;
+            else if (mode == INFO_COLOR_MODE.NAME)
+                this.pnl_name.BackColor = new_color;
+            else if (mode == INFO_COLOR_MODE.AUTHOR)
+                this.pnl_author.BackColor = new_color;
+            else if (mode == INFO_COLOR_MODE.PUBLISHER)
+                this.pnl_publisher.BackColor = new_color;
+            else if (mode == INFO_COLOR_MODE.CATEGORY)
+                this.pnl_category.BackColor = new_color;
+            else if (mode == INFO_COLOR_MODE.SHELF)
+                this.pnl_shelf.BackColor = new_color;
+
 
         }
 
@@ -62,6 +93,10 @@ namespace Microwave_v1._0
             y += 45;
         }
 
+        public void Hide()
+        {
+            main_page.Pnl_book_list.Controls.Remove(this);
+        }
 
        
         public void Book_Info_Click(object sender, EventArgs e)
@@ -83,6 +118,24 @@ namespace Microwave_v1._0
             this.pnl_date.BackColor = back_color;
             this.pnl_count.BackColor = back_color;
             this.pnl_publisher.BackColor = back_color;
+            this.pnl_id.BackColor = back_color;
+            this.pnl_shelf.BackColor = back_color;
+            this.pnl_category.BackColor = back_color;
+
+            Color new_color = Color.FromArgb(4, 137, 152);
+
+            if (color_mode == INFO_COLOR_MODE.ID)
+                this.pnl_id.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.NAME)
+                this.pnl_name.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.AUTHOR)
+                this.pnl_author.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.PUBLISHER)
+                this.pnl_publisher.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.CATEGORY)
+                this.pnl_category.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.SHELF)
+                this.pnl_shelf.BackColor = new_color;
 
             this.btn_edit.Show();
             this.btn_remove.Show();
@@ -98,6 +151,25 @@ namespace Microwave_v1._0
             this.pnl_date.BackColor = back_color;
             this.pnl_count.BackColor = back_color;
             this.pnl_publisher.BackColor = back_color;
+            this.pnl_id.BackColor = back_color;
+            this.pnl_shelf.BackColor = back_color;
+            this.pnl_category.BackColor = back_color;
+
+            Color new_color = Color.FromArgb(59, 180, 193);
+
+            if (color_mode == INFO_COLOR_MODE.ID)
+                this.pnl_id.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.NAME)
+                this.pnl_name.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.AUTHOR)
+                this.pnl_author.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.PUBLISHER)
+                this.pnl_publisher.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.CATEGORY)
+                this.pnl_category.BackColor = new_color;
+            else if (color_mode == INFO_COLOR_MODE.SHELF)
+                this.pnl_shelf.BackColor = new_color;
+
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
@@ -194,6 +266,24 @@ namespace Microwave_v1._0
                 this.pnl_date.BackColor = back_color;
                 this.pnl_count.BackColor = back_color;
                 this.pnl_publisher.BackColor = back_color;
+                this.pnl_id.BackColor = back_color;
+                this.pnl_shelf.BackColor = back_color;
+                this.pnl_category.BackColor = back_color;
+
+                Color new_color = Color.FromArgb(49,170,183);
+
+                if (color_mode == INFO_COLOR_MODE.ID)
+                    this.pnl_id.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.NAME)
+                    this.pnl_name.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.AUTHOR)
+                    this.pnl_author.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.PUBLISHER)
+                    this.pnl_publisher.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.CATEGORY)
+                    this.pnl_category.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.SHELF)
+                    this.pnl_shelf.BackColor = new_color;
 
             }
         }
@@ -212,6 +302,25 @@ namespace Microwave_v1._0
                 this.pnl_date.BackColor = back_color;
                 this.pnl_count.BackColor = back_color;
                 this.pnl_publisher.BackColor = back_color;
+                this.pnl_id.BackColor = back_color;
+                this.pnl_shelf.BackColor = back_color;
+                this.pnl_category.BackColor = back_color;
+
+                Color new_color = Color.FromArgb(59, 180, 193);
+
+                if (color_mode == INFO_COLOR_MODE.ID)
+                    this.pnl_id.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.NAME)
+                    this.pnl_name.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.AUTHOR)
+                    this.pnl_author.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.PUBLISHER)
+                    this.pnl_publisher.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.CATEGORY)
+                    this.pnl_category.BackColor = new_color;
+                else if (color_mode == INFO_COLOR_MODE.SHELF)
+                    this.pnl_shelf.BackColor = new_color;
+
             }
         }
         private void Pnl_name_MouseLeave(object sender, EventArgs e)
@@ -219,5 +328,11 @@ namespace Microwave_v1._0
             Mouse_Leave();
         }
 
+        private void Book_Info_Click(object sender, MouseEventArgs e)
+        {
+            main_list.Deselect_All_Book_Infos();
+            main_page.book_searchinf_list.Deselect_All_Book_Infos();
+            this.Select_Book_Info();
+        }
     }
 }

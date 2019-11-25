@@ -132,7 +132,7 @@ namespace Microwave_v1._0.Classes
 
         private void Take_Pub_Id_From_Database()
         {
-            string title = "SELECT Publishers.PUBLISHER_ID FROM Publishers";
+            string title = "SELECT Publishers.PUBLISHER_ID FROM Publishers ";
             string query = title + string.Format("Where NAME = '{0}'", Pub_name); ;
 
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
