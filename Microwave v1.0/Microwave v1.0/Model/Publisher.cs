@@ -25,6 +25,12 @@ namespace Microwave_v1._0.Classes
         private string pub_cover_path_file;
         private string pub_description;
         private Publisher_Info pub_info;
+        
+        public Publisher()
+        {
+
+        }
+        
         public Publisher(int publisher_id, string pub_name, string pub_date_of_est, string pub_pic_path_file)
         {
 
@@ -50,14 +56,13 @@ namespace Microwave_v1._0.Classes
 
             if (main_page.Main_pub_list.Is_Pub_List_Empty())
             {
-                int pub_starter_id = 0;
-                title = "INSERT INTO Publishers(PUBLISHER_ID,NAME,DATE_OF_EST,PICTURE_PATH) ";
+                title = "INSERT INTO Publishers(PUBLISHER_ID, NAME, DATE_OF_EST, PICTURE_PATH)";
                 
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}')", pub_starter_id, pub_name, pub_date_of_est, pub_cover_path_file);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}')", publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
             }
             else
             {
-                title = "INSERT INTO Publishers(NAME,DATE_OF_EST,PICTURE_PATH) ";
+                title = "INSERT INTO Publishers(NAME, DATE_OF_EST, PICTURE_PATH) ";
                 values = string.Format("VALUES ('{0}','{1}','{2}')", pub_name, pub_date_of_est, pub_cover_path_file);
 
             }
@@ -110,7 +115,7 @@ namespace Microwave_v1._0.Classes
 
         static public void Show_All_Publishers()
         {
-            string query = "SELECT * FROM Publishers";
+            string query = "SELECT * FROM Publishers ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
             main_page = (Microwave)Application.OpenForms["Microwave"];
@@ -119,6 +124,7 @@ namespace Microwave_v1._0.Classes
             main_page.Main_pub_list.Show_All_Publishers();
 
         }
+
 
         public void Set_Publisher()
         {
@@ -143,7 +149,7 @@ namespace Microwave_v1._0.Classes
         private void Take_Pub_Id_From_Database()
         {
             string title = "SELECT Publishers.PUBLISHER_ID FROM Publishers ";
-            string query = title + string.Format("Where NAME = '{0}'", Pub_name); ;
+            string query = title + string.Format("Where NAME = '{0}' AND PUBLISHER_ID = '{1}'", Pub_name,publisher_id); ;
 
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 

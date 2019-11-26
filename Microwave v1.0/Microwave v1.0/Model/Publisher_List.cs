@@ -37,11 +37,17 @@ namespace Microwave_v1._0.Classes
 
         public int Publisher_count { get => publisher_count; set => publisher_count = value; }
 
-
+        public Publisher_List()
+        {
+            root = null;
+        }
         public void Fill_Pub_List(DataTable dt)
         {
             int rows_count = dt.Rows.Count;
-
+            if(rows_count == 0)
+            {
+                return;
+            }
             for (int i = 1; i < rows_count; i++)
             {
                 int publisher_id = int.Parse(dt.Rows[i][0].ToString());
@@ -76,7 +82,6 @@ namespace Microwave_v1._0.Classes
             if (root == null)
             {
                 root = new pub_node(pub);
-                publisher_count++;
                 return;
             }
 
@@ -85,11 +90,13 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
 
             iterator.next = new pub_node(pub);
-            publisher_count++;
         }
 
         public void Show_All_Publishers()
         {
+            Publisher.pub_point_y = 5;
+            Publisher.pub_point_x = 35;
+
             pub_node iterator = root;
             while (iterator != null)
             {
@@ -147,12 +154,11 @@ namespace Microwave_v1._0.Classes
                 }
             }
 
+            iterator.next.pub.Delete();
             if (delete_picture == true)
                 Picture_Events.Delete_The_Picture(iterator.next.pub.Pub_cover_path_file);
-            iterator.next.pub.Delete();
             iterator.next.pub = null;
             iterator.next = iterator.next.next;
-            publisher_count--;
             return;
         }
 

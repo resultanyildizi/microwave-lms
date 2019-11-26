@@ -116,6 +116,10 @@ namespace Microwave_v1._0
             pnl_department.Hide();
             pnl_authors.Hide();
             tb_search_book.Hide();
+            tb_search_publisher.Hide();
+            tb_search_user.Hide();
+            tb_search_department.Hide();
+            tb_search_author.Hide();
             btn_show_search_types.Hide();
 
             // Book search category
@@ -124,10 +128,13 @@ namespace Microwave_v1._0
             book_searchinf_list = new Book_List();
             pnl_book_st.Hide();
             rb_book_name.Checked = true;
+            
+            pnl_publisher_st.Hide();
+            rb_pub_name.Checked = true;
 
             pnl_user_st.Hide();
             pnl_author_st.Hide();
-            pnl_publisher_st.Hide();
+
             pnl_department_st.Hide();
             
         }
@@ -543,10 +550,10 @@ namespace Microwave_v1._0
             }
             else if(chosen == MENU_CHOSEN.PUBLISHER)
             {
-                if (tb_search_book.Text == "")
+                if (tb_search_publisher.Text == "")
                 {
-                    tb_search_book.Text = "Search a publisher";
-                    tb_search_book.ForeColor = Color.Gray;
+                    tb_search_publisher.Text = "Search a publisher";
+                    tb_search_publisher.ForeColor = Color.Gray;
                 }
 
             }
@@ -566,18 +573,30 @@ namespace Microwave_v1._0
                     tb_search_book.Text = "Search a book";
                     tb_search_book.ForeColor = Color.DimGray;
                 }
-
             }
         }
         private void Tb_search_Enter(object sender, EventArgs e)
         {
             book_last_search_text = tb_search_book.Text;
-            if (tb_search_book.Text == "Search a book" || tb_search_book.Text == "Search a user" || tb_search_book.Text == "Search a publisher" || tb_search_book.Text == "Search a department")
+          
+            if (tb_search_book.Text == "Search a book" || tb_search_book.Text == "Search a user" || tb_search_book.Text == "Search a department")
             {
                 tb_search_book.Text = "";
+                
             }
 
+           
             tb_search_book.ForeColor = Color.LightGray;
+        }
+        private void tb_search_publisher_Enter(object sender, EventArgs e)
+        {
+            pub_last_search_text = tb_search_publisher.Text;
+            if(tb_search_publisher.Text == "Search a publisher")
+            {
+                tb_search_publisher.Text = "";
+            }
+
+            tb_search_publisher.ForeColor = Color.LightGray;
         }
 
         private void Tb_search_book_TextChanged(object sender, EventArgs e)
@@ -703,5 +722,13 @@ namespace Microwave_v1._0
 
             pub_last_search_text = tb_search_publisher.Text;
         }
+
+        private void rb_pub_name_CheckedChanged(object sender, EventArgs e)
+        {
+            this.pnl_publisher_st.Hide();
+            this.show_pnl_pub_st = false;
+        }
+
+        
     }
 }
