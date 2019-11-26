@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.UserControls;
 using Microwave_v1._0.Forms;
+using System.Data;
 
 namespace Microwave_v1._0.Classes
 {
@@ -37,6 +38,28 @@ namespace Microwave_v1._0.Classes
 
             root = null;
         }
+
+        public void Fill_Author_List(DataTable dt)
+        {
+            int rows_count = dt.Rows.Count;
+
+            for (int i = 1; i < rows_count; i++)
+            {
+                int author_id = int.Parse(dt.Rows[i][0].ToString());
+                int popularity_id = int.Parse(dt.Rows[i][1].ToString());
+                string author_name = dt.Rows[i][2].ToString();
+                string author_country = dt.Rows[i][3].ToString();
+                string author_gender = dt.Rows[i][4].ToString();
+                string author_birthday = dt.Rows[i][5].ToString();
+                string author_biography = dt.Rows[i][6].ToString();
+                string author_cover_path_file = dt.Rows[i][7].ToString();
+
+                Author author = new Author(author_id, popularity_id, author_name, author_country, author_gender, author_birthday, author_biography, author_cover_path_file);
+                author.Set_Author();
+                this.Add_Author_to_List(author);
+            }
+        }
+
         public void Add_Author_to_List(Author author)
         {
             if (root == null)
@@ -59,12 +82,21 @@ namespace Microwave_v1._0.Classes
             author_node iterator = root;
             while (iterator != null)
             {
-                iterator.author.Author_info.Draw_Author_Obj(ref Author.author_point_y, ref Author.author_point_x);
+                iterator.author.Author_info.Draw_Author_Obj(ref Author.author_point_x, ref Author.author_point_y);
                 iterator = iterator.next;
             }
         }
 
-        
+        public void Deselect_All_Author_Infos()
+        {
+            author_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.author.Author_info.Deselect_Author_Info();
+                iterator = iterator.next;
+            }
+        }
+
         public void Delete_Author_from_List(int author_id, bool delete_picture)
         {
 
@@ -87,6 +119,7 @@ namespace Microwave_v1._0.Classes
 
             if (delete_picture == true)
                 Picture_Events.Delete_The_Picture(iterator.next.author.Author_cover_path_file);
+            iterator.next.author.Delete();
             iterator.next.author = null;
             iterator.next = iterator.next.next;
             return;

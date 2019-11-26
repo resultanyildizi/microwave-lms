@@ -41,34 +41,45 @@
             // pb_author
             // 
             this.pb_author.Image = ((System.Drawing.Image)(resources.GetObject("pb_author.Image")));
-            this.pb_author.Location = new System.Drawing.Point(35, 25);
+            this.pb_author.Location = new System.Drawing.Point(26, 20);
+            this.pb_author.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pb_author.Name = "pb_author";
-            this.pb_author.Size = new System.Drawing.Size(140, 190);
+            this.pb_author.Size = new System.Drawing.Size(105, 154);
             this.pb_author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_author.TabIndex = 0;
             this.pb_author.TabStop = false;
+            this.pb_author.Click += new System.EventHandler(this.Author_Info_Click);
+            this.pb_author.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
+            this.pb_author.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
             // pnl_name
             // 
             this.pnl_name.AllowDrop = true;
             this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(65)))));
             this.pnl_name.Controls.Add(this.lbl_author);
-            this.pnl_name.Location = new System.Drawing.Point(16, 235);
-            this.pnl_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_name.Location = new System.Drawing.Point(12, 191);
+            this.pnl_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_name.Name = "pnl_name";
-            this.pnl_name.Size = new System.Drawing.Size(175, 34);
+            this.pnl_name.Size = new System.Drawing.Size(131, 28);
             this.pnl_name.TabIndex = 2;
+            this.pnl_name.Click += new System.EventHandler(this.Author_Info_Click);
+            this.pnl_name.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
+            this.pnl_name.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
             // lbl_author
             // 
             this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbl_author.ForeColor = System.Drawing.Color.White;
             this.lbl_author.Location = new System.Drawing.Point(-1, 1);
+            this.lbl_author.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_author.Name = "lbl_author";
-            this.lbl_author.Size = new System.Drawing.Size(175, 33);
+            this.lbl_author.Size = new System.Drawing.Size(131, 27);
             this.lbl_author.TabIndex = 0;
             this.lbl_author.Text = "Author Name";
             this.lbl_author.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_author.Click += new System.EventHandler(this.Author_Info_Click);
+            this.lbl_author.MouseEnter += new System.EventHandler(this.lbl_name_MouseLeave);
+            this.lbl_author.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
             // btn_remove
             // 
@@ -78,11 +89,13 @@
             this.btn_remove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
-            this.btn_remove.Location = new System.Drawing.Point(3, 25);
+            this.btn_remove.Location = new System.Drawing.Point(2, 20);
+            this.btn_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(25, 23);
+            this.btn_remove.Size = new System.Drawing.Size(19, 19);
             this.btn_remove.TabIndex = 6;
             this.btn_remove.UseVisualStyleBackColor = true;
+            this.btn_remove.Click += new System.EventHandler(this.Btn_remove_Click);
             // 
             // btn_edit
             // 
@@ -92,23 +105,29 @@
             this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
-            this.btn_edit.Location = new System.Drawing.Point(3, 2);
+            this.btn_edit.Location = new System.Drawing.Point(2, 2);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(25, 23);
+            this.btn_edit.Size = new System.Drawing.Size(19, 19);
             this.btn_edit.TabIndex = 5;
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // Author_Info
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.pb_author);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Author_Info";
-            this.Size = new System.Drawing.Size(207, 282);
+            this.Size = new System.Drawing.Size(155, 229);
+            this.Click += new System.EventHandler(this.Author_Info_Click);
+            this.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pb_author)).EndInit();
             this.pnl_name.ResumeLayout(false);
             this.ResumeLayout(false);

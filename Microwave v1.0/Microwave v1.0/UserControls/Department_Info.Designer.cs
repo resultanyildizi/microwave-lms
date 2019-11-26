@@ -59,7 +59,7 @@
             this.btn_dprt_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dprt_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_dprt_remove.Image")));
             this.btn_dprt_remove.Location = new System.Drawing.Point(2, 20);
-            this.btn_dprt_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_dprt_remove.Margin = new System.Windows.Forms.Padding(2);
             this.btn_dprt_remove.Name = "btn_dprt_remove";
             this.btn_dprt_remove.Size = new System.Drawing.Size(19, 19);
             this.btn_dprt_remove.TabIndex = 11;
@@ -75,11 +75,12 @@
             this.btn_dprt_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dprt_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_dprt_edit.Image")));
             this.btn_dprt_edit.Location = new System.Drawing.Point(2, 2);
-            this.btn_dprt_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_dprt_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_dprt_edit.Name = "btn_dprt_edit";
             this.btn_dprt_edit.Size = new System.Drawing.Size(19, 19);
             this.btn_dprt_edit.TabIndex = 10;
             this.btn_dprt_edit.UseVisualStyleBackColor = true;
+            this.btn_dprt_edit.Click += new System.EventHandler(this.btn_dprt_edit_Click);
             // 
             // pnl_name
             // 
@@ -87,7 +88,7 @@
             this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(65)))));
             this.pnl_name.Controls.Add(this.lbl_department_name);
             this.pnl_name.Location = new System.Drawing.Point(2, 189);
-            this.pnl_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_name.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(146, 28);
             this.pnl_name.TabIndex = 12;
@@ -103,6 +104,7 @@
             this.lbl_department_name.Size = new System.Drawing.Size(140, 20);
             this.lbl_department_name.TabIndex = 0;
             this.lbl_department_name.Text = "Department Name";
+            this.lbl_department_name.Click += new System.EventHandler(this.lbl_department_name_Click);
             // 
             // Department_Info
             // 
@@ -115,8 +117,9 @@
             this.Controls.Add(this.btn_dprt_edit);
             this.Controls.Add(this.pb_department);
             this.Name = "Department_Info";
-            this.Size = new System.Drawing.Size(154, 228);
-            this.Load += new System.EventHandler(this.Department_Info_Load);
+            this.Size = new System.Drawing.Size(155, 229);
+            this.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pb_department)).EndInit();
             this.pnl_name.ResumeLayout(false);
             this.pnl_name.PerformLayout();

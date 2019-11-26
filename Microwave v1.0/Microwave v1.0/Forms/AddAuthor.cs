@@ -69,7 +69,7 @@ namespace Microwave_v1._0.Forms
             
             name = (tb_name.Text.Trim()).Replace('\'', ' ');
             country = (tb_country.Text.Trim()).Replace('\'', ' ');
-            year = mtb_year.ToString();
+            year = dtp_author.Value.Year.ToString();
             biography = tb_biography.Text.Replace('\'', ' ');
             pic_new_source_path = picture_event.Pic_source_file;
 
@@ -93,15 +93,15 @@ namespace Microwave_v1._0.Forms
                 return;
             }
 
-            if (mtb_year.Text.Trim() == "Year" || mtb_year.Text.Trim() == "")
+            if (dtp_author.Text.Trim() == "Year" || dtp_author.Text.Trim() == "")
             {
                 lbl_message.Text = "* Please enter birth year.";
                 lbl_message.ForeColor = Color.Red;
-                mtb_year.Focus();
+                dtp_author.Focus();
                 return;
             }
 
-            if (tb_biography.Text.Trim() == "Biography" || tb_biography.Text.Trim() == "")
+            if (tb_biography.Text.Trim() == "Biography..." || tb_biography.Text.Trim() == "")
             {
                 lbl_message.Text = "* Please enter biography.";
                 lbl_message.ForeColor = Color.Red;
@@ -126,8 +126,15 @@ namespace Microwave_v1._0.Forms
 
             if (is_edit == false)
             {
-                picture_event.Copy_The_Picture(name);
-                pic_new_source_path = picture_event.Pic_source_file;
+                /* IMPORTANT */
+                if (picture_event.Pic_source_file != null && picture_event.Pic_source_file != pic_default_file)
+                {
+                    picture_event.Copy_The_Picture(name);
+                    pic_new_source_path = picture_event.Pic_source_file;
+                }
+                else
+                    pic_new_source_path = pic_default_file;
+
                 Author author = new Author(0, 1, name, country, gender, year, biography, pic_new_source_path);               
                 author.Add();
 
@@ -137,10 +144,10 @@ namespace Microwave_v1._0.Forms
             {
                 if (change_image)
                 {
-                    Picture_Events.Delete_The_Picture(author_to_edit.Cover_path_file);
+                    /* IMPORTANT */
+                    if(picture_event.Pic_source_file != pic_default_file)
+                        Picture_Events.Delete_The_Picture(author_to_edit.Cover_path_file);
                     picture_event.Copy_The_Picture(name);
-                    //main_page.Remove_Image_From_Aut_Cover_List(author_to_edit.Author_id);
-                    //author_to_edit.Cover_Pic_to_Image_List();
                     change_image = false;
                 }
 
@@ -168,10 +175,9 @@ namespace Microwave_v1._0.Forms
             tb_name.ForeColor = Color.DimGray;
             tb_country.Text = "Country";
             tb_country.ForeColor = Color.DimGray;
-            mtb_year.Text = "Year";
-            mtb_year.ForeColor = Color.DimGray;
+            
             tb_biography.ForeColor = Color.DimGray;
-            tb_biography.Text = "Biography";
+            tb_biography.Text = "Biography...";
             tb_biography.ForeColor = Color.DimGray;
             rdo_male.Checked = true;
             
@@ -195,5 +201,9 @@ namespace Microwave_v1._0.Forms
             picture_event.Choose_Image();
         }
 
+        private void AddAuthor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
+        }
     }
 }

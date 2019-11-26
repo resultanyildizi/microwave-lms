@@ -104,9 +104,10 @@ namespace Microwave_v1._0
             main_pub_list = new Publisher_List();
             main_author_list = new Author_List();
 
-            // deneme
+
             book_searchinf_list = new Book_List();
             publisher_searchinf_list = new Publisher_List();
+
 
             pnl_tag.Hide();
             pnl_user.Hide();
@@ -119,6 +120,8 @@ namespace Microwave_v1._0
 
             // Book search category
             // Search category
+            // deneme
+            book_searchinf_list = new Book_List();
             pnl_book_st.Hide();
             rb_book_name.Checked = true;
 
@@ -143,6 +146,7 @@ namespace Microwave_v1._0
             Book.Show_All_Books();
             Department.Show_All_Departments();
             Publisher.Show_All_Publishers();
+            Author.Show_All_Authors();
             // It's need to change
             main_user_list.Show_All_Users();
 

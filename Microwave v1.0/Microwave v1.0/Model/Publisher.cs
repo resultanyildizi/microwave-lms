@@ -52,7 +52,7 @@ namespace Microwave_v1._0.Classes
             {
                 int pub_starter_id = 0;
                 title = "INSERT INTO Publishers(PUBLISHER_ID,NAME,DATE_OF_EST,PICTURE_PATH) ";
-
+                
                 values = string.Format("VALUES ('{0}','{1}','{2}','{3}')", pub_starter_id, pub_name, pub_date_of_est, pub_cover_path_file);
             }
             else
