@@ -79,6 +79,15 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
         }
+        public void Deselect_All_Department_Infos()
+        {
+            department_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.department.Info.Deselect_Department_Info();
+                iterator = iterator.next;
+            }
+        }
         public void Delete_Department_from_List(int department_id ,bool delete_picture)
         {
 
@@ -122,6 +131,43 @@ namespace Microwave_v1._0.Classes
             --department_count;
             return;
     }
+        public Department Find_Department_By_ID(int department_id)
+        {
+            if(root == null)
+            {
+                return null;
+            }
 
+            department_node iterator = root;
+
+            while(iterator.department.Department_id != department_id)
+            {
+                if(iterator.next== null)
+                {
+                    return null;
+                }
+
+                iterator = iterator.next;
+            }
+
+            return iterator.department;
+        }
+
+        public bool Is_Dep_List_Empty()
+        {
+            if (root == null)
+                return true;
+            else
+                return false;
+        }
+         
+        public void Fill_Cover_Image_List()
+        {
+            department_node iterator = root;
+            while (iterator != null)
+            {
+                iterator = iterator.next;
+            }
+        }
     }
 }
