@@ -50,7 +50,7 @@ namespace Microwave_v1._0
             {
                 this.picture_box.Load(pic_source_file);
             }
-            catch (System.InvalidOperationException d)
+            catch (System.InvalidOperationException)
             {
                 pic_source_file = pic_default_file;
                 this.picture_box.Load(pic_source_file);
@@ -73,12 +73,12 @@ namespace Microwave_v1._0
                 pic_source_file = pic_target_file;
                 i = 0;
             }
-            catch (System.ArgumentException d)
+            catch (System.ArgumentException)
             {
                 pic_source_file = pic_default_file;
                 System.IO.File.Copy(pic_source_file, pic_target_file);
             }
-            catch(System.IO.IOException d)
+            catch(System.IO.IOException)
             {
                 Increase(name, pic_target_file);
             }

@@ -93,7 +93,7 @@ namespace Microwave_v1._0
             y += 45;
         }
 
-        public void Hide()
+        public void Hide_Info()
         {
             main_page.Pnl_book_list.Controls.Remove(this);
         }
@@ -198,6 +198,10 @@ namespace Microwave_v1._0
                 Remove();
 
             main_page.Warning_form.Refresh_Form();
+
+            main_page.Pnl_book_list.VerticalScroll.Value = 0;
+            main_page.Book_search_list.Delete_All_List();
+            main_page.Main_book_list.Draw_All_Books();
         }
 
         private void Remove(bool delete_picture = true)
@@ -209,7 +213,7 @@ namespace Microwave_v1._0
 
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
             Book.point_y = 5;
-            main_list.Show_All_Books();
+            main_list.Draw_All_Books();
         }
 
         private void Edit()
@@ -234,7 +238,7 @@ namespace Microwave_v1._0
                 {
                     edit_form.Show();
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     edit_form = new AddBook(book);
                     edit_form.Show();
@@ -331,7 +335,6 @@ namespace Microwave_v1._0
         private void Book_Info_Click(object sender, MouseEventArgs e)
         {
             main_list.Deselect_All_Book_Infos();
-            main_page.book_searchinf_list.Deselect_All_Book_Infos();
             this.Select_Book_Info();
         }
     }

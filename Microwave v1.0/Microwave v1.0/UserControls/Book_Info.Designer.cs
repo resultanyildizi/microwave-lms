@@ -63,7 +63,7 @@
             this.pnl_name.Controls.Add(this.lbl_name);
             this.pnl_name.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnl_name.Location = new System.Drawing.Point(69, 0);
-            this.pnl_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_name.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(137, 40);
             this.pnl_name.TabIndex = 0;
@@ -74,6 +74,7 @@
             // lbl_name
             // 
             this.lbl_name.AutoEllipsis = true;
+            this.lbl_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_name.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_name.ForeColor = System.Drawing.Color.White;
@@ -94,7 +95,7 @@
             this.pnl_author.Controls.Add(this.lbl_author);
             this.pnl_author.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnl_author.Location = new System.Drawing.Point(210, 0);
-            this.pnl_author.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_author.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_author.Name = "pnl_author";
             this.pnl_author.Size = new System.Drawing.Size(120, 40);
             this.pnl_author.TabIndex = 1;
@@ -105,6 +106,7 @@
             // lbl_author
             // 
             this.lbl_author.AutoEllipsis = true;
+            this.lbl_author.BackColor = System.Drawing.Color.Transparent;
             this.lbl_author.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_author.ForeColor = System.Drawing.Color.White;
@@ -124,7 +126,7 @@
             this.pnl_count.Controls.Add(this.lbl_count);
             this.pnl_count.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnl_count.Location = new System.Drawing.Point(704, 0);
-            this.pnl_count.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_count.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_count.Name = "pnl_count";
             this.pnl_count.Size = new System.Drawing.Size(42, 40);
             this.pnl_count.TabIndex = 2;
@@ -135,6 +137,7 @@
             // lbl_count
             // 
             this.lbl_count.AutoEllipsis = true;
+            this.lbl_count.BackColor = System.Drawing.Color.Transparent;
             this.lbl_count.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_count.ForeColor = System.Drawing.Color.White;
@@ -154,7 +157,7 @@
             this.pnl_publisher.Controls.Add(this.lbl_publisher);
             this.pnl_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnl_publisher.Location = new System.Drawing.Point(334, 0);
-            this.pnl_publisher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_publisher.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_publisher.Name = "pnl_publisher";
             this.pnl_publisher.Size = new System.Drawing.Size(130, 40);
             this.pnl_publisher.TabIndex = 1;
@@ -165,6 +168,7 @@
             // lbl_publisher
             // 
             this.lbl_publisher.AutoEllipsis = true;
+            this.lbl_publisher.BackColor = System.Drawing.Color.Transparent;
             this.lbl_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_publisher.ForeColor = System.Drawing.Color.White;
@@ -184,7 +188,7 @@
             this.pnl_date.Controls.Add(this.lbl_date);
             this.pnl_date.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnl_date.Location = new System.Drawing.Point(615, 0);
-            this.pnl_date.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_date.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_date.Name = "pnl_date";
             this.pnl_date.Size = new System.Drawing.Size(85, 40);
             this.pnl_date.TabIndex = 1;
@@ -194,6 +198,7 @@
             // 
             // lbl_date
             // 
+            this.lbl_date.BackColor = System.Drawing.Color.Transparent;
             this.lbl_date.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_date.ForeColor = System.Drawing.Color.White;
@@ -216,7 +221,7 @@
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
             this.btn_edit.Location = new System.Drawing.Point(5, 0);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(19, 19);
             this.btn_edit.TabIndex = 3;
@@ -232,7 +237,7 @@
             this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
             this.btn_remove.Location = new System.Drawing.Point(5, 20);
-            this.btn_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(19, 19);
             this.btn_remove.TabIndex = 4;
@@ -256,6 +261,7 @@
             // lbl_id
             // 
             this.lbl_id.AutoEllipsis = true;
+            this.lbl_id.BackColor = System.Drawing.Color.Transparent;
             this.lbl_id.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_id.ForeColor = System.Drawing.Color.White;
@@ -285,6 +291,7 @@
             // 
             // lbl_category
             // 
+            this.lbl_category.BackColor = System.Drawing.Color.Transparent;
             this.lbl_category.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_category.ForeColor = System.Drawing.Color.White;
@@ -315,6 +322,7 @@
             // lbl_shelf
             // 
             this.lbl_shelf.AutoEllipsis = true;
+            this.lbl_shelf.BackColor = System.Drawing.Color.Transparent;
             this.lbl_shelf.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_shelf.ForeColor = System.Drawing.Color.White;
@@ -343,7 +351,7 @@
             this.Controls.Add(this.pnl_count);
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.pnl_author);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Book_Info";
             this.Size = new System.Drawing.Size(748, 40);
             this.Enter += new System.EventHandler(this.Book_Info_Enter);

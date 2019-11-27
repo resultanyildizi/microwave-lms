@@ -69,7 +69,7 @@
             this.tb_pub_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pub_description.ForeColor = System.Drawing.Color.DimGray;
             this.tb_pub_description.Location = new System.Drawing.Point(104, 68);
-            this.tb_pub_description.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_pub_description.Margin = new System.Windows.Forms.Padding(2);
             this.tb_pub_description.Multiline = true;
             this.tb_pub_description.Name = "tb_pub_description";
             this.tb_pub_description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -109,7 +109,7 @@
             this.tb_pub_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pub_name.ForeColor = System.Drawing.Color.DimGray;
             this.tb_pub_name.Location = new System.Drawing.Point(104, 35);
-            this.tb_pub_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_pub_name.Margin = new System.Windows.Forms.Padding(2);
             this.tb_pub_name.Name = "tb_pub_name";
             this.tb_pub_name.Size = new System.Drawing.Size(206, 23);
             this.tb_pub_name.TabIndex = 29;
@@ -124,7 +124,7 @@
             this.btn_add_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_pic.Image")));
             this.btn_add_pic.Location = new System.Drawing.Point(158, 348);
-            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_pic.Name = "btn_add_pic";
             this.btn_add_pic.Size = new System.Drawing.Size(47, 42);
             this.btn_add_pic.TabIndex = 43;
@@ -139,7 +139,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.correct_symbol__1_;
             this.btn_add.Location = new System.Drawing.Point(17, 344);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(41, 46);
             this.btn_add.TabIndex = 40;
@@ -151,7 +151,7 @@
             // 
             this.pic_book.Image = ((System.Drawing.Image)(resources.GetObject("pic_book.Image")));
             this.pic_book.Location = new System.Drawing.Point(210, 253);
-            this.pic_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pic_book.Margin = new System.Windows.Forms.Padding(2);
             this.pic_book.Name = "pic_book";
             this.pic_book.Size = new System.Drawing.Size(100, 137);
             this.pic_book.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

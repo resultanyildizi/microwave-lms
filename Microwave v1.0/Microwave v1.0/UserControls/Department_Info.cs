@@ -133,7 +133,7 @@ namespace Microwave_v1._0.UserControls
                 {
                     edit_form.Show();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     edit_form = new AddDepartment(department);
                     edit_form.Show();

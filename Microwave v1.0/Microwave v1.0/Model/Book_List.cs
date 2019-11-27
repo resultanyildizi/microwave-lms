@@ -103,7 +103,7 @@ namespace Microwave_v1._0
 
             iterator.next = new book_node(book);
         }
-        public void Show_All_Books()
+        public void Draw_All_Books()
         {
             Book.point_y = 5;
 
@@ -111,6 +111,7 @@ namespace Microwave_v1._0
             while(iterator != null)
             {
                 iterator.book.Info.Draw_Book_Obj(ref Book.point_y);
+                iterator.book.Info.Show();
                 iterator = iterator.next;
             }
         }
@@ -128,10 +129,21 @@ namespace Microwave_v1._0
             book_node iterator = root;
             while (iterator != null)
             {
-                iterator.book.Info.Hide();
+                iterator.book.Info.Hide_Info();
                 iterator = iterator.next;
             }
         }
+
+        /*public void Show_All_Book_Infos()
+        {
+            book_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.book.Info.Show();
+                iterator = iterator.next;
+            }
+        }*/
+
         public void Delete_Book_from_List(int book_id, bool delete_picture)
         {
 

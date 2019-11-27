@@ -71,7 +71,6 @@ namespace Microwave_v1._0.Classes
         }
         public void Show_All_Departments()
         {
-            Department_Info t;
             department_node iterator = root;
             while(iterator != null)
             {

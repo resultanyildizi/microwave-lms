@@ -103,25 +103,13 @@ namespace Microwave_v1._0
             string title;
             string values;
 
-            if(main_page.Main_book_list.Is_List_Empty())
-            {
-                int starter_id = 05101900;
-                title = "INSERT INTO Books (BOOK_ID,AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, " +
-                        "SHELF_ID, POPULARITY_ID, NAME, DATE, DESCRIPT, COUNT, COVER_PATH, POPULARITY_SCORE) ";
 
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}','{12}')",
-                                       starter_id, author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, 
-                                       date,description, count, cover_path_file, popularity_score);
-            }
-            else
-            {
-                title = "INSERT INTO Books (AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, SHELF_ID, " +
-                        "POPULARITY_ID, NAME, DATE, DESCRIPT, COUNT, COVER_PATH, POPULARITY_SCORE) ";
+            title = "INSERT INTO Books (AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, SHELF_ID, " +
+                    "POPULARITY_ID, NAME, DATE, DESCRIPT, COUNT, COVER_PATH, POPULARITY_SCORE) ";
 
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}')", 
-                                        author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, date,
-                                        description, count, cover_path_file, popularity_score);
-            }
+            values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}')", 
+                                    author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, date,
+                                    description, count, cover_path_file, popularity_score);
 
             string query = title + values;
 
@@ -185,7 +173,7 @@ namespace Microwave_v1._0
             main_page = (Microwave)Application.OpenForms["Microwave"];
             // Fills Book_List with DataTable
             main_page.Main_book_list.Fill_Book_List(dt, INFO_COLOR_MODE.NORMAL);
-            main_page.Main_book_list.Show_All_Books();
+            main_page.Main_book_list.Draw_All_Books();
 
         }
         static public void Show_All_Books(User user)

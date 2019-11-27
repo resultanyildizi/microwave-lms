@@ -149,7 +149,7 @@ namespace Microwave_v1._0.UserControls
                 {
                     edit_pub_form.Show();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     edit_pub_form = new AddPublisher(publisher);
                     edit_pub_form.Show();

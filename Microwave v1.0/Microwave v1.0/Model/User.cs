@@ -11,7 +11,6 @@ namespace Microwave_v1._0
     public class User
     {
         public static int point_y = 5;
-        Microwave main_page;
 
         private string name;
         private string surname;

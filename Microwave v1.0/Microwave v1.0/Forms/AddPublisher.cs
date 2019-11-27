@@ -217,6 +217,5 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_name.Select();
         }
 
-
     }
 }
