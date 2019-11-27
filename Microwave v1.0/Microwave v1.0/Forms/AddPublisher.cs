@@ -15,8 +15,11 @@ namespace Microwave_v1._0.Forms
     public partial class AddPublisher : Form
     {
         private string pub_name;
-        private string pub_date_of_est;
+        private string pub_mail;
+        private string pub_phone;
         private string pub_description;
+        private string pub_address;
+        private string pub_date_of_est;
         
 
 
@@ -59,9 +62,12 @@ namespace Microwave_v1._0.Forms
             // Make other properties default
             this.tb_pub_name.Text = pub.Pub_name;
             this.tb_pub_name.ForeColor = Color.LightGray;
-            this.tb_pub_description.Text = pub.Pub_description;
-            this.tb_pub_description.ForeColor = Color.LightGray;
-            //this.dtp_publisher.Value = Convert.ToDateTime(pub.Pub_date_of_est);
+            this.tb_pub_name.Text = pub.Pub_mail;
+            this.tb_pub_name.ForeColor = Color.LightGray;
+            this.tb_pub_name.Text = pub.Pub_name;
+            this.tb_pub_name.ForeColor = Color.LightGray;
+            this.pub_date_of_est = pub.Pub_date_of_est;
+            dtp_publisher.Value = new DateTime(int.Parse(pub_date_of_est),1,1);
 
 
             pic_new_source_path = picture_event.Pic_source_file = pub.Pub_cover_path_file;
@@ -73,7 +79,6 @@ namespace Microwave_v1._0.Forms
         private void Pub_Add_Click_Func(bool is_edit)
         {
             pub_description = tb_pub_description.Text.Replace('\'', ' ');
-            pub_name = (tb_pub_name.Text.Trim()).Replace('\'', ' ');
             pic_new_source_path = picture_event.Pic_source_file;
             pub_date_of_est = dtp_publisher.Value.ToString("yyyy");
 

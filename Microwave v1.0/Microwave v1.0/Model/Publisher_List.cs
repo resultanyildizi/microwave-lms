@@ -42,15 +42,18 @@ namespace Microwave_v1._0.Classes
             root = null;
         }
         public void Fill_Pub_List(DataTable dt)
-        {
+        {   
             int rows_count = dt.Rows.Count;
             if(rows_count == 0)
             {
                 return;
             }
-            for (int i = 1; i < rows_count; i++)
+            for (int i = 0; i < rows_count; i++)
             {
+                
                 int publisher_id = int.Parse(dt.Rows[i][0].ToString());
+                if (publisher_id == 0)
+                    continue;
                 string pub_name = dt.Rows[i][1].ToString();
                 string pub_date_of_est = dt.Rows[i][2].ToString();
                 string pub_cover_path = dt.Rows[i][3].ToString();
@@ -120,7 +123,7 @@ namespace Microwave_v1._0.Classes
             pub_node iterator = root;
             while (iterator != null)
             {
-                iterator.pub.Pub_info.Hide();
+                iterator.pub.Pub_info.Hide_Info();
                 iterator = iterator.next;
             }
         }

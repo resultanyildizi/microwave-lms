@@ -93,7 +93,7 @@ namespace Microwave_v1._0
             y += 45;
         }
 
-        public void Hide()
+        public void Hide_Info()
         {
             main_page.Pnl_book_list.Controls.Remove(this);
         }

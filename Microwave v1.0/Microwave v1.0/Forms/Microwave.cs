@@ -530,16 +530,16 @@ namespace Microwave_v1._0
         }
         private void Tb_search_Leave(object sender, EventArgs e)
         {
-            
+
             if (chosen == MENU_CHOSEN.BOOKS)
             {
-                if(tb_search_book.Text == "")
+                if (tb_search_book.Text == "")
                 {
                     tb_search_book.Text = "Search a book";
                     tb_search_book.ForeColor = Color.Gray;
                 }
             }
-            else if(chosen == MENU_CHOSEN.USERS)
+            else if (chosen == MENU_CHOSEN.USERS)
             {
                 if (tb_search_book.Text == "")
                 {
@@ -548,21 +548,21 @@ namespace Microwave_v1._0
                 }
 
             }
-            else if(chosen == MENU_CHOSEN.PUBLISHER)
-            {
-                if (tb_search_publisher.Text == "")
-                {
-                    tb_search_publisher.Text = "Search a publisher";
-                    tb_search_publisher.ForeColor = Color.Gray;
-                }
-
-            }
-            else if(chosen == MENU_CHOSEN.DEPARTMENT)
+            else if (chosen == MENU_CHOSEN.DEPARTMENT)
             {
                 if (tb_search_book.Text == "")
                 {
                     tb_search_book.Text = "Search a department";
                     tb_search_book.ForeColor = Color.Gray;
+                }
+
+            }
+            else if (chosen == MENU_CHOSEN.PUBLISHER)
+            {
+                if (tb_search_publisher.Text == "")
+                {
+                    tb_search_publisher.Text = "Search a publisher";
+                    tb_search_publisher.ForeColor = Color.Gray;
                 }
 
             }
@@ -582,7 +582,6 @@ namespace Microwave_v1._0
             if (tb_search_book.Text == "Search a book" || tb_search_book.Text == "Search a user" || tb_search_book.Text == "Search a department")
             {
                 tb_search_book.Text = "";
-                
             }
 
            
@@ -682,45 +681,40 @@ namespace Microwave_v1._0
 
         private void tb_search_publisher_TextChanged(object sender, EventArgs e)
         {
-            string text = tb_search_publisher.Text;
+            string text = tb_search_publisher.Text.Trim();
 
-            text = text.Trim();
-            if (chosen == MENU_CHOSEN.PUBLISHER)
+            if(chosen == MENU_CHOSEN.PUBLISHER)
             {
-                if (text == "")
+                if(text == "")
                 {
                     publisher_searchinf_list.Delete_All_List();
                     main_pub_list.Show_All_Publishers();
                     return;
                 }
-                else if (text == "Search a publisher")
+                if(text == "Search a publisher")
                 {
                     publisher_searchinf_list.Delete_All_List();
                     main_pub_list.Show_All_Publishers();
                     return;
-                }
-                else
-                {
-                    this.pnl_pub_list.VerticalScroll.Value = 0;
-                    main_pub_list.Hide_All_Publisher_Objects();
-                    publisher_searchinf_list.Delete_All_List();
-                    if (rb_pub_name.Checked)
-                    {
-                        publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_Name(text));
-                        publisher_searchinf_list.Show_All_Publishers();
-                        return;
-                    }
-                    if (rb_pub_ıd.Checked)
-                    {
-                        publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_ID(text));
-                        publisher_searchinf_list.Show_All_Publishers();
-                        return;
-                    }
                 }
 
+                this.pnl_pub_list.VerticalScroll.Value = 0;
+                main_pub_list.Hide_All_Publisher_Objects();
+                publisher_searchinf_list.Delete_All_List();
+
+                if (rb_pub_name.Checked)
+                {
+                    publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_Name(text));
+                    publisher_searchinf_list.Show_All_Publishers();
+                    return;
+                }
+                if (rb_pub_id.Checked)
+                {
+                    publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_ID(text));
+                    publisher_searchinf_list.Show_All_Publishers();
+                    return;
+                }
             }
-
-            pub_last_search_text = tb_search_publisher.Text;
         }
 
         private void rb_pub_name_CheckedChanged(object sender, EventArgs e)
@@ -729,6 +723,5 @@ namespace Microwave_v1._0
             this.show_pnl_pub_st = false;
         }
 
-        
     }
 }

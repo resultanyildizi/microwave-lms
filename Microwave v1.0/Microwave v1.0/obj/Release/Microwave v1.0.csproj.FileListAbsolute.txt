@@ -30,7 +30,6 @@ C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\M
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.UserInfo.resources
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Warning.resources
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csproj.CopyComplete
-
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Release\Microwave v1.0.exe.config
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Release\Microwave v1.0.exe
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Release\Microwave v1.0.pdb
@@ -62,7 +61,6 @@ C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csproj.CopyComplete
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.exe
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.pdb
-
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Release\Microwave v1.0.exe.config
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Release\Microwave v1.0.exe
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Release\Microwave v1.0.pdb
@@ -94,4 +92,3 @@ C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csproj.CopyComplete
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.exe
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.pdb
-

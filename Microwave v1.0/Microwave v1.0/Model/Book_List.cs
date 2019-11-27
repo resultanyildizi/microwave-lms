@@ -128,7 +128,7 @@ namespace Microwave_v1._0
             book_node iterator = root;
             while (iterator != null)
             {
-                iterator.book.Info.Hide();
+                iterator.book.Info.Hide_Info();
                 iterator = iterator.next;
             }
         }

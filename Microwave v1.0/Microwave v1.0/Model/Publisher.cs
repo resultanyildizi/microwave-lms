@@ -21,6 +21,8 @@ namespace Microwave_v1._0.Classes
 
         private int publisher_id;
         private string pub_name;
+        private string pub_mail;
+        private string pub_phone;
         private string pub_date_of_est;
         private string pub_cover_path_file;
         private string pub_description;
@@ -48,6 +50,8 @@ namespace Microwave_v1._0.Classes
         public string Pub_name { get => pub_name; set => pub_name = value; }
         public string Pub_date_of_est { get => pub_date_of_est; set => pub_date_of_est = value; }
         public string Pub_description { get => pub_description; set => pub_description = value; }
+        public string Pub_mail { get => pub_mail; set => pub_mail = value; }
+        public string Pub_phone { get => pub_phone; set => pub_phone = value; }
 
         public void Add()
         {
@@ -135,7 +139,7 @@ namespace Microwave_v1._0.Classes
 
         static public DataTable Search_Publisher_By_Name(string name)
         {
-            string query = string.Format("Select * From Publishers Where Publishers.NAME Like '{0}%'", name);
+            string query = string.Format("Select * From Publishers Where Publishers.NAME Like '{0}%'",name);
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
@@ -149,7 +153,7 @@ namespace Microwave_v1._0.Classes
         private void Take_Pub_Id_From_Database()
         {
             string title = "SELECT Publishers.PUBLISHER_ID FROM Publishers ";
-            string query = title + string.Format("Where NAME = '{0}' AND PUBLISHER_ID = '{1}'", Pub_name,publisher_id); ;
+            string query = title + string.Format("Where NAME = '{0}' AND PUBLISHER_ID = '{1}'",Pub_name,publisher_id); ;
 
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
