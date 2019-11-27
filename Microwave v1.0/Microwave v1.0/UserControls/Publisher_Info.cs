@@ -43,7 +43,10 @@ namespace Microwave_v1._0.UserControls
             this.pub_pic_path_file = pub_pic_path_file;
         }
 
-
+        public void Hide_Info()
+        {
+            main_page.Pnl_pub_list.Controls.Remove(this);
+        }
 
         public void Draw_Publisher_Obj(ref int x, ref int y)
         {
@@ -58,6 +61,7 @@ namespace Microwave_v1._0.UserControls
             {
                 x += 180;
             }
+            pb_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(pub_pic_path_file);
         }
         public void Select_Publisher_Info()
         {
@@ -89,7 +93,7 @@ namespace Microwave_v1._0.UserControls
 
         private void Btn_remove_Click(object sender, EventArgs e)
         {
-            string message = "Do you want to delete this book?";
+            string message = "Do you want to delete this publisher?";
             main_page.Create_Warning_Form(message, Color.DarkRed);
             bool delete_pic = true;
             if(pub_pic_path_file == @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg")

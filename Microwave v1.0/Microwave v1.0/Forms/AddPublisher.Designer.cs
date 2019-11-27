@@ -1,4 +1,6 @@
-﻿namespace Microwave_v1._0.Forms
+﻿using System.Windows.Forms;
+
+namespace Microwave_v1._0.Forms
 {
     partial class AddPublisher
     {
@@ -167,7 +169,6 @@
             this.dtp_publisher.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_publisher.Location = new System.Drawing.Point(104, 188);
             this.dtp_publisher.Name = "dtp_publisher";
-            this.dtp_publisher.ShowUpDown = true;
             this.dtp_publisher.Size = new System.Drawing.Size(206, 20);
             this.dtp_publisher.TabIndex = 47;
             // 
@@ -212,5 +213,7 @@
         private System.Windows.Forms.Label lbl_pub_name;
         private System.Windows.Forms.TextBox tb_pub_name;
         private System.Windows.Forms.DateTimePicker dtp_publisher;
+
+        public DateTimePicker Dtp_publisher { get => dtp_publisher; set => dtp_publisher = value; }
     }
 }

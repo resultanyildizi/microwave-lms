@@ -37,14 +37,23 @@ namespace Microwave_v1._0.Classes
 
         public int Publisher_count { get => publisher_count; set => publisher_count = value; }
 
-
-        public void Fill_Pub_List(DataTable dt)
+        public Publisher_List()
         {
+            root = null;
+        }
+        public void Fill_Pub_List(DataTable dt)
+        {   
             int rows_count = dt.Rows.Count;
-
-            for (int i = 1; i < rows_count; i++)
+            if(rows_count == 0)
             {
+                return;
+            }
+            for (int i = 0; i < rows_count; i++)
+            {
+                
                 int publisher_id = int.Parse(dt.Rows[i][0].ToString());
+                if (publisher_id == 0)
+                    continue;
                 string pub_name = dt.Rows[i][1].ToString();
                 string pub_date_of_est = dt.Rows[i][2].ToString();
                 string pub_cover_path = dt.Rows[i][3].ToString();
@@ -56,13 +65,26 @@ namespace Microwave_v1._0.Classes
             Fill_Cover_Image_List();
         }
 
+        public void Delete_All_List()
+        {
+            pub_node iterator = root;
+            pub_node current;
+
+            while (iterator != null)
+            {
+                current = iterator.next;
+                iterator.pub.Pub_info.Dispose();
+                iterator.pub = null;
+                iterator = current;
+            }
+            root = null;
+        }
 
         public void Add_Publisher_to_List(Publisher pub)
         {
             if (root == null)
             {
                 root = new pub_node(pub);
-                publisher_count++;
                 return;
             }
 
@@ -71,11 +93,13 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
 
             iterator.next = new pub_node(pub);
-            publisher_count++;
         }
 
         public void Show_All_Publishers()
         {
+            Publisher.pub_point_y = 5;
+            Publisher.pub_point_x = 35;
+
             pub_node iterator = root;
             while (iterator != null)
             {
@@ -90,6 +114,16 @@ namespace Microwave_v1._0.Classes
             while (iterator != null)
             {
                 iterator.pub.Pub_info.Deselect_Publisher_Info();
+                iterator = iterator.next;
+            }
+        }
+
+        public void Hide_All_Publisher_Objects()
+        {
+            pub_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.pub.Pub_info.Hide_Info();
                 iterator = iterator.next;
             }
         }
@@ -123,12 +157,11 @@ namespace Microwave_v1._0.Classes
                 }
             }
 
+            iterator.next.pub.Delete();
             if (delete_picture == true)
                 Picture_Events.Delete_The_Picture(iterator.next.pub.Pub_cover_path_file);
-            iterator.next.pub.Delete();
             iterator.next.pub = null;
             iterator.next = iterator.next.next;
-            publisher_count--;
             return;
         }
 
