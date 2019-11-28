@@ -90,7 +90,6 @@ namespace Microwave_v1._0
             this.lbl_book_shelf = new System.Windows.Forms.Label();
             this.lbl_book_category = new System.Windows.Forms.Label();
             this.lbl_book_id = new System.Windows.Forms.Label();
-            this.pnl_seperater = new System.Windows.Forms.Panel();
             this.pnl_user = new System.Windows.Forms.Panel();
             this.pnl_user_st = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
