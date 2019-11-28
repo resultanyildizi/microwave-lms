@@ -242,7 +242,7 @@ namespace Microwave_v1._0
             shelf_id = int.Parse(dt.Rows[0][0].ToString());
 
         }
-        // Reads Authors, Publishers, Categories, Shelves from Database 
+        // Reads Authors, Publishers, Categories, Shelves from Database -- NEED TO CHANGE!!!!
         private void Fill_Comboboxes()
         {
             SQLiteConnection con = new SQLiteConnection(datasource);

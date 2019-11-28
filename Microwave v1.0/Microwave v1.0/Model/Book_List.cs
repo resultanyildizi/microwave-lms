@@ -23,8 +23,6 @@ namespace Microwave_v1._0
     {
         public book_node next;
         public Book book;
-
-        
         public book_node(Book b)
         {
             this.book = b;
@@ -133,26 +131,13 @@ namespace Microwave_v1._0
                 iterator = iterator.next;
             }
         }
-
-        /*public void Show_All_Book_Infos()
-        {
-            book_node iterator = root;
-            while (iterator != null)
-            {
-                iterator.book.Info.Show();
-                iterator = iterator.next;
-            }
-        }*/
-
         public void Delete_Book_from_List(int book_id, bool delete_picture)
         {
 
             book_node iterator = root;
 
             if (root == null)
-            {
                 return;
-            }
 
             if (root.book.Book_id == book_id)
             {
@@ -205,6 +190,8 @@ namespace Microwave_v1._0
             else
                 return false;
         }
+
+
         public void Fill_Cover_Image_List()
         {
             book_node iterator = root;

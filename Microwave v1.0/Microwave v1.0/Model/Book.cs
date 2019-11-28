@@ -71,7 +71,6 @@ namespace Microwave_v1._0
         {
 
         }
-
         public Book(int book_id, int author_id, int publisher_id, 
                     int category_id, int librarian_id, int shelf_id, 
                     string name, int count, string date, string description, 
@@ -120,7 +119,7 @@ namespace Microwave_v1._0
             Take_Id_From_Database();
 
             Join_Tables_For_Names();
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
+           
 
 
             Cover_Pic_to_Image_List();
@@ -179,8 +178,6 @@ namespace Microwave_v1._0
         static public void Show_All_Books(User user)
         {
         }
-
-
         public void Set_Book(INFO_COLOR_MODE color_mode)
         {
             Join_Tables_For_Names();
@@ -291,7 +288,6 @@ namespace Microwave_v1._0
             // For user inteface
             this.Info.Book_id = id; // IMPORTANT
         }
-
         // Adds the cover picture of this book to the image list on the main form by giving its id as a key
         public void Cover_Pic_to_Image_List()
         {

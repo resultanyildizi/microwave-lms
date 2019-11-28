@@ -67,6 +67,8 @@ namespace Microwave_v1._0
         // Searching stuff
         private Book_List book_search_list = null;
         private bool book_searched_already = false;
+        private User_List user_search_list = null;
+        private bool user_searched_already = false;
         public Publisher_List publisher_searchinf_list = null;
         string pub_last_search_text;
 
@@ -92,6 +94,8 @@ namespace Microwave_v1._0
 
 
         public bool Book_searched_already { get => book_searched_already; set => book_searched_already = value; }
+        public User_List User_search_list { get => user_search_list; set => user_search_list = value; }
+        public bool User_searched_already { get => user_searched_already; set => user_searched_already = value; }
 
         // Booleans
         private bool show_pnl_book_st   = false;
@@ -113,6 +117,7 @@ namespace Microwave_v1._0
 
             // Searching
             book_search_list = new Book_List();
+            user_search_list = new User_List();
             publisher_searchinf_list = new Publisher_List();
 
 
@@ -162,11 +167,12 @@ namespace Microwave_v1._0
             this.pnl_department_list.VerticalScroll.Value = 0;
 
             Book.Show_All_Books();
+            User.Show_All_Users();
             Department.Show_All_Departments();
             Publisher.Show_All_Publishers();
             Author.Show_All_Authors();
             // It's need to change
-            main_user_list.Show_All_Users();
+            main_user_list.Draw_All_Users();
 
         }
 
@@ -290,6 +296,7 @@ namespace Microwave_v1._0
             }
             this.Btn_add.Enabled = false;
             pic_logo.Focus();
+            Add_user.Focus();
         }
         public void Create_Add_Author_Form()
         {

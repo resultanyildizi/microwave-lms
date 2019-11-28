@@ -17,7 +17,7 @@ namespace Microwave_v1._0
 
     public enum INFO_COLOR_MODE
     {
-        NORMAL,ID, NAME, AUTHOR, PUBLISHER, CATEGORY, SHELF
+        NORMAL,ID, NAME, AUTHOR, PUBLISHER, CATEGORY, SHELF, SURNAME, GENDER, EMAIL, AGE
     }
 
     public partial class Book_Info : UserControl
@@ -46,8 +46,6 @@ namespace Microwave_v1._0
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
-
-       
         public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string category, string shelf, string date, int count, string description, string pic_path_file, INFO_COLOR_MODE mode)
         {
             this.book_id = book_id;
@@ -84,28 +82,22 @@ namespace Microwave_v1._0
 
 
         }
-
-        
         public void Draw_Book_Obj(ref int y)
         {
             main_page.Pnl_book_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
             y += 45;
         }
-
         public void Hide_Info()
         {
             main_page.Pnl_book_list.Controls.Remove(this);
         }
-
-       
-        public void Book_Info_Click(object sender, EventArgs e)
+        private void BookInfo_Click(object sender, MouseEventArgs e)
         {
-            main_list.Deselect_All_Book_Infos(); 
-            this.Select_Book_Info(); 
+            main_list.Deselect_All_Book_Infos();
+            main_page.Book_search_list.Deselect_All_Book_Infos();
+            this.Select_Book_Info();
         }
-
-       
         public void Select_Book_Info()
         {
             chosen = true;
@@ -141,7 +133,6 @@ namespace Microwave_v1._0
             this.btn_remove.Show();
 
         }
-
         public void Deselect_Book_Info()
         {
             chosen = false;
@@ -174,13 +165,8 @@ namespace Microwave_v1._0
             this.btn_remove.Hide();
         }
 
-       
-        private void lbl_name_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btn_edit_Click(object sender, EventArgs e)
+        private void Btn_edit_Click(object sender, EventArgs e)
         {
             string message = "Do you want to edit this book?";
             main_page.Create_Warning_Form(message, Color.DarkBlue);
@@ -189,7 +175,6 @@ namespace Microwave_v1._0
 
             main_page.Warning_form.Refresh_Form();
         }
-
         private void Btn_remove_Click(object sender, EventArgs e)
         {
             string message = "Do you want to delete this book?";
@@ -204,7 +189,6 @@ namespace Microwave_v1._0
             main_page.Main_book_list.Draw_All_Books();
             main_page.Book_searched_already = false;
     }
-
         private void Remove(bool delete_picture = true)
         {
             main_page.Remove_Image_From_Cover_List(book_id);
@@ -216,7 +200,6 @@ namespace Microwave_v1._0
             Book.point_y = 5;
             main_list.Draw_All_Books();
         }
-
         private void Edit()
         {
             Book current = main_list.Find_Book_By_ID(book_id);
@@ -247,19 +230,7 @@ namespace Microwave_v1._0
             }
         }
 
-        private void Book_Info_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)Keys.Delete)
-            {
-                string message = "Do you want to delete a book?";
-
-                main_page.Create_Warning_Form(message, Color.DarkRed);
-                if (main_page.Warning_form.Result)
-                    Remove();
-                main_page.Warning_form.Refresh_Form();
-            }
-        }
-
+        // CHANGE!!!
         public void Hover()
         {
             if (!chosen)
@@ -296,7 +267,6 @@ namespace Microwave_v1._0
         {
             Hover();
         }
-
         public void Mouse_Leave()
         {
             if (!chosen)
@@ -328,16 +298,22 @@ namespace Microwave_v1._0
 
             }
         }
-        private void Pnl_name_MouseLeave(object sender, EventArgs e)
+        private void BookInfo_MouseLeave(object sender, EventArgs e)
         {
             Mouse_Leave();
         }
 
-        private void Book_Info_Click(object sender, MouseEventArgs e)
+        private void Book_Info_KeyDown(object sender, KeyEventArgs e)
         {
-            main_list.Deselect_All_Book_Infos();
-            main_page.Book_search_list.Deselect_All_Book_Infos();
-            this.Select_Book_Info();
+            if (e.KeyCode == Keys.Delete)
+            {
+                string message = "Do you want to delete that book?";
+
+                main_page.Create_Warning_Form(message, Color.DarkRed);
+                if (main_page.Warning_form.Result)
+                    Remove();
+                main_page.Warning_form.Refresh_Form();
+            }
         }
     }
 }
