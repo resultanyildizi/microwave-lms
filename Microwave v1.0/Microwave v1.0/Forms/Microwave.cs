@@ -56,7 +56,6 @@ namespace Microwave_v1._0
 
         private Book_Tag main_tag = null;
 
-        private Book_List book_search_list = null;
 
 
         private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
@@ -66,6 +65,8 @@ namespace Microwave_v1._0
         MENU_CHOSEN chosen = MENU_CHOSEN.BOOKS;
 
         // Searching stuff
+        private Book_List book_search_list = null;
+        private bool book_searched_already = false;
         public Publisher_List publisher_searchinf_list = null;
         string pub_last_search_text;
 
@@ -88,6 +89,9 @@ namespace Microwave_v1._0
         public string Path_file { get => path_file; set => path_file = value; }
         public SQLiteConnection Connection { get => connection; set => connection = value; }
         public Book_List Book_search_list { get => book_search_list; set => book_search_list = value; }
+
+
+        public bool Book_searched_already { get => book_searched_already; set => book_searched_already = value; }
 
         // Booleans
         private bool show_pnl_book_st   = false;
@@ -121,8 +125,7 @@ namespace Microwave_v1._0
             tb_search_book.Hide();
             tb_search_publisher.Hide();
             tb_search_user.Hide();
-            tb_search_department.Hide();
-            tb_search_author.Hide();
+            tb_search_author.Hide();    
             btn_show_search_types.Hide();
 
 
@@ -179,6 +182,7 @@ namespace Microwave_v1._0
                 pnl_book_list.VerticalScroll.Value = 0;
                 book_search_list.Delete_All_List();
                 main_book_list.Draw_All_Books();
+                book_searched_already = false;
 
                 message = "Do you want to add a book?";
                 color = Color.DarkGreen;
@@ -480,7 +484,7 @@ namespace Microwave_v1._0
         private void Tb_search_book_TextChanged(object sender, EventArgs e)
         {
             string text = tb_search_book.Text;
-            
+            book_searched_already = false;
             text = text.Trim();
             if (chosen == MENU_CHOSEN.BOOKS)
             {
@@ -567,8 +571,9 @@ namespace Microwave_v1._0
         {
             string text = tb_search_book.Text;
 
-            if(e.KeyChar == (char)Keys.Enter)
+            if(e.KeyChar == (char)Keys.Enter && !book_searched_already)
             {
+                lb_book_search.Hide();
                 if(tb_search_book.Text == "")
                 {
                     return;
@@ -581,42 +586,49 @@ namespace Microwave_v1._0
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_Name(text), INFO_COLOR_MODE.NAME);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
                 if (rb_book_id.Checked)
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_ID(text), INFO_COLOR_MODE.ID);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
                 if (rb_book_author.Checked)
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_Author(text), INFO_COLOR_MODE.AUTHOR);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
                 if (rb_book_publis.Checked)
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_Publisher(text), INFO_COLOR_MODE.PUBLISHER);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
                 if (rb_book_category.Checked)
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_Category(text), INFO_COLOR_MODE.CATEGORY);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
                 if (rb_book_shelf.Checked)
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_Shelf(text), INFO_COLOR_MODE.SHELF);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
                 if (rb_book_pop.Checked)
                 {
                     book_search_list.Fill_Book_List(Book.Search_Book_By_Popularity(text), INFO_COLOR_MODE.NORMAL);
                     book_search_list.Draw_All_Books();
+                    book_searched_already = true;
                     return;
                 }
             }
@@ -783,7 +795,6 @@ namespace Microwave_v1._0
             }
 
         }
-
         private void Tb_search_Enter(object sender, EventArgs e)
         {    
             if (tb_search_book.Text == "Search a book")
@@ -796,6 +807,11 @@ namespace Microwave_v1._0
            
             tb_search_book.ForeColor = Color.LightGray;
         }
+        private void Lb_book_search_Leave(object sender, EventArgs e)
+        {
+            lb_book_search.Hide();
+        }
+
 
         private void tb_search_publisher_Enter(object sender, EventArgs e)
         {
@@ -807,12 +823,6 @@ namespace Microwave_v1._0
 
             tb_search_publisher.ForeColor = Color.LightGray;
         }
-
-        private void Lb_book_search_Leave(object sender, EventArgs e)
-        {
-            lb_book_search.Hide();
-        }
-
         private void tb_search_publisher_TextChanged(object sender, EventArgs e)
         {
             string text = tb_search_publisher.Text.Trim();
@@ -850,12 +860,18 @@ namespace Microwave_v1._0
                 }
             }
         }
-
         private void rb_pub_name_CheckedChanged(object sender, EventArgs e)
         {
             this.pnl_publisher_st.Hide();
             this.show_pnl_pub_st = false;
         }
 
+        private void Lb_book_search_DoubleClick(object sender, EventArgs e)
+        {
+            tb_search_book.Focus();
+            if(lb_book_search.SelectedItem != null)
+                tb_search_book.Text = lb_book_search.SelectedItem.ToString();
+            tb_search_book.Select(tb_search_book.Text.Length, 0);
+        }
     }
 }

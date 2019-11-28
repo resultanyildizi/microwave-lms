@@ -202,7 +202,8 @@ namespace Microwave_v1._0
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
             main_page.Book_search_list.Delete_All_List();
             main_page.Main_book_list.Draw_All_Books();
-        }
+            main_page.Book_searched_already = false;
+    }
 
         private void Remove(bool delete_picture = true)
         {
@@ -335,6 +336,7 @@ namespace Microwave_v1._0
         private void Book_Info_Click(object sender, MouseEventArgs e)
         {
             main_list.Deselect_All_Book_Infos();
+            main_page.Book_search_list.Deselect_All_Book_Infos();
             this.Select_Book_Info();
         }
     }

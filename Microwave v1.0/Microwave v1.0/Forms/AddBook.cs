@@ -214,6 +214,7 @@ namespace Microwave_v1._0
                 main_page.Pnl_book_list.VerticalScroll.Value = 0;
                 main_page.Book_search_list.Delete_All_List();
                 main_page.Main_book_list.Draw_All_Books();
+                main_page.Book_searched_already = false;
 
             }
 
