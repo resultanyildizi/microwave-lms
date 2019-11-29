@@ -17,6 +17,7 @@ namespace Microwave_v1._0.UserControls
         private Microwave main_page;
         private Department_List department_list;
         private AddDepartment edit_form = null;
+        private ShowEmployee show_employee = null;
 
         private string name;
         private string pic_path_file;
@@ -180,6 +181,24 @@ namespace Microwave_v1._0.UserControls
         {
             department_list.Deselect_All_Department_Infos();
             this.Select_Department_Info();
+        }
+        private void pb_department_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (show_employee == null)
+            {
+                show_employee = new ShowEmployee();
+            }
+
+            try
+            {
+                show_employee.Show();
+            }
+            catch (ObjectDisposedException d)
+            {
+                show_employee = new ShowEmployee();
+                show_employee.Show();
+            }
         }
     }
 }

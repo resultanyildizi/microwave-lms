@@ -230,7 +230,7 @@
             this.cb_department.FormattingEnabled = true;
             this.cb_department.Location = new System.Drawing.Point(106, 203);
             this.cb_department.Name = "cb_department";
-            this.cb_department.Size = new System.Drawing.Size(219, 21);
+            this.cb_department.Size = new System.Drawing.Size(223, 21);
             this.cb_department.TabIndex = 70;
             // 
             // lbl_department
@@ -250,7 +250,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(449, 239);
+            this.ClientSize = new System.Drawing.Size(446, 239);
             this.Controls.Add(this.lbl_department);
             this.Controls.Add(this.cb_department);
             this.Controls.Add(this.dtp_time);

@@ -60,5 +60,15 @@ namespace Microwave_v1._0.Forms
             }
 
         }
+
+        private void pnl_book_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tb_search_user_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

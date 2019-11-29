@@ -51,6 +51,7 @@
             this.pb_department.TabIndex = 0;
             this.pb_department.TabStop = false;
             this.pb_department.Click += new System.EventHandler(this.Department_Info_Click);
+            this.pb_department.DoubleClick += new System.EventHandler(this.pb_department_DoubleClick);
             this.pb_department.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
             this.pb_department.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             // 
@@ -96,6 +97,10 @@
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(131, 27);
             this.pnl_name.TabIndex = 12;
+            this.pnl_name.Click += new System.EventHandler(this.Department_Info_Click);
+            this.pnl_name.DoubleClick += new System.EventHandler(this.pb_department_DoubleClick);
+            this.pnl_name.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
+            this.pnl_name.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             // 
             // lbl_department_name
             // 
@@ -141,6 +146,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Department_Info";
             this.Size = new System.Drawing.Size(162, 231);
+            this.DoubleClick += new System.EventHandler(this.pb_department_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pb_department)).EndInit();
