@@ -15,7 +15,6 @@ namespace Microwave_v1._0.Forms
 {
     public partial class AddAuthor : Form
     {
-        private int author_id;
         private string name;
         private string country;
         private string gender;
@@ -57,12 +56,26 @@ namespace Microwave_v1._0.Forms
 
             author_to_edit = author;
 
+            this.tb_name.Text = author.Author_name;
+            this.tb_name.ForeColor = Color.LightGray;
+            this.tb_country.Text = author.Author_country;
+            this.tb_country.ForeColor = Color.LightGray;
+            this.gender = author.Author_gender;
+            if (author.Author_gender == "Male")
+            {
+                rdo_male.Checked = true;
+            }
+            else
+            {
+                rdo_female.Checked = true;
+            }
+            this.year = author.Author_birthday;
+            dtp_author.Value = new DateTime(int.Parse(year), 1, 1);
+
             pic_new_source_path = picture_event.Pic_source_file = author.Author_cover_path_file;
-            pic_author.Image = main_page.Author_cover_image_list.Images[author.Author_id.ToString()];
+            pic_author.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
 
             is_edit = true;
-
-            this.BringToFront();
         }
         private void Add_Click_Func(bool is_edit)
         {
@@ -145,24 +158,22 @@ namespace Microwave_v1._0.Forms
                 if (change_image)
                 {
                     /* IMPORTANT */
-                    if(picture_event.Pic_source_file != pic_default_file)
-                        Picture_Events.Delete_The_Picture(author_to_edit.Cover_path_file);
+                    if(author_to_edit.Author_cover_path_file != pic_default_file)
+                        Picture_Events.Delete_The_Picture(author_to_edit.Author_cover_path_file);
                     picture_event.Copy_The_Picture(name);
+                    pic_new_source_path = picture_event.Pic_source_file;
                     change_image = false;
                 }
 
                 lbl_message.Text = "*Author changed successfully";
                 lbl_message.ForeColor = Color.LightGreen;
 
-                author_to_edit.Author_id = author_id;
                 author_to_edit.Author_name = name;
                 author_to_edit.Author_country = country;
                 author_to_edit.Author_gender = gender;
                 author_to_edit.Author_birthday = year;
                 author_to_edit.Author_biography = biography;
-
-
-                author_to_edit.Cover_path_file = picture_event.Pic_source_file;
+                author_to_edit.Author_cover_path_file = pic_new_source_path;
                 author_to_edit.Edit();
             }
 

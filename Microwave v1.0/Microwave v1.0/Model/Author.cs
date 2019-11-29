@@ -63,7 +63,6 @@ namespace Microwave_v1._0.Classes
         public string Author_biography { get => author_biography; set => author_biography = value; }
         public string Author_cover_path_file { get => author_cover_path_file; set => author_cover_path_file = value; }
         public Author_Info Author_info { get => author_info; set => author_info = value; }
-        public string Cover_path_file { get; internal set; }
         public int Popularity_score { get => popularity_score; set => popularity_score = value; }
         public int Popularity_id { get => popularity_id; set => popularity_id = value; }
         public string Author_popularity_name { get => author_popularity_name; set => author_popularity_name = value; }
@@ -96,18 +95,20 @@ namespace Microwave_v1._0.Classes
 
         public void Edit()
         {
-            Join_Tables();
-            string query = string.Format("UPDATE AUTHORS SET AUTHOR_ID = '{0}', POPULARITY_ID = '{1}', NAME = '{2}', COUNTRY = '{3}' , GENDER ='{4}', BIRTHDAY ='{5}'," +
-                " BIOGRAPHY = '{6}', PICTURE_PATH = '{7}'", author_id, popularity_id, author_name, author_country, author_gender, author_biography, author_cover_path_file);
+            string title = "UPDATE Authors ";
+            string query = title + string.Format("SET POPULARITY_ID = '{0}', NAME = '{1}', COUNTRY = '{2}', GENDER = '{3}', BIRTHDAY = '{4}', " +
+                " BIOGRAPHY = '{5}', PICTURE_PATH = '{6}' Where Authors.AUTHOR_ID = '{7}'", popularity_id, author_name, author_country, author_gender, author_birthday, author_biography, author_cover_path_file, author_id);
+
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
-            
-            if(result <= 0)
+            if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
                 return;
             }
 
-            author_info.Initialize_Author_Info(author_id, author_name, author_cover_path_file); 
+
+            author_info.Initialize_Author_Info(author_id, author_name, author_cover_path_file);
+            author_info.Select_Author_Info();
 
         }
 
@@ -151,7 +152,9 @@ namespace Microwave_v1._0.Classes
             string title = "SELECT AUTHORS.AUTHOR_ID FROM AUTHORS ";
             string query = title + string.Format(" WHERE Authors.NAME = '{0}' and Authors.COUNTRY = '{1}'", author_name, author_country);
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
-            this.author_id = this.author_info.Author_id = int.Parse(dt.Rows[0][0].ToString());
+
+            int id = int.Parse(dt.Rows[0][0].ToString());
+            this.author_id = this.author_info.Author_id = id;
             
         }
 

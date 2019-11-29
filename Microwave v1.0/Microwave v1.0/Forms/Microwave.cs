@@ -102,7 +102,6 @@ namespace Microwave_v1._0
         private bool show_pnl_user_st   = false;
         private bool show_pnl_author_st = false;
         private bool show_pnl_pub_st    = false;
-        private bool show_pnl_depart_st = false;
 
         // Constructor
         public Microwave()
@@ -155,9 +154,6 @@ namespace Microwave_v1._0
 
 
             pnl_author_st.Hide();
-
-            pnl_department_st.Hide();
-            
         }
 
         private void Microwave_Load(object sender, EventArgs e)
@@ -546,19 +542,7 @@ namespace Microwave_v1._0
                     show_pnl_pub_st = false;
                 }
             }
-            else if (chosen == MENU_CHOSEN.DEPARTMENT)
-            {
-                if (show_pnl_depart_st == false)
-                {
-                    this.pnl_department_st.Show();
-                    show_pnl_depart_st = true;
-                }
-                else
-                {
-                    this.pnl_department_st.Hide();
-                    show_pnl_depart_st = false;
-                }
-            }
+
 
         }
         // Searching events for books

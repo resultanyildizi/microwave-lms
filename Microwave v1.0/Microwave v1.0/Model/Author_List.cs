@@ -43,9 +43,11 @@ namespace Microwave_v1._0.Classes
         {
             int rows_count = dt.Rows.Count;
 
-            for (int i = 1; i < rows_count; i++)
+            for (int i = 0; i < rows_count; i++)
             {
                 int author_id = int.Parse(dt.Rows[i][0].ToString());
+                if (author_id == 0)
+                    continue;
                 int popularity_id = int.Parse(dt.Rows[i][1].ToString());
                 string author_name = dt.Rows[i][2].ToString();
                 string author_country = dt.Rows[i][3].ToString();
