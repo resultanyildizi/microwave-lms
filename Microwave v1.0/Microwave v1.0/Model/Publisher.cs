@@ -125,7 +125,7 @@ namespace Microwave_v1._0.Classes
             main_page = (Microwave)Application.OpenForms["Microwave"];
 
             main_page.Main_pub_list.Fill_Pub_List(dt);
-            main_page.Main_pub_list.Show_All_Publishers();
+            main_page.Main_pub_list.Draw_All_Publishers();
 
         }
 
@@ -137,6 +137,7 @@ namespace Microwave_v1._0.Classes
 
         }
 
+        // Search Methods
         static public DataTable Search_Publisher_By_Name(string name)
         {
             string query = string.Format("Select * From Publishers Where Publishers.NAME Like '{0}%'",name);

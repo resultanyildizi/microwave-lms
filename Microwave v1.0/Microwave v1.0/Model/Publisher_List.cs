@@ -95,7 +95,7 @@ namespace Microwave_v1._0.Classes
             iterator.next = new pub_node(pub);
         }
 
-        public void Show_All_Publishers()
+        public void Draw_All_Publishers()
         {
             Publisher.pub_point_y = 5;
             Publisher.pub_point_x = 35;
@@ -104,6 +104,7 @@ namespace Microwave_v1._0.Classes
             while (iterator != null)
             {
                 iterator.pub.Pub_info.Draw_Publisher_Obj(ref Publisher.pub_point_x, ref Publisher.pub_point_y);
+                iterator.pub.Pub_info.Show();
                 iterator = iterator.next;
             }
         }

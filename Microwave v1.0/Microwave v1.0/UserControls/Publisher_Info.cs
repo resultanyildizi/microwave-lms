@@ -42,6 +42,7 @@ namespace Microwave_v1._0.UserControls
             this.pub_date_of_est = pub_date_of_est;
             this.pub_pic_path_file = pub_pic_path_file;
             this.btn_pub_id.Text = publisher_id.ToString();
+            this.pb_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(pub_pic_path_file);
         }
 
         public void Hide_Info()
@@ -106,6 +107,11 @@ namespace Microwave_v1._0.UserControls
                 Remove(delete_pic);
 
             main_page.Warning_form.Refresh_Form();
+
+            main_page.Pnl_pub_list.VerticalScroll.Value = 0;
+            main_page.Publisher_search_list.Delete_All_List();
+            main_pub_list.Draw_All_Publishers();
+            main_page.Publisher_searched_already = false;
         }
 
         private void Remove(bool delete_picture = true)
@@ -116,7 +122,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Pnl_pub_list.VerticalScroll.Value = 0;
             Publisher.pub_point_y = 5;
             Publisher.pub_point_x = 35;
-            main_pub_list.Show_All_Publishers();
+            main_pub_list.Draw_All_Publishers();
         }
 
         private void btn_pub_edit_Click(object sender, EventArgs e)

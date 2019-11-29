@@ -69,7 +69,8 @@ namespace Microwave_v1._0
         private bool book_searched_already = false;
         private User_List user_search_list = null;
         private bool user_searched_already = false;
-        public Publisher_List publisher_searchinf_list = null;
+        private Publisher_List publisher_search_list = null;
+        private bool publisher_searched_already = false;
         string pub_last_search_text;
 
         // Getters and Setters
@@ -96,6 +97,8 @@ namespace Microwave_v1._0
         public bool Book_searched_already { get => book_searched_already; set => book_searched_already = value; }
         public User_List User_search_list { get => user_search_list; set => user_search_list = value; }
         public bool User_searched_already { get => user_searched_already; set => user_searched_already = value; }
+        public bool Publisher_searched_already { get => publisher_searched_already; set => publisher_searched_already = value; }
+        public Publisher_List Publisher_search_list { get => publisher_search_list; set => publisher_search_list = value; }
 
         // Booleans
         private bool show_pnl_book_st   = false;
@@ -117,7 +120,7 @@ namespace Microwave_v1._0
             // Searching
             book_search_list = new Book_List();
             user_search_list = new User_List();
-            publisher_searchinf_list = new Publisher_List();
+            publisher_search_list = new Publisher_List();
 
             pnl_home.Show();
             pnl_tag.Hide();
@@ -144,14 +147,22 @@ namespace Microwave_v1._0
             pnl_book_st.Hide();
             lb_book_search.Hide();
             rb_book_name.Checked = true;
+            tb_search_book.Text = "Search a book";
+            tb_search_book.ForeColor = Color.Gray;
 
             // User search
             pnl_user_st.Hide();
             lb_user_search.Hide();
             rb_user_name.Checked = true;
-            
+            tb_search_user.Text = "Search a user";
+            tb_search_user.ForeColor = Color.Gray;
+
+            // Publisher search
             pnl_publisher_st.Hide();
+            lb_publisher_search.Hide();
             rb_pub_name.Checked = true;
+            tb_search_publisher.Text = "Search a publisher";
+            tb_search_publisher.ForeColor = Color.Gray;
 
 
             pnl_author_st.Hide();
@@ -229,6 +240,11 @@ namespace Microwave_v1._0
             }
             else if (chosen == MENU_CHOSEN.PUBLISHER)
             {
+                pnl_pub_list.VerticalScroll.Value = 0;
+                publisher_search_list.Delete_All_List();
+                main_pub_list.Draw_All_Publishers();
+                publisher_searched_already = false;
+
                 message = "Do you want to add a publisher?";
                 color = Color.DarkCyan;
                 Create_Warning_Form(message, color);
@@ -478,6 +494,9 @@ namespace Microwave_v1._0
         private void General_Click(object sender, EventArgs e)
         {
             this.lb_book_search.Hide();
+            this.lb_publisher_search.Hide();
+            this.lb_user_search.Hide();
+            //this.lb_author_search.Hide();
             this.pic_logo.Focus();
             this.pic_logo.Select();
         }
@@ -506,6 +525,7 @@ namespace Microwave_v1._0
                     this.pnl_book_st.Hide();
                     show_pnl_book_st = false;
                 }
+                lb_book_search.Hide();
             }
             else if (chosen == MENU_CHOSEN.USERS)
             {
@@ -519,6 +539,7 @@ namespace Microwave_v1._0
                     this.pnl_user_st.Hide();
                     show_pnl_user_st = false;
                 }
+                lb_user_search.Hide();
             }
             else if (chosen == MENU_CHOSEN.AUTHOR)
             {
@@ -532,6 +553,7 @@ namespace Microwave_v1._0
                     this.pnl_author_st.Hide();
                     show_pnl_author_st = false;
                 }
+                //lb_author_search.Hide();
             }
             else if (chosen == MENU_CHOSEN.PUBLISHER)
             {
@@ -545,6 +567,7 @@ namespace Microwave_v1._0
                     this.pnl_publisher_st.Hide();
                     show_pnl_pub_st = false;
                 }
+                lb_publisher_search.Hide();
             }
 
 
@@ -553,6 +576,8 @@ namespace Microwave_v1._0
         private void RadioButtonBook_CheckedChanged(object sender, EventArgs e)
         {
             this.pnl_book_st.Hide();
+            this.tb_search_book.Text = "";
+            this.tb_search_book.Focus();
             this.show_pnl_book_st = false;
         }
         private void Tb_search_book_TextChanged(object sender, EventArgs e)
@@ -720,7 +745,7 @@ namespace Microwave_v1._0
         }
         private void Lb_book_search_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || e.KeyChar == ' '|| e.KeyChar == (char)Keys.Back)
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' '|| e.KeyChar == (char)Keys.Back)
             {
                 if (e.KeyChar == (char)Keys.Back)
                     tb_search_book.Text = tb_search_book.Text.Remove(tb_search_book.Text.Length - 1, 1);
@@ -824,59 +849,158 @@ namespace Microwave_v1._0
         }
 
 
-        private void tb_search_publisher_Enter(object sender, EventArgs e)
+        // Searching events for publishers
+        private void rb_pub_name_CheckedChanged(object sender, EventArgs e)
         {
-            pub_last_search_text = tb_search_publisher.Text;
-            if(tb_search_publisher.Text == "Search a publisher")
-            {
-                tb_search_publisher.Text = "";
-            }
-
-            tb_search_publisher.ForeColor = Color.LightGray;
+            this.pnl_publisher_st.Hide();
+            this.tb_search_publisher.Text = "";
+            this.tb_search_publisher.Focus();
+            this.show_pnl_pub_st = false;
         }
         private void tb_search_publisher_TextChanged(object sender, EventArgs e)
         {
             string text = tb_search_publisher.Text.Trim();
-
-            if(chosen == MENU_CHOSEN.PUBLISHER)
+            publisher_searched_already = false;
+            if (chosen == MENU_CHOSEN.PUBLISHER)
             {
-                if(text == "")
+                if (text == "")
                 {
-                    publisher_searchinf_list.Delete_All_List();
-                    main_pub_list.Show_All_Publishers();
+                    lb_publisher_search.Hide();
+                    lb_publisher_search.Items.Clear();
+
+                    publisher_search_list.Delete_All_List();
+                    main_pub_list.Draw_All_Publishers();
                     return;
                 }
-                if(text == "Search a publisher")
+                else if (text == "Search a publisher")
                 {
-                    publisher_searchinf_list.Delete_All_List();
-                    main_pub_list.Show_All_Publishers();
+                    publisher_search_list.Delete_All_List();
+                    main_pub_list.Draw_All_Publishers();
                     return;
                 }
 
                 this.pnl_pub_list.VerticalScroll.Value = 0;
-                main_pub_list.Hide_All_Publisher_Objects();
-                publisher_searchinf_list.Delete_All_List();
 
                 if (rb_pub_name.Checked)
                 {
-                    publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_Name(text));
-                    publisher_searchinf_list.Show_All_Publishers();
+                    string query = string.Format("Select Publishers.NAME from Publishers Where Publishers.NAME Like '{0}%'", text);
+                    Fill_Publisher_Search_List_Box(query);
+                    if (lb_publisher_search.Items.Count > 0)
+                        lb_publisher_search.Show();
                     return;
                 }
                 if (rb_pub_id.Checked)
                 {
-                    publisher_searchinf_list.Fill_Pub_List(Publisher.Search_Publisher_By_ID(text));
-                    publisher_searchinf_list.Show_All_Publishers();
+                    string query = string.Format("Select Publishers.PUBLISHER_ID from Publishers Where Publishers.PUBLISHER_ID Like '{0}%'", text);
+                    Fill_Publisher_Search_List_Box(query);
+                    if (lb_publisher_search.Items.Count > 0)
+                        lb_publisher_search.Show();
                     return;
                 }
             }
         }
-        private void rb_pub_name_CheckedChanged(object sender, EventArgs e)
+        private void tb_search_publisher_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.pnl_publisher_st.Hide();
-            this.show_pnl_pub_st = false;
-        }
+            string text = tb_search_publisher.Text;
 
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lb_publisher_search.Hide();
+                if (tb_search_publisher.Text == "" && !publisher_searched_already)
+                {
+                    return;
+                }
+                main_pub_list.Hide_All_Publisher_Objects();
+                publisher_search_list.Delete_All_List();
+                this.pnl_book_list.VerticalScroll.Value = 0;
+
+                if (rb_pub_name.Checked)
+                {
+                    publisher_search_list.Fill_Pub_List(Publisher.Search_Publisher_By_Name(text));
+                    publisher_search_list.Draw_All_Publishers();
+                    publisher_searched_already = true;
+                    return;
+                }
+                if (rb_pub_id.Checked)
+                {
+                    publisher_search_list.Fill_Pub_List(Publisher.Search_Publisher_By_ID(text));
+                    publisher_search_list.Draw_All_Publishers();
+                    publisher_searched_already = true;
+                    return;
+                }
+            }
+        }
+        private void tb_search_publisher_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                if (lb_publisher_search.Items.Count != 0)
+                {
+                    lb_publisher_search.Select();
+                    lb_publisher_search.SelectedIndex = 0;
+                }
+            }
+        }
+        private void lb_publisher_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
+            {
+                if (e.KeyChar == (char)Keys.Back)
+                    tb_search_publisher.Text = tb_search_publisher.Text.Remove(tb_search_publisher.Text.Length - 1, 1);
+                else
+                    tb_search_publisher.Text += e.KeyChar;
+                tb_search_publisher.Focus();
+                tb_search_publisher.Select(tb_search_publisher.Text.Length, 0);
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                tb_search_publisher.Focus();
+                tb_search_publisher.Text = lb_publisher_search.SelectedItem.ToString();
+                tb_search_publisher.Select(tb_search_publisher.Text.Length, 0);
+            }
+        }
+        private void Fill_Publisher_Search_List_Box(string query)
+        {
+            lb_publisher_search.Items.Clear();
+
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                lb_publisher_search.Items.Add(item);
+            }
+        }
+        private void tb_search_publisher_Enter(object sender, EventArgs e)
+        {
+            if (tb_search_publisher.Text == "Search a publisher")
+            {
+                tb_search_publisher.Text = "";
+            }
+
+            if (lb_publisher_search.Items.Count > 0)
+                lb_publisher_search.Show();
+
+            tb_search_publisher.ForeColor = Color.LightGray;
+        }
+        private void lb_publisher_search_Leave(object sender, EventArgs e)
+        {
+            lb_publisher_search.Hide();
+        }
+        private void lb_publisher_search_DoubleClick(object sender, EventArgs e)
+        {
+            tb_search_publisher.Focus();
+            if (lb_publisher_search.SelectedItem != null)
+                tb_search_publisher.Text = lb_publisher_search.SelectedItem.ToString();
+            tb_search_publisher.Select(tb_search_publisher.Text.Length, 0);
+        }
 
         private void RadioButtonUser_CheckedChanged(object sender, EventArgs e)
         {
@@ -1020,6 +1144,5 @@ namespace Microwave_v1._0
             pnl_home.Hide();
         }
 
-        
     }
 }

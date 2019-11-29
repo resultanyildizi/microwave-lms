@@ -24,6 +24,7 @@ namespace Microwave_v1._0.Forms
 
 
         Microwave main_page;
+        private Publisher_List main_pub_list;
 
 
         Picture_Events picture_event;
@@ -99,21 +100,20 @@ namespace Microwave_v1._0.Forms
                 tb_pub_description.Focus();
                 return;
             }
-            if (pic_new_source_path == null || pic_new_source_path == pic_default_file)
-            {
-                lbl_pub_message.Text = "* Please choose a picture.";
-                lbl_pub_message.ForeColor = Color.Red;
-                tb_pub_description.Focus();
-                picture_event.Choose_Image();
-                return;
-            }
-
             if (is_edit == false)
             {
-                picture_event.Copy_The_Picture(pub_name);
-                pic_new_source_path = picture_event.Pic_source_file;
+                if (picture_event.Pic_source_file != null && picture_event.Pic_source_file != pic_default_file)
+                {
+                    picture_event.Copy_The_Picture(pub_name);
+                    pic_new_source_path = picture_event.Pic_source_file;
+                }
+                else
+                    pic_new_source_path = pic_default_file;
+                
                 Publisher publisher= new Publisher(0,pub_name,pub_date_of_est,pic_new_source_path);
                 publisher.Add();
+                
+                   
 
                 Clear();
             }
@@ -121,9 +121,10 @@ namespace Microwave_v1._0.Forms
             {
                 if (change_image)
                 {
-                    Picture_Events.Delete_The_Picture(publisher_to_edit.Pub_cover_path_file);
+                    if(publisher_to_edit.Pub_cover_path_file != pic_default_file)
+                        Picture_Events.Delete_The_Picture(publisher_to_edit.Pub_cover_path_file);
                     picture_event.Copy_The_Picture(pub_name);
-                    main_page.Remove_Image_From_Cover_List(publisher_to_edit.Publisher_id);
+                    pic_new_source_path = picture_event.Pic_source_file;
                     change_image = false;
                 }
 
@@ -134,7 +135,13 @@ namespace Microwave_v1._0.Forms
                 publisher_to_edit.Pub_description= pub_description;
                 publisher_to_edit.Pub_date_of_est = pub_date_of_est;
                 publisher_to_edit.Pub_cover_path_file= picture_event.Pic_source_file;
+                
                 publisher_to_edit.Edit();
+
+                main_page.Pnl_pub_list.VerticalScroll.Value = 0;
+                main_page.Publisher_search_list.Delete_All_List();
+                main_pub_list.Draw_All_Publishers();
+                main_page.Publisher_searched_already = false;
             }
         }
 
