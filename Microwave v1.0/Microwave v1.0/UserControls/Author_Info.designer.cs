@@ -34,8 +34,7 @@
             this.lbl_author = new System.Windows.Forms.Label();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_refreshing_icon = new System.Windows.Forms.Button();
-            this.lbl_author_id = new System.Windows.Forms.Label();
+            this.btn_author_id = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_author)).BeginInit();
             this.pnl_name.SuspendLayout();
             this.SuspendLayout();
@@ -115,38 +114,29 @@
             this.btn_edit.UseVisualStyleBackColor = true;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
-            // btn_refreshing_icon
+            // btn_author_id
             // 
-            this.btn_refreshing_icon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_refreshing_icon.FlatAppearance.BorderSize = 0;
-            this.btn_refreshing_icon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_refreshing_icon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
-            this.btn_refreshing_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_refreshing_icon.Image = ((System.Drawing.Image)(resources.GetObject("btn_refreshing_icon.Image")));
-            this.btn_refreshing_icon.Location = new System.Drawing.Point(131, -4);
-            this.btn_refreshing_icon.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_refreshing_icon.Name = "btn_refreshing_icon";
-            this.btn_refreshing_icon.Size = new System.Drawing.Size(29, 37);
-            this.btn_refreshing_icon.TabIndex = 19;
-            this.btn_refreshing_icon.UseVisualStyleBackColor = true;
-            // 
-            // lbl_author_id
-            // 
-            this.lbl_author_id.AutoSize = true;
-            this.lbl_author_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_author_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.lbl_author_id.Location = new System.Drawing.Point(139, 8);
-            this.lbl_author_id.Name = "lbl_author_id";
-            this.lbl_author_id.Size = new System.Drawing.Size(0, 13);
-            this.lbl_author_id.TabIndex = 20;
+            this.btn_author_id.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_author_id.FlatAppearance.BorderSize = 0;
+            this.btn_author_id.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_author_id.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btn_author_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_author_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_author_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.btn_author_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_author_id.Image")));
+            this.btn_author_id.Location = new System.Drawing.Point(131, -4);
+            this.btn_author_id.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_author_id.Name = "btn_author_id";
+            this.btn_author_id.Size = new System.Drawing.Size(29, 37);
+            this.btn_author_id.TabIndex = 19;
+            this.btn_author_id.UseVisualStyleBackColor = true;
             // 
             // Author_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.Controls.Add(this.lbl_author_id);
-            this.Controls.Add(this.btn_refreshing_icon);
+            this.Controls.Add(this.btn_author_id);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.pnl_name);
@@ -160,7 +150,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_author)).EndInit();
             this.pnl_name.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -171,7 +160,6 @@
         private System.Windows.Forms.Label lbl_author;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button btn_edit;
-        private System.Windows.Forms.Button btn_refreshing_icon;
-        private System.Windows.Forms.Label lbl_author_id;
+        private System.Windows.Forms.Button btn_author_id;
     }
 }

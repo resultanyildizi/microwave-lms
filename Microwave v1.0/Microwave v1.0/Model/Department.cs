@@ -16,7 +16,7 @@ namespace Microwave_v1._0.Classes
     {
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         public static int point_y = 5;
-        public static int point_x = 5;
+        public static int point_x = 35;
         private string name;
         private int department_id;
         private int staff_count;

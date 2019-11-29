@@ -41,12 +41,7 @@ namespace Microwave_v1._0.UserControls
             this.pub_name = pub_name;
             this.pub_date_of_est = pub_date_of_est;
             this.pub_pic_path_file = pub_pic_path_file;
-            if(publisher_id > 9)
-            {
-                lbl_pub_id.Location = new Point(136, 8);
-                lbl_pub_id.Font = new Font("Microsoft Sans Serif", 7 ,FontStyle.Bold);
-            }
-            this.lbl_pub_id.Text = publisher_id.ToString();
+            this.btn_pub_id.Text = publisher_id.ToString();
         }
 
         public void Hide_Info()

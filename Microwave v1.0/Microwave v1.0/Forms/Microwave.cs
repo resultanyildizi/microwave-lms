@@ -120,9 +120,6 @@ namespace Microwave_v1._0
             publisher_searchinf_list = new Publisher_List();
 
             pnl_home.Show();
-            pnl_left.Hide();
-            pnl_header.Hide();
-            pnl_menu.Hide();
             pnl_tag.Hide();
             pnl_user.Hide();
             pnl_book.Hide();
@@ -180,7 +177,6 @@ namespace Microwave_v1._0
             // It's need to change
             main_user_list.Draw_All_Users();
 
-            pnl_home.Show();
             pnl_home.BringToFront();
 
         }
@@ -1024,9 +1020,6 @@ namespace Microwave_v1._0
             pnl_home.Hide();
         }
 
-        private void pnl_home_Paint(object sender, PaintEventArgs e)
-        {
-            pnl_home.Hide();
-        }
+        
     }
 }

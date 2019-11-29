@@ -569,7 +569,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_author_list.AutoScroll = true;
             this.pnl_author_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
-            this.pnl_author_list.Location = new System.Drawing.Point(-1, 119);
+            this.pnl_author_list.Location = new System.Drawing.Point(0, 119);
             this.pnl_author_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_author_list.Name = "pnl_author_list";
             this.pnl_author_list.Size = new System.Drawing.Size(775, 410);
@@ -784,7 +784,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_book_list.AutoScroll = true;
             this.pnl_book_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
-            this.pnl_book_list.Location = new System.Drawing.Point(-1, 119);
+            this.pnl_book_list.Location = new System.Drawing.Point(0, 119);
             this.pnl_book_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_book_list.Name = "pnl_book_list";
             this.pnl_book_list.Size = new System.Drawing.Size(775, 410);
@@ -1025,7 +1025,7 @@ namespace Microwave_v1._0
             // pnl_user_list
             // 
             this.pnl_user_list.AutoScroll = true;
-            this.pnl_user_list.Location = new System.Drawing.Point(-1, 119);
+            this.pnl_user_list.Location = new System.Drawing.Point(0, 119);
             this.pnl_user_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_user_list.Name = "pnl_user_list";
             this.pnl_user_list.Size = new System.Drawing.Size(775, 410);
@@ -1265,8 +1265,8 @@ namespace Microwave_v1._0
             // pnl_department_list
             // 
             this.pnl_department_list.AutoScroll = true;
-            this.pnl_department_list.Location = new System.Drawing.Point(1, 106);
-            this.pnl_department_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_department_list.Location = new System.Drawing.Point(0, 119);
+            this.pnl_department_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_department_list.Name = "pnl_department_list";
             this.pnl_department_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_department_list.TabIndex = 15;
@@ -1334,7 +1334,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_pub_list.AutoScroll = true;
             this.pnl_pub_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
-            this.pnl_pub_list.Location = new System.Drawing.Point(-1, 119);
+            this.pnl_pub_list.Location = new System.Drawing.Point(0, 119);
             this.pnl_pub_list.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_pub_list.Name = "pnl_pub_list";
             this.pnl_pub_list.Size = new System.Drawing.Size(775, 410);
@@ -1443,7 +1443,6 @@ namespace Microwave_v1._0
             this.pnl_home.Name = "pnl_home";
             this.pnl_home.Size = new System.Drawing.Size(1198, 604);
             this.pnl_home.TabIndex = 15;
-            this.pnl_home.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_home_Paint);
             // 
             // pictureBox1
             // 

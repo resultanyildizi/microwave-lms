@@ -40,12 +40,7 @@ namespace Microwave_v1._0.UserControls
             this.name = name;
             this.pic_path_file = pic_path_file;
             this.lbl_author.Text = name;
-            if(author_id > 9)
-            {
-                lbl_author_id.Location = new Point(136, 8);
-                lbl_author_id.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
-            }
-            this.lbl_author_id.Text = author_id.ToString();
+            this.btn_author_id.Text = author_id.ToString();
             this.pb_author.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
         }
 
