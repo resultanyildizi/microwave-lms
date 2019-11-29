@@ -55,6 +55,11 @@ namespace Microwave_v1._0
             this.tb_search_author = new System.Windows.Forms.TextBox();
             this.tb_search_book = new System.Windows.Forms.TextBox();
             this.pnl_authors = new System.Windows.Forms.Panel();
+            this.lbl_author_title = new System.Windows.Forms.Label();
+            this.lbl_authors_name = new System.Windows.Forms.Label();
+            this.pnl_author_sep = new System.Windows.Forms.Panel();
+            this.pnl_author_list = new System.Windows.Forms.Panel();
+            this.ln_author_search = new System.Windows.Forms.ListBox();
             this.pnl_author_st = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.radioButton22 = new System.Windows.Forms.RadioButton();
@@ -64,10 +69,6 @@ namespace Microwave_v1._0
             this.radioButton26 = new System.Windows.Forms.RadioButton();
             this.radioButton27 = new System.Windows.Forms.RadioButton();
             this.radioButton28 = new System.Windows.Forms.RadioButton();
-            this.lbl_author_title = new System.Windows.Forms.Label();
-            this.lbl_authors_name = new System.Windows.Forms.Label();
-            this.pnl_author_sep = new System.Windows.Forms.Panel();
-            this.pnl_author_list = new System.Windows.Forms.Panel();
             this.lbl_book_title = new System.Windows.Forms.Label();
             this.lbl_book_name = new System.Windows.Forms.Label();
             this.lbl_book_author = new System.Windows.Forms.Label();
@@ -116,6 +117,7 @@ namespace Microwave_v1._0
             this.lbl_department_title = new System.Windows.Forms.Label();
             this.pnl_sep_dep = new System.Windows.Forms.Panel();
             this.pnl_pub = new System.Windows.Forms.Panel();
+            this.lb_publis_search = new System.Windows.Forms.ListBox();
             this.pnl_pub_list = new System.Windows.Forms.Panel();
             this.pnl_publisher_st = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -127,8 +129,10 @@ namespace Microwave_v1._0
             this.dep_cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.author_cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ln_author_search = new System.Windows.Forms.ListBox();
-            this.lb_publis_search = new System.Windows.Forms.ListBox();
+            this.pnl_home = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -142,6 +146,8 @@ namespace Microwave_v1._0
             this.pnl_department.SuspendLayout();
             this.pnl_pub.SuspendLayout();
             this.pnl_publisher_st.SuspendLayout();
+            this.pnl_home.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_left
@@ -525,6 +531,62 @@ namespace Microwave_v1._0
             this.pnl_authors.Size = new System.Drawing.Size(795, 570);
             this.pnl_authors.TabIndex = 17;
             // 
+            // lbl_author_title
+            // 
+            this.lbl_author_title.AutoSize = true;
+            this.lbl_author_title.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_author_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_author_title.ForeColor = System.Drawing.Color.White;
+            this.lbl_author_title.Location = new System.Drawing.Point(19, 20);
+            this.lbl_author_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_author_title.Name = "lbl_author_title";
+            this.lbl_author_title.Size = new System.Drawing.Size(186, 39);
+            this.lbl_author_title.TabIndex = 4;
+            this.lbl_author_title.Text = "AUTHORS";
+            // 
+            // lbl_authors_name
+            // 
+            this.lbl_authors_name.AutoSize = true;
+            this.lbl_authors_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_authors_name.ForeColor = System.Drawing.Color.White;
+            this.lbl_authors_name.Location = new System.Drawing.Point(28, 83);
+            this.lbl_authors_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_authors_name.Name = "lbl_authors_name";
+            this.lbl_authors_name.Size = new System.Drawing.Size(87, 26);
+            this.lbl_authors_name.TabIndex = 10;
+            this.lbl_authors_name.Text = "Authors";
+            // 
+            // pnl_author_sep
+            // 
+            this.pnl_author_sep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.pnl_author_sep.Location = new System.Drawing.Point(24, 115);
+            this.pnl_author_sep.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_author_sep.Name = "pnl_author_sep";
+            this.pnl_author_sep.Size = new System.Drawing.Size(728, 1);
+            this.pnl_author_sep.TabIndex = 7;
+            // 
+            // pnl_author_list
+            // 
+            this.pnl_author_list.AutoScroll = true;
+            this.pnl_author_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
+            this.pnl_author_list.Location = new System.Drawing.Point(-1, 119);
+            this.pnl_author_list.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_author_list.Name = "pnl_author_list";
+            this.pnl_author_list.Size = new System.Drawing.Size(775, 410);
+            this.pnl_author_list.TabIndex = 14;
+            // 
+            // ln_author_search
+            // 
+            this.ln_author_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.ln_author_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ln_author_search.ForeColor = System.Drawing.Color.White;
+            this.ln_author_search.FormattingEnabled = true;
+            this.ln_author_search.ItemHeight = 16;
+            this.ln_author_search.Location = new System.Drawing.Point(300, 0);
+            this.ln_author_search.Name = "ln_author_search";
+            this.ln_author_search.Size = new System.Drawing.Size(235, 68);
+            this.ln_author_search.TabIndex = 22;
+            // 
             // pnl_author_st
             // 
             this.pnl_author_st.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
@@ -644,50 +706,6 @@ namespace Microwave_v1._0
             this.radioButton28.TabStop = true;
             this.radioButton28.Text = "Name";
             this.radioButton28.UseVisualStyleBackColor = true;
-            // 
-            // lbl_author_title
-            // 
-            this.lbl_author_title.AutoSize = true;
-            this.lbl_author_title.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbl_author_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_author_title.ForeColor = System.Drawing.Color.White;
-            this.lbl_author_title.Location = new System.Drawing.Point(19, 20);
-            this.lbl_author_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_author_title.Name = "lbl_author_title";
-            this.lbl_author_title.Size = new System.Drawing.Size(186, 39);
-            this.lbl_author_title.TabIndex = 4;
-            this.lbl_author_title.Text = "AUTHORS";
-            // 
-            // lbl_authors_name
-            // 
-            this.lbl_authors_name.AutoSize = true;
-            this.lbl_authors_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_authors_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_authors_name.Location = new System.Drawing.Point(28, 83);
-            this.lbl_authors_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_authors_name.Name = "lbl_authors_name";
-            this.lbl_authors_name.Size = new System.Drawing.Size(87, 26);
-            this.lbl_authors_name.TabIndex = 10;
-            this.lbl_authors_name.Text = "Authors";
-            // 
-            // pnl_author_sep
-            // 
-            this.pnl_author_sep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.pnl_author_sep.Location = new System.Drawing.Point(24, 115);
-            this.pnl_author_sep.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_author_sep.Name = "pnl_author_sep";
-            this.pnl_author_sep.Size = new System.Drawing.Size(728, 1);
-            this.pnl_author_sep.TabIndex = 7;
-            // 
-            // pnl_author_list
-            // 
-            this.pnl_author_list.AutoScroll = true;
-            this.pnl_author_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
-            this.pnl_author_list.Location = new System.Drawing.Point(-1, 119);
-            this.pnl_author_list.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_author_list.Name = "pnl_author_list";
-            this.pnl_author_list.Size = new System.Drawing.Size(775, 410);
-            this.pnl_author_list.TabIndex = 14;
             // 
             // lbl_book_title
             // 
@@ -1300,6 +1318,18 @@ namespace Microwave_v1._0
             this.pnl_pub.Size = new System.Drawing.Size(795, 570);
             this.pnl_pub.TabIndex = 17;
             // 
+            // lb_publis_search
+            // 
+            this.lb_publis_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lb_publis_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_publis_search.ForeColor = System.Drawing.Color.White;
+            this.lb_publis_search.FormattingEnabled = true;
+            this.lb_publis_search.ItemHeight = 16;
+            this.lb_publis_search.Location = new System.Drawing.Point(300, 0);
+            this.lb_publis_search.Name = "lb_publis_search";
+            this.lb_publis_search.Size = new System.Drawing.Size(235, 68);
+            this.lb_publis_search.TabIndex = 24;
+            // 
             // pnl_pub_list
             // 
             this.pnl_pub_list.AutoScroll = true;
@@ -1401,29 +1431,57 @@ namespace Microwave_v1._0
             this.author_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
             this.author_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // ln_author_search
+            // pnl_home
             // 
-            this.ln_author_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.ln_author_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ln_author_search.ForeColor = System.Drawing.Color.White;
-            this.ln_author_search.FormattingEnabled = true;
-            this.ln_author_search.ItemHeight = 16;
-            this.ln_author_search.Location = new System.Drawing.Point(300, 0);
-            this.ln_author_search.Name = "ln_author_search";
-            this.ln_author_search.Size = new System.Drawing.Size(235, 68);
-            this.ln_author_search.TabIndex = 22;
+            this.pnl_home.AutoScroll = true;
+            this.pnl_home.AutoScrollMargin = new System.Drawing.Size(0, 2);
+            this.pnl_home.Controls.Add(this.pictureBox1);
+            this.pnl_home.Controls.Add(this.label2);
+            this.pnl_home.Controls.Add(this.label5);
+            this.pnl_home.Location = new System.Drawing.Point(0, 0);
+            this.pnl_home.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_home.Name = "pnl_home";
+            this.pnl_home.Size = new System.Drawing.Size(1198, 604);
+            this.pnl_home.TabIndex = 15;
+            this.pnl_home.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_home_Paint);
             // 
-            // lb_publis_search
+            // pictureBox1
             // 
-            this.lb_publis_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.lb_publis_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_publis_search.ForeColor = System.Drawing.Color.White;
-            this.lb_publis_search.FormattingEnabled = true;
-            this.lb_publis_search.ItemHeight = 16;
-            this.lb_publis_search.Location = new System.Drawing.Point(300, 0);
-            this.lb_publis_search.Name = "lb_publis_search";
-            this.lb_publis_search.Size = new System.Drawing.Size(235, 68);
-            this.lb_publis_search.TabIndex = 24;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(343, 190);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(232, 191);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoEllipsis = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(579, 223);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 46);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Microwave";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(582, 206);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(202, 233);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Library Management System";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Microwave
             // 
@@ -1431,6 +1489,7 @@ namespace Microwave_v1._0
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(1199, 609);
+            this.Controls.Add(this.pnl_home);
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_header);
@@ -1473,6 +1532,9 @@ namespace Microwave_v1._0
             this.pnl_pub.PerformLayout();
             this.pnl_publisher_st.ResumeLayout(false);
             this.pnl_publisher_st.PerformLayout();
+            this.pnl_home.ResumeLayout(false);
+            this.pnl_home.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1577,6 +1639,10 @@ namespace Microwave_v1._0
         private ListBox lb_user_search;
         private ListBox ln_author_search;
         private ListBox lb_publis_search;
+        private Panel pnl_home;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Label label5;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
         public Panel Pnl_pub_list { get => pnl_pub_list; set => pnl_pub_list = value; }

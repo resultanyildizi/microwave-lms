@@ -34,6 +34,8 @@
             this.btn_dprt_edit = new System.Windows.Forms.Button();
             this.pnl_name = new System.Windows.Forms.Panel();
             this.lbl_department_name = new System.Windows.Forms.Label();
+            this.btn_refreshing_icon = new System.Windows.Forms.Button();
+            this.lbl_dep_id = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_department)).BeginInit();
             this.pnl_name.SuspendLayout();
             this.SuspendLayout();
@@ -106,24 +108,52 @@
             this.lbl_department_name.Text = "Department Name";
             this.lbl_department_name.Click += new System.EventHandler(this.lbl_department_name_Click);
             // 
+            // btn_refreshing_icon
+            // 
+            this.btn_refreshing_icon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_refreshing_icon.FlatAppearance.BorderSize = 0;
+            this.btn_refreshing_icon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_refreshing_icon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btn_refreshing_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refreshing_icon.Image = ((System.Drawing.Image)(resources.GetObject("btn_refreshing_icon.Image")));
+            this.btn_refreshing_icon.Location = new System.Drawing.Point(131, -4);
+            this.btn_refreshing_icon.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_refreshing_icon.Name = "btn_refreshing_icon";
+            this.btn_refreshing_icon.Size = new System.Drawing.Size(29, 37);
+            this.btn_refreshing_icon.TabIndex = 18;
+            this.btn_refreshing_icon.UseVisualStyleBackColor = true;
+            // 
+            // lbl_dep_id
+            // 
+            this.lbl_dep_id.AutoSize = true;
+            this.lbl_dep_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_dep_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.lbl_dep_id.Location = new System.Drawing.Point(139, 8);
+            this.lbl_dep_id.Name = "lbl_dep_id";
+            this.lbl_dep_id.Size = new System.Drawing.Size(0, 13);
+            this.lbl_dep_id.TabIndex = 19;
+            // 
             // Department_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.lbl_dep_id);
+            this.Controls.Add(this.btn_refreshing_icon);
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.btn_dprt_remove);
             this.Controls.Add(this.btn_dprt_edit);
             this.Controls.Add(this.pb_department);
             this.Name = "Department_Info";
-            this.Size = new System.Drawing.Size(155, 229);
+            this.Size = new System.Drawing.Size(160, 229);
             this.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pb_department)).EndInit();
             this.pnl_name.ResumeLayout(false);
             this.pnl_name.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,5 +164,7 @@
         private System.Windows.Forms.Button btn_dprt_edit;
         private System.Windows.Forms.Panel pnl_name;
         private System.Windows.Forms.Label lbl_department_name;
+        private System.Windows.Forms.Button btn_refreshing_icon;
+        private System.Windows.Forms.Label lbl_dep_id;
     }
 }
