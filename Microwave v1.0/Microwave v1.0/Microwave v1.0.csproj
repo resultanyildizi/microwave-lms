@@ -69,6 +69,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GiveBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GiveBook.Designer.cs">
+      <DependentUpon>GiveBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Author_List.cs" />
     <Compile Include="Model\DataBaseEvents.cs" />
@@ -174,6 +186,12 @@
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Detail.resx">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GiveBook.resx">
+      <DependentUpon>GiveBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Author_Info.resx">
       <DependentUpon>Author_Info.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +245,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon %282%29.ico" />
+    <None Include="Resources\man-user %281%29.png" />
+    <None Include="Resources\man-user %282%29.png" />
     <None Include="Resources\Icons\pencil %281%29.png" />
     <None Include="Resources\Icons\correct-symbol %281%29.png" />
   </ItemGroup>

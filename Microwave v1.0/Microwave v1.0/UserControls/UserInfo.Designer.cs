@@ -39,12 +39,12 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.pnl_surname = new System.Windows.Forms.Panel();
             this.lbl_surname = new System.Windows.Forms.Label();
-            this.btn_remove = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
             this.pnl_date = new System.Windows.Forms.Panel();
             this.lbl_date = new System.Windows.Forms.Label();
             this.pnl_id = new System.Windows.Forms.Panel();
             this.lbl_id = new System.Windows.Forms.Label();
+            this.btn_remove = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
             this.pnl_age.SuspendLayout();
             this.pnl_gender.SuspendLayout();
             this.pnl_email.SuspendLayout();
@@ -65,6 +65,7 @@
             this.pnl_age.Size = new System.Drawing.Size(58, 40);
             this.pnl_age.TabIndex = 4;
             this.pnl_age.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_age.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.pnl_age.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.pnl_age.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -82,6 +83,7 @@
             this.lbl_age.TabIndex = 3;
             this.lbl_age.Text = "18";
             this.lbl_age.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_age.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.lbl_age.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.lbl_age.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -96,6 +98,7 @@
             this.pnl_gender.Size = new System.Drawing.Size(63, 40);
             this.pnl_gender.TabIndex = 5;
             this.pnl_gender.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_gender.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.pnl_gender.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.pnl_gender.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -113,6 +116,7 @@
             this.lbl_gender.TabIndex = 2;
             this.lbl_gender.Text = "Female";
             this.lbl_gender.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_gender.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.lbl_gender.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.lbl_gender.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -127,6 +131,7 @@
             this.pnl_email.Size = new System.Drawing.Size(208, 40);
             this.pnl_email.TabIndex = 7;
             this.pnl_email.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_email.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.pnl_email.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.pnl_email.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -144,6 +149,7 @@
             this.lbl_email.TabIndex = 4;
             this.lbl_email.Text = "sudegullll1234@hotmail.com";
             this.lbl_email.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_email.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.lbl_email.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.lbl_email.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -158,6 +164,7 @@
             this.pnl_name.Size = new System.Drawing.Size(108, 40);
             this.pnl_name.TabIndex = 3;
             this.pnl_name.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_name.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.pnl_name.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.pnl_name.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -175,6 +182,7 @@
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "Zeynep Sude";
             this.lbl_name.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_name.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.lbl_name.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.lbl_name.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -189,6 +197,7 @@
             this.pnl_surname.Size = new System.Drawing.Size(115, 40);
             this.pnl_surname.TabIndex = 6;
             this.pnl_surname.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_surname.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.pnl_surname.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.pnl_surname.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
@@ -206,8 +215,74 @@
             this.lbl_surname.TabIndex = 1;
             this.lbl_surname.Text = "Gül";
             this.lbl_surname.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_surname.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.lbl_surname.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.lbl_surname.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
+            // 
+            // pnl_date
+            // 
+            this.pnl_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.pnl_date.Controls.Add(this.lbl_date);
+            this.pnl_date.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnl_date.Location = new System.Drawing.Point(634, 0);
+            this.pnl_date.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_date.Name = "pnl_date";
+            this.pnl_date.Size = new System.Drawing.Size(112, 40);
+            this.pnl_date.TabIndex = 10;
+            this.pnl_date.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_date.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
+            this.pnl_date.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
+            this.pnl_date.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
+            // 
+            // lbl_date
+            // 
+            this.lbl_date.AutoEllipsis = true;
+            this.lbl_date.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_date.ForeColor = System.Drawing.Color.White;
+            this.lbl_date.Location = new System.Drawing.Point(4, 13);
+            this.lbl_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(95, 17);
+            this.lbl_date.TabIndex = 3;
+            this.lbl_date.Text = "22/10/1999";
+            this.lbl_date.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_date.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
+            this.lbl_date.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
+            this.lbl_date.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
+            // 
+            // pnl_id
+            // 
+            this.pnl_id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.pnl_id.Controls.Add(this.lbl_id);
+            this.pnl_id.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnl_id.Location = new System.Drawing.Point(27, 0);
+            this.pnl_id.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_id.Name = "pnl_id";
+            this.pnl_id.Size = new System.Drawing.Size(38, 40);
+            this.pnl_id.TabIndex = 11;
+            this.pnl_id.Click += new System.EventHandler(this.UserInfo_Click);
+            this.pnl_id.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
+            this.pnl_id.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
+            this.pnl_id.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoEllipsis = true;
+            this.lbl_id.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_id.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id.ForeColor = System.Drawing.Color.White;
+            this.lbl_id.Location = new System.Drawing.Point(2, 13);
+            this.lbl_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(41, 20);
+            this.lbl_id.TabIndex = 4;
+            this.lbl_id.Text = "15";
+            this.lbl_id.Click += new System.EventHandler(this.UserInfo_Click);
+            this.lbl_id.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
+            this.lbl_id.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
+            this.lbl_id.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
             // 
             // btn_remove
             // 
@@ -241,67 +316,6 @@
             this.btn_edit.UseVisualStyleBackColor = true;
             this.btn_edit.Click += new System.EventHandler(this.Btn_edit_Click);
             // 
-            // pnl_date
-            // 
-            this.pnl_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_date.Controls.Add(this.lbl_date);
-            this.pnl_date.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_date.Location = new System.Drawing.Point(634, 0);
-            this.pnl_date.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_date.Name = "pnl_date";
-            this.pnl_date.Size = new System.Drawing.Size(112, 40);
-            this.pnl_date.TabIndex = 10;
-            this.pnl_date.Click += new System.EventHandler(this.UserInfo_Click);
-            this.pnl_date.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
-            this.pnl_date.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
-            // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoEllipsis = true;
-            this.lbl_date.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_date.Location = new System.Drawing.Point(4, 13);
-            this.lbl_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(95, 17);
-            this.lbl_date.TabIndex = 3;
-            this.lbl_date.Text = "22/10/1999";
-            this.lbl_date.Click += new System.EventHandler(this.UserInfo_Click);
-            this.lbl_date.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
-            this.lbl_date.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
-            // 
-            // pnl_id
-            // 
-            this.pnl_id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_id.Controls.Add(this.lbl_id);
-            this.pnl_id.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_id.Location = new System.Drawing.Point(27, 0);
-            this.pnl_id.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_id.Name = "pnl_id";
-            this.pnl_id.Size = new System.Drawing.Size(38, 40);
-            this.pnl_id.TabIndex = 11;
-            this.pnl_id.Click += new System.EventHandler(this.UserInfo_Click);
-            this.pnl_id.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
-            this.pnl_id.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
-            // 
-            // lbl_id
-            // 
-            this.lbl_id.AutoEllipsis = true;
-            this.lbl_id.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_id.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_id.ForeColor = System.Drawing.Color.White;
-            this.lbl_id.Location = new System.Drawing.Point(2, 13);
-            this.lbl_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(41, 20);
-            this.lbl_id.TabIndex = 4;
-            this.lbl_id.Text = "15";
-            this.lbl_id.Click += new System.EventHandler(this.UserInfo_Click);
-            this.lbl_id.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
-            this.lbl_id.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);
-            // 
             // UserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,6 +333,7 @@
             this.Name = "UserInfo";
             this.Size = new System.Drawing.Size(748, 40);
             this.Click += new System.EventHandler(this.UserInfo_Click);
+            this.DoubleClick += new System.EventHandler(this.UserInfo_DoubleClick);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserInfo_KeyDown);
             this.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.UserInfo_MouseLeave);

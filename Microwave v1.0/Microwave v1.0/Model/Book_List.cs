@@ -8,6 +8,8 @@ using System.Data.SQLite;
 using System.Threading;
 using Microwave_v1._0.Classes;
 using System.Data;
+using System.Drawing;
+using Microwave_v1._0.Forms;
 
 namespace Microwave_v1._0
 {
@@ -42,7 +44,7 @@ namespace Microwave_v1._0
             root = null;
         }
 
-        public void Fill_Book_List(DataTable dt, INFO_COLOR_MODE color_mode)
+        public void Fill_Book_List(DataTable dt, INFO_COLOR_MODE color_mode, bool fill_image_list = true)
         {
             int rows_count = book_count = dt.Rows.Count;
             
@@ -71,8 +73,11 @@ namespace Microwave_v1._0
                 this.Add_Book_to_List(book);
             }
 
-            Fill_Cover_Image_List();
+            if(fill_image_list)
+                Fill_Cover_Image_List();
         }
+
+
         public void Delete_All_List()
         {
             book_node iterator = root;
@@ -109,6 +114,19 @@ namespace Microwave_v1._0
             while(iterator != null)
             {
                 iterator.book.Info.Draw_Book_Obj(ref Book.point_y);
+                iterator.book.Info.Show();
+                iterator = iterator.next;
+            }
+        }
+        public void Draw_All_Books(SizeF scale, GiveBook gb)
+        {
+            Book.point_y = 5;
+
+            book_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.book.Info.Draw_Book_Obj_1(ref Book.point_y, gb);
+                iterator.book.Info.Scale_All(scale);
                 iterator.book.Info.Show();
                 iterator = iterator.next;
             }

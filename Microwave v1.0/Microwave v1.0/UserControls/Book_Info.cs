@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microwave_v1._0.Forms;
 
 namespace Microwave_v1._0
 {
@@ -25,6 +26,7 @@ namespace Microwave_v1._0
         private Microwave main_page;
         private Book_List main_list;
         private AddBook edit_form = null;
+        private Detail detail_form = null;
 
         private string description;
         private string name;
@@ -85,6 +87,13 @@ namespace Microwave_v1._0
         public void Draw_Book_Obj(ref int y)
         {
             main_page.Pnl_book_list.Controls.Add(this);
+            this.Location = new System.Drawing.Point(0, y);
+            y += 45;
+        }
+
+        public void Draw_Book_Obj_1(ref int y, GiveBook gb)
+        {
+            gb.Pnl_book_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
             y += 45;
         }
@@ -229,6 +238,47 @@ namespace Microwave_v1._0
                 }
             }
         }
+        private void Create_Book_Detail_Form(Book book)
+        {
+
+            if (detail_form == null)
+            {
+                detail_form = new Detail(book);
+                detail_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    detail_form.Show();
+                }
+                catch (Exception)
+                {
+                    detail_form = new Detail(book);
+                    detail_form.Show();
+                }
+            }
+        }
+
+        public void Scale_All(SizeF s)
+        {
+            SizeF s_gen = new SizeF();
+            s_gen.Width = s.Width;
+            s_gen.Height = s.Height;
+
+            this.Scale(s_gen);
+            this.lbl_id.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_name.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_author.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_publisher.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_category.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_shelf.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_date.Font = new Font("Microsof Sans Serif", 7);
+            this.lbl_count.Font = new Font("Microsof Sans Serif", 7);
+            this.btn_edit.Visible = false;
+            this.btn_remove.Visible = false;
+        }
+
 
         // CHANGE!!!
         public void Hover()
@@ -302,7 +352,6 @@ namespace Microwave_v1._0
         {
             Mouse_Leave();
         }
-
         private void Book_Info_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -314,6 +363,12 @@ namespace Microwave_v1._0
                     Remove();
                 main_page.Warning_form.Refresh_Form();
             }
+        }
+
+        private void Book_Info_DoubleClick(object sender, EventArgs e)
+        {
+            Book current = main_list.Find_Book_By_ID(book_id);
+            Create_Book_Detail_Form(current);
         }
     }
 }

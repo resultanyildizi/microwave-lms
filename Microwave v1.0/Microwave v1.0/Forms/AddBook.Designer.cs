@@ -244,13 +244,13 @@
             this.tb_description.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_add_KeyPress);
             this.tb_description.Leave += new System.EventHandler(this.tb_description_Leave);
             // 
-            // lbl_count
+            // lbl_6
             // 
             this.lbl_count.AutoSize = true;
             this.lbl_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_count.ForeColor = System.Drawing.Color.White;
             this.lbl_count.Location = new System.Drawing.Point(12, 434);
-            this.lbl_count.Name = "lbl_count";
+            this.lbl_count.Name = "lbl_6";
             this.lbl_count.Size = new System.Drawing.Size(65, 24);
             this.lbl_count.TabIndex = 18;
             this.lbl_count.Text = "Count:";

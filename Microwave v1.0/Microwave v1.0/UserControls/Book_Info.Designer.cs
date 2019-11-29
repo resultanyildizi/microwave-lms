@@ -67,6 +67,7 @@
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(137, 40);
             this.pnl_name.TabIndex = 0;
+            this.pnl_name.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_name.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_name.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -84,6 +85,7 @@
             this.lbl_name.Size = new System.Drawing.Size(134, 20);
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "Kürk Mantolu Madonna";
+            this.lbl_name.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_name.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_name.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -98,6 +100,7 @@
             this.pnl_author.Name = "pnl_author";
             this.pnl_author.Size = new System.Drawing.Size(120, 40);
             this.pnl_author.TabIndex = 1;
+            this.pnl_author.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_author.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_author.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_author.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -115,6 +118,7 @@
             this.lbl_author.Size = new System.Drawing.Size(116, 20);
             this.lbl_author.TabIndex = 1;
             this.lbl_author.Text = "Sabahattin Ali";
+            this.lbl_author.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_author.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_author.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_author.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -129,11 +133,12 @@
             this.pnl_count.Name = "pnl_count";
             this.pnl_count.Size = new System.Drawing.Size(42, 40);
             this.pnl_count.TabIndex = 2;
+            this.pnl_count.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_count.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_count.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_count.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
             // 
-            // lbl_count
+            // lbl_6
             // 
             this.lbl_count.AutoEllipsis = true;
             this.lbl_count.BackColor = System.Drawing.Color.Transparent;
@@ -142,10 +147,11 @@
             this.lbl_count.ForeColor = System.Drawing.Color.White;
             this.lbl_count.Location = new System.Drawing.Point(2, 13);
             this.lbl_count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_count.Name = "lbl_count";
+            this.lbl_count.Name = "lbl_6";
             this.lbl_count.Size = new System.Drawing.Size(41, 20);
             this.lbl_count.TabIndex = 4;
             this.lbl_count.Text = "15";
+            this.lbl_count.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_count.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_count.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_count.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -160,6 +166,7 @@
             this.pnl_publisher.Name = "pnl_publisher";
             this.pnl_publisher.Size = new System.Drawing.Size(130, 40);
             this.pnl_publisher.TabIndex = 1;
+            this.pnl_publisher.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_publisher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_publisher.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_publisher.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -177,6 +184,7 @@
             this.lbl_publisher.Size = new System.Drawing.Size(125, 20);
             this.lbl_publisher.TabIndex = 2;
             this.lbl_publisher.Text = "Yapi Kredi Yayinlari";
+            this.lbl_publisher.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_publisher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_publisher.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_publisher.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -191,6 +199,7 @@
             this.pnl_date.Name = "pnl_date";
             this.pnl_date.Size = new System.Drawing.Size(85, 40);
             this.pnl_date.TabIndex = 1;
+            this.pnl_date.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_date.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_date.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_date.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -207,6 +216,7 @@
             this.lbl_date.Size = new System.Drawing.Size(80, 20);
             this.lbl_date.TabIndex = 3;
             this.lbl_date.Text = "10/10/1975";
+            this.lbl_date.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_date.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_date.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_date.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -253,6 +263,7 @@
             this.pnl_id.Name = "pnl_id";
             this.pnl_id.Size = new System.Drawing.Size(38, 40);
             this.pnl_id.TabIndex = 5;
+            this.pnl_id.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_id.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_id.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_id.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -270,6 +281,7 @@
             this.lbl_id.Size = new System.Drawing.Size(41, 20);
             this.lbl_id.TabIndex = 4;
             this.lbl_id.Text = "15";
+            this.lbl_id.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_id.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_id.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_id.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -284,6 +296,7 @@
             this.pnl_category.Name = "pnl_category";
             this.pnl_category.Size = new System.Drawing.Size(85, 40);
             this.pnl_category.TabIndex = 4;
+            this.pnl_category.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_category.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_category.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_category.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -300,6 +313,7 @@
             this.lbl_category.Size = new System.Drawing.Size(80, 20);
             this.lbl_category.TabIndex = 3;
             this.lbl_category.Text = "Dram";
+            this.lbl_category.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_category.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_category.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_category.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -314,6 +328,7 @@
             this.pnl_shelf.Name = "pnl_shelf";
             this.pnl_shelf.Size = new System.Drawing.Size(54, 40);
             this.pnl_shelf.TabIndex = 5;
+            this.pnl_shelf.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.pnl_shelf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.pnl_shelf.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_shelf.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -331,6 +346,7 @@
             this.lbl_shelf.Size = new System.Drawing.Size(41, 20);
             this.lbl_shelf.TabIndex = 4;
             this.lbl_shelf.Text = "A01";
+            this.lbl_shelf.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.lbl_shelf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookInfo_Click);
             this.lbl_shelf.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.lbl_shelf.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
@@ -353,6 +369,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Book_Info";
             this.Size = new System.Drawing.Size(748, 40);
+            this.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.Enter += new System.EventHandler(this.Book_Info_Enter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Book_Info_KeyDown);
             this.pnl_name.ResumeLayout(false);

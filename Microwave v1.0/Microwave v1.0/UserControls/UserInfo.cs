@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microwave_v1._0.Forms;
 
 namespace Microwave_v1._0
 {
@@ -15,6 +16,7 @@ namespace Microwave_v1._0
         private Microwave main_page = null;
         private User_List main_list = null;
         private AddUser edit_form = null;
+        private Detail detail_form = null;
 
         private string name;
         private string surname;
@@ -209,6 +211,26 @@ namespace Microwave_v1._0
                 }
             }
         }
+        private void Create_User_Detail_Form(User user)
+        {
+            if (detail_form == null)
+            {
+                detail_form = new Detail(user);
+                detail_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    detail_form.Show();
+                }
+                catch (Exception)
+                {
+                    detail_form = new Detail(user);
+                    detail_form.Show();
+                }
+            }
+        }
         public void Hover()
         {
             if(!chosen)
@@ -289,6 +311,12 @@ namespace Microwave_v1._0
                 }
                 main_page.Warning_form.Refresh_Form();
             }
+        }
+
+        private void UserInfo_DoubleClick(object sender, EventArgs e)
+        {
+            User current = main_list.Find_User_By_ID(user_id);
+            Create_User_Detail_Form(current);
         }
     }
 }

@@ -34,22 +34,10 @@ namespace Microwave_v1._0
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Microwave));
             this.pnl_left = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
-            this.btn_department = new System.Windows.Forms.Button();
-            this.btn_publisher = new System.Windows.Forms.Button();
-            this.btn_author = new System.Windows.Forms.Button();
-            this.btn_about = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.btn_email = new System.Windows.Forms.Button();
-            this.btn_user = new System.Windows.Forms.Button();
             this.pnl_stick = new System.Windows.Forms.Panel();
-            this.btn_book = new System.Windows.Forms.Button();
-            this.pic_logo = new System.Windows.Forms.PictureBox();
             this.lbl_logo = new System.Windows.Forms.Label();
             this.lbl_logo_lms = new System.Windows.Forms.Label();
             this.pnl_header = new System.Windows.Forms.Panel();
-            this.btn_show_search_types = new System.Windows.Forms.Button();
-            this.btn_profil = new System.Windows.Forms.Button();
-            this.btn_settings = new System.Windows.Forms.Button();
             this.tb_search_user = new System.Windows.Forms.TextBox();
             this.tb_search_publisher = new System.Windows.Forms.TextBox();
             this.tb_search_author = new System.Windows.Forms.TextBox();
@@ -97,6 +85,7 @@ namespace Microwave_v1._0
             this.lbl_user_name = new System.Windows.Forms.Label();
             this.lbl_user_title = new System.Windows.Forms.Label();
             this.pnl_sep_user = new System.Windows.Forms.Panel();
+            this.lb_user_search = new System.Windows.Forms.ListBox();
             this.pnl_user_st = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.rb_user_gender = new System.Windows.Forms.RadioButton();
@@ -108,7 +97,6 @@ namespace Microwave_v1._0
             this.lbl_user_gender = new System.Windows.Forms.Label();
             this.lbl_user_age = new System.Windows.Forms.Label();
             this.lbl_user_email = new System.Windows.Forms.Label();
-            this.lb_user_search = new System.Windows.Forms.ListBox();
             this.pnl_tag = new System.Windows.Forms.Panel();
             this.cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.pnl_department_list = new System.Windows.Forms.Panel();
@@ -136,9 +124,20 @@ namespace Microwave_v1._0
             this.dep_cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.author_cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_department = new System.Windows.Forms.Button();
+            this.btn_publisher = new System.Windows.Forms.Button();
+            this.btn_author = new System.Windows.Forms.Button();
+            this.btn_about = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_email = new System.Windows.Forms.Button();
+            this.btn_user = new System.Windows.Forms.Button();
+            this.btn_book = new System.Windows.Forms.Button();
+            this.pic_logo = new System.Windows.Forms.PictureBox();
+            this.btn_show_search_types = new System.Windows.Forms.Button();
+            this.btn_profil = new System.Windows.Forms.Button();
+            this.btn_settings = new System.Windows.Forms.Button();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.pnl_header.SuspendLayout();
             this.pnl_authors.SuspendLayout();
             this.pnl_author_st.SuspendLayout();
@@ -150,6 +149,7 @@ namespace Microwave_v1._0
             this.pnl_department_st.SuspendLayout();
             this.pnl_pub.SuspendLayout();
             this.pnl_publisher_st.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_left
@@ -187,141 +187,6 @@ namespace Microwave_v1._0
             this.pnl_menu.TabIndex = 9;
             this.pnl_menu.Click += new System.EventHandler(this.General_Click);
             // 
-            // btn_department
-            // 
-            this.btn_department.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_department.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_department.FlatAppearance.BorderSize = 0;
-            this.btn_department.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_department.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_department.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_department.ForeColor = System.Drawing.Color.White;
-            this.btn_department.Image = ((System.Drawing.Image)(resources.GetObject("btn_department.Image")));
-            this.btn_department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_department.Location = new System.Drawing.Point(29, 214);
-            this.btn_department.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_department.Name = "btn_department";
-            this.btn_department.Size = new System.Drawing.Size(160, 34);
-            this.btn_department.TabIndex = 9;
-            this.btn_department.Text = "       Department";
-            this.btn_department.UseVisualStyleBackColor = true;
-            this.btn_department.Click += new System.EventHandler(this.btn_department_Click);
-            // 
-            // btn_publisher
-            // 
-            this.btn_publisher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_publisher.FlatAppearance.BorderSize = 0;
-            this.btn_publisher.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_publisher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_publisher.ForeColor = System.Drawing.Color.White;
-            this.btn_publisher.Image = ((System.Drawing.Image)(resources.GetObject("btn_publisher.Image")));
-            this.btn_publisher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_publisher.Location = new System.Drawing.Point(29, 166);
-            this.btn_publisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_publisher.Name = "btn_publisher";
-            this.btn_publisher.Size = new System.Drawing.Size(160, 34);
-            this.btn_publisher.TabIndex = 8;
-            this.btn_publisher.Text = "      Publishers";
-            this.btn_publisher.UseVisualStyleBackColor = true;
-            this.btn_publisher.Click += new System.EventHandler(this.btn_publisher_Click);
-            // 
-            // btn_author
-            // 
-            this.btn_author.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_author.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_author.FlatAppearance.BorderSize = 0;
-            this.btn_author.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_author.ForeColor = System.Drawing.Color.White;
-            this.btn_author.Image = ((System.Drawing.Image)(resources.GetObject("btn_author.Image")));
-            this.btn_author.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_author.Location = new System.Drawing.Point(29, 117);
-            this.btn_author.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_author.Name = "btn_author";
-            this.btn_author.Size = new System.Drawing.Size(160, 34);
-            this.btn_author.TabIndex = 9;
-            this.btn_author.Text = "  Authors";
-            this.btn_author.UseVisualStyleBackColor = true;
-            this.btn_author.Click += new System.EventHandler(this.btn_author_Click);
-            // 
-            // btn_about
-            // 
-            this.btn_about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_about.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_about.FlatAppearance.BorderSize = 0;
-            this.btn_about.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_about.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_about.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_about.ForeColor = System.Drawing.Color.White;
-            this.btn_about.Image = ((System.Drawing.Image)(resources.GetObject("btn_about.Image")));
-            this.btn_about.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_about.Location = new System.Drawing.Point(29, 312);
-            this.btn_about.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_about.Name = "btn_about";
-            this.btn_about.Size = new System.Drawing.Size(160, 34);
-            this.btn_about.TabIndex = 7;
-            this.btn_about.Text = "      About Us";
-            this.btn_about.UseVisualStyleBackColor = true;
-            this.btn_about.Click += new System.EventHandler(this.btn_about_us_Click);
-            // 
-            // btn_add
-            // 
-            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_add.FlatAppearance.BorderSize = 0;
-            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
-            this.btn_add.Location = new System.Drawing.Point(168, 456);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(41, 44);
-            this.btn_add.TabIndex = 6;
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.Btn_Add_Click);
-            // 
-            // btn_email
-            // 
-            this.btn_email.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_email.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_email.FlatAppearance.BorderSize = 0;
-            this.btn_email.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_email.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_email.ForeColor = System.Drawing.Color.White;
-            this.btn_email.Image = ((System.Drawing.Image)(resources.GetObject("btn_email.Image")));
-            this.btn_email.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_email.Location = new System.Drawing.Point(29, 263);
-            this.btn_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_email.Name = "btn_email";
-            this.btn_email.Size = new System.Drawing.Size(160, 34);
-            this.btn_email.TabIndex = 6;
-            this.btn_email.Text = "Email";
-            this.btn_email.UseVisualStyleBackColor = true;
-            this.btn_email.Click += new System.EventHandler(this.btn_email_Click);
-            // 
-            // btn_user
-            // 
-            this.btn_user.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_user.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_user.FlatAppearance.BorderSize = 0;
-            this.btn_user.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_user.ForeColor = System.Drawing.Color.White;
-            this.btn_user.Image = ((System.Drawing.Image)(resources.GetObject("btn_user.Image")));
-            this.btn_user.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_user.Location = new System.Drawing.Point(29, 68);
-            this.btn_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_user.Name = "btn_user";
-            this.btn_user.Size = new System.Drawing.Size(160, 34);
-            this.btn_user.TabIndex = 5;
-            this.btn_user.Text = "Users";
-            this.btn_user.UseVisualStyleBackColor = true;
-            this.btn_user.Click += new System.EventHandler(this.btn_users_Click);
-            // 
             // pnl_stick
             // 
             this.pnl_stick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
@@ -330,38 +195,6 @@ namespace Microwave_v1._0
             this.pnl_stick.Name = "pnl_stick";
             this.pnl_stick.Size = new System.Drawing.Size(8, 34);
             this.pnl_stick.TabIndex = 4;
-            // 
-            // btn_book
-            // 
-            this.btn_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_book.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_book.FlatAppearance.BorderSize = 0;
-            this.btn_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_book.ForeColor = System.Drawing.Color.White;
-            this.btn_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_book.Image")));
-            this.btn_book.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_book.Location = new System.Drawing.Point(29, 20);
-            this.btn_book.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_book.Name = "btn_book";
-            this.btn_book.Size = new System.Drawing.Size(160, 34);
-            this.btn_book.TabIndex = 4;
-            this.btn_book.Text = "Book";
-            this.btn_book.UseVisualStyleBackColor = true;
-            this.btn_book.Click += new System.EventHandler(this.btn_book_Click);
-            // 
-            // pic_logo
-            // 
-            this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
-            this.pic_logo.Location = new System.Drawing.Point(2, 10);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
-            this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(92, 80);
-            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_logo.TabIndex = 4;
-            this.pic_logo.TabStop = false;
-            this.pic_logo.Click += new System.EventHandler(this.General_Click);
             // 
             // lbl_logo
             // 
@@ -407,53 +240,6 @@ namespace Microwave_v1._0
             this.pnl_header.Size = new System.Drawing.Size(984, 40);
             this.pnl_header.TabIndex = 2;
             this.pnl_header.Click += new System.EventHandler(this.General_Click);
-            // 
-            // btn_show_search_types
-            // 
-            this.btn_show_search_types.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_show_search_types.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_show_search_types.FlatAppearance.BorderSize = 0;
-            this.btn_show_search_types.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_show_search_types.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_show_search_types.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_search_types.ForeColor = System.Drawing.Color.White;
-            this.btn_show_search_types.Image = ((System.Drawing.Image)(resources.GetObject("btn_show_search_types.Image")));
-            this.btn_show_search_types.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_show_search_types.Location = new System.Drawing.Point(274, 5);
-            this.btn_show_search_types.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_show_search_types.Name = "btn_show_search_types";
-            this.btn_show_search_types.Size = new System.Drawing.Size(26, 29);
-            this.btn_show_search_types.TabIndex = 10;
-            this.btn_show_search_types.UseVisualStyleBackColor = true;
-            this.btn_show_search_types.Click += new System.EventHandler(this.Btn_show_search_types_Click);
-            // 
-            // btn_profil
-            // 
-            this.btn_profil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_profil.FlatAppearance.BorderSize = 0;
-            this.btn_profil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_profil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_profil.Image = ((System.Drawing.Image)(resources.GetObject("btn_profil.Image")));
-            this.btn_profil.Location = new System.Drawing.Point(884, 5);
-            this.btn_profil.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_profil.Name = "btn_profil";
-            this.btn_profil.Size = new System.Drawing.Size(42, 29);
-            this.btn_profil.TabIndex = 2;
-            this.btn_profil.UseVisualStyleBackColor = true;
-            // 
-            // btn_settings
-            // 
-            this.btn_settings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_settings.FlatAppearance.BorderSize = 0;
-            this.btn_settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_settings.Image")));
-            this.btn_settings.Location = new System.Drawing.Point(930, 5);
-            this.btn_settings.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_settings.Name = "btn_settings";
-            this.btn_settings.Size = new System.Drawing.Size(42, 29);
-            this.btn_settings.TabIndex = 1;
-            this.btn_settings.UseVisualStyleBackColor = true;
             // 
             // tb_search_user
             // 
@@ -1077,6 +863,21 @@ namespace Microwave_v1._0
             this.pnl_sep_user.Size = new System.Drawing.Size(750, 1);
             this.pnl_sep_user.TabIndex = 7;
             // 
+            // lb_user_search
+            // 
+            this.lb_user_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lb_user_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_user_search.ForeColor = System.Drawing.Color.White;
+            this.lb_user_search.FormattingEnabled = true;
+            this.lb_user_search.ItemHeight = 16;
+            this.lb_user_search.Location = new System.Drawing.Point(300, 0);
+            this.lb_user_search.Name = "lb_user_search";
+            this.lb_user_search.Size = new System.Drawing.Size(235, 68);
+            this.lb_user_search.TabIndex = 23;
+            this.lb_user_search.DoubleClick += new System.EventHandler(this.Lb_user_search_DoubleClick);
+            this.lb_user_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_user_search_KeyPress);
+            this.lb_user_search.Leave += new System.EventHandler(this.Lb_user_search_Leave);
+            // 
             // pnl_user_st
             // 
             this.pnl_user_st.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
@@ -1220,25 +1021,10 @@ namespace Microwave_v1._0
             this.lbl_user_email.TabIndex = 11;
             this.lbl_user_email.Text = "Email";
             // 
-            // lb_user_search
-            // 
-            this.lb_user_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.lb_user_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_user_search.ForeColor = System.Drawing.Color.White;
-            this.lb_user_search.FormattingEnabled = true;
-            this.lb_user_search.ItemHeight = 16;
-            this.lb_user_search.Location = new System.Drawing.Point(300, 0);
-            this.lb_user_search.Name = "lb_user_search";
-            this.lb_user_search.Size = new System.Drawing.Size(235, 68);
-            this.lb_user_search.TabIndex = 23;
-            this.lb_user_search.DoubleClick += new System.EventHandler(this.Lb_user_search_DoubleClick);
-            this.lb_user_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Lb_user_search_KeyPress);
-            this.lb_user_search.Leave += new System.EventHandler(this.Lb_user_search_Leave);
-            // 
             // pnl_tag
             // 
             this.pnl_tag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_tag.Location = new System.Drawing.Point(1008, 38);
+            this.pnl_tag.Location = new System.Drawing.Point(1008, 39);
             this.pnl_tag.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_tag.Name = "pnl_tag";
             this.pnl_tag.Size = new System.Drawing.Size(190, 571);
@@ -1528,6 +1314,220 @@ namespace Microwave_v1._0
             this.author_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
             this.author_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // btn_department
+            // 
+            this.btn_department.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_department.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_department.FlatAppearance.BorderSize = 0;
+            this.btn_department.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_department.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_department.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_department.ForeColor = System.Drawing.Color.White;
+            this.btn_department.Image = ((System.Drawing.Image)(resources.GetObject("btn_department.Image")));
+            this.btn_department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_department.Location = new System.Drawing.Point(29, 214);
+            this.btn_department.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_department.Name = "btn_department";
+            this.btn_department.Size = new System.Drawing.Size(160, 34);
+            this.btn_department.TabIndex = 9;
+            this.btn_department.Text = "       Department";
+            this.btn_department.UseVisualStyleBackColor = true;
+            this.btn_department.Click += new System.EventHandler(this.btn_department_Click);
+            // 
+            // btn_publisher
+            // 
+            this.btn_publisher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_publisher.FlatAppearance.BorderSize = 0;
+            this.btn_publisher.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_publisher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_publisher.ForeColor = System.Drawing.Color.White;
+            this.btn_publisher.Image = ((System.Drawing.Image)(resources.GetObject("btn_publisher.Image")));
+            this.btn_publisher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_publisher.Location = new System.Drawing.Point(29, 166);
+            this.btn_publisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_publisher.Name = "btn_publisher";
+            this.btn_publisher.Size = new System.Drawing.Size(160, 34);
+            this.btn_publisher.TabIndex = 8;
+            this.btn_publisher.Text = "      Publishers";
+            this.btn_publisher.UseVisualStyleBackColor = true;
+            this.btn_publisher.Click += new System.EventHandler(this.btn_publisher_Click);
+            // 
+            // btn_author
+            // 
+            this.btn_author.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_author.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_author.FlatAppearance.BorderSize = 0;
+            this.btn_author.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_author.ForeColor = System.Drawing.Color.White;
+            this.btn_author.Image = ((System.Drawing.Image)(resources.GetObject("btn_author.Image")));
+            this.btn_author.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_author.Location = new System.Drawing.Point(29, 117);
+            this.btn_author.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_author.Name = "btn_author";
+            this.btn_author.Size = new System.Drawing.Size(160, 34);
+            this.btn_author.TabIndex = 9;
+            this.btn_author.Text = "  Authors";
+            this.btn_author.UseVisualStyleBackColor = true;
+            this.btn_author.Click += new System.EventHandler(this.btn_author_Click);
+            // 
+            // btn_about
+            // 
+            this.btn_about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_about.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_about.FlatAppearance.BorderSize = 0;
+            this.btn_about.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_about.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_about.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_about.ForeColor = System.Drawing.Color.White;
+            this.btn_about.Image = ((System.Drawing.Image)(resources.GetObject("btn_about.Image")));
+            this.btn_about.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_about.Location = new System.Drawing.Point(29, 312);
+            this.btn_about.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_about.Name = "btn_about";
+            this.btn_about.Size = new System.Drawing.Size(160, 34);
+            this.btn_about.TabIndex = 7;
+            this.btn_about.Text = "      About Us";
+            this.btn_about.UseVisualStyleBackColor = true;
+            this.btn_about.Click += new System.EventHandler(this.btn_about_us_Click);
+            // 
+            // btn_add
+            // 
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_add.FlatAppearance.BorderSize = 0;
+            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
+            this.btn_add.Location = new System.Drawing.Point(168, 456);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(41, 44);
+            this.btn_add.TabIndex = 6;
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.Btn_Add_Click);
+            // 
+            // btn_email
+            // 
+            this.btn_email.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_email.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_email.FlatAppearance.BorderSize = 0;
+            this.btn_email.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_email.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_email.ForeColor = System.Drawing.Color.White;
+            this.btn_email.Image = ((System.Drawing.Image)(resources.GetObject("btn_email.Image")));
+            this.btn_email.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_email.Location = new System.Drawing.Point(29, 263);
+            this.btn_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_email.Name = "btn_email";
+            this.btn_email.Size = new System.Drawing.Size(160, 34);
+            this.btn_email.TabIndex = 6;
+            this.btn_email.Text = "Email";
+            this.btn_email.UseVisualStyleBackColor = true;
+            this.btn_email.Click += new System.EventHandler(this.btn_email_Click);
+            // 
+            // btn_user
+            // 
+            this.btn_user.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_user.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_user.FlatAppearance.BorderSize = 0;
+            this.btn_user.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_user.ForeColor = System.Drawing.Color.White;
+            this.btn_user.Image = ((System.Drawing.Image)(resources.GetObject("btn_user.Image")));
+            this.btn_user.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_user.Location = new System.Drawing.Point(29, 68);
+            this.btn_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_user.Name = "btn_user";
+            this.btn_user.Size = new System.Drawing.Size(160, 34);
+            this.btn_user.TabIndex = 5;
+            this.btn_user.Text = "Users";
+            this.btn_user.UseVisualStyleBackColor = true;
+            this.btn_user.Click += new System.EventHandler(this.btn_users_Click);
+            // 
+            // btn_book
+            // 
+            this.btn_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_book.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_book.FlatAppearance.BorderSize = 0;
+            this.btn_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_book.ForeColor = System.Drawing.Color.White;
+            this.btn_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_book.Image")));
+            this.btn_book.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_book.Location = new System.Drawing.Point(29, 20);
+            this.btn_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_book.Name = "btn_book";
+            this.btn_book.Size = new System.Drawing.Size(160, 34);
+            this.btn_book.TabIndex = 4;
+            this.btn_book.Text = "Book";
+            this.btn_book.UseVisualStyleBackColor = true;
+            this.btn_book.Click += new System.EventHandler(this.btn_book_Click);
+            // 
+            // pic_logo
+            // 
+            this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
+            this.pic_logo.Location = new System.Drawing.Point(2, 10);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_logo.Name = "pic_logo";
+            this.pic_logo.Size = new System.Drawing.Size(92, 80);
+            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_logo.TabIndex = 4;
+            this.pic_logo.TabStop = false;
+            this.pic_logo.Click += new System.EventHandler(this.General_Click);
+            // 
+            // btn_show_search_types
+            // 
+            this.btn_show_search_types.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_show_search_types.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_show_search_types.FlatAppearance.BorderSize = 0;
+            this.btn_show_search_types.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_show_search_types.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_show_search_types.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_search_types.ForeColor = System.Drawing.Color.White;
+            this.btn_show_search_types.Image = ((System.Drawing.Image)(resources.GetObject("btn_show_search_types.Image")));
+            this.btn_show_search_types.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_show_search_types.Location = new System.Drawing.Point(274, 5);
+            this.btn_show_search_types.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_show_search_types.Name = "btn_show_search_types";
+            this.btn_show_search_types.Size = new System.Drawing.Size(26, 29);
+            this.btn_show_search_types.TabIndex = 10;
+            this.btn_show_search_types.UseVisualStyleBackColor = true;
+            this.btn_show_search_types.Click += new System.EventHandler(this.Btn_show_search_types_Click);
+            // 
+            // btn_profil
+            // 
+            this.btn_profil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_profil.FlatAppearance.BorderSize = 0;
+            this.btn_profil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_profil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_profil.Image = ((System.Drawing.Image)(resources.GetObject("btn_profil.Image")));
+            this.btn_profil.Location = new System.Drawing.Point(884, 5);
+            this.btn_profil.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_profil.Name = "btn_profil";
+            this.btn_profil.Size = new System.Drawing.Size(42, 29);
+            this.btn_profil.TabIndex = 2;
+            this.btn_profil.UseVisualStyleBackColor = true;
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_settings.FlatAppearance.BorderSize = 0;
+            this.btn_settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_settings.Image")));
+            this.btn_settings.Location = new System.Drawing.Point(930, 5);
+            this.btn_settings.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_settings.Name = "btn_settings";
+            this.btn_settings.Size = new System.Drawing.Size(42, 29);
+            this.btn_settings.TabIndex = 1;
+            this.btn_settings.UseVisualStyleBackColor = true;
+            // 
             // Microwave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1555,7 +1555,6 @@ namespace Microwave_v1._0
             this.Click += new System.EventHandler(this.General_Click);
             this.pnl_left.ResumeLayout(false);
             this.pnl_menu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             this.pnl_authors.ResumeLayout(false);
@@ -1578,6 +1577,7 @@ namespace Microwave_v1._0
             this.pnl_pub.PerformLayout();
             this.pnl_publisher_st.ResumeLayout(false);
             this.pnl_publisher_st.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.ResumeLayout(false);
 
         }

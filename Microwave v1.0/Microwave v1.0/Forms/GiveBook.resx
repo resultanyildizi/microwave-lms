@@ -117,17 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pencil (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\pencil (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_give_book.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH4wsdDDAv9CqPEQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHdSURBVFhH
+        7Ve7SgNBFF0FrSysBbETBEHFH7BQsFFCYGbWThBSBBQ7G9GAra2FhWgn6QQ7BW0tBB95ED9AC218VRqM
+        546bZWZ3Y3Z3BkTIgcPuzL333JPMTHbjlIVwS5w/gQ0rZOzcSQIUPYZETJjCQDUkYsKkBm6EGEVhETy1
+        xG1P+p+gzNgRXK/cMpYrcz5Hc9dCDNPYhCXXnZIN2gHNQ+sHgUVtPgVxuvZlg3bQCjsGog0UaU1jkfOt
+        Zp01AxBalYkxUGFsXKmzZIDzO1yjznuIqLvA1a6BtOwY+HMDdCJI6yqT6cd4Bxu0l8YhaIX2DJxRw8tc
+        rgf3J97cYcNxumRTFV7wh3YMlOhTUzN8CwdqrPmtaFATTA2gwT0eQoNSQ/lRUom9kae4Dy3BzMALxMek
+        JmNLEfEm61ieecqT0ILpDXygdoZqIT6L8WcgHuRrxXUnKN+GgS/Kpzrv7eo5EG/Fh2o2O2RsALkbVNMo
+        FLox3sQy7BJJK5grydixnyPEsqmBPcqPQkuN4JsSJut+MJmBNzyo1rHb11RibuFXjQgDNT+Ybg/obKcR
+        NIC1oH9G8YrjMKkBAkzkEXz/MwMEnN8+7MoRuq+57gDWczoVGZskjcQGbKNjIJ4Bx/kGendNbPYn2YUA
+        AAAASUVORK5CYII=
+</value>
   </data>
-  <data name="correct-symbol (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\correct-symbol (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="man-user (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\man-user (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="man-user (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\man-user (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_show_search_types.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH4wsWDQs2ejAl3wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABoSURBVDhP
+        3Y/BDYAwDAMzX1kDqQ8GYG0YAIJd4Q+oatpnT/Ijac5SbQLcPSH7YBILTmSUgwUZucvYB52sb6zIxW0Q
+        yluRBRbRkr8s8NAqqcsCB7WStixw+C2JywKCSvplAXFh3nFOzB4NqIuzvC/PGAAAAABJRU5ErkJggg==
+</value>
   </data>
 </root>
