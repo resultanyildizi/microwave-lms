@@ -59,7 +59,7 @@
             this.pnl_age.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_age.Controls.Add(this.lbl_age);
             this.pnl_age.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_age.Location = new System.Drawing.Point(374, 0);
+            this.pnl_age.Location = new System.Drawing.Point(363, 0);
             this.pnl_age.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_age.Name = "pnl_age";
             this.pnl_age.Size = new System.Drawing.Size(58, 40);
@@ -90,7 +90,7 @@
             this.pnl_gender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_gender.Controls.Add(this.lbl_gender);
             this.pnl_gender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_gender.Location = new System.Drawing.Point(308, 0);
+            this.pnl_gender.Location = new System.Drawing.Point(297, 0);
             this.pnl_gender.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_gender.Name = "pnl_gender";
             this.pnl_gender.Size = new System.Drawing.Size(63, 40);
@@ -121,7 +121,7 @@
             this.pnl_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_email.Controls.Add(this.lbl_email);
             this.pnl_email.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_email.Location = new System.Drawing.Point(435, 0);
+            this.pnl_email.Location = new System.Drawing.Point(423, 0);
             this.pnl_email.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_email.Name = "pnl_email";
             this.pnl_email.Size = new System.Drawing.Size(208, 40);
@@ -186,7 +186,7 @@
             this.pnl_surname.Location = new System.Drawing.Point(179, 0);
             this.pnl_surname.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_surname.Name = "pnl_surname";
-            this.pnl_surname.Size = new System.Drawing.Size(127, 40);
+            this.pnl_surname.Size = new System.Drawing.Size(115, 40);
             this.pnl_surname.TabIndex = 6;
             this.pnl_surname.Click += new System.EventHandler(this.UserInfo_Click);
             this.pnl_surname.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
@@ -246,10 +246,10 @@
             this.pnl_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_date.Controls.Add(this.lbl_date);
             this.pnl_date.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_date.Location = new System.Drawing.Point(646, 0);
+            this.pnl_date.Location = new System.Drawing.Point(634, 0);
             this.pnl_date.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_date.Name = "pnl_date";
-            this.pnl_date.Size = new System.Drawing.Size(100, 40);
+            this.pnl_date.Size = new System.Drawing.Size(112, 40);
             this.pnl_date.TabIndex = 10;
             this.pnl_date.Click += new System.EventHandler(this.UserInfo_Click);
             this.pnl_date.MouseEnter += new System.EventHandler(this.UserInfo_MouseEnter);
@@ -258,14 +258,13 @@
             // lbl_date
             // 
             this.lbl_date.AutoEllipsis = true;
-            this.lbl_date.AutoSize = true;
             this.lbl_date.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_date.Location = new System.Drawing.Point(7, 13);
+            this.lbl_date.Location = new System.Drawing.Point(4, 13);
             this.lbl_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(80, 17);
+            this.lbl_date.Size = new System.Drawing.Size(95, 17);
             this.lbl_date.TabIndex = 3;
             this.lbl_date.Text = "22/10/1999";
             this.lbl_date.Click += new System.EventHandler(this.UserInfo_Click);
@@ -334,7 +333,6 @@
             this.pnl_surname.ResumeLayout(false);
             this.pnl_surname.PerformLayout();
             this.pnl_date.ResumeLayout(false);
-            this.pnl_date.PerformLayout();
             this.pnl_id.ResumeLayout(false);
             this.ResumeLayout(false);
 

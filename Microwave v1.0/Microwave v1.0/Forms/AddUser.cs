@@ -22,7 +22,7 @@ namespace Microwave_v1._0
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
-            this.rdo_male.Checked = true;
+            this.rb_male.Checked = true;
             this.BringToFront();
         }
 
@@ -43,9 +43,12 @@ namespace Microwave_v1._0
             this.tb_user_surname.ForeColor = Color.LightGray;
             this.tb_user_email.ForeColor = Color.LightGray;
 
-            this.is_edit = true;
+            if (user.Gender == "Male")
+                this.rb_male.Checked = true;
+            else
+                this.rb_female.Checked = true;
 
-            this.rdo_male.Checked = true;
+            this.is_edit = true;
 
             this.BringToFront();
         }
@@ -56,6 +59,7 @@ namespace Microwave_v1._0
             name = (tb_user_name.Text.Trim());
             surname = (tb_user_surname.Text.Trim());
             email = (tb_user_email.Text.Trim());
+            password = Generate_Auto_Password();
             date = DateTime.Now.ToString();
             age = (int)numUpDown_age.Value;
             
@@ -87,11 +91,14 @@ namespace Microwave_v1._0
                 return;
             }
 
-            if (rdo_male.Checked)
+            if (!is_a_valid_email(email))
+                return;
+
+            if (rb_male.Checked)
             {
                 gender = "Male";
             }
-            else if (rdo_female.Checked)
+            else if (rb_female.Checked)
             {
                 gender = "Female";
             }
@@ -135,7 +142,7 @@ namespace Microwave_v1._0
             tb_user_surname.ForeColor = Color.DimGray;
             tb_user_email.Text = "Email";
             tb_user_email.ForeColor = Color.DimGray;
-            rdo_male.Checked = true;
+            rb_male.Checked = true;
             numUpDown_age.Value = 7;
         }
 
@@ -144,7 +151,138 @@ namespace Microwave_v1._0
             Add_User_Click(is_edit); 
         }
 
+        private bool is_a_valid_email(string email)
+        {
+            string[] invalid_ends = { ".", "_", "-", "!", "\"", "é", "'", "^", "+", "%",
+                                       "&", "/", "(", ")",  "=", "?", ",", ";", ":", "<",
+                                       ">", "|", "`", "#",  "$", "½", "{", "}", "[", "]",
+                                       "\\", "ç", "Ç", "~", "ş", "Ş", "ğ", "Ğ", "İ", "ü",
+                                       "Ü" , "ö", "Ö", "ı", "æ", "ß", "´", "₺", "€", "@",
+                                        " "};
 
+            string[] invalid_chars = { "!", "\"", "é","^", "+", "%","&", "/", "(", ")",
+                                       "=", "?", ",", ";", ":", "<",">", "|", "`", "#",
+                                       "$", "½", "{", "}", "[", "]","\\","ç", "Ç", "~",
+                                       "ş", "Ş", "ğ", "Ğ", "İ", "ü","Ü" ,"ö", "Ö", "ı",
+                                       "æ", "ß", "´", "₺", "€", "@", " "};
+
+            string[] invalid_chars_all = {"_", "-", "!", "\"", "é", "'", "^", "+", "%",
+                                            "&", "/", "(", ")",  "=", "?", ",", ";", ":", "<",
+                                         ">", "|", "`", "#",  "$", "½", "{", "}", "[", "]",
+                                         "\\", "ç", "Ç", "~", "ş", "Ş", "ğ", "Ğ", "İ", "ü",
+                                         "Ü" , "ö", "Ö", "ı", "æ", "ß", "´", "₺", "€", "@",
+                                        " "};
+
+            string message = "Please enter a valid email.";
+            lbl_user_message.ForeColor = Color.Red;
+            int index_of_at = email.IndexOf('@');
+
+            // Checking for '@'
+            if (index_of_at == -1)
+            {
+                lbl_user_message.Text = message;
+                return false;
+            }
+
+            // Substringing email
+            string head_email = email.Substring(0, index_of_at);
+            string tail_email = email.Substring(index_of_at + 1, email.Length - index_of_at - 1);
+
+            // Checking for invalid chars
+            for (int i = 0; i < invalid_chars.Length; i++)
+            {
+                if (!(head_email.IndexOf(invalid_chars[i]) == -1))
+                {
+                    lbl_user_message.Text = message;
+                    return false;
+                }
+            }
+            // Checking for invalid end
+            if (head_email.EndsWith("."))
+            {
+                lbl_user_message.Text = message;
+                return false;
+            }
+
+
+            // Checking for '.' after '@'
+            bool contains_dot = false;
+            int[] indexes_of_dots = new int[20];
+
+            int j = 0;
+            for (int i = 0; i < tail_email.Length; i++)
+            {
+                if (tail_email[i] == '.')
+                {
+                    indexes_of_dots[j] = i;
+                    j++;
+                }
+            }
+
+
+            // Checking for if the dots are next to each other
+            for (int i = 1; i < indexes_of_dots.Length; i++)
+            {
+                int a = indexes_of_dots[i - 1];
+                int b = indexes_of_dots[i];
+
+                if (b - a == 1)
+                {
+                    lbl_user_message.Text = message;
+                    return false;
+                }
+            }
+
+            // Checking for if there is a dot or starts with dot
+            if (indexes_of_dots[0] == 0)
+            {
+                contains_dot = false;
+            }
+            else
+                contains_dot = true;
+
+            if (!contains_dot)
+            {
+                lbl_user_message.Text = message;
+                return false;
+            }
+
+            // Checking for invalid chars - tail email - after dot
+            for (int i = 0; i < invalid_chars.Length; i++)
+            {
+                if (!(tail_email.IndexOf(invalid_chars_all[i]) == -1))
+                {
+                    lbl_user_message.Text = message;
+                    return false;
+                }
+            }
+            // Checking for invalid ends
+            for (int i = 0; i < invalid_ends.Length; i++)
+            {
+                if (tail_email.EndsWith(invalid_ends[i]))
+                {
+                    lbl_user_message.Text = message;
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+        private string Generate_Auto_Password()
+        {
+            Random r = new Random();
+
+            string pass = "";
+            pass += (char)r.Next(65, 90);
+            pass += (char)r.Next(97, 122);
+            pass += (char)r.Next(65, 90);
+            pass += (char)r.Next(97, 122);
+            pass += r.Next(1001, 9998);
+
+
+            return pass;
+        }
 
         private void Tb_user_name_Enter(object sender, EventArgs e)
         {

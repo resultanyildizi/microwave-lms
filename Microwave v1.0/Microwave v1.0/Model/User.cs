@@ -128,6 +128,44 @@ namespace Microwave_v1._0
             info.Initialize_User_Info(user_id, name, surname, gender, age, email, date, color_mode);
         }
 
+        static public DataTable Search_User_By_Name(string name)
+        {
+            string query = string.Format("Select * From Users Where Users.NAME Like '{0}%'", name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_User_By_Surname(string surname)
+        {
+            string query = string.Format("Select * From Users Where Users.SURNAME Like '{0}%'", surname);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_User_By_ID(string id)
+        {
+            string query = string.Format("Select * From Users Where Users.USER_ID Like '{0}%'", id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_User_By_Email(string email)
+        {
+            string query = string.Format("Select * From Users Where Users.EMAIL Like '{0}%'", email);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+
+        }
+        static public DataTable Search_User_By_Age(string age)
+        {
+            string query = string.Format("Select * From Users Where Users.AGE Like '{0}%'", age);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_User_By_Gender(string gender)
+        {
+            string query = string.Format("Select * From Users Where Users.GENDER Like '{0}%'", gender);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+
 
         // Background Database Events
         private void Take_Id_From_Database()

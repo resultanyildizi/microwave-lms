@@ -32,8 +32,8 @@
             this.pnl_user_main = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tb_user_email = new System.Windows.Forms.TextBox();
-            this.rdo_female = new System.Windows.Forms.RadioButton();
-            this.rdo_male = new System.Windows.Forms.RadioButton();
+            this.rb_female = new System.Windows.Forms.RadioButton();
+            this.rb_male = new System.Windows.Forms.RadioButton();
             this.numUpDown_age = new System.Windows.Forms.NumericUpDown();
             this.lbl_user_message = new System.Windows.Forms.Label();
             this.lbl_user_age = new System.Windows.Forms.Label();
@@ -55,8 +55,8 @@
             this.pnl_user_main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_user_main.Controls.Add(this.pictureBox1);
             this.pnl_user_main.Controls.Add(this.tb_user_email);
-            this.pnl_user_main.Controls.Add(this.rdo_female);
-            this.pnl_user_main.Controls.Add(this.rdo_male);
+            this.pnl_user_main.Controls.Add(this.rb_female);
+            this.pnl_user_main.Controls.Add(this.rb_male);
             this.pnl_user_main.Controls.Add(this.numUpDown_age);
             this.pnl_user_main.Controls.Add(this.lbl_user_message);
             this.pnl_user_main.Controls.Add(this.lbl_user_age);
@@ -96,33 +96,33 @@
             this.tb_user_email.Margin = new System.Windows.Forms.Padding(2);
             this.tb_user_email.Name = "tb_user_email";
             this.tb_user_email.Size = new System.Drawing.Size(218, 23);
-            this.tb_user_email.TabIndex = 27;
+            this.tb_user_email.TabIndex = 3;
             this.tb_user_email.Text = "Email";
             this.tb_user_email.Enter += new System.EventHandler(this.Tb_user_email_Enter);
             this.tb_user_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_user_email_KeyPress);
             this.tb_user_email.Leave += new System.EventHandler(this.Tb_user_email_Leave);
             // 
-            // rdo_female
+            // rb_female
             // 
-            this.rdo_female.AutoSize = true;
-            this.rdo_female.Location = new System.Drawing.Point(206, 155);
-            this.rdo_female.Name = "rdo_female";
-            this.rdo_female.Size = new System.Drawing.Size(59, 17);
-            this.rdo_female.TabIndex = 26;
-            this.rdo_female.TabStop = true;
-            this.rdo_female.Text = "Female";
-            this.rdo_female.UseVisualStyleBackColor = true;
+            this.rb_female.AutoSize = true;
+            this.rb_female.Location = new System.Drawing.Point(206, 155);
+            this.rb_female.Name = "rb_female";
+            this.rb_female.Size = new System.Drawing.Size(59, 17);
+            this.rb_female.TabIndex = 5;
+            this.rb_female.TabStop = true;
+            this.rb_female.Text = "Female";
+            this.rb_female.UseVisualStyleBackColor = true;
             // 
-            // rdo_male
+            // rb_male
             // 
-            this.rdo_male.AutoSize = true;
-            this.rdo_male.Location = new System.Drawing.Point(104, 155);
-            this.rdo_male.Name = "rdo_male";
-            this.rdo_male.Size = new System.Drawing.Size(48, 17);
-            this.rdo_male.TabIndex = 25;
-            this.rdo_male.TabStop = true;
-            this.rdo_male.Text = "Male";
-            this.rdo_male.UseVisualStyleBackColor = true;
+            this.rb_male.AutoSize = true;
+            this.rb_male.Location = new System.Drawing.Point(104, 155);
+            this.rb_male.Name = "rb_male";
+            this.rb_male.Size = new System.Drawing.Size(48, 17);
+            this.rb_male.TabIndex = 4;
+            this.rb_male.TabStop = true;
+            this.rb_male.Text = "Male";
+            this.rb_male.UseVisualStyleBackColor = true;
             // 
             // numUpDown_age
             // 
@@ -189,7 +189,7 @@
             this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(41, 46);
-            this.btn_add.TabIndex = 17;
+            this.btn_add.TabIndex = 7;
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
@@ -296,8 +296,8 @@
         private System.Windows.Forms.TextBox tb_user_surname;
         private System.Windows.Forms.Label lbl_user_name;
         private System.Windows.Forms.TextBox tb_user_name;
-        private System.Windows.Forms.RadioButton rdo_female;
-        private System.Windows.Forms.RadioButton rdo_male;
+        private System.Windows.Forms.RadioButton rb_female;
+        private System.Windows.Forms.RadioButton rb_male;
         private System.Windows.Forms.TextBox tb_user_email;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

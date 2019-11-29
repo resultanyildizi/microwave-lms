@@ -120,6 +120,7 @@ namespace Microwave_v1._0
         }
         public void Deselect_User_Info()
         {
+            chosen = false;
             Color back_color = Color.FromArgb(55, 57, 68);
             this.pnl_name.BackColor = back_color;
             this.pnl_surname.BackColor = back_color;
@@ -166,6 +167,11 @@ namespace Microwave_v1._0
                 Remove();
             }
             main_page.Warning_form.Refresh_Form();
+
+            main_page.Pnl_user_list.VerticalScroll.Value = 0;
+            main_page.User_search_list.Delete_All_List();
+            main_page.Main_user_list.Draw_All_Users();
+            main_page.User_searched_already = false;
         }
         private void Edit()
         {

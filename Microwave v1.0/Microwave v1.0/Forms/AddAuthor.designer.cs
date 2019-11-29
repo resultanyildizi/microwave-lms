@@ -130,24 +130,24 @@
             this.tb_country.TabIndex = 46;
             this.tb_country.Text = "Country";
             // 
-            // rdo_female
+            // rb_female
             // 
             this.rdo_female.AutoSize = true;
             this.rdo_female.ForeColor = System.Drawing.SystemColors.Window;
             this.rdo_female.Location = new System.Drawing.Point(207, 113);
-            this.rdo_female.Name = "rdo_female";
+            this.rdo_female.Name = "rb_female";
             this.rdo_female.Size = new System.Drawing.Size(59, 17);
             this.rdo_female.TabIndex = 49;
             this.rdo_female.TabStop = true;
             this.rdo_female.Text = "Female";
             this.rdo_female.UseVisualStyleBackColor = true;
             // 
-            // rdo_male
+            // rb_male
             // 
             this.rdo_male.AutoSize = true;
             this.rdo_male.ForeColor = System.Drawing.SystemColors.Window;
             this.rdo_male.Location = new System.Drawing.Point(105, 113);
-            this.rdo_male.Name = "rdo_male";
+            this.rdo_male.Name = "rb_male";
             this.rdo_male.Size = new System.Drawing.Size(48, 17);
             this.rdo_male.TabIndex = 48;
             this.rdo_male.TabStop = true;
