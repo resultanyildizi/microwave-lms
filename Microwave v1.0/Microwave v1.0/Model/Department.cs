@@ -32,8 +32,9 @@ namespace Microwave_v1._0.Classes
         public string Cover_path_file { get => cover_path_file; set => cover_path_file = value; }
         public Department_Info Info { get => info; set => info = value; }
 
-        public Department(string name,string Cover_path_file)
+        public Department(int department_id,string name,string Cover_path_file)
         {
+            this.department_id = department_id;
             this.name = name;
             this.cover_path_file = Cover_path_file;
             main_page = (Microwave)Application.OpenForms["Microwave"];
@@ -58,7 +59,7 @@ namespace Microwave_v1._0.Classes
             Take_Id_From_Database();
             
 
-            info.Initialize_Department_Info(name, cover_path_file);
+            info.Initialize_Department_Info(department_id,name, cover_path_file);
 
            
             main_page.Main_department_list.Add_Department_to_List(this);
@@ -66,10 +67,27 @@ namespace Microwave_v1._0.Classes
             info.Draw_Department_Obj(ref Department.point_x, ref Department.point_y);
 
         }
+        public void Edit()
+        {
+            string title = "UPDATE Department ";
+            string query = title + string.Format("SET NAME = '{0}', COVER_PATH = '{1}' WHERE DEPARTMENT_ID = '{2}'", name, cover_path_file,department_id); 
+
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+            {
+                MessageBox.Show("Invalid update event");
+                return;
+            }
+
+
+            info.Initialize_Department_Info(department_id, name, cover_path_file);
+            info.Select_Department_Info();
+
+        }
         public void Set_Department()
         {
             info = new Department_Info();
-            info.Initialize_Department_Info(name, cover_path_file);
+            info.Initialize_Department_Info(department_id,name, cover_path_file);
         }
       public void Delete()
         {
@@ -84,6 +102,7 @@ namespace Microwave_v1._0.Classes
                 return;
             }
         }
+    
         private void Take_Id_From_Database()
         {
             // To take the id of new book.
@@ -107,7 +126,7 @@ namespace Microwave_v1._0.Classes
             main_page = (Microwave)Application.OpenForms["Microwave"];
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
             main_page.Main_department_list.Fill_Department_list(dt);
-            main_page.Main_department_list.Show_All_Departments();
+            main_page.Main_department_list.Draw_All_Dep_Infos();
 
         }
     }

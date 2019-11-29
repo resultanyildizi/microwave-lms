@@ -50,6 +50,9 @@
             this.pb_department.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_department.TabIndex = 0;
             this.pb_department.TabStop = false;
+            this.pb_department.Click += new System.EventHandler(this.Department_Info_Click);
+            this.pb_department.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
+            this.pb_department.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             // 
             // btn_dprt_remove
             // 
@@ -88,23 +91,24 @@
             this.pnl_name.AllowDrop = true;
             this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(65)))));
             this.pnl_name.Controls.Add(this.lbl_department_name);
-            this.pnl_name.Location = new System.Drawing.Point(2, 189);
+            this.pnl_name.Location = new System.Drawing.Point(15, 189);
             this.pnl_name.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_name.Name = "pnl_name";
-            this.pnl_name.Size = new System.Drawing.Size(146, 28);
+            this.pnl_name.Size = new System.Drawing.Size(131, 27);
             this.pnl_name.TabIndex = 12;
             // 
             // lbl_department_name
             // 
-            this.lbl_department_name.AutoSize = true;
+            this.lbl_department_name.AutoEllipsis = true;
             this.lbl_department_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_department_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_department_name.Location = new System.Drawing.Point(10, 4);
+            this.lbl_department_name.Location = new System.Drawing.Point(-4, 0);
             this.lbl_department_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_department_name.Name = "lbl_department_name";
-            this.lbl_department_name.Size = new System.Drawing.Size(140, 20);
+            this.lbl_department_name.Size = new System.Drawing.Size(131, 27);
             this.lbl_department_name.TabIndex = 0;
             this.lbl_department_name.Text = "Department Name";
+            this.lbl_department_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_department_name.Click += new System.EventHandler(this.lbl_department_name_Click);
             // 
             // btn_dep_id
@@ -141,7 +145,6 @@
             this.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pb_department)).EndInit();
             this.pnl_name.ResumeLayout(false);
-            this.pnl_name.PerformLayout();
             this.ResumeLayout(false);
 
         }

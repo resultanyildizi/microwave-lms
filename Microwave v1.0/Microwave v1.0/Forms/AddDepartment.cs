@@ -55,7 +55,7 @@ namespace Microwave_v1._0.Forms
             this.tb_department.ForeColor = Color.LightGray;
 
             pic_new_source_path = picture_event.Pic_source_file = department.Cover_path_file;
-            pic_department.Image = main_page.Dep_cover_image_list.Images[department.Department_id.ToString()];
+            pic_department.Image = Picture_Events.Get_Copy_Image_Bitmap(department.Cover_path_file);
 
             is_edit = true;
         }
@@ -85,7 +85,7 @@ namespace Microwave_v1._0.Forms
             {
                 picture_event.Copy_The_Picture(name);
                 pic_new_source_path = picture_event.Pic_source_file;
-                Department department = new Department(name,pic_new_source_path);
+                Department department = new Department(0,name,pic_new_source_path);
                 department.Add();
 
                 tb_department.Text = "Department's Name";
@@ -94,17 +94,21 @@ namespace Microwave_v1._0.Forms
             {
                 if (change_image)
                 {
-                    Picture_Events.Delete_The_Picture(department_to_edit.Cover_path_file);
+                    if (department_to_edit.Cover_path_file != pic_default_file)
+                         Picture_Events.Delete_The_Picture(department_to_edit.Cover_path_file);
+                  
                     picture_event.Copy_The_Picture(name);
-                    department_to_edit.Cover_path_file = picture_event.Pic_source_file;
+                    pic_new_source_path = picture_event.Pic_source_file;
                     change_image = false;
                 }
                 lbl_message.Text = "* Department changed succesfully";
                 lbl_message.ForeColor = Color.LightGreen;
 
                 department_to_edit.Name = name;
+                department_to_edit.Cover_path_file = picture_event.Pic_source_file;
 
-               
+                department_to_edit.Edit();
+
             }
         }
 
@@ -135,6 +139,24 @@ namespace Microwave_v1._0.Forms
             this.Activate();
             this.tb_department.Select();
 
+        }
+
+        private void tb_department_Enter(object sender, EventArgs e)
+        {
+            if (tb_department.Text == "Department's Name")
+            {
+                tb_department.Text = "";
+                tb_department.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_department_Leave(object sender, EventArgs e)
+        {
+            if (tb_department.Text == "")
+            {
+                tb_department.Text = "Department's Name";
+                tb_department.ForeColor = Color.Gray;
+            }
         }
     }
 }

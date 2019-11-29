@@ -47,7 +47,7 @@ namespace Microwave_v1._0.Classes
                 string department_name = dt.Rows[i][1].ToString();
                 string cover_path = dt.Rows[i][2].ToString();
 
-                Department department = new Department(department_name,  cover_path);
+                Department department = new Department(department_id,department_name,  cover_path);
                 department.Set_Department();
                 this.Add_Department_to_List(department);
             }
@@ -69,7 +69,7 @@ namespace Microwave_v1._0.Classes
             iterator.next = new department_node(department);
             department_count++;
         }
-        public void Show_All_Departments()
+        public void Draw_All_Dep_Infos()
         {
             department_node iterator = root;
             while(iterator != null)

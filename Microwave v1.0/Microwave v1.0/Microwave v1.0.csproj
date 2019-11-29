@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEmployee.designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Detail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +87,19 @@
     <Compile Include="Forms\GiveBook.Designer.cs">
       <DependentUpon>GiveBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ShowEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShowEmployee.designer.cs">
+      <DependentUpon>ShowEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Author_List.cs" />
     <Compile Include="Model\DataBaseEvents.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Department_List.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Employee_List.cs" />
     <Compile Include="Model\Publisher.cs" />
     <Compile Include="Model\Publisher_List.cs" />
     <Compile Include="Forms\AddAuthor.cs">
@@ -145,6 +159,12 @@
     <Compile Include="UserControls\Department_Info.Designer.cs">
       <DependentUpon>Department_Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Employee_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Employee_Info.designer.cs">
+      <DependentUpon>Employee_Info.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Publisher_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +200,9 @@
     <EmbeddedResource Include="Forms\AddDepartment.resx">
       <DependentUpon>AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPublisher.resx">
       <DependentUpon>AddPublisher.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GiveBook.resx">
       <DependentUpon>GiveBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowEmployee.resx">
+      <DependentUpon>ShowEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Author_Info.resx">
       <DependentUpon>Author_Info.cs</DependentUpon>
@@ -206,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Department_Info.resx">
       <DependentUpon>Department_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Employee_Info.resx">
+      <DependentUpon>Employee_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Publisher_Info.resx">
       <DependentUpon>Publisher_Info.cs</DependentUpon>

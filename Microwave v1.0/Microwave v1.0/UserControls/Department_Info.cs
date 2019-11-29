@@ -32,13 +32,15 @@ namespace Microwave_v1._0.UserControls
             this.btn_dprt_edit.Hide();
             this.btn_dprt_remove.Hide();
         }
-        public void Initialize_Department_Info(string name, string pic_path_file)
+        public void Initialize_Department_Info(int department_id,string name, string pic_path_file)
         {
+            this.department_id = department_id;
             this.name = name;
             this.pic_path_file = pic_path_file;
             //pb_department.Image = main_page.Dep_cover_image_list.Images[department_id.ToString()];
             pb_department.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
             this.lbl_department_name.Text = name;
+            this.btn_dep_id.Text = department_id.ToString();
         }
         public void Draw_Department_Obj(ref int x, ref int y)
         {
@@ -47,7 +49,7 @@ namespace Microwave_v1._0.UserControls
             if (x > 500)
             {
                 y += 240;
-                x = 7;
+                x = 35;
             }
             else
                 x += 180;
@@ -97,8 +99,10 @@ namespace Microwave_v1._0.UserControls
             this.Dispose();
 
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
+            Department.point_x = 35;
+            Department.point_y = 5;
 
-            department_list.Show_All_Departments();
+            department_list.Draw_All_Dep_Infos();
 
         }
 
