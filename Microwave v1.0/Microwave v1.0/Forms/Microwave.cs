@@ -572,6 +572,7 @@ namespace Microwave_v1._0
 
 
         }
+
         // Searching events for books
         private void RadioButtonBook_CheckedChanged(object sender, EventArgs e)
         {
@@ -848,7 +849,6 @@ namespace Microwave_v1._0
             tb_search_book.Select(tb_search_book.Text.Length, 0);
         }
 
-
         // Searching events for publishers
         private void rb_pub_name_CheckedChanged(object sender, EventArgs e)
         {
@@ -955,7 +955,8 @@ namespace Microwave_v1._0
             else if (e.KeyChar == (char)Keys.Enter)
             {
                 tb_search_publisher.Focus();
-                tb_search_publisher.Text = lb_publisher_search.SelectedItem.ToString();
+                if(lb_publisher_search.SelectedItem != null)
+                    tb_search_publisher.Text = lb_publisher_search.SelectedItem.ToString();
                 tb_search_publisher.Select(tb_search_publisher.Text.Length, 0);
             }
         }
@@ -1002,6 +1003,7 @@ namespace Microwave_v1._0
             tb_search_publisher.Select(tb_search_publisher.Text.Length, 0);
         }
 
+        // Searching events for user
         private void RadioButtonUser_CheckedChanged(object sender, EventArgs e)
         {
             this.pnl_user_st.Hide();
@@ -1088,7 +1090,62 @@ namespace Microwave_v1._0
         }
         private void Tb_search_user_KeyPress(object sender, KeyPressEventArgs e)
         {
+            string text = tb_search_book.Text;
 
+            if (e.KeyChar == (char)Keys.Enter && !user_searched_already)
+            {
+                lb_user_search.Hide();
+                if (tb_search_user.Text == "")
+                {
+                    return;
+                }
+                main_user_list.Hide_All_User_Objects();
+                user_search_list.Delete_All_List();
+                this.pnl_user_list.VerticalScroll.Value = 0;
+
+                if (rb_user_name.Checked)
+                {
+                    user_search_list.Fill_User_List(User.Search_User_By_Name(text), INFO_COLOR_MODE.NAME); ;
+                    user_search_list.Draw_All_Users();
+                    user_searched_already = true;
+                    return;
+                }
+                if (rb_user_surname.Checked)
+                {
+                    user_search_list.Fill_User_List(User.Search_User_By_Surname(text), INFO_COLOR_MODE.SURNAME); ;
+                    user_search_list.Draw_All_Users();
+                    user_searched_already = true;
+                    return;
+                }
+                if (rb_user_gender.Checked)
+                {
+                    user_search_list.Fill_User_List(User.Search_User_By_Gender(text), INFO_COLOR_MODE.GENDER); ;
+                    user_search_list.Draw_All_Users();
+                    user_searched_already = true;
+                    return;
+                }
+                if (rb_user_age.Checked)
+                {
+                    user_search_list.Fill_User_List(User.Search_User_By_Age(text), INFO_COLOR_MODE.AGE); ;
+                    user_search_list.Draw_All_Users();
+                    user_searched_already = true;
+                    return;
+                }
+                if (rb_user_id.Checked)
+                {
+                    user_search_list.Fill_User_List(User.Search_User_By_ID(text), INFO_COLOR_MODE.ID); ;
+                    user_search_list.Draw_All_Users();
+                    user_searched_already = true;
+                    return;
+                }
+                if (rb_user_email.Checked)
+                {
+                    user_search_list.Fill_User_List(User.Search_User_By_Email(text), INFO_COLOR_MODE.EMAIL); ;
+                    user_search_list.Draw_All_Users();
+                    user_searched_already = true;
+                    return;
+                }
+            }
         }
         private void Tb_search_user_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1103,23 +1160,54 @@ namespace Microwave_v1._0
         }
         private void Lb_user_search_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
+            {
+                if (e.KeyChar == (char)Keys.Back)
+                    tb_search_user.Text = tb_search_user.Text.Remove(tb_search_user.Text.Length - 1, 1);
+                else
+                    tb_search_user.Text += e.KeyChar;
+                tb_search_user.Focus();
+                tb_search_user.Select(tb_search_user.Text.Length, 0);
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                tb_search_user.Focus();
+                if (lb_user_search.SelectedItem != null)
+                    tb_search_user.Text = lb_user_search.SelectedItem.ToString();
+                tb_search_user.Select(tb_search_user.Text.Length, 0);
+            }
         }
         private void Lb_user_search_Leave(object sender, EventArgs e)
         {
-
+            lb_user_search.Hide();
         }
         private void Lb_user_search_DoubleClick(object sender, EventArgs e)
         {
-
+            tb_search_user.Focus();
+            if (lb_user_search.SelectedItem != null)
+                tb_search_user.Text = lb_publisher_search.SelectedItem.ToString();
+            tb_search_user.Select(tb_search_user.Text.Length, 0);
         }
         private void Tb_search_user_Enter(object sender, EventArgs e)
         {
+            if (tb_search_user.Text == "Search a user")
+            {
+                tb_search_user.Text = "";
+            }
+
+            if (lb_user_search.Items.Count > 0)
+                lb_user_search.Show();
+
+            tb_search_user.ForeColor = Color.LightGray;
 
         }
         private void Tb_search_user_Leave(object sender, EventArgs e)
         {
-
+            if (tb_search_book.Text == "")
+            {
+                tb_search_book.Text = "Search a user";
+                tb_search_book.ForeColor = Color.Gray;
+            }
         }
         private void Fill_User_Search_List_Box(string query)
         {

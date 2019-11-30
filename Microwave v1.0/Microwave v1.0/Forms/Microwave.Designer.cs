@@ -50,10 +50,10 @@ namespace Microwave_v1._0
             this.btn_show_search_types = new System.Windows.Forms.Button();
             this.btn_profil = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.tb_search_user = new System.Windows.Forms.TextBox();
             this.tb_search_publisher = new System.Windows.Forms.TextBox();
             this.tb_search_author = new System.Windows.Forms.TextBox();
             this.tb_search_book = new System.Windows.Forms.TextBox();
+            this.tb_search_user = new System.Windows.Forms.TextBox();
             this.pnl_authors = new System.Windows.Forms.Panel();
             this.lbl_author_title = new System.Windows.Forms.Label();
             this.lbl_authors_name = new System.Windows.Forms.Label();
@@ -453,23 +453,6 @@ namespace Microwave_v1._0
             this.btn_settings.TabIndex = 1;
             this.btn_settings.UseVisualStyleBackColor = true;
             // 
-            // tb_search_user
-            // 
-            this.tb_search_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_search_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_search_user.ForeColor = System.Drawing.Color.Gray;
-            this.tb_search_user.Location = new System.Drawing.Point(300, 8);
-            this.tb_search_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_search_user.Name = "tb_search_user";
-            this.tb_search_user.Size = new System.Drawing.Size(235, 24);
-            this.tb_search_user.TabIndex = 64;
-            this.tb_search_user.Text = "Search a user";
-            this.tb_search_user.TextChanged += new System.EventHandler(this.Tb_search_user_TextChanged);
-            this.tb_search_user.Enter += new System.EventHandler(this.Tb_search_user_Enter);
-            this.tb_search_user.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_search_user_KeyDown);
-            this.tb_search_user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_search_user_KeyPress);
-            this.tb_search_user.Leave += new System.EventHandler(this.Tb_search_user_Leave);
-            // 
             // tb_search_publisher
             // 
             this.tb_search_publisher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
@@ -517,6 +500,23 @@ namespace Microwave_v1._0
             this.tb_search_book.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_search_book_KeyDown);
             this.tb_search_book.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_search_book_KeyPress);
             this.tb_search_book.Leave += new System.EventHandler(this.Tb_search_Leave);
+            // 
+            // tb_search_user
+            // 
+            this.tb_search_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_user.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_user.Location = new System.Drawing.Point(300, 8);
+            this.tb_search_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_user.Name = "tb_search_user";
+            this.tb_search_user.Size = new System.Drawing.Size(235, 24);
+            this.tb_search_user.TabIndex = 64;
+            this.tb_search_user.Text = "Search a user";
+            this.tb_search_user.TextChanged += new System.EventHandler(this.Tb_search_user_TextChanged);
+            this.tb_search_user.Enter += new System.EventHandler(this.Tb_search_user_Enter);
+            this.tb_search_user.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_search_user_KeyDown);
+            this.tb_search_user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_search_user_KeyPress);
+            this.tb_search_user.Leave += new System.EventHandler(this.Tb_search_user_Leave);
             // 
             // pnl_authors
             // 
@@ -1499,12 +1499,12 @@ namespace Microwave_v1._0
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_header);
-            this.Controls.Add(this.pnl_pub);
-            this.Controls.Add(this.pnl_department);
             this.Controls.Add(this.pnl_user);
             this.Controls.Add(this.pnl_authors);
             this.Controls.Add(this.pnl_home);
             this.Controls.Add(this.pnl_book);
+            this.Controls.Add(this.pnl_pub);
+            this.Controls.Add(this.pnl_department);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);

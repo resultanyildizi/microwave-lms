@@ -246,3 +246,6 @@ C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddEmployee.resources
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.ShowEmployee.resources
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Employee_Info.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddEmployee.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.ShowEmployee.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Employee_Info.resources
