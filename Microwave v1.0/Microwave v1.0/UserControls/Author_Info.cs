@@ -18,6 +18,8 @@ namespace Microwave_v1._0.UserControls
         private Author_List author_list;
         private AddAuthor edit_form;
 
+        public System.Windows.CornerRadius CornerRadius { get; set; }
+
         private string name;
         private string pic_path_file;
         private int author_id;
@@ -44,6 +46,11 @@ namespace Microwave_v1._0.UserControls
             this.pb_author.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
         }
 
+        public void Hide_Info()
+        {
+            main_page.Pnl_author_list.Controls.Remove(this);
+        }
+
         public void Draw_Author_Obj(ref int x, ref int y)
         {
             main_page.Pnl_author_list.Controls.Add(this);
@@ -58,6 +65,8 @@ namespace Microwave_v1._0.UserControls
             {
                 x += 180;
             }
+            pb_author.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
+
         }
 
         public void Select_Author_Info()
@@ -105,7 +114,13 @@ namespace Microwave_v1._0.UserControls
                 Remove(delete_pic);
 
             main_page.Warning_form.Refresh_Form();
+
+            main_page.Pnl_author_list.VerticalScroll.Value = 0;
+            main_page.Author_search_list.Delete_All_List();
+            main_page.Main_author_list.Draw_All_Authors();
+            main_page.Author_searched_already = false;
         }
+
 
         private void Remove(bool delete_picture = true)
         {
@@ -115,7 +130,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Pnl_author_list.VerticalScroll.Value = 0;
             Author.author_point_y = 5;
             Author.author_point_x = 35;
-            author_list.Show_All_Authors();
+            author_list.Draw_All_Authors();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -189,6 +204,11 @@ namespace Microwave_v1._0.UserControls
             Author_Hover();
         }
 
+        private void lbl_name_Click(object sender, EventArgs e)
+        {
+            author_list.Deselect_All_Author_Infos();
+            this.Select_Author_Info();
+        }
 
     }
 }

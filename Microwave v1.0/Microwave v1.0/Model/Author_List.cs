@@ -60,6 +60,22 @@ namespace Microwave_v1._0.Classes
                 author.Set_Author();
                 this.Add_Author_to_List(author);
             }
+
+        }
+
+        public void Delete_All_List()
+        {
+            author_node iterator = root;
+            author_node current;
+
+            while (iterator != null)
+            {
+                current = iterator.next;
+                iterator.author.Author_info.Dispose();
+                iterator.author = null;
+                iterator = current;
+            }
+            root = null;
         }
 
         public void Add_Author_to_List(Author author)
@@ -79,12 +95,16 @@ namespace Microwave_v1._0.Classes
             author_count++ ;
         }
 
-        public void Show_All_Authors()
+        public void Draw_All_Authors()
         {
+            Author.author_point_y = 5;
+            Author.author_point_x = 35;
+
             author_node iterator = root;
             while (iterator != null)
             {
                 iterator.author.Author_info.Draw_Author_Obj(ref Author.author_point_x, ref Author.author_point_y);
+                iterator.author.Author_info.Show();
                 iterator = iterator.next;
             }
         }
@@ -95,6 +115,16 @@ namespace Microwave_v1._0.Classes
             while (iterator != null)
             {
                 iterator.author.Author_info.Deselect_Author_Info();
+                iterator = iterator.next;
+            }
+        }
+        
+        public void Hide_All_Author_Objects()
+        {
+            author_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.author.Author_info.Hide_Info();
                 iterator = iterator.next;
             }
         }

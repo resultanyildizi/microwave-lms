@@ -133,7 +133,7 @@ namespace Microwave_v1._0.Classes
             main_page = (Microwave)Application.OpenForms["Microwave"];
 
             main_page.Main_author_list.Fill_Author_List(dt);
-            main_page.Main_author_list.Show_All_Authors();
+            main_page.Main_author_list.Draw_All_Authors();
 
         }
 
@@ -144,6 +144,32 @@ namespace Microwave_v1._0.Classes
 
         }
 
+        //Search Methods 
+
+        static public DataTable Search_Author_By_Name(string name)
+        {
+            string query = string.Format("Select * From Authors Where Authors.NAME Like '{0}%", name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Author_By_Country(string country)
+        {
+            string query = string.Format("Select * From Authors Where Authors.COUNTRY Like '{0}%", country);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Author_By_ID(string id)
+        {
+            string query = string.Format("Select * From Authors Where Authors.AUTHOR_ID Like '{0}%", id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Author_By_Gender(string gender)
+        {
+            string query = string.Format("Select * From Authors Where Authors.GENDER Like '{0}%", gender);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
         static public DataTable Search_Author_By_ID() { return null; }
         static public DataTable Search_Author_By_Name() { return null; }
 

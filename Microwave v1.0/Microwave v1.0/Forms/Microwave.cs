@@ -71,6 +71,9 @@ namespace Microwave_v1._0
         private bool user_searched_already = false;
         private Publisher_List publisher_search_list = null;
         private bool publisher_searched_already = false;
+        private Author_List author_search_list = null;
+        private bool author_searched_already = false;
+
         string pub_last_search_text;
 
         // Getters and Setters
@@ -99,6 +102,8 @@ namespace Microwave_v1._0
         public bool User_searched_already { get => user_searched_already; set => user_searched_already = value; }
         public bool Publisher_searched_already { get => publisher_searched_already; set => publisher_searched_already = value; }
         public Publisher_List Publisher_search_list { get => publisher_search_list; set => publisher_search_list = value; }
+        public bool Author_searched_already { get => author_searched_already; set => author_searched_already = value; }
+        public Author_List Author_search_list { get => author_search_list; set => author_search_list = value; }
 
         // Booleans
         private bool show_pnl_book_st   = false;
@@ -121,6 +126,7 @@ namespace Microwave_v1._0
             book_search_list = new Book_List();
             user_search_list = new User_List();
             publisher_search_list = new Publisher_List();
+            author_search_list = new Author_List();
 
             pnl_home.Show();
             pnl_tag.Hide();
@@ -163,6 +169,13 @@ namespace Microwave_v1._0
             rb_pub_name.Checked = true;
             tb_search_publisher.Text = "Search a publisher";
             tb_search_publisher.ForeColor = Color.Gray;
+
+            // Author search
+            pnl_author_st.Hide();
+            lb_author_search.Hide();
+            rb_author_name.Checked = true;
+            tb_search_author.Text = "Search an author";
+            tb_search_author.ForeColor = Color.Gray;
 
 
             pnl_author_st.Hide();
@@ -230,7 +243,12 @@ namespace Microwave_v1._0
             }
             else if (chosen == MENU_CHOSEN.AUTHOR)
             {
-                message = "Do you want to add a author?";
+                pnl_author_list.VerticalScroll.Value = 0;
+                author_search_list.Delete_All_List();
+                main_author_list.Draw_All_Authors();
+                author_searched_already = false;
+
+                message = "Do you want to add an author?";
                 color = Color.BlueViolet;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -553,7 +571,7 @@ namespace Microwave_v1._0
                     this.pnl_author_st.Hide();
                     show_pnl_author_st = false;
                 }
-                //lb_author_search.Hide();
+                lb_author_search.Hide();
             }
             else if (chosen == MENU_CHOSEN.PUBLISHER)
             {
@@ -1003,6 +1021,208 @@ namespace Microwave_v1._0
             tb_search_publisher.Select(tb_search_publisher.Text.Length, 0);
         }
 
+        
+        // Searching events for author
+        private void tb_search_author_Enter(object sender, EventArgs e)
+        {
+            if (tb_search_author.Text == "Search an author")
+            {
+                tb_search_author.Text = "";
+            }
+
+            if (lb_author_search.Items.Count > 0)
+                lb_author_search.Show();
+
+            tb_search_author.ForeColor = Color.LightGray;
+        }
+        private void tb_search_author_Leave(object sender, EventArgs e)
+        {
+            if (tb_search_author.Text == "")
+            {
+                tb_search_author.Text = "Search an author";
+                tb_search_author.ForeColor = Color.Gray;
+            }
+        }
+        private void tb_search_author_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                if (lb_author_search.Items.Count > 0)
+                {
+                    lb_author_search.Select();
+                    lb_author_search.SelectedIndex = 0;
+                }
+            }
+        }
+        private void tb_search_author_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = tb_search_author.Text;
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lb_author_search.Hide();
+                if (tb_search_author.Text == "" && !author_searched_already)
+                {
+                    return;
+                }
+                main_author_list.Hide_All_Author_Objects();
+                author_search_list.Delete_All_List();
+                this.pnl_author_list.VerticalScroll.Value = 0;
+
+                if (rb_author_name.Checked)
+                {
+                    author_search_list.Fill_Author_List(Author.Search_Author_By_Name(text)); ;
+                    author_search_list.Draw_All_Authors();
+                    author_searched_already = true;
+                    return;
+                }
+                if (rb_author_country.Checked)
+                {
+                    author_search_list.Fill_Author_List(Author.Search_Author_By_Country(text)); ;
+                    author_search_list.Draw_All_Authors();
+                    author_searched_already = true;
+                    return;
+                }
+                if (rb_author_ID.Checked)
+                {
+                    author_search_list.Fill_Author_List(Author.Search_Author_By_ID(text)); ;
+                    author_search_list.Draw_All_Authors();
+                    author_searched_already = true;
+                    return;
+                }
+                if (rb_author_gender.Checked)
+                {
+                    author_search_list.Fill_Author_List(Author.Search_Author_By_Gender(text)); ;
+                    author_search_list.Draw_All_Authors();
+                    author_searched_already = true;
+                    return;
+                }
+                
+            }
+        }
+        private void tb_search_author_TextChanged(object sender, EventArgs e)
+        {
+            string text = tb_search_author.Text.Trim();
+            author_searched_already = false;
+
+            if (chosen == MENU_CHOSEN.AUTHOR)
+            {
+                if (text == "")
+                {
+                    lb_author_search.Hide();
+                    lb_author_search.Items.Clear();
+
+                    author_search_list.Delete_All_List();
+                    main_author_list.Draw_All_Authors();
+                    return;
+                }
+                if (text == "Search an author")
+                {
+                    author_search_list.Delete_All_List();
+                    main_author_list.Draw_All_Authors();
+                    return;
+                }
+                else
+                {
+                    this.pnl_author_list.VerticalScroll.Value = 0;
+
+                    if (rb_author_name.Checked)
+                    {
+                        string query = string.Format("Select Authors.NAME From Authors Where Authors.NAME Like '{0}%'", text);
+                        Fill_Author_Search_List_Box(query);
+                        if (lb_author_search.Items.Count > 0)
+                            lb_author_search.Show();
+                        return;
+                    }
+                    if (rb_author_country.Checked)
+                    {
+                        string query = string.Format("Select Author.COUNTRY From Author Where Author.COUNTRY Like '{0}%'", text);
+                        Fill_Author_Search_List_Box(query);
+                        if (lb_author_search.Items.Count > 0)
+                            lb_author_search.Show();
+                        return;
+                    }
+                    if (rb_author_ID.Checked)
+                    {
+                        string query = string.Format("Select Author.AUTHOR_ID From Author Where Author.AUTHOR_ID Like '{0}%'", text);
+                        Fill_Author_Search_List_Box(query);
+                        if (lb_author_search.Items.Count > 0)
+                            lb_author_search.Show();
+                        return;
+                    }
+                    if (rb_author_gender.Checked)
+                    {
+                        string query = string.Format("Select Author.GENDER From Author Where Author.GENDER Like '{0}%'", text);
+                        Fill_Author_Search_List_Box(query);
+                        if (lb_author_search.Items.Count > 0)
+                            lb_author_search.Show();
+                        return;
+                    }
+                    
+                }
+
+            }
+
+        }
+        private void rb_author_name_CheckedChanged(object sender, EventArgs e)
+        {
+            this.pnl_author_st.Hide();
+            this.tb_search_author.Text = "";
+            this.tb_search_author.Focus();
+            this.show_pnl_author_st = false;
+
+        }
+        private void lb_author_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
+            {
+                if (e.KeyChar == (char)Keys.Back)
+                    tb_search_author.Text = tb_search_author.Text.Remove(tb_search_author.Text.Length - 1, 1);
+                else
+                    tb_search_author.Text += e.KeyChar;
+                    tb_search_author.Focus();
+                    tb_search_author.Select(tb_search_author.Text.Length, 0);
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                tb_search_author.Focus();
+                if (lb_author_search.SelectedItem != null)
+                    tb_search_author.Text = lb_author_search.SelectedItem.ToString();
+                tb_search_author.Select(tb_search_author.Text.Length, 0);
+            }
+
+        }
+        private void lb_author_search_Leave(object sender, EventArgs e)
+        {
+            lb_author_search.Hide(); 
+        }
+        private void lb_author_search_DoubleClick(object sender, EventArgs e)
+        {
+            tb_search_author.Focus();
+            if (lb_author_search.SelectedItem != null)
+                tb_search_author.Text = lb_author_search.SelectedItem.ToString();
+            tb_search_author.Select(tb_search_author.Text.Length, 0);
+        }
+        private void Fill_Author_Search_List_Box(string query)
+
+        {
+            lb_author_search.Items.Clear();
+
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 0)
+                return;
+
+            for (int i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                lb_author_search.Items.Add(item);
+            }
+        }
+
+
         // Searching events for user
         private void RadioButtonUser_CheckedChanged(object sender, EventArgs e)
         {
@@ -1014,9 +1234,9 @@ namespace Microwave_v1._0
             string text = tb_search_user.Text.Trim();
             user_searched_already = false;
 
-            if(chosen == MENU_CHOSEN.USERS)
+            if (chosen == MENU_CHOSEN.USERS)
             {
-                if(text == "")
+                if (text == "")
                 {
                     lb_user_search.Hide();
                     lb_user_search.Items.Clear();
@@ -1025,7 +1245,7 @@ namespace Microwave_v1._0
                     main_user_list.Draw_All_Users();
                     return;
                 }
-                if(text == "Search a user")
+                if (text == "Search a user")
                 {
                     user_search_list.Delete_All_List();
                     main_user_list.Draw_All_Users();
@@ -1035,7 +1255,7 @@ namespace Microwave_v1._0
                 {
                     this.pnl_user_list.VerticalScroll.Value = 0;
 
-                    if(rb_user_name.Checked)
+                    if (rb_user_name.Checked)
                     {
                         string query = string.Format("Select Users.NAME From Users Where Users.NAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
@@ -1043,7 +1263,7 @@ namespace Microwave_v1._0
                             lb_user_search.Show();
                         return;
                     }
-                    if(rb_user_surname.Checked)
+                    if (rb_user_surname.Checked)
                     {
                         string query = string.Format("Select Users.SURNAME From Users Where Users.NAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
@@ -1051,7 +1271,7 @@ namespace Microwave_v1._0
                             lb_user_search.Show();
                         return;
                     }
-                    if(rb_user_id.Checked)
+                    if (rb_user_id.Checked)
                     {
                         string query = string.Format("Select Users.USER_ID From Users Where Users.NAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
@@ -1059,7 +1279,7 @@ namespace Microwave_v1._0
                             lb_user_search.Show();
                         return;
                     }
-                    if(rb_user_email.Checked)
+                    if (rb_user_email.Checked)
                     {
                         string query = string.Format("Select Users.EMAIL From Users Where Users.NAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
@@ -1067,7 +1287,7 @@ namespace Microwave_v1._0
                             lb_user_search.Show();
                         return;
                     }
-                    if(rb_user_age.Checked)
+                    if (rb_user_age.Checked)
                     {
                         string query = string.Format("Select Users.AGE From Users Where Users.NAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
@@ -1075,7 +1295,7 @@ namespace Microwave_v1._0
                             lb_user_search.Show();
                         return;
                     }
-                    if(rb_user_gender.Checked)
+                    if (rb_user_gender.Checked)
                     {
                         string query = string.Format("Select Users.GENDER From Users Where Users.NAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
@@ -1086,7 +1306,7 @@ namespace Microwave_v1._0
                 }
 
             }
-            
+
         }
         private void Tb_search_user_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1149,9 +1369,9 @@ namespace Microwave_v1._0
         }
         private void Tb_search_user_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down)
             {
-                if(lb_user_search.Items.Count > 0)
+                if (lb_user_search.Items.Count > 0)
                 {
                     lb_user_search.Select();
                     lb_user_search.SelectedIndex = 0;
@@ -1203,10 +1423,10 @@ namespace Microwave_v1._0
         }
         private void Tb_search_user_Leave(object sender, EventArgs e)
         {
-            if (tb_search_book.Text == "")
+            if (tb_search_user.Text == "")
             {
-                tb_search_book.Text = "Search a user";
-                tb_search_book.ForeColor = Color.Gray;
+                tb_search_user.Text = "Search a user";
+                tb_search_user.ForeColor = Color.Gray;
             }
         }
         private void Fill_User_Search_List_Box(string query)
@@ -1217,7 +1437,7 @@ namespace Microwave_v1._0
 
             int rows_count = dt.Rows.Count;
 
-            if(rows_count <= 0)
+            if (rows_count <= 0)
                 return;
 
             for (int i = 0; i < rows_count; i++)
@@ -1233,4 +1453,7 @@ namespace Microwave_v1._0
         }
 
     }
+
+
 }
+

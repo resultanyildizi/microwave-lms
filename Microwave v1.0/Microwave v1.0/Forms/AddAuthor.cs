@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Data.SQLite;
 using Microwave_v1._0.Classes;
 
 namespace Microwave_v1._0.Forms
@@ -22,6 +21,7 @@ namespace Microwave_v1._0.Forms
         private string biography;
    
         Microwave main_page;
+        private Author_List main_author_list;
 
         Picture_Events picture_event;
         private string pic_default_file = @"..\..\Resources\Author Covers\DefaultAuthor.jpg";
@@ -36,6 +36,7 @@ namespace Microwave_v1._0.Forms
         public AddAuthor()
         {
             InitializeComponent();
+
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_author);
@@ -175,6 +176,11 @@ namespace Microwave_v1._0.Forms
                 author_to_edit.Author_biography = biography;
                 author_to_edit.Author_cover_path_file = pic_new_source_path;
                 author_to_edit.Edit();
+
+                main_page.Pnl_author_list.VerticalScroll.Value = 0;
+                main_page.Author_search_list.Delete_All_List();
+                main_author_list.Draw_All_Authors();
+                main_page.Author_searched_already = false;
             }
 
 
@@ -201,16 +207,23 @@ namespace Microwave_v1._0.Forms
         {
             Add_Click_Func(is_edit);
         }
-        private void AddAuthor_FormClosing(object sender, FormClosingEventArgs e)
+        private void btn_add_KeyPress(object sender, KeyPressEventArgs e)
         {
-            main_page.Btn_add.Enabled = true;
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Add_Click_Func(is_edit);
+            }
         }
-
         private void Change_Image_Click(object sender, EventArgs e)
         {
             change_image = true;
             picture_event.Choose_Image();
         }
+        private void AddAuthor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
+        }
+
 
         private void AddAuthor_FormClosed(object sender, FormClosedEventArgs e)
         {
