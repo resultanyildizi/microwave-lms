@@ -148,25 +148,25 @@ namespace Microwave_v1._0.Classes
 
         static public DataTable Search_Author_By_Name(string name)
         {
-            string query = string.Format("Select * From Authors Where Authors.NAME Like '{0}%", name);
+            string query = string.Format("Select * From Authors Where Authors.NAME Like '{0}%'", name);
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
         static public DataTable Search_Author_By_Country(string country)
         {
-            string query = string.Format("Select * From Authors Where Authors.COUNTRY Like '{0}%", country);
+            string query = string.Format("Select * From Authors Where Authors.COUNTRY Like '{0}%'", country);
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
         static public DataTable Search_Author_By_ID(string id)
         {
-            string query = string.Format("Select * From Authors Where Authors.AUTHOR_ID Like '{0}%", id);
+            string query = string.Format("Select * From Authors Where Authors.AUTHOR_ID Like '{0}%'", id);
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
         static public DataTable Search_Author_By_Gender(string gender)
         {
-            string query = string.Format("Select * From Authors Where Authors.GENDER Like '{0}%", gender);
+            string query = string.Format("Select * From Authors Where Authors.GENDER Like '{0}%'", gender);
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
