@@ -85,7 +85,6 @@ namespace Microwave_v1._0.Classes
 
             Pub_info.Draw_Publisher_Obj(ref Publisher.pub_point_x, ref Publisher.pub_point_y);
 
-            main_page.Main_pub_list.Deselect_All_Publisher_Infos();
             Pub_info.Select_Publisher_Info();
 
         }

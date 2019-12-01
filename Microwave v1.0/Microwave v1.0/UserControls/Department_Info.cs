@@ -78,7 +78,7 @@ namespace Microwave_v1._0.UserControls
         }
         private void Department_Info_Click(object sender, EventArgs e)
         {
-            department_list.Deselect_All_Department_Infos();
+            main_page.Main_department_list.Deselect_All_Infos();
             this.Select_Department_Info();
         }
 
@@ -177,11 +177,6 @@ namespace Microwave_v1._0.UserControls
             Dep_Hover();
         }
 
-        private void lbl_department_name_Click(object sender, EventArgs e)
-        {
-            department_list.Deselect_All_Department_Infos();
-            this.Select_Department_Info();
-        }
         private void pb_department_DoubleClick(object sender, EventArgs e)
         {
             Department current = department_list.Find_Department_By_ID(department_id);
@@ -200,5 +195,6 @@ namespace Microwave_v1._0.UserControls
                 show_employee.Show();
             }
         }
+
     }
 }

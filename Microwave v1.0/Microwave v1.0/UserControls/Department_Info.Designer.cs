@@ -114,7 +114,10 @@
             this.lbl_department_name.TabIndex = 0;
             this.lbl_department_name.Text = "Department Name";
             this.lbl_department_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_department_name.Click += new System.EventHandler(this.lbl_department_name_Click);
+            this.lbl_department_name.Click += new System.EventHandler(this.Department_Info_Click);
+            this.lbl_department_name.DoubleClick += new System.EventHandler(this.pb_department_DoubleClick);
+            this.lbl_department_name.MouseEnter += new System.EventHandler(this.Department_Info_MouseLeave);
+            this.lbl_department_name.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);
             // 
             // btn_dep_id
             // 
@@ -146,6 +149,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Department_Info";
             this.Size = new System.Drawing.Size(162, 231);
+            this.Click += new System.EventHandler(this.Department_Info_Click);
             this.DoubleClick += new System.EventHandler(this.pb_department_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.Department_Info_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Department_Info_MouseLeave);

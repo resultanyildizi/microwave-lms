@@ -110,8 +110,7 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
         }
-
-        public void Deselect_All_Publisher_Infos()
+        public void Deselect_All_Infos()
         {
             pub_node iterator = root;
             while (iterator != null)
@@ -120,7 +119,6 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
         }
-
         public void Hide_All_Publisher_Objects()
         {
             pub_node iterator = root;

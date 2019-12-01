@@ -98,8 +98,8 @@ namespace Microwave_v1._0.UserControls
         }
         public void Publisher_Info_Click(object sender, EventArgs e)
         {
-            main_pub_list.Deselect_All_Publisher_Infos();
-            main_page.Publisher_search_list.Deselect_All_Publisher_Infos();
+            main_pub_list.Deselect_All_Infos();
+            main_page.Publisher_search_list.Deselect_All_Infos();
             this.Select_Publisher_Info();
         }
 
@@ -143,11 +143,6 @@ namespace Microwave_v1._0.UserControls
                 Edit();
 
             main_page.Warning_form.Refresh_Form();
-        }
-
-        private void btn_pub_remove_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Edit()
@@ -230,21 +225,11 @@ namespace Microwave_v1._0.UserControls
             Pub_Hover();
         }
 
-        private void lbl_pub_name_Click(object sender, EventArgs e)
-        {
-            main_pub_list.Deselect_All_Publisher_Infos();
-            this.Select_Publisher_Info();
-        }
-
-        private void pnl_pub_name_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Publisher_Info_DoubleClick(object sender, EventArgs e)
         {
             Publisher current = main_pub_list.Find_Publisher_By_ID(publisher_id);
             Create_Pub_Detail_Form(current);
         }
+
     }
 }

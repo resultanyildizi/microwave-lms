@@ -89,7 +89,6 @@ namespace Microwave_v1._0.Classes
             main_page.Pnl_author_list.VerticalScroll.Value = 0;
             author_info.Draw_Author_Obj(ref Author.author_point_x, ref Author.author_point_y);
             
-            main_page.Main_author_list.Deselect_All_Author_Infos();
             author_info.Select_Author_Info();
         }
 

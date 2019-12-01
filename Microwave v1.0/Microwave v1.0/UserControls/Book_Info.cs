@@ -103,8 +103,8 @@ namespace Microwave_v1._0
         }
         private void BookInfo_Click(object sender, MouseEventArgs e)
         {
-            main_list.Deselect_All_Book_Infos();
-            main_page.Book_search_list.Deselect_All_Book_Infos();
+            main_list.Deselect_All_Infos();
+            main_page.Book_search_list.Deselect_All_Infos();
             this.Select_Book_Info();
         }
         public void Select_Book_Info()
@@ -173,7 +173,6 @@ namespace Microwave_v1._0
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
-
 
         private void Btn_edit_Click(object sender, EventArgs e)
         {

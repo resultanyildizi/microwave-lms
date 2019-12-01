@@ -87,7 +87,7 @@ namespace Microwave_v1._0
                 iterator = iterator.next;
             }
         }
-        public void Deselect_All_User_Infos()
+        public void Deselect_All_Infos()
         {
             user_node iterator = root;
             while (iterator != null)

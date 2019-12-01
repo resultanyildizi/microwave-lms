@@ -85,10 +85,9 @@ namespace Microwave_v1._0
         }
         private void UserInfo_Click(object sender, EventArgs e)
         {
-            main_list.Deselect_All_User_Infos();
-            main_page.User_search_list.Deselect_All_User_Infos();
+            main_list.Deselect_All_Infos();
+            main_page.User_search_list.Deselect_All_Infos();
             this.Select_User_Info();
-            this.Select();
         }
         public void Select_User_Info()
         {
@@ -319,6 +318,7 @@ namespace Microwave_v1._0
             User current = main_list.Find_User_By_ID(user_id);
             Create_User_Detail_Form(current);
         }
+
     }
 }
 

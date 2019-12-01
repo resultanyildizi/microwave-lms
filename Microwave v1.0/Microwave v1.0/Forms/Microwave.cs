@@ -514,7 +514,7 @@ namespace Microwave_v1._0
             this.lb_book_search.Hide();
             this.lb_publisher_search.Hide();
             this.lb_user_search.Hide();
-            //this.lb_author_search.Hide();
+            this.lb_author_search.Hide();
             this.pic_logo.Focus();
             this.pic_logo.Select();
         }

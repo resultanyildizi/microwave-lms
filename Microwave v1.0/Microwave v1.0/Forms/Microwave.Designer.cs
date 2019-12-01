@@ -111,6 +111,7 @@ namespace Microwave_v1._0
             this.cover_image_list = new System.Windows.Forms.ImageList(this.components);
             this.pnl_department_list = new System.Windows.Forms.Panel();
             this.pnl_department = new System.Windows.Forms.Panel();
+            this.btn_show_all_emp = new System.Windows.Forms.Button();
             this.lbl_department_title = new System.Windows.Forms.Label();
             this.pnl_sep_dep = new System.Windows.Forms.Panel();
             this.pnl_pub = new System.Windows.Forms.Panel();
@@ -130,7 +131,6 @@ namespace Microwave_v1._0
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_show_all_emp = new System.Windows.Forms.Button();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -578,6 +578,7 @@ namespace Microwave_v1._0
             this.pnl_author_list.Name = "pnl_author_list";
             this.pnl_author_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_author_list.TabIndex = 14;
+            this.pnl_author_list.Click += new System.EventHandler(this.General_Click);
             // 
             // lb_author_search
             // 
@@ -996,6 +997,7 @@ namespace Microwave_v1._0
             this.pnl_user_list.Name = "pnl_user_list";
             this.pnl_user_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_user_list.TabIndex = 14;
+            this.pnl_user_list.Click += new System.EventHandler(this.General_Click);
             // 
             // lbl_user_date
             // 
@@ -1236,6 +1238,7 @@ namespace Microwave_v1._0
             this.pnl_department_list.Name = "pnl_department_list";
             this.pnl_department_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_department_list.TabIndex = 15;
+            this.pnl_department_list.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_department
             // 
@@ -1250,6 +1253,26 @@ namespace Microwave_v1._0
             this.pnl_department.Size = new System.Drawing.Size(795, 570);
             this.pnl_department.TabIndex = 17;
             this.pnl_department.Click += new System.EventHandler(this.General_Click);
+            // 
+            // btn_show_all_emp
+            // 
+            this.btn_show_all_emp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_show_all_emp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_show_all_emp.FlatAppearance.BorderSize = 0;
+            this.btn_show_all_emp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_show_all_emp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_show_all_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_all_emp.ForeColor = System.Drawing.Color.White;
+            this.btn_show_all_emp.Image = ((System.Drawing.Image)(resources.GetObject("btn_show_all_emp.Image")));
+            this.btn_show_all_emp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_show_all_emp.Location = new System.Drawing.Point(534, 23);
+            this.btn_show_all_emp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_show_all_emp.Name = "btn_show_all_emp";
+            this.btn_show_all_emp.Size = new System.Drawing.Size(215, 34);
+            this.btn_show_all_emp.TabIndex = 10;
+            this.btn_show_all_emp.Text = "  Show All Employees";
+            this.btn_show_all_emp.UseVisualStyleBackColor = true;
+            this.btn_show_all_emp.Click += new System.EventHandler(this.btn_show_all_emp_Click);
             // 
             // lbl_department_title
             // 
@@ -1311,6 +1334,7 @@ namespace Microwave_v1._0
             this.pnl_pub_list.Name = "pnl_pub_list";
             this.pnl_pub_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_pub_list.TabIndex = 14;
+            this.pnl_pub_list.Click += new System.EventHandler(this.General_Click);
             // 
             // pnl_publisher_st
             // 
@@ -1454,26 +1478,6 @@ namespace Microwave_v1._0
             this.label5.Text = "Library Management System";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btn_show_all_emp
-            // 
-            this.btn_show_all_emp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_show_all_emp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_show_all_emp.FlatAppearance.BorderSize = 0;
-            this.btn_show_all_emp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_show_all_emp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_show_all_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_all_emp.ForeColor = System.Drawing.Color.White;
-            this.btn_show_all_emp.Image = ((System.Drawing.Image)(resources.GetObject("btn_show_all_emp.Image")));
-            this.btn_show_all_emp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_show_all_emp.Location = new System.Drawing.Point(534, 23);
-            this.btn_show_all_emp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_show_all_emp.Name = "btn_show_all_emp";
-            this.btn_show_all_emp.Size = new System.Drawing.Size(215, 34);
-            this.btn_show_all_emp.TabIndex = 10;
-            this.btn_show_all_emp.Text = "  Show All Employees";
-            this.btn_show_all_emp.UseVisualStyleBackColor = true;
-            this.btn_show_all_emp.Click += new System.EventHandler(this.btn_show_all_emp_Click);
-            // 
             // Microwave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1483,12 +1487,12 @@ namespace Microwave_v1._0
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_header);
-            this.Controls.Add(this.pnl_department);
-            this.Controls.Add(this.pnl_user);
             this.Controls.Add(this.pnl_authors);
             this.Controls.Add(this.pnl_home);
             this.Controls.Add(this.pnl_book);
             this.Controls.Add(this.pnl_pub);
+            this.Controls.Add(this.pnl_department);
+            this.Controls.Add(this.pnl_user);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -1651,6 +1655,7 @@ namespace Microwave_v1._0
         public ImageList Author_cover_image_list { get => author_cover_image_list; set => author_cover_image_list = value; }
         public Panel Pnl_author_list { get => pnl_author_list; set => pnl_author_list = value; }
         public ListBox Lb_book_search { get => lb_book_search; set => lb_book_search = value; }
+        public PictureBox Pic_logo { get => pic_logo; set => pic_logo = value; }
     }
 }
 

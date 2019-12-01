@@ -80,7 +80,6 @@ namespace Microwave_v1._0
             main_page.Main_user_list.Add_User_to_List(this);
             main_page.Pnl_user_list.VerticalScroll.Value = 0;
             info.Draw_User_Obj(ref User.point_y);
-            main_page.Main_user_list.Deselect_All_User_Infos();
             info.Select_User_Info();
 
         }

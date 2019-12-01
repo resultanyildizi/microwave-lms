@@ -131,21 +131,21 @@ namespace Microwave_v1._0
                 iterator = iterator.next;
             }
         }
-        public void Deselect_All_Book_Infos()
-        {
-            book_node iterator = root;
-            while (iterator != null)
-            {
-                iterator.book.Info.Deselect_Book_Info();
-                iterator = iterator.next;
-            }
-        }
         public void Hide_All_Book_Objects()
         {
             book_node iterator = root;
             while (iterator != null)
             {
                 iterator.book.Info.Hide_Info();
+                iterator = iterator.next;
+            }
+        }
+        public void Deselect_All_Infos()
+        {
+            book_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.book.Info.Deselect_Book_Info();
                 iterator = iterator.next;
             }
         }

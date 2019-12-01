@@ -82,7 +82,7 @@
             this.lbl_author.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_author.Click += new System.EventHandler(this.Author_Info_Click);
             this.lbl_author.DoubleClick += new System.EventHandler(this.Author_Info_DoubleClick);
-            this.lbl_author.MouseEnter += new System.EventHandler(this.lbl_name_MouseLeave);
+            this.lbl_author.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
             this.lbl_author.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
             // btn_remove

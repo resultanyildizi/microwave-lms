@@ -420,6 +420,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(797, 495);
             this.Controls.Add(this.pnl_main);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Detail";
             this.Opacity = 0.95D;
             this.Text = "Detail";

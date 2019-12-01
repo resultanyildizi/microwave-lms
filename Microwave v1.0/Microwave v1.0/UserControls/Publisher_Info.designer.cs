@@ -48,7 +48,10 @@
             this.pnl_pub_name.Name = "pnl_pub_name";
             this.pnl_pub_name.Size = new System.Drawing.Size(131, 28);
             this.pnl_pub_name.TabIndex = 16;
-            this.pnl_pub_name.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_pub_name_Paint);
+            this.pnl_pub_name.Click += new System.EventHandler(this.Publisher_Info_DoubleClick);
+            this.pnl_pub_name.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
+            this.pnl_pub_name.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
+            this.pnl_pub_name.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             // 
             // lbl_pub_name
             // 
@@ -62,7 +65,7 @@
             this.lbl_pub_name.TabIndex = 0;
             this.lbl_pub_name.Text = "Publisher Name";
             this.lbl_pub_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_pub_name.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.lbl_pub_name.Click += new System.EventHandler(this.Publisher_Info_Click);
             this.lbl_pub_name.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
             this.lbl_pub_name.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.lbl_pub_name.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
@@ -109,7 +112,7 @@
             this.pb_publisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_publisher.TabIndex = 13;
             this.pb_publisher.TabStop = false;
-            this.pb_publisher.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.pb_publisher.Click += new System.EventHandler(this.Publisher_Info_Click);
             this.pb_publisher.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
             this.pb_publisher.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.pb_publisher.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
@@ -144,7 +147,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Publisher_Info";
             this.Size = new System.Drawing.Size(160, 229);
-            this.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.Click += new System.EventHandler(this.Publisher_Info_Click);
             this.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);

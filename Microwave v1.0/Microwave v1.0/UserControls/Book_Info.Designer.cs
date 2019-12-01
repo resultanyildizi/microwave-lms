@@ -138,7 +138,7 @@
             this.pnl_count.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.pnl_count.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
             // 
-            // lbl_6
+            // lbl_count
             // 
             this.lbl_count.AutoEllipsis = true;
             this.lbl_count.BackColor = System.Drawing.Color.Transparent;
@@ -147,7 +147,7 @@
             this.lbl_count.ForeColor = System.Drawing.Color.White;
             this.lbl_count.Location = new System.Drawing.Point(2, 13);
             this.lbl_count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_count.Name = "lbl_6";
+            this.lbl_count.Name = "lbl_count";
             this.lbl_count.Size = new System.Drawing.Size(41, 20);
             this.lbl_count.TabIndex = 4;
             this.lbl_count.Text = "15";
@@ -372,6 +372,8 @@
             this.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.Enter += new System.EventHandler(this.Book_Info_Enter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Book_Info_KeyDown);
+            this.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
+            this.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
             this.pnl_name.ResumeLayout(false);
             this.pnl_author.ResumeLayout(false);
             this.pnl_count.ResumeLayout(false);

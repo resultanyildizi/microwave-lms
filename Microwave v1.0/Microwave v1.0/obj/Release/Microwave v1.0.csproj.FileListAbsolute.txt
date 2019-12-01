@@ -5,7 +5,6 @@ C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\M
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Microwave.resources
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Properties.Resources.resources
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csproj.GenerateResource.cache
-C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csproj.CoreCompileInputs.cache
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.exe
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.pdb
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csprojAssemblyReference.cache
@@ -92,3 +91,8 @@ C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.csproj.CopyComplete
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.exe
 C:\Users\Dell\Desktop\MicrowaveDogan\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave v1.0.pdb
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Forms.AddEmployee.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Forms.Detail.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Forms.GiveBook.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.Forms.ShowEmployee.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Release\Microwave_v1._0.UserControls.Employee_Info.resources

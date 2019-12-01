@@ -129,8 +129,6 @@ namespace Microwave_v1._0
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
 
             Info.Draw_Book_Obj(ref Book.point_y);
-
-            main_page.Main_book_list.Deselect_All_Book_Infos();
             Info.Select_Book_Info();
         }
         public void Edit()

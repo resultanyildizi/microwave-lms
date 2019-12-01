@@ -109,16 +109,16 @@ namespace Microwave_v1._0.Classes
             }
         }
 
-        public void Deselect_All_Author_Infos()
+        public void Deselect_All_Infos()
         {
             author_node iterator = root;
-            while (iterator != null)
+            while(iterator != null)
             {
                 iterator.author.Author_info.Deselect_Author_Info();
                 iterator = iterator.next;
             }
         }
-        
+
         public void Hide_All_Author_Objects()
         {
             author_node iterator = root;

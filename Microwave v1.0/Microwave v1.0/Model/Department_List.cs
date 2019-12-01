@@ -78,7 +78,8 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
         }
-        public void Deselect_All_Department_Infos()
+
+        public void Deselect_All_Infos()
         {
             department_node iterator = root;
             while (iterator != null)
@@ -87,6 +88,7 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
             }
         }
+
         public void Delete_Department_from_List(int department_id ,bool delete_picture)
         {
 

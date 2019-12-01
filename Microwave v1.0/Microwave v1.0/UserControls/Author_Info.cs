@@ -95,10 +95,11 @@ namespace Microwave_v1._0.UserControls
         }
 
         public void Author_Info_Click(object sender, EventArgs e)
-        {
-            author_list.Deselect_All_Author_Infos();
-            main_page.Author_search_list.Deselect_All_Author_Infos();
+        { 
+            main_page.Main_author_list.Deselect_All_Infos();
+            main_page.Author_search_list.Deselect_All_Infos();
             this.Select_Author_Info();
+
         }
 
         private void Btn_remove_Click(object sender, EventArgs e)
@@ -226,20 +227,11 @@ namespace Microwave_v1._0.UserControls
         {
             Author_Hover();
         }
-
-        private void lbl_name_Click(object sender, EventArgs e)
-        {
-            author_list.Deselect_All_Author_Infos();
-            this.Select_Author_Info();
-        }
-
         private void Author_Info_DoubleClick(object sender, EventArgs e)
         {
-
             Author current = author_list.Find_Author_By_ID(author_id);
             Create_Author_Detail_Form(current);
         }
 
-        
     }
 }
