@@ -40,7 +40,7 @@ namespace Microwave_v1._0.Forms
 
             InitializeComponent();
             main_employee_list = new Employee_List();
-            main_tag = new Book_Tag();
+            main_tag = this.emp_tag;
             this.department = department;
             if(department==null)
             {
@@ -98,5 +98,9 @@ namespace Microwave_v1._0.Forms
 
         }
 
+        private void btn_show_search_types_Click(object sender, EventArgs e)
+        {
+            lb_emp_search.Show();
+        }
     }
 }

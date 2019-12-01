@@ -77,7 +77,7 @@ namespace Microwave_v1._0.UserControls
             Book_Tag main_employee_tag = main_page.Main_tag;
             Color back_color = Color.FromArgb(33, 37, 48);
 
-            main_employee_tag.Edit_Book_Tag_for_emp(name, surname + "/n" + gender + "/n" + birth_date + "/n" + email + "/n" ," ",cover_path_file);
+            main_employee_tag.Edit_Book_Tag_for_emp(name +" "+ surname , "\n" + gender + "\n" + birth_date + "\n" + email + "\n",cover_path_file);
 
             this.pnl_surname.BackColor = back_color;
             this.pnl_gender.BackColor = back_color;
@@ -113,6 +113,7 @@ namespace Microwave_v1._0.UserControls
         private void Employee_Info_Click(object sender, EventArgs e)
         {
             this.Select_Employee_Info();
+
         }
     }
 }
