@@ -120,8 +120,8 @@ namespace Microwave_v1._0
             Take_Id_From_Database();
 
             Join_Tables_For_Names();
-           
 
+            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
 
             Cover_Pic_to_Image_List();
             main_page.Main_book_list.Add_Book_to_List(this);
