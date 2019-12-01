@@ -23,64 +23,74 @@ namespace Microwave_v1._0.Model
         
         private string name;
         private string surname;
-        private string age;
-        private string deparment_name;
+        private string birth_date;
+        private string deparment_id;
         private string cover_path_file;
         private string email;
         private string password;
         private string gender;
-        static Microwave_v1._0.Forms.ShowEmployee main_page;
+
+        static Microwave_v1._0.Forms.ShowEmployee main_page = null;
         private Employee_Info info;
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
-        public string Age { get => age; set => age = value; }
+        public string Age { get => birth_date; set => birth_date = value; }
         public int Employee_id { get => employee_id; set => employee_id = value; }
         public string Cover_path_file { get => cover_path_file; set => cover_path_file = value; }
         public string Email { get => email; set => email = value; }
         public string Password { get => password; set => password = value; }
         public string Gender { get => gender; set => gender = value; }
         public Employee_Info Info { get => info; set => info = value; }
-        public string Deparment_name { get => deparment_name; set => deparment_name = value; }
+        public string Deparment_id { get => deparment_id; set => deparment_id = value; }
         public int Department_id { get => department_id; set => department_id = value; }
         public Employee()
         {
 
         }
 
-        public Employee(int employee_id,string name,string surname,
-                         string age,string cover_path_file,string email,string gender)
-        {
+        public Employee(int employee_id, int department_id,string name,string surname,string birth_date,string email,string password,string gender,string cover_path_file)
+        { 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];    
            
             
             this.employee_id = employee_id;
+            this.department_id = department_id;
             this.name = name;
             this.surname = surname;
-            this.age = age;
-            this.cover_path_file = cover_path_file;
+            this.birth_date = birth_date;
             this.email = email;
             this.gender = gender;
-
+            this.password = password;
+            this.cover_path_file = cover_path_file;
         }
+       
         public void Add()
         {
             string title;
             string values;
 
-            title = " INSERT INTO Employee (NAME,SURNAME,EMAIL,AGE,GENDER,DEPARTMENT)";
-            values = string.Format("VALUES'{0}','{1}','{2}','{3}','{4}','{5}'",name,surname,email,age,gender,department_id);
+            title = " INSERT INTO Employee (DEPARTMENT_ID , NAME, SURNAME, EMAIL, PASSWORD, GENDER, BIRTH_DATE)";
+            values = string.Format(" VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",department_id,name,surname,email,password,gender,birth_date);
 
-            string query = title + values;
+            string query = string.Concat(title, values);
+
+
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+
+            if (result <= 0)
+            {
+                MessageBox.Show("Invalid insertion event");
+                return;
+            }
+
 
             DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             info = new Employee_Info();
             Take_Id_From_Database();
 
-            Join_Tables();
-
-            info.Initialize_Employee_Info(employee_id,name,surname,email,gender,age,cover_path_file);
+            info.Initialize_Employee_Info(employee_id,department_id,name,surname,email,gender,birth_date,cover_path_file);
 
             main_page.Main_employee_list.Add_Employee_to_List(this);
             main_page.Pnl_employee_list.VerticalScroll.Value = 0;
@@ -88,10 +98,14 @@ namespace Microwave_v1._0.Model
 
 
         }
+        public void Edit()
+        {
+
+        }
         public void Set_Employee()
         {
             info = new Employee_Info();
-            info.Initialize_Employee_Info(employee_id, name, surname, email, gender, age, cover_path_file);
+            info.Initialize_Employee_Info(employee_id,department_id, name, surname, email, gender, birth_date,cover_path_file);
         }
         static public void Show_All_Employees()
         {
@@ -102,7 +116,7 @@ namespace Microwave_v1._0.Model
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
            
             main_page.Main_employee_list.Fill_Employee_List(dt);
-            main_page.Main_employee_list.Show_All_Employees();
+            main_page.Main_employee_list.Draw_All_Employees();
 
         }
         private void Join_Tables()
@@ -112,7 +126,7 @@ namespace Microwave_v1._0.Model
 
             dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            deparment_name = dt.Rows[0][0].ToString();
+            deparment_id = dt.Rows[0][0].ToString();
         }
         private void Take_Id_From_Database()
         {
@@ -123,11 +137,11 @@ namespace Microwave_v1._0.Model
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
-            this.employee_id = id;
+            this.employee_id = id; 
+            this.Info.Employee_id = id; 
 
 
-            // For user inteface
-            this.Info.Employee_id = id; // IMPORTANT
+           
         }
 
     }
