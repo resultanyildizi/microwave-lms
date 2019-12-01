@@ -55,10 +55,12 @@ namespace Microwave_v1._0.Classes
                 if (publisher_id == 0)
                     continue;
                 string pub_name = dt.Rows[i][1].ToString();
-                string pub_date_of_est = dt.Rows[i][2].ToString();
-                string pub_cover_path = dt.Rows[i][3].ToString();
+                string pub_email = dt.Rows[i][2].ToString();
+                string pub_phone_number = dt.Rows[i][3].ToString();
+                string pub_date_of_est = dt.Rows[i][4].ToString();
+                string pub_cover_path = dt.Rows[i][5].ToString();
 
-                Publisher publisher = new Publisher(publisher_id, pub_name, pub_date_of_est, pub_cover_path);
+                Publisher publisher = new Publisher(publisher_id, pub_name, pub_email, pub_phone_number, pub_date_of_est, pub_cover_path);
                 publisher.Set_Publisher();
                 this.Add_Publisher_to_List(publisher);
             }
@@ -130,7 +132,6 @@ namespace Microwave_v1._0.Classes
         }
         public void Delete_Publisher_from_List(int publisher_id, bool delete_picture)
         {
-
             pub_node iterator = root;
 
             if (root == null)
@@ -199,5 +200,4 @@ namespace Microwave_v1._0.Classes
             }
         }
     }
-
 }

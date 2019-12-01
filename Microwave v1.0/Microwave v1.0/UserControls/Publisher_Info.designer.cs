@@ -63,6 +63,7 @@
             this.lbl_pub_name.Text = "Publisher Name";
             this.lbl_pub_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_pub_name.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.lbl_pub_name.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
             this.lbl_pub_name.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.lbl_pub_name.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             // 
@@ -109,6 +110,7 @@
             this.pb_publisher.TabIndex = 13;
             this.pb_publisher.TabStop = false;
             this.pb_publisher.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.pb_publisher.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
             this.pb_publisher.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.pb_publisher.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             // 
@@ -120,7 +122,7 @@
             this.btn_pub_id.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_pub_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pub_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_pub_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.btn_pub_id.ForeColor = System.Drawing.Color.White;
             this.btn_pub_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_pub_id.Image")));
             this.btn_pub_id.Location = new System.Drawing.Point(131, -4);
             this.btn_pub_id.Margin = new System.Windows.Forms.Padding(2);
@@ -143,6 +145,7 @@
             this.Name = "Publisher_Info";
             this.Size = new System.Drawing.Size(160, 229);
             this.Click += new System.EventHandler(this.lbl_pub_name_Click);
+            this.DoubleClick += new System.EventHandler(this.Publisher_Info_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.lbl_pub_name_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.lbl_pub_name_MouseLeave);
             this.pnl_pub_name.ResumeLayout(false);

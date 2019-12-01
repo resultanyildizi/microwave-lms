@@ -21,24 +21,26 @@ namespace Microwave_v1._0.Classes
 
         private int publisher_id;
         private string pub_name;
-        private string pub_mail;
-        private string pub_phone;
+        private string pub_email;
+        private string pub_phone_num;
         private string pub_date_of_est;
         private string pub_cover_path_file;
-        private string pub_description;
         private Publisher_Info pub_info;
+
         
         public Publisher()
         {
 
         }
         
-        public Publisher(int publisher_id, string pub_name, string pub_date_of_est, string pub_pic_path_file)
+        public Publisher(int publisher_id, string pub_name, string pub_email,string pub_phone_num, string pub_date_of_est, string pub_pic_path_file)
         {
 
             main_page = (Microwave)Application.OpenForms["Microwave"];
             this.Publisher_id = publisher_id;
             this.pub_name = pub_name;
+            this.pub_email = pub_email;
+            this.pub_phone_num = pub_phone_num;
             this.pub_date_of_est = pub_date_of_est;
             this.Pub_cover_path_file = pub_pic_path_file;
 
@@ -49,9 +51,9 @@ namespace Microwave_v1._0.Classes
         public string Pub_cover_path_file { get => pub_cover_path_file; set => pub_cover_path_file = value; }
         public string Pub_name { get => pub_name; set => pub_name = value; }
         public string Pub_date_of_est { get => pub_date_of_est; set => pub_date_of_est = value; }
-        public string Pub_description { get => pub_description; set => pub_description = value; }
-        public string Pub_mail { get => pub_mail; set => pub_mail = value; }
-        public string Pub_phone { get => pub_phone; set => pub_phone = value; }
+        public string Pub_email { get => pub_email; set => pub_email = value; }
+        public string Pub_phone_num { get => pub_phone_num; set => pub_phone_num = value; }
+
 
         public void Add()
         {
@@ -60,14 +62,14 @@ namespace Microwave_v1._0.Classes
 
             if (main_page.Main_pub_list.Is_Pub_List_Empty())
             {
-                title = "INSERT INTO Publishers(PUBLISHER_ID, NAME, DATE_OF_EST, PICTURE_PATH)";
+                title = "INSERT INTO Publishers(PUBLISHER_ID, NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
                 
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}')", publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}',{4}',{5}')", publisher_id, pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
             }
             else
             {
-                title = "INSERT INTO Publishers(NAME, DATE_OF_EST, PICTURE_PATH) ";
-                values = string.Format("VALUES ('{0}','{1}','{2}')", pub_name, pub_date_of_est, pub_cover_path_file);
+                title = "INSERT INTO Publishers(NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}',{4}')", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
 
             }
             string query = title + values;
@@ -77,7 +79,7 @@ namespace Microwave_v1._0.Classes
             pub_info = new Publisher_Info();
             Take_Pub_Id_From_Database();
 
-            pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
+            pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
             main_page.Main_pub_list.Add_Publisher_to_List(this);
             main_page.Pnl_pub_list.VerticalScroll.Value = 0;
 
@@ -91,8 +93,8 @@ namespace Microwave_v1._0.Classes
         public void Edit()
         {
             string title = "UPDATE Publishers";
-            string query = title + string.Format(" SET ,NAME = '{0}',DATE_OF_EST = '{1}',PICTURE_PATH = '{2}'" +
-            "Where PUBLISHER_ID = '{3}'", pub_name, pub_date_of_est, pub_cover_path_file, publisher_id);
+            string query = title + string.Format(" SET NAME = '{0}',EMAIL = '{1}',PHONE_NUMBER = '{2}',DATE_OF_EST = '{3}',PICTURE_PATH = '{4}'" +
+            "Where PUBLISHER_ID = '{5}'", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file, publisher_id);
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
             if (result <= 0)
@@ -102,7 +104,7 @@ namespace Microwave_v1._0.Classes
             }
 
 
-            Pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
+            Pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
             Pub_info.Select_Publisher_Info();
         }
 
@@ -133,7 +135,7 @@ namespace Microwave_v1._0.Classes
         public void Set_Publisher()
         {
             pub_info = new Publisher_Info();
-            pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_date_of_est, pub_cover_path_file);
+            pub_info.Initialize_Publisher_Info(publisher_id, pub_name, pub_email,pub_phone_num, pub_date_of_est, pub_cover_path_file);
 
         }
 
@@ -164,11 +166,6 @@ namespace Microwave_v1._0.Classes
             this.Pub_info.Publisher_id = id;
 
         }
-
-        /*public void Cover_Pic_to_Image_List()
-        {
-            main_page.Pub_cover_image_list.Images.Add(this.Publisher_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Pub_cover_path_file));
-        }*/
     }
 
 }

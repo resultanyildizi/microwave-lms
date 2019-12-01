@@ -32,6 +32,7 @@ namespace Microwave_v1._0.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowEmployee));
             this.pnl_emp_tag = new System.Windows.Forms.Panel();
+            this.emp_tag = new Microwave_v1._0.Book_Tag();
             this.pnl_employee = new System.Windows.Forms.Panel();
             this.pnl_names = new System.Windows.Forms.Panel();
             this.lbl_dprt_name = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace Microwave_v1._0.Forms
             this.lbl_employee_name = new System.Windows.Forms.Label();
             this.lbl_emp_surname = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
-            this.lb_emp_search = new System.Windows.Forms.ListBox();
             this.pnl_top_side = new System.Windows.Forms.Panel();
             this.btn_show_search_types = new System.Windows.Forms.Button();
             this.tb_search_emp = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@ namespace Microwave_v1._0.Forms
             this.rb_gender = new System.Windows.Forms.RadioButton();
             this.rb_emp_id = new System.Windows.Forms.RadioButton();
             this.rb_emp_name = new System.Windows.Forms.RadioButton();
-            this.emp_tag = new Microwave_v1._0.Book_Tag();
+            this.lb_emp_search = new System.Windows.Forms.ListBox();
             this.pnl_emp_tag.SuspendLayout();
             this.pnl_employee.SuspendLayout();
             this.pnl_names.SuspendLayout();
@@ -74,6 +74,15 @@ namespace Microwave_v1._0.Forms
             this.pnl_emp_tag.Name = "pnl_emp_tag";
             this.pnl_emp_tag.Size = new System.Drawing.Size(199, 548);
             this.pnl_emp_tag.TabIndex = 17;
+            // 
+            // emp_tag
+            // 
+            this.emp_tag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(98)))), ((int)(((byte)(120)))));
+            this.emp_tag.Location = new System.Drawing.Point(0, 0);
+            this.emp_tag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emp_tag.Name = "emp_tag";
+            this.emp_tag.Size = new System.Drawing.Size(187, 549);
+            this.emp_tag.TabIndex = 0;
             // 
             // pnl_employee
             // 
@@ -191,18 +200,6 @@ namespace Microwave_v1._0.Forms
             this.btn_add.TabIndex = 21;
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // lb_emp_search
-            // 
-            this.lb_emp_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.lb_emp_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_emp_search.ForeColor = System.Drawing.Color.White;
-            this.lb_emp_search.FormattingEnabled = true;
-            this.lb_emp_search.ItemHeight = 16;
-            this.lb_emp_search.Location = new System.Drawing.Point(24, -2);
-            this.lb_emp_search.Name = "lb_emp_search";
-            this.lb_emp_search.Size = new System.Drawing.Size(235, 68);
-            this.lb_emp_search.TabIndex = 68;
             // 
             // pnl_top_side
             // 
@@ -386,14 +383,17 @@ namespace Microwave_v1._0.Forms
             this.rb_emp_name.Text = "Name";
             this.rb_emp_name.UseVisualStyleBackColor = true;
             // 
-            // emp_tag
+            // lb_emp_search
             // 
-            this.emp_tag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(98)))), ((int)(((byte)(120)))));
-            this.emp_tag.Location = new System.Drawing.Point(0, 0);
-            this.emp_tag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.emp_tag.Name = "emp_tag";
-            this.emp_tag.Size = new System.Drawing.Size(187, 549);
-            this.emp_tag.TabIndex = 0;
+            this.lb_emp_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lb_emp_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_emp_search.ForeColor = System.Drawing.Color.White;
+            this.lb_emp_search.FormattingEnabled = true;
+            this.lb_emp_search.ItemHeight = 16;
+            this.lb_emp_search.Location = new System.Drawing.Point(24, -2);
+            this.lb_emp_search.Name = "lb_emp_search";
+            this.lb_emp_search.Size = new System.Drawing.Size(235, 68);
+            this.lb_emp_search.TabIndex = 68;
             // 
             // ShowEmployee
             // 

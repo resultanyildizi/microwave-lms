@@ -48,13 +48,13 @@
             this.lbl_3 = new System.Windows.Forms.Label();
             this.lbl_2 = new System.Windows.Forms.Label();
             this.lbl_1 = new System.Windows.Forms.Label();
+            this.btn_give_penalty = new System.Windows.Forms.Button();
+            this.btn_give_book = new System.Windows.Forms.Button();
+            this.btn_return_book = new System.Windows.Forms.Button();
             this.btn_id = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.picture_box = new System.Windows.Forms.PictureBox();
-            this.btn_return_book = new System.Windows.Forms.Button();
-            this.btn_give_book = new System.Windows.Forms.Button();
-            this.btn_give_penalty = new System.Windows.Forms.Button();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_users)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_box)).BeginInit();
@@ -300,6 +300,57 @@
             this.lbl_1.TabIndex = 33;
             this.lbl_1.Text = "Author:";
             // 
+            // btn_give_penalty
+            // 
+            this.btn_give_penalty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_give_penalty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_give_penalty.FlatAppearance.BorderSize = 0;
+            this.btn_give_penalty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_give_penalty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_give_penalty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_give_penalty.ForeColor = System.Drawing.Color.White;
+            this.btn_give_penalty.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_penalty.Image")));
+            this.btn_give_penalty.Location = new System.Drawing.Point(513, 179);
+            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_penalty.Name = "btn_give_penalty";
+            this.btn_give_penalty.Size = new System.Drawing.Size(46, 44);
+            this.btn_give_penalty.TabIndex = 54;
+            this.btn_give_penalty.UseVisualStyleBackColor = true;
+            // 
+            // btn_give_book
+            // 
+            this.btn_give_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_give_book.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_give_book.FlatAppearance.BorderSize = 0;
+            this.btn_give_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_give_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_give_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_give_book.ForeColor = System.Drawing.Color.White;
+            this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
+            this.btn_give_book.Location = new System.Drawing.Point(563, 179);
+            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_book.Name = "btn_give_book";
+            this.btn_give_book.Size = new System.Drawing.Size(46, 44);
+            this.btn_give_book.TabIndex = 53;
+            this.btn_give_book.UseVisualStyleBackColor = true;
+            // 
+            // btn_return_book
+            // 
+            this.btn_return_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_return_book.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_return_book.FlatAppearance.BorderSize = 0;
+            this.btn_return_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_return_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_return_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_return_book.ForeColor = System.Drawing.Color.White;
+            this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
+            this.btn_return_book.Location = new System.Drawing.Point(613, 179);
+            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_return_book.Name = "btn_return_book";
+            this.btn_return_book.Size = new System.Drawing.Size(46, 44);
+            this.btn_return_book.TabIndex = 52;
+            this.btn_return_book.UseVisualStyleBackColor = true;
+            // 
             // btn_id
             // 
             this.btn_id.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -307,7 +358,7 @@
             this.btn_id.FlatAppearance.BorderSize = 0;
             this.btn_id.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_id.ForeColor = System.Drawing.Color.White;
             this.btn_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_id.Image")));
             this.btn_id.Location = new System.Drawing.Point(134, -1);
@@ -361,57 +412,6 @@
             this.picture_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picture_box.TabIndex = 0;
             this.picture_box.TabStop = false;
-            // 
-            // btn_return_book
-            // 
-            this.btn_return_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_return_book.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_return_book.FlatAppearance.BorderSize = 0;
-            this.btn_return_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_return_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_return_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_return_book.ForeColor = System.Drawing.Color.White;
-            this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
-            this.btn_return_book.Location = new System.Drawing.Point(613, 179);
-            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_return_book.Name = "btn_return_book";
-            this.btn_return_book.Size = new System.Drawing.Size(46, 44);
-            this.btn_return_book.TabIndex = 52;
-            this.btn_return_book.UseVisualStyleBackColor = true;
-            // 
-            // btn_give_book
-            // 
-            this.btn_give_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_give_book.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_give_book.FlatAppearance.BorderSize = 0;
-            this.btn_give_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_give_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_give_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_give_book.ForeColor = System.Drawing.Color.White;
-            this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
-            this.btn_give_book.Location = new System.Drawing.Point(563, 179);
-            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_give_book.Name = "btn_give_book";
-            this.btn_give_book.Size = new System.Drawing.Size(46, 44);
-            this.btn_give_book.TabIndex = 53;
-            this.btn_give_book.UseVisualStyleBackColor = true;
-            // 
-            // btn_give_penalty
-            // 
-            this.btn_give_penalty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_give_penalty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_give_penalty.FlatAppearance.BorderSize = 0;
-            this.btn_give_penalty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_give_penalty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_give_penalty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_give_penalty.ForeColor = System.Drawing.Color.White;
-            this.btn_give_penalty.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_penalty.Image")));
-            this.btn_give_penalty.Location = new System.Drawing.Point(513, 179);
-            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_give_penalty.Name = "btn_give_penalty";
-            this.btn_give_penalty.Size = new System.Drawing.Size(46, 44);
-            this.btn_give_penalty.TabIndex = 54;
-            this.btn_give_penalty.UseVisualStyleBackColor = true;
             // 
             // Detail
             // 

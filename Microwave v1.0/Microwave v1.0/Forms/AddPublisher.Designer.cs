@@ -32,16 +32,18 @@ namespace Microwave_v1._0.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPublisher));
             this.lbl_pub_message = new System.Windows.Forms.Label();
-            this.lbl_pub_description = new System.Windows.Forms.Label();
-            this.tb_pub_description = new System.Windows.Forms.TextBox();
             this.lbl_date_of_est = new System.Windows.Forms.Label();
             this.lbl_pub_name = new System.Windows.Forms.Label();
             this.tb_pub_name = new System.Windows.Forms.TextBox();
             this.btn_add_pic = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
-            this.pic_book = new System.Windows.Forms.PictureBox();
+            this.pic_publisher = new System.Windows.Forms.PictureBox();
             this.dtp_publisher = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_book)).BeginInit();
+            this.lbl_pub_email = new System.Windows.Forms.Label();
+            this.tb_pub_email = new System.Windows.Forms.TextBox();
+            this.lbl_pub_phone_num = new System.Windows.Forms.Label();
+            this.tb_pub_phone_num = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_publisher)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_pub_message
@@ -53,40 +55,12 @@ namespace Microwave_v1._0.Forms
             this.lbl_pub_message.Size = new System.Drawing.Size(0, 16);
             this.lbl_pub_message.TabIndex = 44;
             // 
-            // lbl_pub_description
-            // 
-            this.lbl_pub_description.AutoSize = true;
-            this.lbl_pub_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_pub_description.ForeColor = System.Drawing.Color.White;
-            this.lbl_pub_description.Location = new System.Drawing.Point(14, 68);
-            this.lbl_pub_description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_pub_description.Name = "lbl_pub_description";
-            this.lbl_pub_description.Size = new System.Drawing.Size(87, 18);
-            this.lbl_pub_description.TabIndex = 42;
-            this.lbl_pub_description.Text = "Description:";
-            // 
-            // tb_pub_description
-            // 
-            this.tb_pub_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_pub_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_pub_description.ForeColor = System.Drawing.Color.DimGray;
-            this.tb_pub_description.Location = new System.Drawing.Point(104, 68);
-            this.tb_pub_description.Margin = new System.Windows.Forms.Padding(2);
-            this.tb_pub_description.Multiline = true;
-            this.tb_pub_description.Name = "tb_pub_description";
-            this.tb_pub_description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_pub_description.Size = new System.Drawing.Size(206, 106);
-            this.tb_pub_description.TabIndex = 33;
-            this.tb_pub_description.Text = "Description...";
-            this.tb_pub_description.Enter += new System.EventHandler(this.tb_pub_description_Enter);
-            this.tb_pub_description.Leave += new System.EventHandler(this.tb_pub_description_Leave);
-            // 
             // lbl_date_of_est
             // 
             this.lbl_date_of_est.AutoSize = true;
             this.lbl_date_of_est.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_date_of_est.ForeColor = System.Drawing.Color.White;
-            this.lbl_date_of_est.Location = new System.Drawing.Point(14, 186);
+            this.lbl_date_of_est.Location = new System.Drawing.Point(14, 137);
             this.lbl_date_of_est.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_date_of_est.Name = "lbl_date_of_est";
             this.lbl_date_of_est.Size = new System.Drawing.Size(43, 18);
@@ -110,7 +84,7 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.tb_pub_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pub_name.ForeColor = System.Drawing.Color.DimGray;
-            this.tb_pub_name.Location = new System.Drawing.Point(104, 35);
+            this.tb_pub_name.Location = new System.Drawing.Point(135, 35);
             this.tb_pub_name.Margin = new System.Windows.Forms.Padding(2);
             this.tb_pub_name.Name = "tb_pub_name";
             this.tb_pub_name.Size = new System.Drawing.Size(206, 23);
@@ -125,11 +99,11 @@ namespace Microwave_v1._0.Forms
             this.btn_add_pic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_pic.Image")));
-            this.btn_add_pic.Location = new System.Drawing.Point(158, 348);
+            this.btn_add_pic.Location = new System.Drawing.Point(189, 301);
             this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_pic.Name = "btn_add_pic";
             this.btn_add_pic.Size = new System.Drawing.Size(47, 42);
-            this.btn_add_pic.TabIndex = 43;
+            this.btn_add_pic.TabIndex = 33;
             this.btn_add_pic.UseVisualStyleBackColor = true;
             this.btn_add_pic.Click += new System.EventHandler(this.Change_Image_Click);
             // 
@@ -140,25 +114,25 @@ namespace Microwave_v1._0.Forms
             this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.correct_symbol__1_;
-            this.btn_add.Location = new System.Drawing.Point(17, 344);
+            this.btn_add.Location = new System.Drawing.Point(17, 297);
             this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(41, 46);
-            this.btn_add.TabIndex = 40;
+            this.btn_add.TabIndex = 34;
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             this.btn_add.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
             // 
-            // pic_book
+            // pic_publisher
             // 
-            this.pic_book.Image = ((System.Drawing.Image)(resources.GetObject("pic_book.Image")));
-            this.pic_book.Location = new System.Drawing.Point(210, 253);
-            this.pic_book.Margin = new System.Windows.Forms.Padding(2);
-            this.pic_book.Name = "pic_book";
-            this.pic_book.Size = new System.Drawing.Size(100, 137);
-            this.pic_book.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_book.TabIndex = 39;
-            this.pic_book.TabStop = false;
+            this.pic_publisher.Image = ((System.Drawing.Image)(resources.GetObject("pic_publisher.Image")));
+            this.pic_publisher.Location = new System.Drawing.Point(241, 206);
+            this.pic_publisher.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_publisher.Name = "pic_publisher";
+            this.pic_publisher.Size = new System.Drawing.Size(100, 137);
+            this.pic_publisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_publisher.TabIndex = 39;
+            this.pic_publisher.TabStop = false;
             // 
             // dtp_publisher
             // 
@@ -167,24 +141,78 @@ namespace Microwave_v1._0.Forms
             this.dtp_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtp_publisher.CustomFormat = "yyyy";
             this.dtp_publisher.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_publisher.Location = new System.Drawing.Point(104, 188);
+            this.dtp_publisher.Location = new System.Drawing.Point(136, 137);
             this.dtp_publisher.Name = "dtp_publisher";
             this.dtp_publisher.Size = new System.Drawing.Size(206, 20);
-            this.dtp_publisher.TabIndex = 47;
+            this.dtp_publisher.TabIndex = 32;
+            // 
+            // lbl_pub_email
+            // 
+            this.lbl_pub_email.AutoSize = true;
+            this.lbl_pub_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_pub_email.ForeColor = System.Drawing.Color.White;
+            this.lbl_pub_email.Location = new System.Drawing.Point(14, 69);
+            this.lbl_pub_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_pub_email.Name = "lbl_pub_email";
+            this.lbl_pub_email.Size = new System.Drawing.Size(49, 18);
+            this.lbl_pub_email.TabIndex = 49;
+            this.lbl_pub_email.Text = "Email:";
+            // 
+            // tb_pub_email
+            // 
+            this.tb_pub_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_pub_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_pub_email.ForeColor = System.Drawing.Color.DimGray;
+            this.tb_pub_email.Location = new System.Drawing.Point(135, 69);
+            this.tb_pub_email.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_pub_email.Name = "tb_pub_email";
+            this.tb_pub_email.Size = new System.Drawing.Size(206, 23);
+            this.tb_pub_email.TabIndex = 30;
+            this.tb_pub_email.Text = "Publisher\'s Email";
+            this.tb_pub_email.Enter += new System.EventHandler(this.tb_pub_email_Enter);
+            this.tb_pub_email.Leave += new System.EventHandler(this.tb_pub_email_Leave);
+            // 
+            // lbl_pub_phone_num
+            // 
+            this.lbl_pub_phone_num.AutoSize = true;
+            this.lbl_pub_phone_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_pub_phone_num.ForeColor = System.Drawing.Color.White;
+            this.lbl_pub_phone_num.Location = new System.Drawing.Point(14, 103);
+            this.lbl_pub_phone_num.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_pub_phone_num.Name = "lbl_pub_phone_num";
+            this.lbl_pub_phone_num.Size = new System.Drawing.Size(112, 18);
+            this.lbl_pub_phone_num.TabIndex = 51;
+            this.lbl_pub_phone_num.Text = "Phone Number:";
+            // 
+            // tb_pub_phone_num
+            // 
+            this.tb_pub_phone_num.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_pub_phone_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_pub_phone_num.ForeColor = System.Drawing.Color.DimGray;
+            this.tb_pub_phone_num.Location = new System.Drawing.Point(135, 103);
+            this.tb_pub_phone_num.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_pub_phone_num.Name = "tb_pub_phone_num";
+            this.tb_pub_phone_num.Size = new System.Drawing.Size(206, 23);
+            this.tb_pub_phone_num.TabIndex = 31;
+            this.tb_pub_phone_num.Text = "Publisher\'s Phone Number";
+            this.tb_pub_phone_num.Enter += new System.EventHandler(this.tb_pub_phone_num_Enter);
+            this.tb_pub_phone_num.Leave += new System.EventHandler(this.tb_pub_phone_num_Leave);
             // 
             // AddPublisher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(330, 404);
+            this.ClientSize = new System.Drawing.Size(364, 366);
+            this.Controls.Add(this.lbl_pub_phone_num);
+            this.Controls.Add(this.tb_pub_phone_num);
+            this.Controls.Add(this.lbl_pub_email);
+            this.Controls.Add(this.tb_pub_email);
             this.Controls.Add(this.dtp_publisher);
             this.Controls.Add(this.lbl_pub_message);
             this.Controls.Add(this.btn_add_pic);
-            this.Controls.Add(this.lbl_pub_description);
-            this.Controls.Add(this.tb_pub_description);
             this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.pic_book);
+            this.Controls.Add(this.pic_publisher);
             this.Controls.Add(this.lbl_date_of_est);
             this.Controls.Add(this.lbl_pub_name);
             this.Controls.Add(this.tb_pub_name);
@@ -196,7 +224,7 @@ namespace Microwave_v1._0.Forms
             this.Text = "AddPublisher";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddPublisher_FormClosed);
             this.Load += new System.EventHandler(this.AddPublisher_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_book)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_publisher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,14 +233,16 @@ namespace Microwave_v1._0.Forms
         #endregion
         private System.Windows.Forms.Label lbl_pub_message;
         private System.Windows.Forms.Button btn_add_pic;
-        private System.Windows.Forms.Label lbl_pub_description;
-        private System.Windows.Forms.TextBox tb_pub_description;
         private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.PictureBox pic_book;
+        private System.Windows.Forms.PictureBox pic_publisher;
         private System.Windows.Forms.Label lbl_date_of_est;
         private System.Windows.Forms.Label lbl_pub_name;
         private System.Windows.Forms.TextBox tb_pub_name;
         private System.Windows.Forms.DateTimePicker dtp_publisher;
+        private Label lbl_pub_email;
+        private TextBox tb_pub_email;
+        private Label lbl_pub_phone_num;
+        private TextBox tb_pub_phone_num;
 
         public DateTimePicker Dtp_publisher { get => dtp_publisher; set => dtp_publisher = value; }
     }

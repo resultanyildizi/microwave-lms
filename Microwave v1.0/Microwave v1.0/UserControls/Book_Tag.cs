@@ -28,6 +28,7 @@ namespace Microwave_v1._0
             main_page.Pnl_tag.Controls.Add(this);
             this.BringToFront();
         }
+       
 
         public void Edit_Book_Tag(string name, string description, string author, string book_id)
         {
@@ -37,6 +38,8 @@ namespace Microwave_v1._0
             lbl_author.Text = "- " + author;
             this.pic_book.Image = main_page.Cover_image_list.Images[book_id];
         }
+
+
         public void Edit_Book_Tag_for_emp(string name, string description, string author, string cover_path_file)
         {
             show_employee = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];

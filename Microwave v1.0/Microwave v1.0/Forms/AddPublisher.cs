@@ -15,17 +15,12 @@ namespace Microwave_v1._0.Forms
     public partial class AddPublisher : Form
     {
         private string pub_name;
-        private string pub_mail;
-        private string pub_phone;
-        private string pub_description;
-        private string pub_address;
+        private string pub_email;
+        private string pub_phone_number;
         private string pub_date_of_est;
         
-
-
         Microwave main_page;
         private Publisher_List main_pub_list;
-
 
         Picture_Events picture_event;
         private string pic_default_file = @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg";
@@ -33,7 +28,6 @@ namespace Microwave_v1._0.Forms
         private string pic_new_source_path = "";
 
         private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
-
 
         private bool is_edit = false;
         private bool change_image = false;
@@ -44,7 +38,7 @@ namespace Microwave_v1._0.Forms
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
-            picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
+            picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_publisher);
             pic_new_source_path = picture_event.Pic_source_file;
         }
 
@@ -55,7 +49,7 @@ namespace Microwave_v1._0.Forms
 
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
-            picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
+            picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_publisher);
 
             publisher_to_edit = pub;
 
@@ -63,23 +57,25 @@ namespace Microwave_v1._0.Forms
             // Make other properties default
             this.tb_pub_name.Text = pub.Pub_name;
             this.tb_pub_name.ForeColor = Color.LightGray;
-            this.tb_pub_name.Text = pub.Pub_mail;
-            this.tb_pub_name.ForeColor = Color.LightGray;
-            this.tb_pub_name.Text = pub.Pub_name;
-            this.tb_pub_name.ForeColor = Color.LightGray;
+            this.tb_pub_email.Text = pub.Pub_email;
+            this.tb_pub_email.ForeColor = Color.LightGray;
+            this.tb_pub_phone_num.Text = pub.Pub_phone_num;
+            this.tb_pub_phone_num.ForeColor = Color.LightGray;
             this.pub_date_of_est = pub.Pub_date_of_est;
             dtp_publisher.Value = new DateTime(int.Parse(pub_date_of_est),1,1);
 
 
             pic_new_source_path = picture_event.Pic_source_file = pub.Pub_cover_path_file;
-            pic_book.Image = main_page.Pub_cover_image_list.Images[pub.Publisher_id.ToString()];
+            pic_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(pub.Pub_cover_path_file);
 
             is_edit = true;
         }
 
         private void Pub_Add_Click_Func(bool is_edit)
         {
-            pub_description = tb_pub_description.Text.Replace('\'', ' ');
+            pub_name = tb_pub_name.Text.Replace('\'', ' ');
+            pub_email = tb_pub_email.Text.Replace('\'', ' ');
+            pub_phone_number = tb_pub_phone_num.Text.Replace('\'', ' ');
             pic_new_source_path = picture_event.Pic_source_file;
             pub_date_of_est = dtp_publisher.Value.ToString("yyyy");
 
@@ -93,11 +89,18 @@ namespace Microwave_v1._0.Forms
                 tb_pub_name.Focus();
                 return;
             }
-            if (tb_pub_description.Text == "Description..." || tb_pub_description.Text == "")
+            if (tb_pub_email.Text.Trim() == "Publisher's Email" || tb_pub_email.Text.Trim() == "")
             {
-                lbl_pub_message.Text = "* Please enter description.";
+                lbl_pub_message.Text = "* Please enter publisher's email.";
                 lbl_pub_message.ForeColor = Color.Red;
-                tb_pub_description.Focus();
+                tb_pub_email.Focus();
+                return;
+            }
+            if (tb_pub_phone_num.Text.Trim() == "Publisher's Phone Number" || tb_pub_phone_num.Text.Trim() == "")
+            {
+                lbl_pub_message.Text = "* Please enter publisher's phone number.";
+                lbl_pub_message.ForeColor = Color.Red;
+                tb_pub_phone_num.Focus();
                 return;
             }
             if (is_edit == false)
@@ -110,7 +113,7 @@ namespace Microwave_v1._0.Forms
                 else
                     pic_new_source_path = pic_default_file;
                 
-                Publisher publisher= new Publisher(0,pub_name,pub_date_of_est,pic_new_source_path);
+                Publisher publisher= new Publisher(0,pub_name,pub_email,pub_phone_number, pub_date_of_est,pic_new_source_path);
                 publisher.Add();
                 
                    
@@ -132,7 +135,8 @@ namespace Microwave_v1._0.Forms
                 lbl_pub_message.ForeColor = Color.LightGreen;
 
                 publisher_to_edit.Pub_name= pub_name;
-                publisher_to_edit.Pub_description= pub_description;
+                publisher_to_edit.Pub_email = pub_email;
+                publisher_to_edit.Pub_phone_num = pub_phone_number;
                 publisher_to_edit.Pub_date_of_est = pub_date_of_est;
                 publisher_to_edit.Pub_cover_path_file= picture_event.Pic_source_file;
                 
@@ -140,7 +144,7 @@ namespace Microwave_v1._0.Forms
 
                 main_page.Pnl_pub_list.VerticalScroll.Value = 0;
                 main_page.Publisher_search_list.Delete_All_List();
-                main_pub_list.Draw_All_Publishers();
+                main_page.Main_pub_list.Draw_All_Publishers();
                 main_page.Publisher_searched_already = false;
             }
         }
@@ -149,8 +153,10 @@ namespace Microwave_v1._0.Forms
         {
             tb_pub_name.Text = "Publisher's Name";
             tb_pub_name.ForeColor = Color.DimGray;
-            tb_pub_description.Text = "Description...";
-            tb_pub_description.ForeColor = Color.DimGray;
+            tb_pub_email.Text = "Publisher's Email";
+            tb_pub_email.ForeColor = Color.DimGray;
+            tb_pub_phone_num.Text = "Publisher's Phone Number";
+            tb_pub_phone_num.ForeColor = Color.DimGray;
             dtp_publisher.Value = DateTime.Today;
         }
 
@@ -204,20 +210,40 @@ namespace Microwave_v1._0.Forms
                 tb_pub_name.ForeColor = Color.DimGray;
             }
         }
-        private void tb_pub_description_Enter(object sender, EventArgs e)
+        
+        private void tb_pub_email_Enter(object sender, EventArgs e)
         {
-            if (tb_pub_description.Text == "Description...")
+            if (tb_pub_email.Text == "Publisher's Email")
             {
-                tb_pub_description.Text = "";
-                tb_pub_description.ForeColor = Color.LightGray;
+                tb_pub_email.Text = "";
+                tb_pub_email.ForeColor = Color.LightGray;
             }
         }
-        private void tb_pub_description_Leave(object sender, EventArgs e)
+
+        private void tb_pub_email_Leave(object sender, EventArgs e)
         {
-            if (tb_pub_description.Text == "")
+            if (tb_pub_email.Text == "")
             {
-                tb_pub_description.Text = "Description...";
-                tb_pub_description.ForeColor = Color.Gray;
+                tb_pub_email.Text = "Publisher's Email";
+                tb_pub_email.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_pub_phone_num_Enter(object sender, EventArgs e)
+        {
+            if (tb_pub_phone_num.Text == "Publisher's Phone Number")
+            {
+                tb_pub_phone_num.Text = "";
+                tb_pub_phone_num.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_pub_phone_num_Leave(object sender, EventArgs e)
+        {
+            if (tb_pub_phone_num.Text == "")
+            {
+                tb_pub_phone_num.Text = "Publisher's Phone Number";
+                tb_pub_phone_num.ForeColor = Color.DimGray;
             }
         }
 

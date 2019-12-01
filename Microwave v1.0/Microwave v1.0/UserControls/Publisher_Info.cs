@@ -17,10 +17,11 @@ namespace Microwave_v1._0.UserControls
         private Microwave main_page;
         private Publisher_List main_pub_list;
         private Forms.AddPublisher edit_pub_form = null;
-
-        public System.Windows.CornerRadius CornerRadius { get; set; }
+        private Detail detail_form = null;
 
         private string pub_name;
+        private string pub_email;
+        private string pub_phone_number;
         private string pub_date_of_est;
         private string pub_pic_path_file;
         private bool chosen = false;
@@ -34,11 +35,13 @@ namespace Microwave_v1._0.UserControls
             this.btn_pub_edit.Hide();
             this.btn_pub_remove.Hide();
         }
-        public void Initialize_Publisher_Info(int publisher_id, string pub_name, string pub_date_of_est, string pub_pic_path_file)
+        public void Initialize_Publisher_Info(int publisher_id, string pub_name, string pub_email, string pub_phone_number, string pub_date_of_est, string pub_pic_path_file)
         {
             this.publisher_id = publisher_id;
             this.lbl_pub_name.Text = pub_name;
             this.pub_name = pub_name;
+            this.pub_email = pub_email;
+            this.pub_phone_number = pub_phone_number;
             this.pub_date_of_est = pub_date_of_est;
             this.pub_pic_path_file = pub_pic_path_file;
             this.btn_pub_id.Text = publisher_id.ToString();
@@ -64,6 +67,12 @@ namespace Microwave_v1._0.UserControls
                 x += 180;
             }
             pb_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(pub_pic_path_file);
+        }
+        public void Draw_Publisher_Detail_Obj(ref int y)
+        {
+            main_page.Pnl_pub_list.Controls.Add(this);
+            this.Location = new System.Drawing.Point(0, y);
+            y += 50;
         }
         public void Select_Publisher_Info()
         {
@@ -110,7 +119,7 @@ namespace Microwave_v1._0.UserControls
 
             main_page.Pnl_pub_list.VerticalScroll.Value = 0;
             main_page.Publisher_search_list.Delete_All_List();
-            main_pub_list.Draw_All_Publishers();
+            main_page.Main_pub_list.Draw_All_Publishers();
             main_page.Publisher_searched_already = false;
         }
 
@@ -168,6 +177,28 @@ namespace Microwave_v1._0.UserControls
             }
         }
 
+        private void Create_Pub_Detail_Form(Publisher publisher)
+        {
+
+            if (detail_form == null)
+            {
+                detail_form = new Detail(publisher);
+                detail_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    detail_form.Show();
+                }
+                catch (Exception)
+                {
+                    detail_form = new Detail(publisher);
+                    detail_form.Show();
+                }
+            }
+        }
+
         public void Pub_Hover()
         {
             if (!chosen)
@@ -209,5 +240,10 @@ namespace Microwave_v1._0.UserControls
 
         }
 
+        private void Publisher_Info_DoubleClick(object sender, EventArgs e)
+        {
+            Publisher current = main_pub_list.Find_Publisher_By_ID(publisher_id);
+            Create_Pub_Detail_Form(current);
+        }
     }
 }

@@ -124,7 +124,7 @@
             this.btn_dep_id.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_dep_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dep_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_dep_id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.btn_dep_id.ForeColor = System.Drawing.Color.White;
             this.btn_dep_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_dep_id.Image")));
             this.btn_dep_id.Location = new System.Drawing.Point(131, -4);
             this.btn_dep_id.Margin = new System.Windows.Forms.Padding(2);

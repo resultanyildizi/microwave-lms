@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microwave_v1._0.Classes;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0.Forms
 {
@@ -57,7 +59,7 @@ namespace Microwave_v1._0.Forms
             this.btn_return_book.Show();
 
             this.btn_id.Text = user.User_id.ToString();
-            this.lbl_date.Text = user.Date.Substring(0, 10);
+            
 
             this.lbl_name.Text = user.Name + " " + user.Surname;
 
@@ -79,6 +81,41 @@ namespace Microwave_v1._0.Forms
 
             picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
         }
+
+        public Detail(Publisher publisher)
+        {
+            InitializeComponent();
+
+            
+
+            this.btn_give_book.Hide();
+            this.btn_give_penalty.Hide();
+            this.btn_return_book.Hide();
+
+            this.btn_id.Text = publisher.Publisher_id.ToString();
+            this.lbl_date.Hide();
+
+            this.lbl_name.Text = publisher.Pub_name; // Label for name
+
+            this.lbl_1.Text = "Name:";
+            this.lbl_2.Text = "Email:";
+            
+            this.lbl_3.Text = "Phone:";
+            this.lbl_4.Text = "Date:";
+            this.lbl_5.Hide();
+            this.lbl_6.Hide();
+            this.lbl_desc.Text = "Books which " + publisher.Pub_name + " has:";
+
+            this.tb_1.Text = publisher.Pub_name;
+            this.tb_2.Text = publisher.Pub_email;
+            this.tb_3.Text = publisher.Pub_phone_num;
+            this.tb_4.Text = publisher.Pub_date_of_est;
+            this.tb_5.Hide();
+            this.tb_6.Hide();
+
+            this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
+        }
+
 
 
     }
