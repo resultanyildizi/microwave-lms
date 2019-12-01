@@ -81,8 +81,8 @@ namespace Microwave_v1._0.Classes
             string query = title + values;
             DataBaseEvents.ExecuteNonQuery(query, datasource);
             author_info = new Author_Info();
-            author_info.Initialize_Author_Info(author_id,author_name, author_cover_path_file);
             Take_ID_From_Database();
+            author_info.Initialize_Author_Info(author_id,author_name, author_cover_path_file);
             Join_Tables();
             //Cover_Pic_to_Image_List();
             main_page.Main_author_list.Add_Author_to_List(this);
@@ -170,8 +170,6 @@ namespace Microwave_v1._0.Classes
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
-        static public DataTable Search_Author_By_ID() { return null; }
-        static public DataTable Search_Author_By_Name() { return null; }
 
         private void Take_ID_From_Database()
         {

@@ -85,9 +85,7 @@ namespace Microwave_v1._0.Forms
         public Detail(Publisher publisher)
         {
             InitializeComponent();
-
             
-
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
@@ -116,7 +114,37 @@ namespace Microwave_v1._0.Forms
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
         }
 
+        public Detail(Author author)
+        {
+            InitializeComponent();
 
+            this.btn_give_book.Hide();
+            this.btn_give_penalty.Hide();
+            this.btn_return_book.Hide();
+
+            this.btn_id.Text = author.Author_id.ToString();
+            this.lbl_date.Hide();
+
+            this.lbl_name.Text = author.Author_name;
+
+            this.lbl_1.Text = "Country:";
+            this.lbl_2.Text = "Gender:";
+            this.lbl_3.Text = "Birth Year:";
+            this.lbl_4.Hide();
+            this.lbl_5.Hide();
+            this.lbl_6.Hide();
+
+            this.lbl_desc.Text = "Biography";
+
+            this.tb_1.Text = author.Author_country;
+            this.tb_2.Text = author.Author_gender;
+            this.tb_3.Text = author.Author_birthday;
+            this.tb_4.Hide();
+            this.tb_5.Hide();
+            this.tb_6.Hide();
+
+            picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
+        }
 
     }
 }

@@ -17,6 +17,7 @@ namespace Microwave_v1._0.UserControls
         private Microwave main_page;
         private Author_List author_list;
         private AddAuthor edit_form;
+        private Detail detail_form;
 
         public System.Windows.CornerRadius CornerRadius { get; set; }
 
@@ -55,8 +56,8 @@ namespace Microwave_v1._0.UserControls
         {
             main_page.Pnl_author_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(x, y);
-            
-            if(x>500)
+
+            if (x > 500)
             {
                 y += 240;
                 x = 35;
@@ -171,6 +172,27 @@ namespace Microwave_v1._0.UserControls
                 }
             }
         }
+        private void Create_Author_Detail_Form(Author author)
+        {
+
+            if (detail_form == null)
+            {
+                detail_form = new Detail(author);
+                detail_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    detail_form.Show();
+                }
+                catch (Exception)
+                {
+                    detail_form = new Detail(author);
+                    detail_form.Show();
+                }
+            }
+        }
 
         public void Author_Hover()
         {
@@ -210,5 +232,13 @@ namespace Microwave_v1._0.UserControls
             this.Select_Author_Info();
         }
 
+        private void Author_Info_DoubleClick(object sender, EventArgs e)
+        {
+
+            Author current = author_list.Find_Author_By_ID(author_id);
+            Create_Author_Detail_Form(current);
+        }
+
+        
     }
 }

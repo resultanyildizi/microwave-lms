@@ -1042,6 +1042,7 @@ namespace Microwave_v1._0
                 tb_search_author.Text = "Search an author";
                 tb_search_author.ForeColor = Color.Gray;
             }
+            lb_author_search.Hide();
         }
         private void tb_search_author_KeyDown(object sender, KeyEventArgs e)
         {

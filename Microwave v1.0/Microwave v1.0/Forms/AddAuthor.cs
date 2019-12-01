@@ -61,6 +61,8 @@ namespace Microwave_v1._0.Forms
             this.tb_name.ForeColor = Color.LightGray;
             this.tb_country.Text = author.Author_country;
             this.tb_country.ForeColor = Color.LightGray;
+            this.tb_biography.Text = author.Author_biography;
+            this.tb_biography.ForeColor = Color.LightGray;
             this.gender = author.Author_gender;
             if (author.Author_gender == "Male")
             {
@@ -179,7 +181,7 @@ namespace Microwave_v1._0.Forms
 
                 main_page.Pnl_author_list.VerticalScroll.Value = 0;
                 main_page.Author_search_list.Delete_All_List();
-                main_author_list.Draw_All_Authors();
+                main_page.Main_author_list.Draw_All_Authors();
                 main_page.Author_searched_already = false;
             }
 
@@ -228,6 +230,60 @@ namespace Microwave_v1._0.Forms
         private void AddAuthor_FormClosed(object sender, FormClosedEventArgs e)
         {
             main_page.Btn_add.Enabled = true;
+        }
+
+        private void tb_name_Enter(object sender, EventArgs e)
+        {
+            if (tb_name.Text == "Author's Name")
+            {
+                tb_name.Text = "";
+                tb_name.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_name_Leave(object sender, EventArgs e)
+        {
+            if (tb_name.Text == "")
+            {
+                tb_name.Text = "Author's Name";
+                tb_name.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_country_Enter(object sender, EventArgs e)
+        {
+            if (tb_country.Text == "Country")
+            {
+                tb_country.Text = "";
+                tb_country.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_country_Leave(object sender, EventArgs e)
+        {
+            if (tb_country.Text == "")
+            {
+                tb_country.Text = "Country";
+                tb_country.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_biography_Enter(object sender, EventArgs e)
+        {
+            if (tb_biography.Text == "Biography...")
+            {
+                tb_biography.Text = "";
+                tb_biography.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_biography_Leave(object sender, EventArgs e)
+        {
+            if (tb_biography.Text == "")
+            {
+                tb_biography.Text = "Biography...";
+                tb_biography.ForeColor = Color.DimGray;
+            }
         }
     }
 }

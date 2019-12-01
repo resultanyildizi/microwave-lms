@@ -50,6 +50,7 @@
             this.pb_author.TabIndex = 0;
             this.pb_author.TabStop = false;
             this.pb_author.Click += new System.EventHandler(this.Author_Info_Click);
+            this.pb_author.DoubleClick += new System.EventHandler(this.Author_Info_DoubleClick);
             this.pb_author.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
             this.pb_author.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
@@ -64,6 +65,7 @@
             this.pnl_name.Size = new System.Drawing.Size(131, 28);
             this.pnl_name.TabIndex = 2;
             this.pnl_name.Click += new System.EventHandler(this.Author_Info_Click);
+            this.pnl_name.DoubleClick += new System.EventHandler(this.Author_Info_DoubleClick);
             this.pnl_name.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
             this.pnl_name.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
@@ -79,6 +81,7 @@
             this.lbl_author.Text = "Author Name";
             this.lbl_author.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_author.Click += new System.EventHandler(this.Author_Info_Click);
+            this.lbl_author.DoubleClick += new System.EventHandler(this.Author_Info_DoubleClick);
             this.lbl_author.MouseEnter += new System.EventHandler(this.lbl_name_MouseLeave);
             this.lbl_author.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             // 
@@ -145,6 +148,7 @@
             this.Name = "Author_Info";
             this.Size = new System.Drawing.Size(160, 229);
             this.Click += new System.EventHandler(this.Author_Info_Click);
+            this.DoubleClick += new System.EventHandler(this.Author_Info_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.lbl_name_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.lbl_name_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pb_author)).EndInit();
