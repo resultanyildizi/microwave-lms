@@ -22,21 +22,38 @@ namespace Microwave_v1._0.Forms
         private Employee_List main_employee_list = null;
         private AddEmployee addEmployee = null;
 
+        private Book_Tag main_tag = null;
+
+
+
+        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
+        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
+
         public Employee_List Main_employee_list { get => main_employee_list; set => main_employee_list = value; }
         public AddEmployee AddEmployee { get => addEmployee; set => addEmployee = value; }
+        public Book_Tag Main_tag { get => main_tag; set => main_tag = value; }
 
         public ShowEmployee()
         {
             InitializeComponent();
             main_employee_list = new Employee_List();
-            
+            main_tag = new Book_Tag();
         }
 
 
         private void ShowEmployee_Load(object sender, EventArgs e)
         {
+            this.pnl_employee_list.VerticalScroll.Value = 0;
             main_employee_list = new Employee_List();
             Employee.Show_All_Employees();
+
+            main_employee_list.Draw_All_Employees();
+            pnl_employee_list.BringToFront();
+
+            pnl_emp_st.Hide();
+            lb_emp_search.Hide();
+
 
 
         }
@@ -70,5 +87,6 @@ namespace Microwave_v1._0.Forms
         {
 
         }
+
     }
 }

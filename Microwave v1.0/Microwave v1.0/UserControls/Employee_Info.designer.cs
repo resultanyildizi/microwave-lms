@@ -41,11 +41,14 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.lbl_gender = new System.Windows.Forms.Label();
             this.pnl_category = new System.Windows.Forms.Panel();
+            this.pnl_department = new System.Windows.Forms.Panel();
+            this.lbl_department = new System.Windows.Forms.Label();
             this.pnl_id.SuspendLayout();
             this.pnl_publisher.SuspendLayout();
             this.pnl_name.SuspendLayout();
             this.pnl_author.SuspendLayout();
             this.pnl_category.SuspendLayout();
+            this.pnl_department.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_id
@@ -77,10 +80,10 @@
             this.pnl_publisher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_publisher.Controls.Add(this.lbl_email);
             this.pnl_publisher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_publisher.Location = new System.Drawing.Point(330, 4);
+            this.pnl_publisher.Location = new System.Drawing.Point(278, 4);
             this.pnl_publisher.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_publisher.Name = "pnl_publisher";
-            this.pnl_publisher.Size = new System.Drawing.Size(215, 40);
+            this.pnl_publisher.Size = new System.Drawing.Size(180, 40);
             this.pnl_publisher.TabIndex = 7;
             // 
             // lbl_email
@@ -92,7 +95,7 @@
             this.lbl_email.Location = new System.Drawing.Point(4, 11);
             this.lbl_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(198, 20);
+            this.lbl_email.Size = new System.Drawing.Size(174, 20);
             this.lbl_email.TabIndex = 2;
             this.lbl_email.Text = "ddincerdem@gmail.com";
             // 
@@ -104,7 +107,7 @@
             this.pnl_name.Location = new System.Drawing.Point(65, 4);
             this.pnl_name.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_name.Name = "pnl_name";
-            this.pnl_name.Size = new System.Drawing.Size(137, 40);
+            this.pnl_name.Size = new System.Drawing.Size(108, 40);
             this.pnl_name.TabIndex = 6;
             // 
             // lbl_name
@@ -116,7 +119,7 @@
             this.lbl_name.Location = new System.Drawing.Point(3, 13);
             this.lbl_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(134, 20);
+            this.lbl_name.Size = new System.Drawing.Size(103, 20);
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "Doğan Dinçer";
             // 
@@ -125,10 +128,10 @@
             this.pnl_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_author.Controls.Add(this.lbl_surname);
             this.pnl_author.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_author.Location = new System.Drawing.Point(206, 4);
+            this.pnl_author.Location = new System.Drawing.Point(175, 4);
             this.pnl_author.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_author.Name = "pnl_author";
-            this.pnl_author.Size = new System.Drawing.Size(120, 40);
+            this.pnl_author.Size = new System.Drawing.Size(99, 40);
             this.pnl_author.TabIndex = 8;
             // 
             // lbl_surname
@@ -140,7 +143,7 @@
             this.lbl_surname.Location = new System.Drawing.Point(6, 11);
             this.lbl_surname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_surname.Name = "lbl_surname";
-            this.lbl_surname.Size = new System.Drawing.Size(112, 20);
+            this.lbl_surname.Size = new System.Drawing.Size(80, 20);
             this.lbl_surname.TabIndex = 1;
             this.lbl_surname.Text = "Demirci";
             // 
@@ -182,7 +185,7 @@
             this.lbl_gender.Location = new System.Drawing.Point(2, 13);
             this.lbl_gender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_gender.Name = "lbl_gender";
-            this.lbl_gender.Size = new System.Drawing.Size(80, 20);
+            this.lbl_gender.Size = new System.Drawing.Size(68, 20);
             this.lbl_gender.TabIndex = 3;
             this.lbl_gender.Text = "Erkek";
             // 
@@ -191,17 +194,42 @@
             this.pnl_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_category.Controls.Add(this.lbl_gender);
             this.pnl_category.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_category.Location = new System.Drawing.Point(549, 4);
+            this.pnl_category.Location = new System.Drawing.Point(462, 4);
             this.pnl_category.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_category.Name = "pnl_category";
             this.pnl_category.Size = new System.Drawing.Size(85, 40);
             this.pnl_category.TabIndex = 10;
+            // 
+            // pnl_department
+            // 
+            this.pnl_department.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.pnl_department.Controls.Add(this.lbl_department);
+            this.pnl_department.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnl_department.Location = new System.Drawing.Point(548, 4);
+            this.pnl_department.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_department.Name = "pnl_department";
+            this.pnl_department.Size = new System.Drawing.Size(92, 40);
+            this.pnl_department.TabIndex = 13;
+            // 
+            // lbl_department
+            // 
+            this.lbl_department.AutoEllipsis = true;
+            this.lbl_department.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_department.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_department.ForeColor = System.Drawing.Color.White;
+            this.lbl_department.Location = new System.Drawing.Point(2, 13);
+            this.lbl_department.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_department.Name = "lbl_department";
+            this.lbl_department.Size = new System.Drawing.Size(80, 20);
+            this.lbl_department.TabIndex = 3;
+            this.lbl_department.Text = "EzhelinKankası";
             // 
             // Employee_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.Controls.Add(this.pnl_department);
             this.Controls.Add(this.pnl_category);
             this.Controls.Add(this.pnl_id);
             this.Controls.Add(this.btn_remove);
@@ -210,12 +238,14 @@
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.pnl_author);
             this.Name = "Employee_Info";
-            this.Size = new System.Drawing.Size(636, 48);
+            this.Size = new System.Drawing.Size(646, 48);
+            this.Click += new System.EventHandler(this.Employee_Info_Click);
             this.pnl_id.ResumeLayout(false);
             this.pnl_publisher.ResumeLayout(false);
             this.pnl_name.ResumeLayout(false);
             this.pnl_author.ResumeLayout(false);
             this.pnl_category.ResumeLayout(false);
+            this.pnl_department.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -233,5 +263,7 @@
         private System.Windows.Forms.Label lbl_surname;
         private System.Windows.Forms.Label lbl_gender;
         private System.Windows.Forms.Panel pnl_category;
+        private System.Windows.Forms.Panel pnl_department;
+        private System.Windows.Forms.Label lbl_department;
     }
 }

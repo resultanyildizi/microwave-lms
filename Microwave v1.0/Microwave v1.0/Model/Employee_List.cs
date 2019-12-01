@@ -40,19 +40,21 @@ namespace Microwave_v1._0.Model
         {
             int rows_count = dt.Rows.Count;
 
-            for (int i = 1; i < rows_count; i++)
+            if (rows_count == 0) return;
+
+            for (int i = 0; i < rows_count; i++)
             {
                 int employee_id = int.Parse(dt.Rows[i][0].ToString());
-                string employee_name = dt.Rows[i][1].ToString();
-                string employee_surname = dt.Rows[i][2].ToString();
-                string employee_email = dt.Rows[i][3].ToString();
-                string employee_password = dt.Rows[i][4].ToString();
-                string employee_age = dt.Rows[i][5].ToString();
-                string employee_gender = dt.Rows[i][6].ToString();
-                int department_id = int.Parse(dt.Rows[i][7].ToString());
+                int department_id = int.Parse(dt.Rows[i][1].ToString());
+                string employee_name = dt.Rows[i][2].ToString();
+                string employee_surname = dt.Rows[i][3].ToString();
+                string employee_email = dt.Rows[i][4].ToString();
+                string employee_password = dt.Rows[i][5].ToString();
+                string birth_date = dt.Rows[i][6].ToString();
+                string employee_gender = dt.Rows[i][7].ToString();
                 string pic_path_file = dt.Rows[i][8].ToString();
 
-                Employee employee = new Employee(employee_id,employee_name,employee_surname,employee_age,pic_path_file,employee_email,employee_gender);
+                Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, birth_date, employee_email, employee_password, employee_gender, pic_path_file);
                 employee.Set_Employee();
                 this.Add_Employee_to_List(employee);
                 
@@ -76,7 +78,7 @@ namespace Microwave_v1._0.Model
             iterator.next = new employee_node(employee);
             employee_count++;
         }
-        public void Show_All_Employees() 
+        public void Draw_All_Employees() 
         {
             Employee.point_y = 5;
             employee_node iterator = root;
@@ -84,6 +86,7 @@ namespace Microwave_v1._0.Model
             while(iterator != null)
             {
                 iterator.employee.Info.Draw_Employee_obj(ref Employee.point_y);
+                iterator.employee.Info.Show();
                 iterator = iterator.next;
             }
         }
