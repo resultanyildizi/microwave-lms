@@ -40,12 +40,14 @@ namespace Microwave_v1._0
         }
 
 
-        public void Edit_Book_Tag_for_emp(string name, string description, string author, string cover_path_file)
+        public void Edit_Book_Tag_for_emp(string name, string description, string cover_path_file)
         {
             show_employee = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
             lbl_bookname.Text = name;
+            this.lbl_description.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lbl_description.Text = description;
-            lbl_author.Text = "- " + author;
+            lbl_author.Text = " ";
+        
             this.pic_book.Image = Picture_Events.Get_Copy_Image_Bitmap(cover_path_file);
         }
 
