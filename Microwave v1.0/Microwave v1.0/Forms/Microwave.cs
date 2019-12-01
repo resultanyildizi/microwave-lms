@@ -1311,7 +1311,7 @@ namespace Microwave_v1._0
         }
         private void Tb_search_user_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string text = tb_search_book.Text;
+            string text = tb_search_user.Text;
 
             if (e.KeyChar == (char)Keys.Enter && !user_searched_already)
             {
