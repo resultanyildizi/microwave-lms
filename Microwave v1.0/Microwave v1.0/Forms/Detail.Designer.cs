@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Detail));
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.btn_give_penalty = new System.Windows.Forms.Button();
+            this.btn_give_book = new System.Windows.Forms.Button();
+            this.btn_return_book = new System.Windows.Forms.Button();
+            this.btn_id = new System.Windows.Forms.Button();
             this.tb_6 = new System.Windows.Forms.TextBox();
             this.tb_5 = new System.Windows.Forms.TextBox();
             this.tb_4 = new System.Windows.Forms.TextBox();
@@ -37,24 +41,20 @@
             this.tb_2 = new System.Windows.Forms.TextBox();
             this.tb_1 = new System.Windows.Forms.TextBox();
             this.pnl_sep2 = new System.Windows.Forms.Panel();
+            this.btn_remove = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
             this.lbl_desc = new System.Windows.Forms.Label();
             this.pnl_sep1 = new System.Windows.Forms.Panel();
             this.dgw_users = new System.Windows.Forms.DataGridView();
             this.lbl_date = new System.Windows.Forms.Label();
             this.lbl_6 = new System.Windows.Forms.Label();
+            this.picture_box = new System.Windows.Forms.PictureBox();
             this.lbl_5 = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_4 = new System.Windows.Forms.Label();
             this.lbl_3 = new System.Windows.Forms.Label();
             this.lbl_2 = new System.Windows.Forms.Label();
             this.lbl_1 = new System.Windows.Forms.Label();
-            this.btn_give_penalty = new System.Windows.Forms.Button();
-            this.btn_give_book = new System.Windows.Forms.Button();
-            this.btn_return_book = new System.Windows.Forms.Button();
-            this.btn_id = new System.Windows.Forms.Button();
-            this.btn_remove = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
-            this.picture_box = new System.Windows.Forms.PictureBox();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_users)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_box)).BeginInit();
@@ -93,13 +93,82 @@
             this.pnl_main.Size = new System.Drawing.Size(773, 471);
             this.pnl_main.TabIndex = 1;
             // 
+            // btn_give_penalty
+            // 
+            this.btn_give_penalty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_give_penalty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_give_penalty.FlatAppearance.BorderSize = 0;
+            this.btn_give_penalty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_give_penalty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_give_penalty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_give_penalty.ForeColor = System.Drawing.Color.White;
+            this.btn_give_penalty.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_penalty.Image")));
+            this.btn_give_penalty.Location = new System.Drawing.Point(513, 179);
+            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_penalty.Name = "btn_give_penalty";
+            this.btn_give_penalty.Size = new System.Drawing.Size(46, 44);
+            this.btn_give_penalty.TabIndex = 54;
+            this.btn_give_penalty.UseVisualStyleBackColor = true;
+            // 
+            // btn_give_book
+            // 
+            this.btn_give_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_give_book.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_give_book.FlatAppearance.BorderSize = 0;
+            this.btn_give_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_give_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_give_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_give_book.ForeColor = System.Drawing.Color.White;
+            this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
+            this.btn_give_book.Location = new System.Drawing.Point(563, 179);
+            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_book.Name = "btn_give_book";
+            this.btn_give_book.Size = new System.Drawing.Size(46, 44);
+            this.btn_give_book.TabIndex = 53;
+            this.btn_give_book.UseVisualStyleBackColor = true;
+            // 
+            // btn_return_book
+            // 
+            this.btn_return_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_return_book.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_return_book.FlatAppearance.BorderSize = 0;
+            this.btn_return_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_return_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_return_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_return_book.ForeColor = System.Drawing.Color.White;
+            this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
+            this.btn_return_book.Location = new System.Drawing.Point(613, 179);
+            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_return_book.Name = "btn_return_book";
+            this.btn_return_book.Size = new System.Drawing.Size(46, 44);
+            this.btn_return_book.TabIndex = 52;
+            this.btn_return_book.UseVisualStyleBackColor = true;
+            // 
+            // btn_id
+            // 
+            this.btn_id.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_id.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_id.FlatAppearance.BorderSize = 0;
+            this.btn_id.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_id.ForeColor = System.Drawing.Color.White;
+            this.btn_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_id.Image")));
+            this.btn_id.Location = new System.Drawing.Point(134, -1);
+            this.btn_id.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_id.Name = "btn_id";
+            this.btn_id.Size = new System.Drawing.Size(46, 44);
+            this.btn_id.TabIndex = 51;
+            this.btn_id.Text = "171";
+            this.btn_id.UseVisualStyleBackColor = true;
+            // 
             // tb_6
             // 
             this.tb_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.tb_6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_6.ForeColor = System.Drawing.Color.White;
-            this.tb_6.Location = new System.Drawing.Point(572, 136);
+            this.tb_6.Location = new System.Drawing.Point(572, 135);
             this.tb_6.Name = "tb_6";
             this.tb_6.ReadOnly = true;
             this.tb_6.Size = new System.Drawing.Size(187, 22);
@@ -174,6 +243,40 @@
             this.pnl_sep2.Size = new System.Drawing.Size(743, 1);
             this.pnl_sep2.TabIndex = 42;
             // 
+            // btn_remove
+            // 
+            this.btn_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_remove.FlatAppearance.BorderSize = 0;
+            this.btn_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove.ForeColor = System.Drawing.Color.White;
+            this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
+            this.btn_remove.Location = new System.Drawing.Point(713, 179);
+            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(46, 44);
+            this.btn_remove.TabIndex = 44;
+            this.btn_remove.UseVisualStyleBackColor = true;
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_edit.FlatAppearance.BorderSize = 0;
+            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_edit.ForeColor = System.Drawing.Color.White;
+            this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
+            this.btn_edit.Location = new System.Drawing.Point(663, 179);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(46, 44);
+            this.btn_edit.TabIndex = 43;
+            this.btn_edit.UseVisualStyleBackColor = true;
+            // 
             // lbl_desc
             // 
             this.lbl_desc.AutoSize = true;
@@ -221,12 +324,22 @@
             this.lbl_6.AutoSize = true;
             this.lbl_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_6.ForeColor = System.Drawing.Color.White;
-            this.lbl_6.Location = new System.Drawing.Point(478, 135);
+            this.lbl_6.Location = new System.Drawing.Point(478, 134);
             this.lbl_6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_6.Name = "lbl_6";
             this.lbl_6.Size = new System.Drawing.Size(56, 20);
             this.lbl_6.TabIndex = 38;
             this.lbl_6.Text = "Count:";
+            // 
+            // picture_box
+            // 
+            this.picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
+            this.picture_box.Location = new System.Drawing.Point(3, 3);
+            this.picture_box.Name = "picture_box";
+            this.picture_box.Size = new System.Drawing.Size(121, 163);
+            this.picture_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picture_box.TabIndex = 0;
+            this.picture_box.TabStop = false;
             // 
             // lbl_5
             // 
@@ -269,7 +382,7 @@
             this.lbl_3.AutoSize = true;
             this.lbl_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_3.ForeColor = System.Drawing.Color.White;
-            this.lbl_3.Location = new System.Drawing.Point(131, 135);
+            this.lbl_3.Location = new System.Drawing.Point(134, 134);
             this.lbl_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_3.Name = "lbl_3";
             this.lbl_3.Size = new System.Drawing.Size(77, 20);
@@ -299,119 +412,6 @@
             this.lbl_1.Size = new System.Drawing.Size(61, 20);
             this.lbl_1.TabIndex = 33;
             this.lbl_1.Text = "Author:";
-            // 
-            // btn_give_penalty
-            // 
-            this.btn_give_penalty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_give_penalty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_give_penalty.FlatAppearance.BorderSize = 0;
-            this.btn_give_penalty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_give_penalty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_give_penalty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_give_penalty.ForeColor = System.Drawing.Color.White;
-            this.btn_give_penalty.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_penalty.Image")));
-            this.btn_give_penalty.Location = new System.Drawing.Point(513, 179);
-            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_give_penalty.Name = "btn_give_penalty";
-            this.btn_give_penalty.Size = new System.Drawing.Size(46, 44);
-            this.btn_give_penalty.TabIndex = 54;
-            this.btn_give_penalty.UseVisualStyleBackColor = true;
-            // 
-            // btn_give_book
-            // 
-            this.btn_give_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_give_book.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_give_book.FlatAppearance.BorderSize = 0;
-            this.btn_give_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_give_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_give_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_give_book.ForeColor = System.Drawing.Color.White;
-            this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
-            this.btn_give_book.Location = new System.Drawing.Point(563, 179);
-            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_give_book.Name = "btn_give_book";
-            this.btn_give_book.Size = new System.Drawing.Size(46, 44);
-            this.btn_give_book.TabIndex = 53;
-            this.btn_give_book.UseVisualStyleBackColor = true;
-            // 
-            // btn_return_book
-            // 
-            this.btn_return_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_return_book.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_return_book.FlatAppearance.BorderSize = 0;
-            this.btn_return_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_return_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_return_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_return_book.ForeColor = System.Drawing.Color.White;
-            this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
-            this.btn_return_book.Location = new System.Drawing.Point(613, 179);
-            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_return_book.Name = "btn_return_book";
-            this.btn_return_book.Size = new System.Drawing.Size(46, 44);
-            this.btn_return_book.TabIndex = 52;
-            this.btn_return_book.UseVisualStyleBackColor = true;
-            // 
-            // btn_id
-            // 
-            this.btn_id.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_id.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_id.FlatAppearance.BorderSize = 0;
-            this.btn_id.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_id.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_id.ForeColor = System.Drawing.Color.White;
-            this.btn_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_id.Image")));
-            this.btn_id.Location = new System.Drawing.Point(134, -1);
-            this.btn_id.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_id.Name = "btn_id";
-            this.btn_id.Size = new System.Drawing.Size(46, 44);
-            this.btn_id.TabIndex = 51;
-            this.btn_id.Text = "171";
-            this.btn_id.UseVisualStyleBackColor = true;
-            // 
-            // btn_remove
-            // 
-            this.btn_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_remove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_remove.FlatAppearance.BorderSize = 0;
-            this.btn_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remove.ForeColor = System.Drawing.Color.White;
-            this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
-            this.btn_remove.Location = new System.Drawing.Point(713, 179);
-            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(46, 44);
-            this.btn_remove.TabIndex = 44;
-            this.btn_remove.UseVisualStyleBackColor = true;
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_edit.FlatAppearance.BorderSize = 0;
-            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_edit.ForeColor = System.Drawing.Color.White;
-            this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
-            this.btn_edit.Location = new System.Drawing.Point(663, 179);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(46, 44);
-            this.btn_edit.TabIndex = 43;
-            this.btn_edit.UseVisualStyleBackColor = true;
-            // 
-            // picture_box
-            // 
-            this.picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
-            this.picture_box.Location = new System.Drawing.Point(3, 3);
-            this.picture_box.Name = "picture_box";
-            this.picture_box.Size = new System.Drawing.Size(121, 163);
-            this.picture_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picture_box.TabIndex = 0;
-            this.picture_box.TabStop = false;
             // 
             // Detail
             // 
