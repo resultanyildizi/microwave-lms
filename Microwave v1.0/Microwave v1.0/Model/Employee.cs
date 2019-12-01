@@ -70,8 +70,8 @@ namespace Microwave_v1._0.Model
             string title;
             string values;
 
-            title = " INSERT INTO Employee (DEPARTMENT_ID , NAME, SURNAME, EMAIL, PASSWORD, GENDER, BIRTH_DATE)";
-            values = string.Format(" VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",department_id,name,surname,email,password,gender,birth_date);
+            title = " INSERT INTO Employee (DEPARTMENT_ID , NAME, SURNAME, EMAIL, PASSWORD, GENDER, BIRTH_DATE,COVER_PATH)";
+            values = string.Format(" VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", department_id,name,surname,email,password,gender,birth_date,cover_path_file);
 
             string query = string.Concat(title, values);
 

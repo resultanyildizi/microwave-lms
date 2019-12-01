@@ -59,6 +59,7 @@ namespace Microwave_v1._0.UserControls
             this.lbl_surname.Text = surname;
             this.lbl_gender.Text = gender;
             this.lbl_email.Text = email;
+            this.lbl_birthdate.Text = birth_date;
         }
         public void Draw_Employee_obj(ref int y)
         {
@@ -79,11 +80,11 @@ namespace Microwave_v1._0.UserControls
 
             main_employee_tag.Edit_Book_Tag_for_emp(name, surname + "/n" + gender + "/n" + birth_date + "/n" + email + "/n" ," ",cover_path_file);
 
-            this.pnl_author.BackColor = back_color;
-            this.pnl_category.BackColor = back_color;
+            this.pnl_surname.BackColor = back_color;
+            this.pnl_gender.BackColor = back_color;
             this.pnl_id.BackColor = back_color;
             this.pnl_name.BackColor = back_color;
-            this.pnl_publisher.BackColor = back_color;
+            this.pnl_email.BackColor = back_color;
 
             this.btn_edit.Show();
             this.btn_remove.Show();
