@@ -99,6 +99,7 @@ namespace Microwave_v1._0.UserControls
         public void Publisher_Info_Click(object sender, EventArgs e)
         {
             main_pub_list.Deselect_All_Publisher_Infos();
+            main_page.Publisher_search_list.Deselect_All_Publisher_Infos();
             this.Select_Publisher_Info();
         }
 

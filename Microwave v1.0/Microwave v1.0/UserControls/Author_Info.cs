@@ -97,6 +97,7 @@ namespace Microwave_v1._0.UserControls
         public void Author_Info_Click(object sender, EventArgs e)
         {
             author_list.Deselect_All_Author_Infos();
+            main_page.Author_search_list.Deselect_All_Author_Infos();
             this.Select_Author_Info();
         }
 

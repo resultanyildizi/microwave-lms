@@ -74,8 +74,6 @@ namespace Microwave_v1._0
         private Author_List author_search_list = null;
         private bool author_searched_already = false;
 
-        string pub_last_search_text;
-
         // Getters and Setters
         public Warning Warning_form { get => warning_form; set => warning_form = value; }
         public AddBook Add_book { get => add_book; set => add_book = value; }
@@ -1266,7 +1264,7 @@ namespace Microwave_v1._0
                     }
                     if (rb_user_surname.Checked)
                     {
-                        string query = string.Format("Select Users.SURNAME From Users Where Users.NAME Like '{0}%'", text);
+                        string query = string.Format("Select Users.SURNAME From Users Where Users.SURNAME Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
                         if (lb_user_search.Items.Count > 0)
                             lb_user_search.Show();
@@ -1274,7 +1272,7 @@ namespace Microwave_v1._0
                     }
                     if (rb_user_id.Checked)
                     {
-                        string query = string.Format("Select Users.USER_ID From Users Where Users.NAME Like '{0}%'", text);
+                        string query = string.Format("Select Users.USER_ID From Users Where Users.USER_ID Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
                         if (lb_user_search.Items.Count > 0)
                             lb_user_search.Show();
@@ -1282,7 +1280,7 @@ namespace Microwave_v1._0
                     }
                     if (rb_user_email.Checked)
                     {
-                        string query = string.Format("Select Users.EMAIL From Users Where Users.NAME Like '{0}%'", text);
+                        string query = string.Format("Select Users.EMAIL From Users Where Users.EMAIL Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
                         if (lb_user_search.Items.Count > 0)
                             lb_user_search.Show();
@@ -1290,7 +1288,7 @@ namespace Microwave_v1._0
                     }
                     if (rb_user_age.Checked)
                     {
-                        string query = string.Format("Select Users.AGE From Users Where Users.NAME Like '{0}%'", text);
+                        string query = string.Format("Select Users.AGE From Users Where Users.AGE Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
                         if (lb_user_search.Items.Count > 0)
                             lb_user_search.Show();
@@ -1298,7 +1296,7 @@ namespace Microwave_v1._0
                     }
                     if (rb_user_gender.Checked)
                     {
-                        string query = string.Format("Select Users.GENDER From Users Where Users.NAME Like '{0}%'", text);
+                        string query = string.Format("Select Users.GENDER From Users Where Users.GENDER Like '{0}%'", text);
                         Fill_User_Search_List_Box(query);
                         if (lb_user_search.Items.Count > 0)
                             lb_user_search.Show();

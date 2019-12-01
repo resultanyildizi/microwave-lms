@@ -86,6 +86,7 @@ namespace Microwave_v1._0
         private void UserInfo_Click(object sender, EventArgs e)
         {
             main_list.Deselect_All_User_Infos();
+            main_page.User_search_list.Deselect_All_User_Infos();
             this.Select_User_Info();
             this.Select();
         }
