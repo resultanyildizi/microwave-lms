@@ -47,6 +47,7 @@ namespace Microwave_v1._0
         private AddAuthor add_author = null;
         private AddPublisher add_publisher = null;
         private AddDepartment add_department = null;
+        private ShowEmployee show_employee = null;
         
         private Book_List main_book_list = null;
         private User_List main_user_list = null;
@@ -83,6 +84,7 @@ namespace Microwave_v1._0
         public AddAuthor Add_author { get => add_author; set => add_author = value; }
         public AddPublisher Add_publisher { get => add_publisher; set => add_publisher = value; }
         public AddDepartment Add_department { get => add_department; set => add_department = value; }
+        public ShowEmployee Show_employee { get => show_employee; set => show_employee = value; }
 
         
         public Book_List Main_book_list { get => main_book_list; set => main_book_list = value; }
@@ -1453,6 +1455,23 @@ namespace Microwave_v1._0
             pnl_home.Hide();
         }
 
+        private void btn_show_all_emp_Click(object sender, EventArgs e)
+        {
+            if (show_employee == null)
+            {
+                show_employee = new ShowEmployee(null);
+            }
+
+            try
+            {
+                show_employee.Show();
+            }
+            catch (ObjectDisposedException d)
+            {
+                show_employee = new ShowEmployee(null);
+                show_employee.Show();
+            }
+        }
     }
 
 

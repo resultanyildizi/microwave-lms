@@ -152,20 +152,47 @@ namespace Microwave_v1._0.Forms
                 {
                     picture_event.Copy_The_Picture(name);
                     pic_new_source_path = picture_event.Pic_source_file;
-
-                    Employee employee = new Employee(0,department_id, name, surname, birth_date, email, password, gender, pic_new_source_path);
-                    employee.Add();
                 }
                 else
-                {
                     pic_new_source_path = picture_default_file;
-                    Employee employee = new Employee(0,department_id, name, surname, birth_date, email, password, gender, pic_new_source_path);
-                    employee.Add();
-                }
-                    
 
+                Employee employee = new Employee(employee_id, department_id, name, surname, birth_date, email, password, gender, pic_new_source_path);
+                employee.Add();
+
+
+
+                //Clear();
+            }
+            else
+            {
+                if (change_image)
+                {
+                    if (employee_to_edit.Cover_path_file != picture_default_file)
+                        Picture_Events.Delete_The_Picture(employee_to_edit.Cover_path_file);
+                    picture_event.Copy_The_Picture(name);
+                    pic_new_source_path = picture_event.Pic_source_file;
+                    change_image = false;
+                }
+
+                lbl_message.Text = "*Employee changed successfully";
+                lbl_message.ForeColor = Color.LightGreen;
+
+                //publisher_to_edit.Pub_name = name;
+                //publisher_to_edit.Pub_email = email;
+                //publisher_to_edit.Pub_phone_num = pub_phone_number;
+                //publisher_to_edit.Pub_date_of_est = pub_date_of_est;
+                //publisher_to_edit.Pub_cover_path_file = picture_event.Pic_source_file;
+
+                employee_to_edit.Edit();
+
+                //main_page.Pnl_employee_list.VerticalScroll.Value = 0;
+                //main_page.Publisher_search_list.Delete_All_List();
+                //main_page.Main_pub_list.Draw_All_Publishers();
+                //main_page.Publisher_searched_already = false;
             }
         }
+
+   
 
         private void Fill_Comboboxes()
         {

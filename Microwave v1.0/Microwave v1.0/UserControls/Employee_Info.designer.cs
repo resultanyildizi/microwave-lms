@@ -64,6 +64,7 @@
             this.pnl_id.Name = "pnl_id";
             this.pnl_id.Size = new System.Drawing.Size(38, 40);
             this.pnl_id.TabIndex = 12;
+            this.pnl_id.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // lbl_id
             // 
@@ -77,6 +78,7 @@
             this.lbl_id.Size = new System.Drawing.Size(34, 20);
             this.lbl_id.TabIndex = 4;
             this.lbl_id.Text = "1";
+            this.lbl_id.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // pnl_email
             // 
@@ -88,6 +90,7 @@
             this.pnl_email.Name = "pnl_email";
             this.pnl_email.Size = new System.Drawing.Size(180, 40);
             this.pnl_email.TabIndex = 7;
+            this.pnl_email.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // lbl_email
             // 
@@ -101,6 +104,7 @@
             this.lbl_email.Size = new System.Drawing.Size(174, 20);
             this.lbl_email.TabIndex = 2;
             this.lbl_email.Text = "ddincerdem@gmail.com";
+            this.lbl_email.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // pnl_name
             // 
@@ -112,6 +116,7 @@
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(108, 40);
             this.pnl_name.TabIndex = 6;
+            this.pnl_name.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // lbl_name
             // 
@@ -125,6 +130,7 @@
             this.lbl_name.Size = new System.Drawing.Size(103, 20);
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "Doğan Dinçer";
+            this.lbl_name.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // pnl_surname
             // 
@@ -136,6 +142,7 @@
             this.pnl_surname.Name = "pnl_surname";
             this.pnl_surname.Size = new System.Drawing.Size(99, 40);
             this.pnl_surname.TabIndex = 8;
+            this.pnl_surname.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // lbl_surname
             // 
@@ -149,6 +156,7 @@
             this.lbl_surname.Size = new System.Drawing.Size(80, 20);
             this.lbl_surname.TabIndex = 1;
             this.lbl_surname.Text = "Demirci";
+            this.lbl_surname.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // btn_remove
             // 
@@ -191,6 +199,7 @@
             this.lbl_gender.Size = new System.Drawing.Size(68, 20);
             this.lbl_gender.TabIndex = 3;
             this.lbl_gender.Text = "Erkek";
+            this.lbl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // pnl_gender
             // 
@@ -202,6 +211,7 @@
             this.pnl_gender.Name = "pnl_gender";
             this.pnl_gender.Size = new System.Drawing.Size(85, 40);
             this.pnl_gender.TabIndex = 10;
+            this.pnl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // pnl_department
             // 
@@ -213,6 +223,7 @@
             this.pnl_department.Name = "pnl_department";
             this.pnl_department.Size = new System.Drawing.Size(92, 40);
             this.pnl_department.TabIndex = 13;
+            this.pnl_department.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // lbl_department
             // 
@@ -226,6 +237,7 @@
             this.lbl_department.Size = new System.Drawing.Size(80, 20);
             this.lbl_department.TabIndex = 3;
             this.lbl_department.Text = "EzhelinKankası";
+            this.lbl_department.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // pnl_birthdate
             // 
@@ -237,6 +249,7 @@
             this.pnl_birthdate.Name = "pnl_birthdate";
             this.pnl_birthdate.Size = new System.Drawing.Size(92, 40);
             this.pnl_birthdate.TabIndex = 14;
+            this.pnl_birthdate.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // lbl_birthdate
             // 
@@ -249,7 +262,8 @@
             this.lbl_birthdate.Name = "lbl_birthdate";
             this.lbl_birthdate.Size = new System.Drawing.Size(80, 20);
             this.lbl_birthdate.TabIndex = 3;
-            this.lbl_birthdate.Text = "EzhelinKankası";
+            this.lbl_birthdate.Text = "12.08.1999";
+            this.lbl_birthdate.Click += new System.EventHandler(this.Employee_Info_Click);
             // 
             // Employee_Info
             // 

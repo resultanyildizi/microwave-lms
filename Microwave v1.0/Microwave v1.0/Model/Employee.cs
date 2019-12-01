@@ -24,7 +24,7 @@ namespace Microwave_v1._0.Model
         private string name;
         private string surname;
         private string birth_date;
-        private string deparment_id;
+        private string department_name;
         private string cover_path_file;
         private string email;
         private string password;
@@ -42,8 +42,9 @@ namespace Microwave_v1._0.Model
         public string Password { get => password; set => password = value; }
         public string Gender { get => gender; set => gender = value; }
         public Employee_Info Info { get => info; set => info = value; }
-        public string Deparment_id { get => deparment_id; set => deparment_id = value; }
         public int Department_id { get => department_id; set => department_id = value; }
+        public string Deparment_name { get => department_name; set => department_name = value; }
+
         public Employee()
         {
 
@@ -84,13 +85,11 @@ namespace Microwave_v1._0.Model
                 return;
             }
 
-
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
-
             info = new Employee_Info();
             Take_Id_From_Database();
+            Join_Tables();
 
-            info.Initialize_Employee_Info(employee_id,department_id,name,surname,email,gender,birth_date,cover_path_file);
+            info.Initialize_Employee_Info(employee_id,department_name,name,surname,email,gender,birth_date,cover_path_file);
 
             main_page.Main_employee_list.Add_Employee_to_List(this);
             main_page.Pnl_employee_list.VerticalScroll.Value = 0;
@@ -104,14 +103,28 @@ namespace Microwave_v1._0.Model
         }
         public void Set_Employee()
         {
+            Join_Tables();
             info = new Employee_Info();
-            info.Initialize_Employee_Info(employee_id,department_id, name, surname, email, gender, birth_date,cover_path_file);
+            info.Initialize_Employee_Info(employee_id,department_name, name, surname, email, gender, birth_date,cover_path_file);
         }
-        static public void Show_All_Employees()
+        static public void Show_All_Employees(Department department)
         {
-            string query = "SELECT * FROM Employee ";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            int dep_id;
+            string query;
 
+            if (department != null)
+            {
+               dep_id = department.Department_id;
+               query = "SELECT * FROM Employee WHERE Employee.DEPARTMENT_ID = " + dep_id;
+            }
+            else
+            {
+                query = "SELECT * FROM Employee";
+            }
+
+     
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
            
@@ -126,7 +139,7 @@ namespace Microwave_v1._0.Model
 
             dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            deparment_id = dt.Rows[0][0].ToString();
+            department_name = dt.Rows[0][0].ToString();
         }
         private void Take_Id_From_Database()
         {

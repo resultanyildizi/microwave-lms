@@ -20,7 +20,7 @@ namespace Microwave_v1._0.UserControls
         private AddEmployee edit_form = null;
 
         private int employee_id;
-        private int department_id;
+        private string department_name;
         private string name;
         private string surname;
         private string email;
@@ -29,7 +29,6 @@ namespace Microwave_v1._0.UserControls
         private string cover_path_file;
 
         public int Employee_id { get => employee_id; set => employee_id = value; }
-        public int Department_id { get => department_id; set => department_id = value; }
 
         public Employee_Info()
         {
@@ -41,11 +40,11 @@ namespace Microwave_v1._0.UserControls
 
         } 
 
-        public void Initialize_Employee_Info(int employee_id,int department_id,string name,string surname,string email, string gender,string birth_date,string cover_path_file)
+        public void Initialize_Employee_Info(int employee_id,string department_name,string name,string surname,string email, string gender,string birth_date,string cover_path_file)
         {
 
             this.employee_id = employee_id;
-            this.department_id = department_id;
+            this.department_name = department_name;
             this.name = name;
             this.surname = surname;
             this.email = email;
@@ -54,7 +53,7 @@ namespace Microwave_v1._0.UserControls
             this.cover_path_file = cover_path_file;
 
             this.lbl_id.Text = employee_id.ToString();
-            this.lbl_department.Text = department_id.ToString();
+            this.lbl_department.Text = department_name;
             this.lbl_name.Text = name;
             this.lbl_surname.Text = surname;
             this.lbl_gender.Text = gender;

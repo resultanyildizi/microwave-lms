@@ -184,10 +184,10 @@ namespace Microwave_v1._0.UserControls
         }
         private void pb_department_DoubleClick(object sender, EventArgs e)
         {
-
+            Department current = department_list.Find_Department_By_ID(department_id);
             if (show_employee == null)
             {
-                show_employee = new ShowEmployee();
+                show_employee = new ShowEmployee(current);
             }
 
             try
@@ -196,7 +196,7 @@ namespace Microwave_v1._0.UserControls
             }
             catch (ObjectDisposedException d)
             {
-                show_employee = new ShowEmployee();
+                show_employee = new ShowEmployee(current);
                 show_employee.Show();
             }
         }
