@@ -19,6 +19,7 @@ namespace Microwave_v1._0.Forms
 {
     public partial class ShowEmployee : Form
     {
+        private Department department = null;
         private Employee_List main_employee_list = null;
         private AddEmployee addEmployee = null;
 
@@ -34,19 +35,28 @@ namespace Microwave_v1._0.Forms
         public AddEmployee AddEmployee { get => addEmployee; set => addEmployee = value; }
         public Book_Tag Main_tag { get => main_tag; set => main_tag = value; }
 
-        public ShowEmployee()
+        public ShowEmployee(Department department)
         {
+
             InitializeComponent();
             main_employee_list = new Employee_List();
             main_tag = new Book_Tag();
+            this.department = department;
+            if(department==null)
+            {
+                lbl_dep_name.Text = "All Employees";
+            }
+            else
+            {
+                lbl_dep_name.Text = department.Name;
+            }
         }
 
 
         private void ShowEmployee_Load(object sender, EventArgs e)
         {
             this.pnl_employee_list.VerticalScroll.Value = 0;
-            main_employee_list = new Employee_List();
-            Employee.Show_All_Employees();
+            Employee.Show_All_Employees(department);
 
             main_employee_list.Draw_All_Employees();
             pnl_employee_list.BringToFront();
