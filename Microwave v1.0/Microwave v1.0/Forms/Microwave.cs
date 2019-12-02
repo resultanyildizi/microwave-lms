@@ -351,12 +351,12 @@ namespace Microwave_v1._0
 
             try
             {
-                Add_author.Show();
+                Add_author.ShowDialog();
             }
             catch (ObjectDisposedException)
             {
                 Add_author = new AddAuthor();
-                Add_author.Show();
+                Add_author.ShowDialog();
             }
             this.Btn_add.Enabled = false;
             this.pic_logo.Focus();

@@ -419,10 +419,34 @@ namespace Microwave_v1._0
 
             if (cb_author.SelectedIndex == 0)
                 cb_author.ForeColor = Color.Gray;
-            else if(cb_author.SelectedIndex == last_index)
-                MessageBox.Show("AddAuthor Form");
+
+            else if (cb_author.SelectedIndex == last_index)
+            {
+                main_page.Create_Add_Author_Form();
+
+                string query = string.Format("Select {0}.NAME From {0}", "Authors");
+                DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+                int rows_count = dt.Rows.Count;
+
+                if (rows_count <= 0)
+                {
+                    return;
+                }
+
+                cb_author.Items.Clear();
+                cb_author.Items.Add("Author's Name");
+
+                for (int i = 0; i < rows_count; i++)
+                {
+                    string item = dt.Rows[i][0].ToString();
+                    cb_author.Items.Add(item);
+                }
+                cb_author.Items.Add("Add new Author");
+                cb_author.SelectedIndex = 0;
+            }
+
             else
-                cb_author.ForeColor = Color.LightGray;
+                cb_publisher.ForeColor = Color.LightGray;
         }
         private void Cb_author_KeyDown(object sender, KeyEventArgs e)
         {
