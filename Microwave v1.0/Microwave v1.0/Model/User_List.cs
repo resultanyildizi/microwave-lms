@@ -26,7 +26,6 @@ namespace Microwave_v1._0
     public class User_List
     {
 
-        static Microwave main_page;
         int point_y = User.point_y;
 
 

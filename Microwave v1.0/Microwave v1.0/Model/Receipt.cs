@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microwave_v1._0.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace Microwave_v1._0.Model
 {
     public class Receipt
     {
+        static int point_x = 35;
+        static int point_y = 5;
+
         private int receipt_id;
         private Book book;
         private User user;
@@ -17,9 +21,16 @@ namespace Microwave_v1._0.Model
         private string name;
         private string creation_date;
         private string receiving_date;
+        private Receipt_Small info = null;
 
-
-
+        public Receipt_Small Info { get => info; set => info = value; }
+        public Book Book { get => book; set => book = value; }
+        public User User { get => user; set => user = value; }
+        public string Message { get => message; set => message = value; }
+        public string Name { get => name; set => name = value; }
+        public string Creation_date { get => creation_date; set => creation_date = value; }
+        public string Receiving_date { get => receiving_date; set => receiving_date = value; }
+        public int Receipt_id { get => receipt_id; set => receipt_id = value; }
 
         public Receipt()
         {

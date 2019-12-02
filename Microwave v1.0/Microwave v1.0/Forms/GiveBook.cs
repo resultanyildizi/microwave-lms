@@ -43,12 +43,5 @@ namespace Microwave_v1._0.Forms
             Book current = book_list.Find_Book_By_Chosen();
             current.Give_Book_To_User(user);
         }
-
-
-        private void Create_Receipt(Book current)
-        {
-            
-
-        }
     }
 }
