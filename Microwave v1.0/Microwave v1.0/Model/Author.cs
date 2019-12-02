@@ -124,12 +124,11 @@ namespace Microwave_v1._0.Classes
             }
         }
 
-        static public void Show_All_Authors()
+        static public void Show_All_Authors(Microwave main_page)
         {
             string query = "SELECT * FROM Authors";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            main_page = (Microwave)Application.OpenForms["Microwave"];
 
             main_page.Main_author_list.Fill_Author_List(dt);
             main_page.Main_author_list.Draw_All_Authors();
