@@ -434,6 +434,7 @@ namespace Microwave_v1._0
                 }
 
                 cb_author.Items.Clear();
+
                 cb_author.Items.Add("Author's Name");
 
                 for (int i = 0; i < rows_count; i++)
