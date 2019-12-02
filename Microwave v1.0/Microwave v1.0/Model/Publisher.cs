@@ -64,12 +64,12 @@ namespace Microwave_v1._0.Classes
             {
                 title = "INSERT INTO Publishers(PUBLISHER_ID, NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
                 
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}',{4}',{5}')", publisher_id, pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", publisher_id, pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
             }
             else
             {
                 title = "INSERT INTO Publishers(NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}',{4}')", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
+                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}')", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
 
             }
             string query = title + values;
@@ -155,7 +155,7 @@ namespace Microwave_v1._0.Classes
         private void Take_Pub_Id_From_Database()
         {
             string title = "SELECT Publishers.PUBLISHER_ID FROM Publishers ";
-            string query = title + string.Format("Where NAME = '{0}' AND PUBLISHER_ID = '{1}'",Pub_name,publisher_id); ;
+            string query = title + string.Format("Where NAME = '{0}'",Pub_name);
 
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 

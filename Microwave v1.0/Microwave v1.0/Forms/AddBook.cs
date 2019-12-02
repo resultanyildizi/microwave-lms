@@ -425,7 +425,7 @@ namespace Microwave_v1._0
             if (cb_publisher.SelectedIndex == 0)
                 cb_publisher.ForeColor = Color.Gray;
             else if (cb_publisher.SelectedIndex == last_index)
-                MessageBox.Show("AddPublisher Form");
+                main_page.Create_Add_Publisher_Form();
             else
                 cb_publisher.ForeColor = Color.LightGray;
         }
