@@ -701,49 +701,49 @@ namespace Microwave_v1._0
 
                 if (rb_book_name.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_Name(text), INFO_COLOR_MODE.NAME);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_Name(text),main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.NAME);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
                 }
                 if (rb_book_id.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_ID(text), INFO_COLOR_MODE.ID);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_ID(text), main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.ID);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
                 }
                 if (rb_book_author.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_Author(text), INFO_COLOR_MODE.AUTHOR);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_Author(text), main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.AUTHOR);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
                 }
                 if (rb_book_publis.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_Publisher(text), INFO_COLOR_MODE.PUBLISHER);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_Publisher(text), main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.PUBLISHER);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
                 }
                 if (rb_book_category.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_Category(text), INFO_COLOR_MODE.CATEGORY);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_Category(text), main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.CATEGORY);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
                 }
                 if (rb_book_shelf.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_Shelf(text), INFO_COLOR_MODE.SHELF);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_Shelf(text), main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.SHELF);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
                 }
                 if (rb_book_pop.Checked)
                 {
-                    book_search_list.Fill_Book_List(Book.Search_Book_By_Popularity(text), INFO_COLOR_MODE.NORMAL);
+                    book_search_list.Fill_Book_List(Book.Search_Book_By_Popularity(text), main_book_list, book_search_list, main_tag, pnl_book_list, INFO_COLOR_MODE.NORMAL);
                     book_search_list.Draw_All_Books();
                     book_searched_already = true;
                     return;
@@ -1471,7 +1471,6 @@ namespace Microwave_v1._0
             }
         }
     }
-
 
 }
 
