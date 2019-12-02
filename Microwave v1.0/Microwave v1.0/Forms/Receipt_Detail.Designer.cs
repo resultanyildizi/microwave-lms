@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt_Detail));
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.lbl_message = new System.Windows.Forms.Label();
             this.tb_message = new System.Windows.Forms.RichTextBox();
+            this.btn_remove = new System.Windows.Forms.Button();
             this.lbl_user_email_val = new System.Windows.Forms.Label();
             this.lbl_users_email = new System.Windows.Forms.Label();
             this.lbl_lib_name_val = new System.Windows.Forms.Label();
@@ -48,11 +50,9 @@
             this.lbl_libs_id = new System.Windows.Forms.Label();
             this.lbl_users_id = new System.Windows.Forms.Label();
             this.lbl_books_id = new System.Windows.Forms.Label();
-            this.btn_remove = new System.Windows.Forms.Button();
             this.pb_book = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dragControl1 = new Microwave_v1._0.DragControl();
             this.pnl_drag = new System.Windows.Forms.Panel();
+            this.dragControl1 = new Microwave_v1._0.DragControl();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_book)).BeginInit();
             this.SuspendLayout();
@@ -84,8 +84,26 @@
             this.pnl_main.Controls.Add(this.pnl_drag);
             this.pnl_main.Location = new System.Drawing.Point(0, 0);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(600, 293);
+            this.pnl_main.Size = new System.Drawing.Size(600, 301);
             this.pnl_main.TabIndex = 25;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(544, 13);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(39, 34);
+            this.button1.TabIndex = 24;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_message
             // 
@@ -104,12 +122,29 @@
             this.tb_message.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_message.ForeColor = System.Drawing.Color.White;
-            this.tb_message.Location = new System.Drawing.Point(151, 209);
+            this.tb_message.Location = new System.Drawing.Point(151, 211);
             this.tb_message.Name = "tb_message";
             this.tb_message.ReadOnly = true;
-            this.tb_message.Size = new System.Drawing.Size(378, 68);
+            this.tb_message.Size = new System.Drawing.Size(378, 75);
             this.tb_message.TabIndex = 22;
             this.tb_message.Text = "";
+            // 
+            // btn_remove
+            // 
+            this.btn_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_remove.FlatAppearance.BorderSize = 0;
+            this.btn_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove.ForeColor = System.Drawing.Color.White;
+            this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
+            this.btn_remove.Location = new System.Drawing.Point(546, 228);
+            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(39, 34);
+            this.btn_remove.TabIndex = 21;
+            this.btn_remove.UseVisualStyleBackColor = true;
             // 
             // lbl_user_email_val
             // 
@@ -287,23 +322,6 @@
             this.lbl_books_id.TabIndex = 1;
             this.lbl_books_id.Text = "Book\'s ID:";
             // 
-            // btn_remove
-            // 
-            this.btn_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_remove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_remove.FlatAppearance.BorderSize = 0;
-            this.btn_remove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remove.ForeColor = System.Drawing.Color.White;
-            this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
-            this.btn_remove.Location = new System.Drawing.Point(546, 228);
-            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(39, 34);
-            this.btn_remove.TabIndex = 21;
-            this.btn_remove.UseVisualStyleBackColor = true;
-            // 
             // pb_book
             // 
             this.pb_book.Image = ((System.Drawing.Image)(resources.GetObject("pb_book.Image")));
@@ -314,28 +332,6 @@
             this.pb_book.TabIndex = 0;
             this.pb_book.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(544, 13);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 34);
-            this.button1.TabIndex = 24;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dragControl1
-            // 
-            this.dragControl1.SelectControl = this.pnl_drag;
-            // 
             // pnl_drag
             // 
             this.pnl_drag.Location = new System.Drawing.Point(0, 3);
@@ -343,11 +339,15 @@
             this.pnl_drag.Size = new System.Drawing.Size(597, 38);
             this.pnl_drag.TabIndex = 25;
             // 
+            // dragControl1
+            // 
+            this.dragControl1.SelectControl = this.pnl_drag;
+            // 
             // Receipt_Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 289);
+            this.ClientSize = new System.Drawing.Size(594, 298);
             this.Controls.Add(this.pnl_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Receipt_Detail";

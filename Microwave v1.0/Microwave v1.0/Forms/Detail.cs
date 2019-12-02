@@ -14,8 +14,11 @@ namespace Microwave_v1._0.Forms
 {
     public partial class Detail : Form
     {
+        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         GiveBook give_book_form = null;
+
         User user = null;
+
         public Detail()
         {
             InitializeComponent();
@@ -55,8 +58,14 @@ namespace Microwave_v1._0.Forms
         public Detail(User user)
         {
             InitializeComponent();
-
+            
             this.user = user;
+
+
+            DataTable dt = Book.Show_All_Books(user);
+            user.Book_count = dt.Rows.Count;
+            dgw_users.DataSource = dt;
+            
 
             this.btn_give_book.Show();
             this.btn_give_penalty.Show();
@@ -72,7 +81,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_3.Text = "Password:";
             this.lbl_4.Text = "Age:";
             this.lbl_5.Text = "Total Fee:";
-            this.lbl_6.Hide();
+            this.lbl_6.Text = "Book Count:";
 
             this.lbl_desc.Text = "Books that user currently has:";
 
@@ -81,7 +90,7 @@ namespace Microwave_v1._0.Forms
             this.tb_3.Text = user.Password;
             this.tb_4.Text = user.Age.ToString();
             this.tb_5.Text = "15₺";
-            this.tb_6.Hide();
+            this.tb_6.Text = user.Book_count.ToString();
 
             picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
         }
@@ -159,7 +168,7 @@ namespace Microwave_v1._0.Forms
         {
             if (give_book_form == null)
             {
-                give_book_form = new GiveBook(user);
+                give_book_form = new GiveBook(this, user);
             }
 
             try
@@ -168,7 +177,7 @@ namespace Microwave_v1._0.Forms
             }
             catch(Exception)
             {
-                give_book_form = new GiveBook(user);
+                give_book_form = new GiveBook(this, user);
                 give_book_form.Show();
             }
             

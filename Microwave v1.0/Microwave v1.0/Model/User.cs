@@ -20,6 +20,7 @@ namespace Microwave_v1._0
         private string password;
         private string email;
         private string date;
+        private int book_count;
         private int age;
         private UserInfo info;
 
@@ -37,6 +38,7 @@ namespace Microwave_v1._0
         public string Date { get => date; set => date = value; }
         public UserInfo Info { get => info; set => info = value; }
         public string Password { get => password; set => password = value; }
+        public int Book_count { get => book_count; set => book_count = value; }
 
         // Constructors
 

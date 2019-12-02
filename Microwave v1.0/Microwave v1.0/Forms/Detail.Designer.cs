@@ -1,4 +1,6 @@
-﻿namespace Microwave_v1._0.Forms
+﻿using System.Windows.Forms;
+
+namespace Microwave_v1._0.Forms
 {
     partial class Detail
     {
@@ -29,6 +31,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Detail));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_main = new System.Windows.Forms.Panel();
             this.btn_give_penalty = new System.Windows.Forms.Button();
             this.btn_give_book = new System.Windows.Forms.Button();
@@ -302,9 +306,30 @@
             // dgw_users
             // 
             this.dgw_users.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_users.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgw_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgw_users.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgw_users.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.dgw_users.Location = new System.Drawing.Point(16, 237);
+            this.dgw_users.MaximumSize = new System.Drawing.Size(743, 223);
             this.dgw_users.Name = "dgw_users";
+            this.dgw_users.ReadOnly = true;
+            this.dgw_users.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgw_users.Size = new System.Drawing.Size(743, 223);
             this.dgw_users.TabIndex = 40;
             // 
@@ -461,5 +486,32 @@
         private System.Windows.Forms.Button btn_give_penalty;
         private System.Windows.Forms.Button btn_give_book;
         private System.Windows.Forms.Button btn_return_book;
+
+        public PictureBox Picture_box { get => picture_box; set => picture_box = value; }
+        public Panel Pnl_main { get => pnl_main; set => pnl_main = value; }
+        public Label Lbl_name { get => lbl_name; set => lbl_name = value; }
+        public Label Lbl_6 { get => lbl_6; set => lbl_6 = value; }
+        public Label Lbl_5 { get => lbl_5; set => lbl_5 = value; }
+        public Label Lbl_4 { get => lbl_4; set => lbl_4 = value; }
+        public Label Lbl_3 { get => lbl_3; set => lbl_3 = value; }
+        public Label Lbl_2 { get => lbl_2; set => lbl_2 = value; }
+        public Label Lbl_1 { get => lbl_1; set => lbl_1 = value; }
+        public Label Lbl_date { get => lbl_date; set => lbl_date = value; }
+        public DataGridView Dgw_users { get => dgw_users; set => dgw_users = value; }
+        public Label Lbl_desc { get => lbl_desc; set => lbl_desc = value; }
+        public Panel Pnl_sep1 { get => pnl_sep1; set => pnl_sep1 = value; }
+        public Button Btn_edit { get => btn_edit; set => btn_edit = value; }
+        public Panel Pnl_sep2 { get => pnl_sep2; set => pnl_sep2 = value; }
+        public Button Btn_remove { get => btn_remove; set => btn_remove = value; }
+        public TextBox Tb_6 { get => tb_6; set => tb_6 = value; }
+        public TextBox Tb_5 { get => tb_5; set => tb_5 = value; }
+        public TextBox Tb_4 { get => tb_4; set => tb_4 = value; }
+        public TextBox Tb_3 { get => tb_3; set => tb_3 = value; }
+        public TextBox Tb_2 { get => tb_2; set => tb_2 = value; }
+        public TextBox Tb_1 { get => tb_1; set => tb_1 = value; }
+        public Button Btn_id { get => btn_id; set => btn_id = value; }
+        public Button Btn_give_penalty { get => btn_give_penalty; set => btn_give_penalty = value; }
+        public Button Btn_give_book { get => btn_give_book; set => btn_give_book = value; }
+        public Button Btn_return_book { get => btn_return_book; set => btn_return_book = value; }
     }
 }
