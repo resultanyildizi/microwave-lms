@@ -87,6 +87,12 @@
     <Compile Include="Forms\GiveBook.Designer.cs">
       <DependentUpon>GiveBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Receipt_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Receipt_Detail.Designer.cs">
+      <DependentUpon>Receipt_Detail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ShowEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,8 @@
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\Receipt_List.cs" />
     <Compile Include="UserControls\Author_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +179,18 @@
     <Compile Include="UserControls\Publisher_Info.designer.cs">
       <DependentUpon>Publisher_Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Receipt_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Receipt_Info.Designer.cs">
+      <DependentUpon>Receipt_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Receipt_Small.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Receipt_Small.Designer.cs">
+      <DependentUpon>Receipt_Small.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,6 +235,9 @@
     <EmbeddedResource Include="Forms\GiveBook.resx">
       <DependentUpon>GiveBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Receipt_Detail.resx">
+      <DependentUpon>Receipt_Detail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ShowEmployee.resx">
       <DependentUpon>ShowEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Publisher_Info.resx">
       <DependentUpon>Publisher_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Receipt_Info.resx">
+      <DependentUpon>Receipt_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Receipt_Small.resx">
+      <DependentUpon>Receipt_Small.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>

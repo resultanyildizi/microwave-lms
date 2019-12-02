@@ -126,6 +126,7 @@
             this.btn_give_book.Size = new System.Drawing.Size(46, 44);
             this.btn_give_book.TabIndex = 53;
             this.btn_give_book.UseVisualStyleBackColor = true;
+            this.btn_give_book.Click += new System.EventHandler(this.btn_give_book_Click);
             // 
             // btn_return_book
             // 

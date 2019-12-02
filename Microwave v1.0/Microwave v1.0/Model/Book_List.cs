@@ -44,7 +44,7 @@ namespace Microwave_v1._0
             root = null;
         }
 
-        public void Fill_Book_List(DataTable dt, INFO_COLOR_MODE color_mode, bool fill_image_list = true)
+        public void Fill_Book_List(DataTable dt, Book_List main_list, Book_List search_list, Book_Tag main_tag, Panel main_panel, INFO_COLOR_MODE color_mode, bool fill_image_list = true)
         {
             int rows_count = book_count = dt.Rows.Count;
             
@@ -69,7 +69,7 @@ namespace Microwave_v1._0
                 int popularity_score = int.Parse(dt.Rows[i][12].ToString());
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
-                book.Set_Book(color_mode);
+                book.Set_Book(main_list, search_list, main_tag, main_panel, color_mode);
                 this.Add_Book_to_List(book);
             }
 
@@ -114,19 +114,6 @@ namespace Microwave_v1._0
             while(iterator != null)
             {
                 iterator.book.Info.Draw_Book_Obj(ref Book.point_y);
-                iterator.book.Info.Show();
-                iterator = iterator.next;
-            }
-        }
-        public void Draw_All_Books(SizeF scale, GiveBook gb)
-        {
-            Book.point_y = 5;
-
-            book_node iterator = root;
-            while (iterator != null)
-            {
-                iterator.book.Info.Draw_Book_Obj_1(ref Book.point_y, gb);
-                iterator.book.Info.Scale_All(scale);
                 iterator.book.Info.Show();
                 iterator = iterator.next;
             }
@@ -200,6 +187,20 @@ namespace Microwave_v1._0
             }
 
             return iterator.book;
+        }
+        public Book Find_Book_By_Chosen()
+        {
+            book_node iterator = root;
+            while(iterator != null)
+            {
+                if(iterator.book.Info.Chosen == true)
+                {
+                    return iterator.book;
+                }
+                iterator = iterator.next;
+            }
+
+            return null;
         }
         public bool Is_List_Empty()
         {
