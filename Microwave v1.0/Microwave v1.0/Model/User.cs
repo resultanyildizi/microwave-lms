@@ -112,12 +112,11 @@ namespace Microwave_v1._0
 
             return;
         }
-        public static void Show_All_Users()
+        public static void Show_All_Users(Microwave main_page)
         {
             string query = "Select * From Users ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            main_page = (Microwave)Application.OpenForms["Microwave"];
             main_page.Main_user_list.Fill_User_List(dt, INFO_COLOR_MODE.NORMAL);
             main_page.Main_user_list.Draw_All_Users();
         }

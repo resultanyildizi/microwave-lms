@@ -118,12 +118,11 @@ namespace Microwave_v1._0.Classes
             return;
         }
 
-        static public void Show_All_Publishers()
+        static public void Show_All_Publishers(Microwave main_page)
         {
             string query = "SELECT * FROM Publishers ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            main_page = (Microwave)Application.OpenForms["Microwave"];
 
             main_page.Main_pub_list.Fill_Pub_List(dt);
             main_page.Main_pub_list.Draw_All_Publishers();

@@ -118,12 +118,11 @@ namespace Microwave_v1._0.Classes
             // For user inteface
             this.Info.Department_id = id; // IMPORTANT
         }
-       static public void Show_All_Departments()
+       static public void Show_All_Departments(Microwave main_page)
         {
             string query = "SELECT * FROM Department";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            main_page = (Microwave)Application.OpenForms["Microwave"];
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
             main_page.Main_department_list.Fill_Department_list(dt);
             main_page.Main_department_list.Draw_All_Dep_Infos();

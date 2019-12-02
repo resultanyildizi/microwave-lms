@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using System.Data;
 using System.Drawing;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0
 {   /* NOTE:
@@ -93,7 +94,6 @@ namespace Microwave_v1._0
             this.popularity_score = popularity_score;
             this.popularity_id = popularity_id;
 
-
         }
 
        
@@ -162,13 +162,11 @@ namespace Microwave_v1._0
                 MessageBox.Show("Delete is not valid");
             return;
         }
-        static public void Show_All_Books()
+        static public void Show_All_Books(Microwave main_page)
         {
             string query = "Select * From Books ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            // For User Interface
-            main_page = (Microwave)Application.OpenForms["Microwave"];
             // Fills Book_List with DataTable
             main_page.Main_book_list.Fill_Book_List(dt, main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Draw_All_Books();
@@ -246,7 +244,8 @@ namespace Microwave_v1._0
         public void Calculate_Popularity_Score() { }
         public void Give_Book_To_User(User user) 
         {
-           
+            Receipt receipt = new Receipt(0, this.book_id, user.User_id, 0, "CHECKED IN");
+            receipt.Add();
         }
         private void Change_Popularity_Stat() { }
         private void Change_Count_In_Database() { }
