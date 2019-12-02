@@ -48,6 +48,9 @@ namespace Microwave_v1._0
         private bool is_edit = false;
         private bool change_image = false;
         private Book book_to_edit = null;
+        private Publisher_List pub_list = null;
+
+
 
         public AddBook()
         {
@@ -245,55 +248,71 @@ namespace Microwave_v1._0
         // Reads Authors, Publishers, Categories, Shelves from Database -- NEED TO CHANGE!!!!
         private void Fill_Comboboxes()
         {
-            SQLiteConnection con = new SQLiteConnection(datasource);
-            SQLiteCommand cmd = null;
-            SQLiteDataReader reader = null;
+            DataTable dt;
             string query = "";
+            int i;
+            int rows_count;
 
-
-
-            con.Open();
+            
             query = string.Format("Select {0}.NAME From {0}", "Authors");
-            cmd = new SQLiteCommand(query, con);
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            rows_count = dt.Rows.Count;
+            if (rows_count <= 0)
             {
-                cb_author.Items.Add(reader.GetString(0));
+                return;
+            }
+            for (i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                cb_author.Items.Add(item);
             }
             cb_author.Items.Add("Add new Author");
-            cmd.Dispose();
+            
             
             query = string.Format("Select {0}.NAME From {0}", "Publishers");
-            cmd = new SQLiteCommand(query, con);
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            rows_count = dt.Rows.Count;
+            if (rows_count <= 0)
             {
-                cb_publisher.Items.Add(reader.GetString(0));
+                return;
             }
+            for (i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                cb_publisher.Items.Add(item);
+            }
+
             cb_publisher.Items.Add("Add new Publisher");
-            cmd.Dispose();
+            
 
             query = string.Format("Select {0}.NAME From {0}", "Categories");
-            cmd = new SQLiteCommand(query, con);
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            rows_count = dt.Rows.Count;
+            if (rows_count <= 0)
             {
-                cb_category.Items.Add(reader.GetString(0));
+                return;
+            }
+            for (i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                cb_category.Items.Add(item);
             }
             cb_category.Items.Add("Add new Category");
 
-            cmd.Dispose();
 
             query = string.Format("Select {0}.NAME From {0}", "Shelves");
-            cmd = new SQLiteCommand(query, con);
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            rows_count = dt.Rows.Count;
+            if (rows_count <= 0)
             {
-                cb_shelf.Items.Add(reader.GetString(0));
+                return;
+            }
+            for (i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                cb_shelf.Items.Add(item);
             }
             cb_shelf.Items.Add("Add new Shelf");
-            cmd.Dispose();
-            con.Close();
         }
         // Clears all textboxes and comboboxes
         private void Clear()
@@ -421,11 +440,35 @@ namespace Microwave_v1._0
         private void Cb_publisher_SelectedIndexChanged(object sender, EventArgs e)
         {
             int last_index = cb_publisher.Items.Count - 1;
-
+            
             if (cb_publisher.SelectedIndex == 0)
                 cb_publisher.ForeColor = Color.Gray;
-            else if (cb_publisher.SelectedIndex == last_index)
+            
+            else if (cb_publisher.SelectedIndex == last_index) 
+            { 
                 main_page.Create_Add_Publisher_Form();
+                
+                string query = string.Format("Select {0}.NAME From {0}", "Publishers");
+                DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+                int rows_count = dt.Rows.Count;
+
+                if(rows_count <= 0)
+                {
+                    return;
+                }
+
+                cb_publisher.Items.Clear();
+                cb_publisher.Items.Add("Publisher's Name");
+
+                for (int i = 0; i < rows_count; i++)
+                {
+                    string item = dt.Rows[i][0].ToString();
+                    cb_publisher.Items.Add(item);
+                }
+                cb_publisher.Items.Add("Add new Publisher");
+                cb_publisher.SelectedIndex = 0;
+            }
+
             else
                 cb_publisher.ForeColor = Color.LightGray;
         }

@@ -371,12 +371,12 @@ namespace Microwave_v1._0
 
             try
             {
-                Add_publisher.Show();
+                Add_publisher.ShowDialog();
             }
             catch (ObjectDisposedException)
             {
                 Add_publisher = new AddPublisher();
-                Add_publisher.Show();
+                Add_publisher.ShowDialog();
             }
             this.Btn_add.Enabled = false;
             this.pic_logo.Focus();
