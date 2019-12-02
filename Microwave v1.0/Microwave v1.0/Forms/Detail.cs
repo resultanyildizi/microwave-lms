@@ -15,6 +15,7 @@ namespace Microwave_v1._0.Forms
     public partial class Detail : Form
     {
         GiveBook give_book_form = null;
+        User user = null;
         public Detail()
         {
             InitializeComponent();
@@ -54,6 +55,8 @@ namespace Microwave_v1._0.Forms
         public Detail(User user)
         {
             InitializeComponent();
+
+            this.user = user;
 
             this.btn_give_book.Show();
             this.btn_give_penalty.Show();
@@ -156,7 +159,7 @@ namespace Microwave_v1._0.Forms
         {
             if (give_book_form == null)
             {
-                give_book_form = new GiveBook();
+                give_book_form = new GiveBook(user);
             }
 
             try
@@ -165,10 +168,11 @@ namespace Microwave_v1._0.Forms
             }
             catch(Exception)
             {
-                give_book_form = new GiveBook();
+                give_book_form = new GiveBook(user);
                 give_book_form.Show();
             }
             
         }
+
     }
 }

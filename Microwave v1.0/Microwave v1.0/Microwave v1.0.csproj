@@ -126,6 +126,7 @@
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Receipt.cs" />
     <Compile Include="UserControls\Author_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +171,12 @@
     </Compile>
     <Compile Include="UserControls\Publisher_Info.designer.cs">
       <DependentUpon>Publisher_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Receipt_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Receipt_Info.Designer.cs">
+      <DependentUpon>Receipt_Info.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
@@ -238,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Publisher_Info.resx">
       <DependentUpon>Publisher_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Receipt_Info.resx">
+      <DependentUpon>Receipt_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>

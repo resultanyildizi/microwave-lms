@@ -16,12 +16,14 @@ namespace Microwave_v1._0.Forms
         private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         Book_List book_list = null;
         Book_List search_list = null;
+        User user;
 
-        public GiveBook()
+        public GiveBook(User user)
         {
             InitializeComponent();
             book_list = new Book_List();
             search_list = new Book_List();
+            this.user = user;
 
             string query = "Select * From Books";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
@@ -39,10 +41,14 @@ namespace Microwave_v1._0.Forms
         private void btn_give_book_Click(object sender, EventArgs e)
         {
             Book current = book_list.Find_Book_By_Chosen();
-            current.Count--;
-            current.Info.Initialize_Book_Info(current.Book_id, current.Name, current.Author_name,
-                current.Publisher_name, current.Category_name, current.Shelf_name, current.Date, 
-                current.Count, current.Description, current.Cover_path_file, INFO_COLOR_MODE.NORMAL);
+            current.Give_Book_To_User(user);
+        }
+
+
+        private void Create_Receipt(Book current)
+        {
+            
+
         }
     }
 }

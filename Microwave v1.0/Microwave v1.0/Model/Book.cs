@@ -244,10 +244,12 @@ namespace Microwave_v1._0
             return dt;
         }
         public void Calculate_Popularity_Score() { }
-        public void Give_Book_To_User() { }
+        public void Give_Book_To_User(User user) 
+        {
+           
+        }
         private void Change_Popularity_Stat() { }
         private void Change_Count_In_Database() { }
-
 
 
 
