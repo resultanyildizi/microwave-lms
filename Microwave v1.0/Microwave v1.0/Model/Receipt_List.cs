@@ -18,7 +18,7 @@ namespace Microwave_v1._0.Model
     }
     public class Receipt_List
     {
-        public class Publisher_List
+        /*public class Publisher_List
         {
             int point_y = Publisher.pub_point_y;
 
@@ -189,6 +189,6 @@ namespace Microwave_v1._0.Model
                 {
                     iterator = iterator.next;
                 }
-            }
+            }*/
         }
 }
