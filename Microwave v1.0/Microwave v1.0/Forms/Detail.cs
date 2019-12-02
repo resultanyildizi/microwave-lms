@@ -14,6 +14,7 @@ namespace Microwave_v1._0.Forms
 {
     public partial class Detail : Form
     {
+        GiveBook give_book_form = null;
         public Detail()
         {
             InitializeComponent();
@@ -146,5 +147,28 @@ namespace Microwave_v1._0.Forms
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
         }
 
+        private void btn_give_book_Click(object sender, EventArgs e)
+        {
+            Create_New_Give_Book_Form();
+        }
+
+        public void Create_New_Give_Book_Form()
+        {
+            if (give_book_form == null)
+            {
+                give_book_form = new GiveBook();
+            }
+
+            try
+            {
+                give_book_form.Show();
+            }
+            catch(Exception)
+            {
+                give_book_form = new GiveBook();
+                give_book_form.Show();
+            }
+            
+        }
     }
 }

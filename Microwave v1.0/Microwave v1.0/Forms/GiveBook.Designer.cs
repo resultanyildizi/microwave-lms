@@ -195,6 +195,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_book.Size = new System.Drawing.Size(46, 44);
             this.btn_give_book.TabIndex = 54;
             this.btn_give_book.UseVisualStyleBackColor = true;
+            this.btn_give_book.Click += new System.EventHandler(this.btn_give_book_Click);
             // 
             // btn_show_search_types
             // 

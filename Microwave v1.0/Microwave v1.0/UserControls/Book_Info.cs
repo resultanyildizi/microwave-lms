@@ -23,10 +23,12 @@ namespace Microwave_v1._0
 
     public partial class Book_Info : UserControl
     {
-        private Microwave main_page;
-        private Book_List main_list;
+        private Book_List main_list = null;
+        private Book_List search_list = null;
+        private Book_Tag main_tag = null;
         private AddBook edit_form = null;
         private Detail detail_form = null;
+        private Panel main_panel = null;
 
         private string description;
         private string name;
@@ -39,12 +41,15 @@ namespace Microwave_v1._0
         private INFO_COLOR_MODE color_mode;
 
         public int Book_id { get => book_id; set => book_id = value; }
+        public bool Chosen { get => chosen; set => chosen = value; }
 
-        public Book_Info()
+        public Book_Info(Book_List main_list, Book_List search_list, Book_Tag main_tag, Panel pnl)
         {
             InitializeComponent();
-            main_page = (Microwave)Application.OpenForms["Microwave"]; 
-            main_list = main_page.Main_book_list;
+            this.main_list = main_list;
+            this.search_list = search_list;
+            this.main_panel = pnl;
+            this.main_tag = main_tag;
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
@@ -86,34 +91,38 @@ namespace Microwave_v1._0
         }
         public void Draw_Book_Obj(ref int y)
         {
-            main_page.Pnl_book_list.Controls.Add(this);
-            this.Location = new System.Drawing.Point(0, y);
-            y += 45;
-        }
+            if(main_tag != null)
+            {
+                main_panel.Controls.Add(this);
+                this.Location = new System.Drawing.Point(0, y);
+                y += 45;
+            }
+            else
+            {
+                this.Scale_All();
+                main_panel.Controls.Add(this);
+                this.Location = new System.Drawing.Point(-3, y);
+                y += 35;
+            }
 
-        public void Draw_Book_Obj_1(ref int y, GiveBook gb)
-        {
-            gb.Pnl_book_list.Controls.Add(this);
-            this.Location = new System.Drawing.Point(0, y);
-            y += 45;
         }
         public void Hide_Info()
         {
-            main_page.Pnl_book_list.Controls.Remove(this);
+            main_panel.Controls.Remove(this);
         }
         private void BookInfo_Click(object sender, MouseEventArgs e)
         {
             main_list.Deselect_All_Infos();
-            main_page.Book_search_list.Deselect_All_Infos();
+            search_list.Deselect_All_Infos();
             this.Select_Book_Info();
         }
         public void Select_Book_Info()
         {
             chosen = true;
-            Book_Tag main_book_tag = main_page.Book_tag;
          
             Color back_color = Color.FromArgb(33, 37, 48);
-            main_book_tag.Edit_Book_Tag(name, description, author, book_id.ToString());
+            if(main_tag != null)
+                main_tag.Edit_Book_Tag(name, description, author, book_id.ToString());
             this.pnl_author.BackColor = back_color;
             this.pnl_name.BackColor = back_color;
             this.pnl_date.BackColor = back_color;
@@ -176,6 +185,7 @@ namespace Microwave_v1._0
 
         private void Btn_edit_Click(object sender, EventArgs e)
         {
+            Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
             string message = "Do you want to edit this book?";
             main_page.Create_Warning_Form(message, Color.DarkBlue);
             if (main_page.Warning_form.Result)
@@ -185,6 +195,7 @@ namespace Microwave_v1._0
         }
         private void Btn_remove_Click(object sender, EventArgs e)
         {
+            Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
             string message = "Do you want to delete this book?";
             main_page.Create_Warning_Form(message, Color.DarkRed);
             if(main_page.Warning_form.Result)
@@ -199,6 +210,7 @@ namespace Microwave_v1._0
     }
         private void Remove(bool delete_picture = true)
         {
+            Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
             main_page.Remove_Image_From_Cover_List(book_id);
             main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", "0");
             main_list.Delete_Book_from_List(book_id, delete_picture);
@@ -259,11 +271,11 @@ namespace Microwave_v1._0
             }
         }
 
-        public void Scale_All(SizeF s)
+        public void Scale_All()
         {
             SizeF s_gen = new SizeF();
-            s_gen.Width = s.Width;
-            s_gen.Height = s.Height;
+            s_gen.Width = (float)0.8;
+            s_gen.Height = (float)0.8;
 
             this.Scale(s_gen);
             this.lbl_id.Font = new Font("Microsof Sans Serif", 7);
@@ -351,19 +363,6 @@ namespace Microwave_v1._0
         {
             Mouse_Leave();
         }
-        private void Book_Info_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                string message = "Do you want to delete that book?";
-
-                main_page.Create_Warning_Form(message, Color.DarkRed);
-                if (main_page.Warning_form.Result)
-                    Remove();
-                main_page.Warning_form.Refresh_Form();
-            }
-        }
-
         private void Book_Info_DoubleClick(object sender, EventArgs e)
         {
             Book current = main_list.Find_Book_By_ID(book_id);

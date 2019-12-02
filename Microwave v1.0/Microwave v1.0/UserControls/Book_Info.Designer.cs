@@ -371,7 +371,6 @@
             this.Size = new System.Drawing.Size(748, 40);
             this.DoubleClick += new System.EventHandler(this.Book_Info_DoubleClick);
             this.Enter += new System.EventHandler(this.Book_Info_Enter);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Book_Info_KeyDown);
             this.MouseEnter += new System.EventHandler(this.Book_Info_Enter);
             this.MouseLeave += new System.EventHandler(this.BookInfo_MouseLeave);
             this.pnl_name.ResumeLayout(false);

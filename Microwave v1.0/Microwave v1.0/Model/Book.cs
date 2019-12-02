@@ -116,7 +116,7 @@ namespace Microwave_v1._0
             DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             // Take book id which is given by database automatically
-            info = new Book_Info();
+            info = new Book_Info(main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list);
             Take_Id_From_Database();
 
             Join_Tables_For_Names();
@@ -170,18 +170,18 @@ namespace Microwave_v1._0
             // For User Interface
             main_page = (Microwave)Application.OpenForms["Microwave"];
             // Fills Book_List with DataTable
-            main_page.Main_book_list.Fill_Book_List(dt, INFO_COLOR_MODE.NORMAL);
+            main_page.Main_book_list.Fill_Book_List(dt, main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Draw_All_Books();
 
         }
         static public void Show_All_Books(User user)
         {
         }
-        public void Set_Book(INFO_COLOR_MODE color_mode)
+        public void Set_Book(Book_List main_list, Book_List search_list, Book_Tag book_tag, Panel main_panel, INFO_COLOR_MODE color_mode)
         {
             Join_Tables_For_Names();
 
-            info = new Book_Info();
+            info = new Book_Info(main_list, search_list, book_tag, main_panel);
             info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name,shelf_name, date, count, description, cover_path_file, color_mode);
         }
 
