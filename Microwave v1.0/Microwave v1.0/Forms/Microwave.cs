@@ -1059,10 +1059,10 @@ namespace Microwave_v1._0
         {
             string text = tb_search_author.Text;
 
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter && !author_searched_already)
             {
                 lb_author_search.Hide();
-                if (tb_search_author.Text == "" && !author_searched_already)
+                if (tb_search_author.Text == "")
                 {
                     return;
                 }
