@@ -78,7 +78,7 @@ namespace Microwave_v1._0.Forms
    
             if(addEmployee == null)
             {
-                addEmployee = new AddEmployee();
+                addEmployee = new AddEmployee(department);
                 
             }
             try
@@ -87,7 +87,7 @@ namespace Microwave_v1._0.Forms
             }
             catch (Exception)
             {
-                addEmployee = new AddEmployee();
+                addEmployee = new AddEmployee(department);
                 addEmployee.Show();
             }
 

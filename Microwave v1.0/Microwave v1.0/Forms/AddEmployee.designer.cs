@@ -97,7 +97,9 @@ namespace Microwave_v1._0.Forms
             this.tb_surname.Name = "tb_surname";
             this.tb_surname.Size = new System.Drawing.Size(223, 23);
             this.tb_surname.TabIndex = 62;
-            this.tb_surname.Text = "Employee\'s Surname";
+            this.tb_surname.Text = "Surname";
+            this.tb_surname.Enter += new System.EventHandler(this.tb_surname_Enter);
+            this.tb_surname.Leave += new System.EventHandler(this.tb_surname_Leave);
             // 
             // lbl_surname
             // 
@@ -194,7 +196,9 @@ namespace Microwave_v1._0.Forms
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(223, 23);
             this.tb_name.TabIndex = 53;
-            this.tb_name.Text = "Employee\'s Name";
+            this.tb_name.Text = "Name";
+            this.tb_name.Enter += new System.EventHandler(this.tb_name_Enter);
+            this.tb_name.Leave += new System.EventHandler(this.tb_name_Leave);
             // 
             // lbl_email
             // 
@@ -219,6 +223,8 @@ namespace Microwave_v1._0.Forms
             this.tb_email.Size = new System.Drawing.Size(223, 23);
             this.tb_email.TabIndex = 67;
             this.tb_email.Text = "Employee\'s E-mail";
+            this.tb_email.Enter += new System.EventHandler(this.tb_email_Enter);
+            this.tb_email.Leave += new System.EventHandler(this.tb_email_Leave);
             // 
             // dtp_time
             // 
@@ -273,6 +279,9 @@ namespace Microwave_v1._0.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddEmployee";
             this.Text = "AddEmployee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEmployee_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddEmployee_FormClosed);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddEmployee_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pic_employee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -98,7 +98,6 @@ namespace Microwave_v1._0.UserControls
             this.pnl_surname.BackColor = back_color;
             this.pnl_gender.BackColor = back_color;
             this.pnl_id.BackColor = back_color;
-            this.pnl_name.BackColor = back_color;
             this.pnl_email.BackColor = back_color;
             this.pnl_birthdate.BackColor = back_color;
             this.pnl_department.BackColor = back_color;
@@ -175,7 +174,6 @@ namespace Microwave_v1._0.UserControls
           if (!chosen)
           {
             Color back_color2 = Color.FromArgb(55, 57, 68);
-            this.BackColor = back_color2;
             this.pnl_id.BackColor = back_color2;
             this.pnl_name.BackColor = back_color2;
             this.pnl_email.BackColor = back_color2;
@@ -191,7 +189,6 @@ namespace Microwave_v1._0.UserControls
             {
                 Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
                 Color back_color2 = Color.FromArgb(55, 57, 68);
-                this.BackColor = back_color2;
                 this.pnl_id.BackColor = back_color2;
                 this.pnl_name.BackColor = back_color2;
                 this.pnl_email.BackColor = back_color2;

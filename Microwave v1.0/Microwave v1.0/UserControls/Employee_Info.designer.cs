@@ -59,7 +59,7 @@
             this.pnl_id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_id.Controls.Add(this.lbl_id);
             this.pnl_id.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_id.Location = new System.Drawing.Point(23, 4);
+            this.pnl_id.Location = new System.Drawing.Point(23, 0);
             this.pnl_id.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_id.Name = "pnl_id";
             this.pnl_id.Size = new System.Drawing.Size(38, 40);
@@ -89,7 +89,7 @@
             this.pnl_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_email.Controls.Add(this.lbl_email);
             this.pnl_email.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_email.Location = new System.Drawing.Point(278, 4);
+            this.pnl_email.Location = new System.Drawing.Point(280, 0);
             this.pnl_email.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_email.Name = "pnl_email";
             this.pnl_email.Size = new System.Drawing.Size(180, 40);
@@ -119,7 +119,7 @@
             this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_name.Controls.Add(this.lbl_name);
             this.pnl_name.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_name.Location = new System.Drawing.Point(65, 4);
+            this.pnl_name.Location = new System.Drawing.Point(65, 0);
             this.pnl_name.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(108, 40);
@@ -149,7 +149,7 @@
             this.pnl_surname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_surname.Controls.Add(this.lbl_surname);
             this.pnl_surname.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_surname.Location = new System.Drawing.Point(175, 4);
+            this.pnl_surname.Location = new System.Drawing.Point(177, 0);
             this.pnl_surname.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_surname.Name = "pnl_surname";
             this.pnl_surname.Size = new System.Drawing.Size(99, 40);
@@ -182,7 +182,7 @@
             this.btn_remove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
-            this.btn_remove.Location = new System.Drawing.Point(0, 25);
+            this.btn_remove.Location = new System.Drawing.Point(0, 21);
             this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(19, 19);
@@ -198,7 +198,7 @@
             this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
-            this.btn_edit.Location = new System.Drawing.Point(1, 2);
+            this.btn_edit.Location = new System.Drawing.Point(0, 0);
             this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(19, 19);
@@ -226,7 +226,7 @@
             this.pnl_gender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_gender.Controls.Add(this.lbl_gender);
             this.pnl_gender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_gender.Location = new System.Drawing.Point(462, 4);
+            this.pnl_gender.Location = new System.Drawing.Point(464, 0);
             this.pnl_gender.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_gender.Name = "pnl_gender";
             this.pnl_gender.Size = new System.Drawing.Size(85, 40);
@@ -240,7 +240,7 @@
             this.pnl_department.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_department.Controls.Add(this.lbl_department);
             this.pnl_department.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_department.Location = new System.Drawing.Point(650, 4);
+            this.pnl_department.Location = new System.Drawing.Point(649, 0);
             this.pnl_department.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_department.Name = "pnl_department";
             this.pnl_department.Size = new System.Drawing.Size(92, 40);
@@ -270,7 +270,7 @@
             this.pnl_birthdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
             this.pnl_birthdate.Controls.Add(this.lbl_birthdate);
             this.pnl_birthdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_birthdate.Location = new System.Drawing.Point(553, 4);
+            this.pnl_birthdate.Location = new System.Drawing.Point(553, 0);
             this.pnl_birthdate.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_birthdate.Name = "pnl_birthdate";
             this.pnl_birthdate.Size = new System.Drawing.Size(92, 40);
@@ -299,7 +299,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.Controls.Add(this.pnl_birthdate);
             this.Controls.Add(this.pnl_department);
             this.Controls.Add(this.pnl_gender);
@@ -310,7 +310,7 @@
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.pnl_surname);
             this.Name = "Employee_Info";
-            this.Size = new System.Drawing.Size(750, 48);
+            this.Size = new System.Drawing.Size(742, 40);
             this.Click += new System.EventHandler(this.Employee_Info_Click);
             this.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);

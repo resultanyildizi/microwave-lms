@@ -469,5 +469,6 @@ namespace Microwave_v1._0.Forms
         private Label lbl_birth_date;
 
         public Panel Pnl_employee_list { get => pnl_employee_list; set => pnl_employee_list = value; }
+        public Button Btn_add { get => btn_add; set => btn_add = value; }
     }
 }

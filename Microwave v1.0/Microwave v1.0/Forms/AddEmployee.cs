@@ -42,7 +42,7 @@ namespace Microwave_v1._0.Forms
         private bool change_image = false;
         private Employee employee_to_edit = null;
 
-        public AddEmployee()
+        public AddEmployee(Department dprt)
         {
             InitializeComponent();
 
@@ -54,7 +54,16 @@ namespace Microwave_v1._0.Forms
 
             Fill_Comboboxes();
 
-            this.cb_department.SelectedIndex = 0;
+
+            if(dprt != null)
+            {
+                this.cb_department.SelectedIndex = cb_department.Items.IndexOf(dprt.Name);
+                this.cb_department.Enabled = false;
+            }else
+            {
+                this.cb_department.SelectedIndex = 0;
+                this.cb_department.Enabled = true;
+            }
 
             this.BringToFront();
         }
@@ -71,7 +80,7 @@ namespace Microwave_v1._0.Forms
 
             Fill_Comboboxes();
 
-            this.cb_department.SelectedIndex = this.cb_department.Items.IndexOf(employee.Name);
+            this.cb_department.SelectedIndex = this.cb_department.Items.IndexOf(employee.Deparment_name);
 
             this.tb_name.Text = employee.Name;
             this.tb_name.ForeColor = Color.LightGray;
@@ -367,5 +376,78 @@ namespace Microwave_v1._0.Forms
 
                 return pass;
             }
+
+        private void AddEmployee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Add_Click_Func(is_edit);
+            } 
+
+        }
+
+        private void AddEmployee_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
+        }
+
+        private void AddEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            main_page.Btn_add.Enabled = true;
+        }
+
+        private void tb_name_Enter(object sender, EventArgs e)
+        {
+            if (tb_name.Text == "Name")
+            {
+                tb_name.Text = "";
+                tb_name.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_name_Leave(object sender, EventArgs e)
+        {
+            if (tb_name.Text == "")
+            {
+                tb_name.Text = "Name";
+                tb_name.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_surname_Enter(object sender, EventArgs e)
+        {
+            if (tb_surname.Text == "Surname")
+            {
+                tb_surname.Text = "";
+                tb_surname.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_surname_Leave(object sender, EventArgs e)
+        {
+            if (tb_surname.Text == "")
+            {
+                tb_surname.Text = "Surname";
+                tb_surname.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void tb_email_Enter(object sender, EventArgs e)
+        {
+            if (tb_email.Text == "Employee's E-mail")
+            {
+                tb_email.Text = "";
+                tb_email.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void tb_email_Leave(object sender, EventArgs e)
+        {
+            if (tb_email.Text == "")
+            {
+                tb_email.Text = "Employee's E-mail";
+                tb_email.ForeColor = Color.DimGray;
+            }
+        }
     }
 }
