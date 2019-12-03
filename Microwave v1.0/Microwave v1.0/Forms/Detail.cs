@@ -19,6 +19,8 @@ namespace Microwave_v1._0.Forms
 
         User user = null;
         Publisher publisher = null;
+        Employee employee = null;
+        Department department = null;
 
         
 
@@ -167,6 +169,44 @@ namespace Microwave_v1._0.Forms
             this.tb_6.Hide();
 
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
+        }
+        
+        public Detail(Employee employee)
+        {
+            InitializeComponent();
+
+            this.employee = employee;
+ 
+
+            this.btn_give_book.Hide();
+            this.btn_give_penalty.Hide();
+            this.btn_return_book.Hide();
+            this.lbl_6.Hide();
+            this.tb_6.Hide();
+            this.dgw_users.Hide();
+
+            this.btn_id.Text = employee.Employee_id.ToString();
+
+
+            this.lbl_name.Text = employee.Name + " " + employee.Surname;
+
+            this.lbl_1.Text = "Email:";
+            this.lbl_2.Text = "Birth Date:";
+            this.lbl_3.Text = "Password:";
+            this.lbl_4.Text = "Gender:";
+            this.lbl_5.Text = "Department:";
+
+            this.lbl_desc.Text = " ";
+
+            this.tb_1.Text = employee.Email;
+            this.tb_2.Text = employee.Gender;
+            this.tb_3.Text = employee.Password;
+            this.tb_4.Text = employee.Age.ToString();
+            this.tb_5.Text = employee.Deparment_name;
+
+
+            this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
+
         }
 
         private void btn_give_book_Click(object sender, EventArgs e)

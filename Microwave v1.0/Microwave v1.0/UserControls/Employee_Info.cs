@@ -18,6 +18,7 @@ namespace Microwave_v1._0.UserControls
         private Microwave_v1._0.Forms.ShowEmployee main_page;
         private Employee_List employee_list;
         private AddEmployee edit_form = null;
+        private Detail detail_form = null;
 
         private int employee_id;
         private string department_name;
@@ -30,6 +31,7 @@ namespace Microwave_v1._0.UserControls
         private bool chosen = false;
 
         public int Employee_id { get => employee_id; set => employee_id = value; }
+        public Detail Detail_form { get => detail_form; set => detail_form = value; }
 
         public Employee_Info()
         {
@@ -210,6 +212,33 @@ namespace Microwave_v1._0.UserControls
         private void Employee_Info_MouseEnter(object sender, EventArgs e)
         {
             Employee_Hover();
+        }
+
+        private void Employee_Info_DoubleClick(object sender, EventArgs e)
+        {
+            Employee current = employee_list.Find_Employee_By_ID(employee_id);
+            Create_Book_Detail_Form(current);
+        }
+        private void Create_Book_Detail_Form(Employee employee)
+        {
+
+            if (detail_form == null)
+            {
+                detail_form = new Detail(employee);
+                detail_form.Show();
+            }
+            else
+            {
+                try
+                {
+                    detail_form.Show();
+                }
+                catch (Exception)
+                {
+                    detail_form = new Detail(employee);
+                    detail_form.Show();
+                }
+            }
         }
     }
 }

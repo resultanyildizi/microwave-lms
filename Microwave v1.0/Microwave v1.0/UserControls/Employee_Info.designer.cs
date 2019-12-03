@@ -65,6 +65,7 @@
             this.pnl_id.Size = new System.Drawing.Size(38, 40);
             this.pnl_id.TabIndex = 12;
             this.pnl_id.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_id.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_id.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_id.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -81,6 +82,7 @@
             this.lbl_id.TabIndex = 4;
             this.lbl_id.Text = "1";
             this.lbl_id.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_id.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_id.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_id.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -95,6 +97,7 @@
             this.pnl_email.Size = new System.Drawing.Size(180, 40);
             this.pnl_email.TabIndex = 7;
             this.pnl_email.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_email.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_email.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_email.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -111,6 +114,7 @@
             this.lbl_email.TabIndex = 2;
             this.lbl_email.Text = "ddincerdem@gmail.com";
             this.lbl_email.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_email.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_email.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_email.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -125,6 +129,7 @@
             this.pnl_name.Size = new System.Drawing.Size(108, 40);
             this.pnl_name.TabIndex = 6;
             this.pnl_name.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_name.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_name.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_name.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -141,6 +146,7 @@
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "Doğan Dinçer";
             this.lbl_name.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_name.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_name.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_name.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -155,6 +161,7 @@
             this.pnl_surname.Size = new System.Drawing.Size(99, 40);
             this.pnl_surname.TabIndex = 8;
             this.pnl_surname.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_surname.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_surname.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_surname.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -171,6 +178,7 @@
             this.lbl_surname.TabIndex = 1;
             this.lbl_surname.Text = "Demirci";
             this.lbl_surname.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_surname.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_surname.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_surname.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -218,6 +226,7 @@
             this.lbl_gender.TabIndex = 3;
             this.lbl_gender.Text = "Erkek";
             this.lbl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_gender.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_gender.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_gender.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -232,6 +241,7 @@
             this.pnl_gender.Size = new System.Drawing.Size(85, 40);
             this.pnl_gender.TabIndex = 10;
             this.pnl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_gender.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_gender.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_gender.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -246,6 +256,7 @@
             this.pnl_department.Size = new System.Drawing.Size(92, 40);
             this.pnl_department.TabIndex = 13;
             this.pnl_department.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_department.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_department.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_department.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -262,6 +273,7 @@
             this.lbl_department.TabIndex = 3;
             this.lbl_department.Text = "EzhelinKankası";
             this.lbl_department.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_department.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_department.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_department.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -276,6 +288,7 @@
             this.pnl_birthdate.Size = new System.Drawing.Size(92, 40);
             this.pnl_birthdate.TabIndex = 14;
             this.pnl_birthdate.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_birthdate.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.pnl_birthdate.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.pnl_birthdate.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -292,6 +305,7 @@
             this.lbl_birthdate.TabIndex = 3;
             this.lbl_birthdate.Text = "12.08.1999";
             this.lbl_birthdate.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.lbl_birthdate.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.lbl_birthdate.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_birthdate.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
@@ -312,6 +326,7 @@
             this.Name = "Employee_Info";
             this.Size = new System.Drawing.Size(742, 40);
             this.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             this.pnl_id.ResumeLayout(false);
