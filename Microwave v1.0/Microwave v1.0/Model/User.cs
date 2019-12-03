@@ -20,6 +20,7 @@ namespace Microwave_v1._0
         private string password;
         private string email;
         private string date;
+        private int book_count;
         private int age;
         private UserInfo info;
 
@@ -37,6 +38,7 @@ namespace Microwave_v1._0
         public string Date { get => date; set => date = value; }
         public UserInfo Info { get => info; set => info = value; }
         public string Password { get => password; set => password = value; }
+        public int Book_count { get => book_count; set => book_count = value; }
 
         // Constructors
 
@@ -112,12 +114,11 @@ namespace Microwave_v1._0
 
             return;
         }
-        public static void Show_All_Users()
+        public static void Show_All_Users(Microwave main_page)
         {
             string query = "Select * From Users ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            main_page = (Microwave)Application.OpenForms["Microwave"];
             main_page.Main_user_list.Fill_User_List(dt, INFO_COLOR_MODE.NORMAL);
             main_page.Main_user_list.Draw_All_Users();
         }

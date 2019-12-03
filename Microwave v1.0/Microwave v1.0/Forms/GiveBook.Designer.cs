@@ -44,6 +44,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_book = new System.Windows.Forms.Button();
             this.btn_show_search_types = new System.Windows.Forms.Button();
             this.tb_search_book = new System.Windows.Forms.TextBox();
+            this.lbl_message = new System.Windows.Forms.Label();
             this.pnl_book_list.SuspendLayout();
             this.pnl_book_st.SuspendLayout();
             this.SuspendLayout();
@@ -227,12 +228,24 @@ namespace Microwave_v1._0.Forms
             this.tb_search_book.TabIndex = 68;
             this.tb_search_book.Text = "Search a user";
             // 
+            // lbl_message
+            // 
+            this.lbl_message.AutoSize = true;
+            this.lbl_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_message.ForeColor = System.Drawing.Color.LightGreen;
+            this.lbl_message.Location = new System.Drawing.Point(285, 29);
+            this.lbl_message.Name = "lbl_message";
+            this.lbl_message.Size = new System.Drawing.Size(70, 16);
+            this.lbl_message.TabIndex = 69;
+            this.lbl_message.Text = "*Message";
+            // 
             // GiveBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(639, 351);
+            this.Controls.Add(this.lbl_message);
             this.Controls.Add(this.btn_show_search_types);
             this.Controls.Add(this.btn_give_book);
             this.Controls.Add(this.tb_search_book);
@@ -262,6 +275,7 @@ namespace Microwave_v1._0.Forms
         private System.Windows.Forms.ListBox lb_book_search;
         private System.Windows.Forms.Button btn_show_search_types;
         private System.Windows.Forms.TextBox tb_search_book;
+        private Label lbl_message;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
     }

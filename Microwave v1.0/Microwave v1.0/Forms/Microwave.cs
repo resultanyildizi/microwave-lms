@@ -11,6 +11,7 @@ using System.Data.SQLite;
 using System.Threading;
 using Microwave_v1._0.Forms;
 using Microwave_v1._0.Classes;
+using Microwave_v1._0.Model;
 
 /*
  NOT:
@@ -36,7 +37,7 @@ namespace Microwave_v1._0
 {
     public enum MENU_CHOSEN
     {
-        BOOKS = 0,USERS,AUTHOR, PUBLISHER, DEPARTMENT, EMAIL, ABOUT_US
+        BOOKS = 0,USERS,AUTHOR, PUBLISHER, DEPARTMENT,RECEIPTS, EMAIL, ABOUT_US
     }
     public partial class Microwave : Form
     {
@@ -54,6 +55,7 @@ namespace Microwave_v1._0
         private Author_List main_author_list = null;
         private Publisher_List main_pub_list = null;
         private Department_List main_department_list = null;
+        private Receipt_List main_receipt_list = null;
 
         private Book_Tag main_tag = null;
 
@@ -74,6 +76,8 @@ namespace Microwave_v1._0
         private bool publisher_searched_already = false;
         private Author_List author_search_list = null;
         private bool author_searched_already = false;
+        private Receipt_List receipt_search_list = null;
+        private bool receipt_searched_already = false;
 
         // Getters and Setters
         public Warning Warning_form { get => warning_form; set => warning_form = value; }
@@ -104,12 +108,16 @@ namespace Microwave_v1._0
         public Publisher_List Publisher_search_list { get => publisher_search_list; set => publisher_search_list = value; }
         public bool Author_searched_already { get => author_searched_already; set => author_searched_already = value; }
         public Author_List Author_search_list { get => author_search_list; set => author_search_list = value; }
+        public Receipt_List Main_receipt_list { get => main_receipt_list; set => main_receipt_list = value; }
+        public Receipt_List Receipt_search_list { get => receipt_search_list; set => receipt_search_list = value; }
+        public bool Receipt_searched_already { get => receipt_searched_already; set => receipt_searched_already = value; }
 
         // Booleans
         private bool show_pnl_book_st   = false;
         private bool show_pnl_user_st   = false;
         private bool show_pnl_author_st = false;
         private bool show_pnl_pub_st    = false;
+        private bool show_pnl_rcpt_st   = false;
 
         // Constructor
         public Microwave()
@@ -121,12 +129,14 @@ namespace Microwave_v1._0
             main_user_list = new User_List();
             main_pub_list = new Publisher_List();
             main_author_list = new Author_List();
+            main_receipt_list = new Receipt_List();
 
             // Searching
             book_search_list = new Book_List();
             user_search_list = new User_List();
             publisher_search_list = new Publisher_List();
             author_search_list = new Author_List();
+            receipt_search_list = new Receipt_List();
 
             pnl_home.Show();
             pnl_tag.Hide();
@@ -135,6 +145,7 @@ namespace Microwave_v1._0
             pnl_pub.Hide();
             pnl_department.Hide();
             pnl_authors.Hide();
+            pnl_receipt.Hide();
             tb_search_book.Hide();
             tb_search_publisher.Hide();
             tb_search_user.Hide();
@@ -147,6 +158,7 @@ namespace Microwave_v1._0
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
+            tb_search_receipt.Hide();
             btn_show_search_types.Hide();
             
             // Book search
@@ -177,6 +189,13 @@ namespace Microwave_v1._0
             tb_search_author.Text = "Search an author";
             tb_search_author.ForeColor = Color.Gray;
 
+            // Receipt search
+            pnl_receipt_st.Hide();
+            lb_receipt_search.Hide();
+            rb_receipt_name.Checked = true;
+            tb_search_receipt.Text = "Search a receipt";
+            tb_search_receipt.ForeColor = Color.Gray;
+
 
             pnl_author_st.Hide();
 
@@ -192,19 +211,18 @@ namespace Microwave_v1._0
             this.pnl_user_list.VerticalScroll.Value = 0;
             this.pnl_pub_list.VerticalScroll.Value = 0;
             this.pnl_department_list.VerticalScroll.Value = 0;
+            this.pnl_receipt_list.VerticalScroll.Value = 0;
 
-            Book.Show_All_Books();
-            User.Show_All_Users();
-            Department.Show_All_Departments();
-            Publisher.Show_All_Publishers();
-            Author.Show_All_Authors();
-            // It's need to change
-            main_user_list.Draw_All_Users();
+            Book.Show_All_Books(this);
+            User.Show_All_Users(this);
+            Department.Show_All_Departments(this);
+            Publisher.Show_All_Publishers(this);
+            Author.Show_All_Authors(this);
+            Receipt.Show_All_Receipts(this);
 
             pnl_home.BringToFront();
 
         }
-
         private void Btn_Add_Click(object sender, EventArgs e)
         {
             this.pic_logo.Focus();
@@ -282,7 +300,6 @@ namespace Microwave_v1._0
                 warning_form.Refresh_Form();
             }
         }
-
         public void Create_Warning_Form(string message, Color color)
         {
             if (Warning_form == null)
@@ -351,12 +368,12 @@ namespace Microwave_v1._0
 
             try
             {
-                Add_author.Show();
+                Add_author.ShowDialog();
             }
             catch (ObjectDisposedException)
             {
                 Add_author = new AddAuthor();
-                Add_author.Show();
+                Add_author.ShowDialog();
             }
             this.Btn_add.Enabled = false;
             this.pic_logo.Focus();
@@ -414,11 +431,13 @@ namespace Microwave_v1._0
             pnl_pub.Hide();
             pnl_authors.Hide();
             pnl_department.Hide();
+            pnl_receipt.Hide();
             btn_show_search_types.Show();
             tb_search_book.Show();
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
+            tb_search_receipt.Hide();
             
         }
         private void btn_users_Click(object sender, EventArgs e)
@@ -433,11 +452,13 @@ namespace Microwave_v1._0
             pnl_tag.Hide();
             pnl_authors.Hide();
             pnl_department.Hide();
+            pnl_receipt.Hide();
             btn_show_search_types.Show();
             tb_search_book.Hide();
             tb_search_user.Show();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
+            tb_search_receipt.Hide();
         }
         private void btn_author_Click(object sender, EventArgs e)
         {
@@ -450,12 +471,14 @@ namespace Microwave_v1._0
             pnl_tag.Hide();
             pnl_user.Hide();
             pnl_department.Hide();
+            pnl_receipt.Hide();
             pnl_authors.Show();
             btn_show_search_types.Show();
             tb_search_book.Hide();
             tb_search_user.Hide();
             tb_search_author.Show();
             tb_search_publisher.Hide();
+            tb_search_receipt.Hide();
 
 
         }
@@ -471,10 +494,12 @@ namespace Microwave_v1._0
             pnl_user.Hide();
             pnl_department.Hide();
             pnl_authors.Hide();
+            pnl_receipt.Hide();
             btn_show_search_types.Show();
             tb_search_book.Hide();
             tb_search_user.Hide();
             tb_search_author.Hide();
+            tb_search_receipt.Hide();
             tb_search_publisher.Show();
         }
         private void btn_department_Click(object sender, EventArgs e)
@@ -488,19 +513,35 @@ namespace Microwave_v1._0
             pnl_tag.Hide();
             pnl_user.Hide();
             pnl_authors.Hide();
+            pnl_receipt.Hide();
             pnl_department.Show();
             btn_show_search_types.Hide();
             tb_search_book.Hide();
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
+            tb_search_receipt.Hide();
 
         }
         private void btn_email_Click(object sender, EventArgs e)
         {
-            chosen = MENU_CHOSEN.EMAIL;
-            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_email.Location.Y);
+            chosen = MENU_CHOSEN.RECEIPTS;
+
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_receipt.Location.Y);
             pnl_stick.Show();
+            pnl_pub.Hide();
+            pnl_book.Hide();
+            pnl_tag.Hide();
+            pnl_user.Hide();
+            pnl_authors.Hide();
+            pnl_department.Hide();
+            pnl_receipt.Show();
+            btn_show_search_types.Show();
+            tb_search_book.Hide();
+            tb_search_user.Hide();
+            tb_search_author.Hide();
+            tb_search_publisher.Hide();
+            tb_search_receipt.Show();
         }
         private void btn_about_us_Click(object sender, EventArgs e)
         {
@@ -587,7 +628,20 @@ namespace Microwave_v1._0
                 }
                 lb_publisher_search.Hide();
             }
-
+            else if(chosen == MENU_CHOSEN.RECEIPTS)
+            {
+                if(show_pnl_rcpt_st == false)
+                {
+                    this.pnl_receipt_st.Show();
+                    show_pnl_rcpt_st = true;
+                }
+                else
+                {
+                    this.pnl_receipt_st.Hide();
+                    show_pnl_rcpt_st = false;
+                }
+                lb_receipt_search.Hide();
+            }
 
         }
 
@@ -1448,11 +1502,18 @@ namespace Microwave_v1._0
             }
         }
 
+        // Searching events for receipts
+
+
+
+
+
+
+        // Initilaze page
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             pnl_home.Hide();
         }
-
         private void btn_show_all_emp_Click(object sender, EventArgs e)
         {
             if (show_employee == null)
@@ -1464,7 +1525,7 @@ namespace Microwave_v1._0
             {
                 show_employee.Show();
             }
-            catch (ObjectDisposedException d)
+            catch (ObjectDisposedException)
             {
                 show_employee = new ShowEmployee(null);
                 show_employee.Show();

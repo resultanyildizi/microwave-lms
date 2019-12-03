@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using System.Data;
 using System.Drawing;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0
 {   /* NOTE:
@@ -93,7 +94,6 @@ namespace Microwave_v1._0
             this.popularity_score = popularity_score;
             this.popularity_id = popularity_id;
 
-
         }
 
        
@@ -162,20 +162,29 @@ namespace Microwave_v1._0
                 MessageBox.Show("Delete is not valid");
             return;
         }
-        static public void Show_All_Books()
+        static public void Show_All_Books(Microwave main_page)
         {
             string query = "Select * From Books ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
-            // For User Interface
-            main_page = (Microwave)Application.OpenForms["Microwave"];
             // Fills Book_List with DataTable
             main_page.Main_book_list.Fill_Book_List(dt, main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Draw_All_Books();
 
         }
-        static public void Show_All_Books(User user)
+        public static DataTable Show_All_Books(User user)
         {
+            string query = "Select Books.BOOK_ID, Books.Name,Authors.NAME, Publishers.NAME, Categories.NAME, " +
+                            "Shelves.NAME, Popularity.NAME, Books.POPULARITY_SCORE, Books.DATE from Book_User " +
+                            "Join Books On Book_User.BOOK_ID = Books.BOOK_ID " +
+                            "Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
+                            "Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
+                            "Join Categories On Books.CATEGORY_ID = Categories.CATEGORY_ID " +
+                            "Join Shelves On Books.SHELF_ID = Shelves.SHELF_ID " +
+                            "Join Popularity On Books.POPULARITY_ID = Popularity.POPULARITY_ID " +
+                            "Where Book_User.USER_ID = " + user.User_id;
+
+            return DataBaseEvents.ExecuteQuery(query, datasource);
         }
         public void Set_Book(Book_List main_list, Book_List search_list, Book_Tag book_tag, Panel main_panel, INFO_COLOR_MODE color_mode)
         {
@@ -246,10 +255,34 @@ namespace Microwave_v1._0
         public void Calculate_Popularity_Score() { }
         public void Give_Book_To_User(User user) 
         {
-           
+            string query_insert = string.Format("Insert into Book_User(BOOK_ID, USER_ID) Values({0}, {1})", this.book_id, user.User_id);
+
+            int result = DataBaseEvents.ExecuteNonQuery(query_insert, datasource);
+            if(result <= 0)
+            {
+                MessageBox.Show("Invalid insert operation");
+                return;
+            }
+
+            Receipt receipt = new Receipt(0, this.book_id, user.User_id, 0, "CHECKED IN");
+            receipt.Add();
         }
         private void Change_Popularity_Stat() { }
-        private void Change_Count_In_Database() { }
+        public void Change_Count() 
+        {
+            this.count--;
+            this.info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
+
+            string query = string.Format("Update Books Set COUNT = {0} Where Books.BOOK_ID = {1}", count, book_id);
+            
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if(result <= 0)
+            {
+                MessageBox.Show("Invalid update operation - count");
+                return;
+            }
+
+        }
 
 
 

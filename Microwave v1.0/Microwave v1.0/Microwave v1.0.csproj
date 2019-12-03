@@ -167,6 +167,9 @@
     <Compile Include="UserControls\Department_Info.Designer.cs">
       <DependentUpon>Department_Info.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\drag_control.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\Employee_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,12 +187,6 @@
     </Compile>
     <Compile Include="UserControls\Receipt_Info.Designer.cs">
       <DependentUpon>Receipt_Info.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Receipt_Small.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Receipt_Small.Designer.cs">
-      <DependentUpon>Receipt_Small.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
@@ -264,9 +261,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Receipt_Info.resx">
       <DependentUpon>Receipt_Info.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Receipt_Small.resx">
-      <DependentUpon>Receipt_Small.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
