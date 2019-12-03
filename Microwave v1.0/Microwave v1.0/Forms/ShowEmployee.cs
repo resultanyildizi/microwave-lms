@@ -105,7 +105,7 @@ namespace Microwave_v1._0.Forms
 
         private void btn_show_search_types_Click(object sender, EventArgs e)
         {
-            lb_emp_search.Show();
+
         }
         public void Create_Warning_Form(string message, Color color)
         {

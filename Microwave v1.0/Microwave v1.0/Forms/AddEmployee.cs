@@ -84,7 +84,7 @@ namespace Microwave_v1._0.Forms
 
 
             pic_new_source_path = picture_event.Pic_source_file = employee.Cover_path_file;
-            pic_employee.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_dest_path);
+            pic_employee.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_new_source_path);
 
             is_edit = true;
 
@@ -169,6 +169,7 @@ namespace Microwave_v1._0.Forms
                 {
                     if (employee_to_edit.Cover_path_file != picture_default_file)
                         Picture_Events.Delete_The_Picture(employee_to_edit.Cover_path_file);
+
                     picture_event.Copy_The_Picture(name);
                     pic_new_source_path = picture_event.Pic_source_file;
                     change_image = false;
@@ -183,12 +184,13 @@ namespace Microwave_v1._0.Forms
                 employee_to_edit.Email = email;
                 employee_to_edit.Age = birth_date;
                 employee_to_edit.Department_id = department_id;
+                employee_to_edit.Cover_path_file = picture_event.Pic_source_file;
 
                 employee_to_edit.Edit();
 
                 main_page.Pnl_employee_list.VerticalScroll.Value = 0;
                 main_page.Main_employee_list.Draw_All_Employees();
-               
+                Clear();
             }
         }
 
