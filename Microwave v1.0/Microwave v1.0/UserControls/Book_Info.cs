@@ -367,6 +367,9 @@ namespace Microwave_v1._0
         {
             Book current = main_list.Find_Book_By_ID(book_id);
             Create_Book_Detail_Form(current);
+            detail_form.Choise = SELECTED.BOOK;
+
+
         }
     }
 }

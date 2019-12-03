@@ -10,9 +10,14 @@ using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.Model;
 using Microwave_v1._0.UserControls;
+using Microwave_v1._0.Forms;
 
 namespace Microwave_v1._0.Forms
 {
+    public enum SELECTED
+    {
+        BOOK = 0, USER,AUTHOR, PUBLISHER,EMPLOYEE
+    }
     public partial class Detail : Form
     {
         GiveBook give_book_form = null;
@@ -20,10 +25,20 @@ namespace Microwave_v1._0.Forms
         User user = null;
         Publisher publisher = null;
         Employee employee = null;
-        Department department = null;
+        Book book = null;
+        Author author = null;
 
-        
+        AddBook edit_book = null;
+        AddAuthor edit_author = null;
+        AddEmployee edit_employee = null;
+        AddPublisher edit_publisher = null;
+        AddUser edit_user = null;
 
+        private Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
+
+        private SELECTED choise;
+
+        public SELECTED Choise { get => choise; set => choise = value; }
 
         public Detail()
         {
@@ -33,6 +48,8 @@ namespace Microwave_v1._0.Forms
         public Detail(Book book)
         {
             InitializeComponent();
+
+            this.book = book;
 
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
@@ -143,6 +160,8 @@ namespace Microwave_v1._0.Forms
         {
             InitializeComponent();
 
+            this.author = author;
+
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
@@ -176,8 +195,8 @@ namespace Microwave_v1._0.Forms
             InitializeComponent();
 
             this.employee = employee;
- 
-
+     
+            
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
@@ -216,6 +235,7 @@ namespace Microwave_v1._0.Forms
 
         public void Create_New_Give_Book_Form()
         {
+
             if (give_book_form == null)
             {
                 give_book_form = new GiveBook(this, user);
@@ -233,5 +253,147 @@ namespace Microwave_v1._0.Forms
 
         }
 
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (choise == SELECTED.BOOK)
+            {
+                string message = "Do you want to edit this book?";
+                main_page.Create_Warning_Form(message, Color.DarkSeaGreen);
+                if (main_page.Warning_form.Result)
+                {
+
+                    if (edit_book == null)
+                    {
+                        edit_book = new AddBook(book);
+                        edit_book.Show();
+                    }
+                    try
+                    {
+                        edit_book.Show();
+                    }
+                    catch (Exception)
+                    {
+                        edit_book = new AddBook(book);
+                        edit_book.Show();
+                    }
+                }
+
+                main_page.Warning_form.Refresh_Form();
+            }
+            else if (choise == SELECTED.AUTHOR)
+            {
+                string message = "Do you want to edit this author?";
+                main_page.Create_Warning_Form(message, Color.DarkSeaGreen);
+                if (main_page.Warning_form.Result)
+                {
+                    if (edit_author == null)
+                    {
+                        edit_author = new AddAuthor(author);
+                        edit_author.Show();
+                    }
+                    try
+                    {
+                        edit_author.Show();
+                    }
+                    catch (Exception)
+                    {
+                        edit_author = new AddAuthor(author);
+                        edit_author.Show();
+                    }
+                }
+            }
+            else if (choise == SELECTED.EMPLOYEE)
+            {
+                string message = "Do you want to edit this employee?";
+                main_page.Create_Warning_Form(message, Color.DarkSeaGreen);
+                if (main_page.Warning_form.Result)
+                {
+                    if (edit_employee == null)
+                    {
+                        edit_employee = new AddEmployee(employee);
+                        edit_employee.Show();
+                    }
+                    try
+                    {
+                        edit_employee.Show();
+                    }
+                    catch (Exception)
+                    {
+
+                        edit_employee = new AddEmployee(employee);
+                        edit_employee.Show();
+                    }
+                }
+            }
+            else if (choise == SELECTED.PUBLISHER)
+            {
+                string message = "Do you want to edit this publisher?";
+                main_page.Create_Warning_Form(message, Color.DarkSeaGreen);
+                if (main_page.Warning_form.Result)
+                {
+                    if (edit_publisher == null)
+                    {
+                        edit_publisher = new AddPublisher(publisher);
+                        edit_publisher.Show();
+                    }
+                    try
+                    {
+                        edit_publisher.Show();
+                    }
+                    catch (Exception)
+                    {
+
+                        edit_publisher = new AddPublisher(publisher);
+                        edit_publisher.Show();
+                    }
+                }
+            }
+            else if (choise == SELECTED.USER)
+            {
+                string message = "Do you want to edit this user?";
+                main_page.Create_Warning_Form(message, Color.DarkSeaGreen);
+                if (main_page.Warning_form.Result)
+                {
+                    if (edit_user == null)
+                    {
+                        edit_user = new AddUser(user);
+                        edit_user.Show();
+                    }
+                    try
+                    {
+                        edit_user.Show();
+                    }
+                    catch (Exception)
+                    {
+                        edit_user = new AddUser(user);
+                        edit_user.Show();
+                    }
+                }
+            }
+        }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            if (choise == SELECTED.BOOK)
+            {
+                
+            }
+            else if (choise == SELECTED.AUTHOR)
+            {
+             
+            }
+            else if (choise == SELECTED.EMPLOYEE)
+            {
+
+            }
+            else if (choise == SELECTED.PUBLISHER)
+            {
+
+            }
+            else if (choise == SELECTED.USER)
+            {
+            
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microwave_v1._0.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.Model;
+using Microwave_v1._0.UserControls;
 
 namespace Microwave_v1._0.UserControls
 {
@@ -31,7 +32,6 @@ namespace Microwave_v1._0.UserControls
         private bool chosen = false;
 
         public int Employee_id { get => employee_id; set => employee_id = value; }
-        public Detail Detail_form { get => detail_form; set => detail_form = value; }
 
         public Employee_Info()
         {
@@ -213,11 +213,13 @@ namespace Microwave_v1._0.UserControls
         {
             Employee_Hover();
         }
-
         private void Employee_Info_DoubleClick(object sender, EventArgs e)
         {
             Employee current = employee_list.Find_Employee_By_ID(employee_id);
             Create_Book_Detail_Form(current);
+            detail_form.Choise = SELECTED.EMPLOYEE;
+
+
         }
         private void Create_Book_Detail_Form(Employee employee)
         {

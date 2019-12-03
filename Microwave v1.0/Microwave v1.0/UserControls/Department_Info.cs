@@ -18,6 +18,7 @@ namespace Microwave_v1._0.UserControls
         private Department_List department_list;
         private AddDepartment edit_form = null;
         private ShowEmployee show_employee = null;
+        private Detail detail_form ;
 
         private string name;
         private string pic_path_file;
@@ -194,6 +195,7 @@ namespace Microwave_v1._0.UserControls
                 show_employee = new ShowEmployee(current);
                 show_employee.Show();
             }
+            
         }
 
     }
