@@ -1,4 +1,6 @@
-﻿namespace Microwave_v1._0.Forms
+﻿using System.Windows.Forms;
+
+namespace Microwave_v1._0.Forms
 {
     partial class AddEmployee
     {
@@ -295,5 +297,7 @@
         private System.Windows.Forms.DateTimePicker dtp_time;
         private System.Windows.Forms.ComboBox cb_department;
         private System.Windows.Forms.Label lbl_department;
+
+        public ComboBox Cb_department { get => cb_department; set => cb_department = value; }
     }
 }

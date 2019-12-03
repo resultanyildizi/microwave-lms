@@ -22,9 +22,8 @@ namespace Microwave_v1._0.Forms
         private Department department = null;
         private Employee_List main_employee_list = null;
         private AddEmployee addEmployee = null;
-
         private Book_Tag main_tag = null;
-
+        private Warning Warning_form = null;
 
 
         private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
@@ -34,6 +33,7 @@ namespace Microwave_v1._0.Forms
         public Employee_List Main_employee_list { get => main_employee_list; set => main_employee_list = value; }
         public AddEmployee AddEmployee { get => addEmployee; set => addEmployee = value; }
         public Book_Tag Main_tag { get => main_tag; set => main_tag = value; }
+        public Warning Warning_form1 { get => Warning_form; set => Warning_form = value; }
 
         public ShowEmployee(Department department)
         {
@@ -42,6 +42,10 @@ namespace Microwave_v1._0.Forms
             main_employee_list = new Employee_List();
             main_tag = this.emp_tag;
             this.department = department;
+            main_tag.lbl_author.Text = " ";
+            main_tag.lbl_description.Text = " ";
+            main_tag.lbl_bookname.Text = " ";
+           
             if(department==null)
             {
                 lbl_dep_name.Text = "All Employees";
@@ -50,6 +54,7 @@ namespace Microwave_v1._0.Forms
             {
                 lbl_dep_name.Text = department.Name;
             }
+
         }
 
 
@@ -100,7 +105,25 @@ namespace Microwave_v1._0.Forms
 
         private void btn_show_search_types_Click(object sender, EventArgs e)
         {
-            lb_emp_search.Show();
+
+        }
+        public void Create_Warning_Form(string message, Color color)
+        {
+            if (Warning_form == null)
+            {
+                Warning_form = new Warning();
+            }
+            try
+            {
+                Warning_form.Initialize_Warning(message, color);
+                Warning_form.ShowDialog();
+            }
+            catch (ObjectDisposedException)
+            {
+                Warning_form = new Warning();
+                Warning_form.Initialize_Warning(message, color);
+                Warning_form.ShowDialog();
+            }
         }
     }
 }
