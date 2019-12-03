@@ -34,6 +34,21 @@ namespace Microwave_v1._0.Forms
             this.pnl_emp_tag = new System.Windows.Forms.Panel();
             this.emp_tag = new Microwave_v1._0.Book_Tag();
             this.pnl_employee = new System.Windows.Forms.Panel();
+            this.pnl_emp_st = new System.Windows.Forms.Panel();
+            this.lbl_search_by = new System.Windows.Forms.Label();
+            this.rb_department = new System.Windows.Forms.RadioButton();
+            this.rb_email = new System.Windows.Forms.RadioButton();
+            this.rb_gender = new System.Windows.Forms.RadioButton();
+            this.rb_emp_id = new System.Windows.Forms.RadioButton();
+            this.rb_emp_name = new System.Windows.Forms.RadioButton();
+            this.lb_emp_search = new System.Windows.Forms.ListBox();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.pnl_top_side = new System.Windows.Forms.Panel();
+            this.btn_show_search_types = new System.Windows.Forms.Button();
+            this.tb_search_emp = new System.Windows.Forms.TextBox();
+            this.pic_logo = new System.Windows.Forms.PictureBox();
+            this.lbl_dep_name = new System.Windows.Forms.Label();
+            this.pnl_seperater = new System.Windows.Forms.Panel();
             this.pnl_names = new System.Windows.Forms.Panel();
             this.lbl_birth_date = new System.Windows.Forms.Label();
             this.lbl_dprt_name = new System.Windows.Forms.Label();
@@ -42,28 +57,13 @@ namespace Microwave_v1._0.Forms
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_employee_name = new System.Windows.Forms.Label();
             this.lbl_emp_surname = new System.Windows.Forms.Label();
-            this.pnl_emp_st = new System.Windows.Forms.Panel();
-            this.lb_emp_search = new System.Windows.Forms.ListBox();
-            this.lbl_search_by = new System.Windows.Forms.Label();
-            this.rb_department = new System.Windows.Forms.RadioButton();
-            this.rb_email = new System.Windows.Forms.RadioButton();
-            this.rb_gender = new System.Windows.Forms.RadioButton();
-            this.rb_emp_id = new System.Windows.Forms.RadioButton();
-            this.rb_emp_name = new System.Windows.Forms.RadioButton();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.pnl_top_side = new System.Windows.Forms.Panel();
-            this.btn_show_search_types = new System.Windows.Forms.Button();
-            this.tb_search_emp = new System.Windows.Forms.TextBox();
-            this.pic_logo = new System.Windows.Forms.PictureBox();
-            this.lbl_dep_name = new System.Windows.Forms.Label();
             this.pnl_employee_list = new System.Windows.Forms.Panel();
-            this.pnl_seperater = new System.Windows.Forms.Panel();
             this.pnl_emp_tag.SuspendLayout();
             this.pnl_employee.SuspendLayout();
-            this.pnl_names.SuspendLayout();
             this.pnl_emp_st.SuspendLayout();
             this.pnl_top_side.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
+            this.pnl_names.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_emp_tag
@@ -88,18 +88,229 @@ namespace Microwave_v1._0.Forms
             // pnl_employee
             // 
             this.pnl_employee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_employee.Controls.Add(this.pnl_names);
-            this.pnl_employee.Controls.Add(this.pnl_emp_st);
             this.pnl_employee.Controls.Add(this.btn_add);
             this.pnl_employee.Controls.Add(this.pnl_top_side);
+            this.pnl_employee.Controls.Add(this.lb_emp_search);
+            this.pnl_employee.Controls.Add(this.pnl_emp_st);
             this.pnl_employee.Controls.Add(this.pnl_employee_list);
             this.pnl_employee.Controls.Add(this.pnl_seperater);
+            this.pnl_employee.Controls.Add(this.pnl_names);
             this.pnl_employee.Location = new System.Drawing.Point(1, -6);
             this.pnl_employee.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_employee.Name = "pnl_employee";
             this.pnl_employee.Size = new System.Drawing.Size(793, 554);
             this.pnl_employee.TabIndex = 18;
-            this.pnl_employee.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_book_Paint);
+            // 
+            // pnl_emp_st
+            // 
+            this.pnl_emp_st.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.pnl_emp_st.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_emp_st.Controls.Add(this.lbl_search_by);
+            this.pnl_emp_st.Controls.Add(this.rb_department);
+            this.pnl_emp_st.Controls.Add(this.rb_email);
+            this.pnl_emp_st.Controls.Add(this.rb_gender);
+            this.pnl_emp_st.Controls.Add(this.rb_emp_id);
+            this.pnl_emp_st.Controls.Add(this.rb_emp_name);
+            this.pnl_emp_st.Location = new System.Drawing.Point(524, 101);
+            this.pnl_emp_st.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_emp_st.Name = "pnl_emp_st";
+            this.pnl_emp_st.Size = new System.Drawing.Size(261, 94);
+            this.pnl_emp_st.TabIndex = 67;
+            // 
+            // lbl_search_by
+            // 
+            this.lbl_search_by.AutoSize = true;
+            this.lbl_search_by.ForeColor = System.Drawing.Color.White;
+            this.lbl_search_by.Location = new System.Drawing.Point(3, 4);
+            this.lbl_search_by.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_search_by.Name = "lbl_search_by";
+            this.lbl_search_by.Size = new System.Drawing.Size(58, 13);
+            this.lbl_search_by.TabIndex = 7;
+            this.lbl_search_by.Text = "Search by:";
+            // 
+            // rb_department
+            // 
+            this.rb_department.AutoSize = true;
+            this.rb_department.ForeColor = System.Drawing.Color.White;
+            this.rb_department.Location = new System.Drawing.Point(133, 42);
+            this.rb_department.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_department.Name = "rb_department";
+            this.rb_department.Size = new System.Drawing.Size(80, 17);
+            this.rb_department.TabIndex = 5;
+            this.rb_department.TabStop = true;
+            this.rb_department.Text = "Department";
+            this.rb_department.UseVisualStyleBackColor = true;
+            this.rb_department.CheckedChanged += new System.EventHandler(this.rb_department_CheckedChanged);
+            // 
+            // rb_email
+            // 
+            this.rb_email.AutoSize = true;
+            this.rb_email.ForeColor = System.Drawing.Color.White;
+            this.rb_email.Location = new System.Drawing.Point(133, 20);
+            this.rb_email.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_email.Name = "rb_email";
+            this.rb_email.Size = new System.Drawing.Size(54, 17);
+            this.rb_email.TabIndex = 4;
+            this.rb_email.TabStop = true;
+            this.rb_email.Text = "E-Mail";
+            this.rb_email.UseVisualStyleBackColor = true;
+            this.rb_email.CheckedChanged += new System.EventHandler(this.rb_email_CheckedChanged);
+            // 
+            // rb_gender
+            // 
+            this.rb_gender.AutoSize = true;
+            this.rb_gender.ForeColor = System.Drawing.Color.White;
+            this.rb_gender.Location = new System.Drawing.Point(5, 64);
+            this.rb_gender.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_gender.Name = "rb_gender";
+            this.rb_gender.Size = new System.Drawing.Size(60, 17);
+            this.rb_gender.TabIndex = 2;
+            this.rb_gender.TabStop = true;
+            this.rb_gender.Text = "Gender";
+            this.rb_gender.UseVisualStyleBackColor = true;
+            this.rb_gender.CheckedChanged += new System.EventHandler(this.rb_gender_CheckedChanged);
+            // 
+            // rb_emp_id
+            // 
+            this.rb_emp_id.AutoSize = true;
+            this.rb_emp_id.ForeColor = System.Drawing.Color.White;
+            this.rb_emp_id.Location = new System.Drawing.Point(5, 42);
+            this.rb_emp_id.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_emp_id.Name = "rb_emp_id";
+            this.rb_emp_id.Size = new System.Drawing.Size(36, 17);
+            this.rb_emp_id.TabIndex = 1;
+            this.rb_emp_id.TabStop = true;
+            this.rb_emp_id.Text = "ID";
+            this.rb_emp_id.UseVisualStyleBackColor = true;
+            this.rb_emp_id.CheckedChanged += new System.EventHandler(this.rb_emp_id_CheckedChanged);
+            // 
+            // rb_emp_name
+            // 
+            this.rb_emp_name.AutoSize = true;
+            this.rb_emp_name.ForeColor = System.Drawing.Color.White;
+            this.rb_emp_name.Location = new System.Drawing.Point(5, 20);
+            this.rb_emp_name.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_emp_name.Name = "rb_emp_name";
+            this.rb_emp_name.Size = new System.Drawing.Size(53, 17);
+            this.rb_emp_name.TabIndex = 0;
+            this.rb_emp_name.TabStop = true;
+            this.rb_emp_name.Text = "Name";
+            this.rb_emp_name.UseVisualStyleBackColor = true;
+            this.rb_emp_name.CheckedChanged += new System.EventHandler(this.rb_emp_name_CheckedChanged);
+            // 
+            // lb_emp_search
+            // 
+            this.lb_emp_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lb_emp_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_emp_search.ForeColor = System.Drawing.Color.White;
+            this.lb_emp_search.FormattingEnabled = true;
+            this.lb_emp_search.ItemHeight = 16;
+            this.lb_emp_search.Location = new System.Drawing.Point(547, 101);
+            this.lb_emp_search.Name = "lb_emp_search";
+            this.lb_emp_search.Size = new System.Drawing.Size(235, 68);
+            this.lb_emp_search.TabIndex = 68;
+            this.lb_emp_search.DoubleClick += new System.EventHandler(this.lb_emp_search_DoubleClick);
+            this.lb_emp_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lb_emp_search_KeyPress);
+            this.lb_emp_search.Leave += new System.EventHandler(this.lb_emp_search_Leave);
+            // 
+            // btn_add
+            // 
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_add.FlatAppearance.BorderSize = 0;
+            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
+            this.btn_add.Location = new System.Drawing.Point(9, 497);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(41, 44);
+            this.btn_add.TabIndex = 21;
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // pnl_top_side
+            // 
+            this.pnl_top_side.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.pnl_top_side.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_top_side.Controls.Add(this.btn_show_search_types);
+            this.pnl_top_side.Controls.Add(this.tb_search_emp);
+            this.pnl_top_side.Controls.Add(this.pic_logo);
+            this.pnl_top_side.Controls.Add(this.lbl_dep_name);
+            this.pnl_top_side.Location = new System.Drawing.Point(2, 5);
+            this.pnl_top_side.Name = "pnl_top_side";
+            this.pnl_top_side.Size = new System.Drawing.Size(794, 97);
+            this.pnl_top_side.TabIndex = 0;
+            // 
+            // btn_show_search_types
+            // 
+            this.btn_show_search_types.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_show_search_types.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_show_search_types.FlatAppearance.BorderSize = 0;
+            this.btn_show_search_types.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_show_search_types.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_show_search_types.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_search_types.ForeColor = System.Drawing.Color.White;
+            this.btn_show_search_types.Image = ((System.Drawing.Image)(resources.GetObject("btn_show_search_types.Image")));
+            this.btn_show_search_types.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_show_search_types.Location = new System.Drawing.Point(516, 62);
+            this.btn_show_search_types.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_show_search_types.Name = "btn_show_search_types";
+            this.btn_show_search_types.Size = new System.Drawing.Size(26, 29);
+            this.btn_show_search_types.TabIndex = 66;
+            this.btn_show_search_types.UseVisualStyleBackColor = true;
+            this.btn_show_search_types.Click += new System.EventHandler(this.btn_show_search_types_Click);
+            // 
+            // tb_search_emp
+            // 
+            this.tb_search_emp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_emp.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_emp.Location = new System.Drawing.Point(547, 65);
+            this.tb_search_emp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_emp.Name = "tb_search_emp";
+            this.tb_search_emp.Size = new System.Drawing.Size(235, 24);
+            this.tb_search_emp.TabIndex = 65;
+            this.tb_search_emp.Text = "Search an Employee";
+            this.tb_search_emp.TextChanged += new System.EventHandler(this.tb_search_emp_TextChanged);
+            this.tb_search_emp.Enter += new System.EventHandler(this.tb_search_emp_Enter);
+            this.tb_search_emp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_search_emp_KeyDown);
+            this.tb_search_emp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_search_emp_KeyPress);
+            this.tb_search_emp.Leave += new System.EventHandler(this.tb_search_emp_Leave);
+            // 
+            // pic_logo
+            // 
+            this.pic_logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
+            this.pic_logo.Location = new System.Drawing.Point(9, 7);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_logo.Name = "pic_logo";
+            this.pic_logo.Size = new System.Drawing.Size(92, 80);
+            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_logo.TabIndex = 22;
+            this.pic_logo.TabStop = false;
+            // 
+            // lbl_dep_name
+            // 
+            this.lbl_dep_name.AutoSize = true;
+            this.lbl_dep_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lbl_dep_name.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_dep_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_dep_name.ForeColor = System.Drawing.Color.White;
+            this.lbl_dep_name.Location = new System.Drawing.Point(114, 31);
+            this.lbl_dep_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_dep_name.Name = "lbl_dep_name";
+            this.lbl_dep_name.Size = new System.Drawing.Size(253, 33);
+            this.lbl_dep_name.TabIndex = 4;
+            this.lbl_dep_name.Text = "Department Name";
+            // 
+            // pnl_seperater
+            // 
+            this.pnl_seperater.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.pnl_seperater.Location = new System.Drawing.Point(19, 152);
+            this.pnl_seperater.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_seperater.Name = "pnl_seperater";
+            this.pnl_seperater.Size = new System.Drawing.Size(746, 1);
+            this.pnl_seperater.TabIndex = 7;
             // 
             // pnl_names
             // 
@@ -200,197 +411,6 @@ namespace Microwave_v1._0.Forms
             this.lbl_emp_surname.TabIndex = 19;
             this.lbl_emp_surname.Text = "Surname";
             // 
-            // pnl_emp_st
-            // 
-            this.pnl_emp_st.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.pnl_emp_st.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnl_emp_st.Controls.Add(this.lb_emp_search);
-            this.pnl_emp_st.Controls.Add(this.lbl_search_by);
-            this.pnl_emp_st.Controls.Add(this.rb_department);
-            this.pnl_emp_st.Controls.Add(this.rb_email);
-            this.pnl_emp_st.Controls.Add(this.rb_gender);
-            this.pnl_emp_st.Controls.Add(this.rb_emp_id);
-            this.pnl_emp_st.Controls.Add(this.rb_emp_name);
-            this.pnl_emp_st.Location = new System.Drawing.Point(524, 101);
-            this.pnl_emp_st.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_emp_st.Name = "pnl_emp_st";
-            this.pnl_emp_st.Size = new System.Drawing.Size(261, 94);
-            this.pnl_emp_st.TabIndex = 67;
-            // 
-            // lb_emp_search
-            // 
-            this.lb_emp_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.lb_emp_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_emp_search.ForeColor = System.Drawing.Color.White;
-            this.lb_emp_search.FormattingEnabled = true;
-            this.lb_emp_search.ItemHeight = 16;
-            this.lb_emp_search.Location = new System.Drawing.Point(24, -2);
-            this.lb_emp_search.Name = "lb_emp_search";
-            this.lb_emp_search.Size = new System.Drawing.Size(235, 68);
-            this.lb_emp_search.TabIndex = 68;
-            // 
-            // lbl_search_by
-            // 
-            this.lbl_search_by.AutoSize = true;
-            this.lbl_search_by.ForeColor = System.Drawing.Color.White;
-            this.lbl_search_by.Location = new System.Drawing.Point(3, 4);
-            this.lbl_search_by.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_search_by.Name = "lbl_search_by";
-            this.lbl_search_by.Size = new System.Drawing.Size(58, 13);
-            this.lbl_search_by.TabIndex = 7;
-            this.lbl_search_by.Text = "Search by:";
-            // 
-            // rb_department
-            // 
-            this.rb_department.AutoSize = true;
-            this.rb_department.ForeColor = System.Drawing.Color.White;
-            this.rb_department.Location = new System.Drawing.Point(133, 42);
-            this.rb_department.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_department.Name = "rb_department";
-            this.rb_department.Size = new System.Drawing.Size(80, 17);
-            this.rb_department.TabIndex = 5;
-            this.rb_department.TabStop = true;
-            this.rb_department.Text = "Department";
-            this.rb_department.UseVisualStyleBackColor = true;
-            // 
-            // rb_email
-            // 
-            this.rb_email.AutoSize = true;
-            this.rb_email.ForeColor = System.Drawing.Color.White;
-            this.rb_email.Location = new System.Drawing.Point(133, 20);
-            this.rb_email.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_email.Name = "rb_email";
-            this.rb_email.Size = new System.Drawing.Size(54, 17);
-            this.rb_email.TabIndex = 4;
-            this.rb_email.TabStop = true;
-            this.rb_email.Text = "E-Mail";
-            this.rb_email.UseVisualStyleBackColor = true;
-            // 
-            // rb_gender
-            // 
-            this.rb_gender.AutoSize = true;
-            this.rb_gender.ForeColor = System.Drawing.Color.White;
-            this.rb_gender.Location = new System.Drawing.Point(5, 64);
-            this.rb_gender.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_gender.Name = "rb_gender";
-            this.rb_gender.Size = new System.Drawing.Size(60, 17);
-            this.rb_gender.TabIndex = 2;
-            this.rb_gender.TabStop = true;
-            this.rb_gender.Text = "Gender";
-            this.rb_gender.UseVisualStyleBackColor = true;
-            // 
-            // rb_emp_id
-            // 
-            this.rb_emp_id.AutoSize = true;
-            this.rb_emp_id.ForeColor = System.Drawing.Color.White;
-            this.rb_emp_id.Location = new System.Drawing.Point(5, 42);
-            this.rb_emp_id.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_emp_id.Name = "rb_emp_id";
-            this.rb_emp_id.Size = new System.Drawing.Size(36, 17);
-            this.rb_emp_id.TabIndex = 1;
-            this.rb_emp_id.TabStop = true;
-            this.rb_emp_id.Text = "ID";
-            this.rb_emp_id.UseVisualStyleBackColor = true;
-            // 
-            // rb_emp_name
-            // 
-            this.rb_emp_name.AutoSize = true;
-            this.rb_emp_name.ForeColor = System.Drawing.Color.White;
-            this.rb_emp_name.Location = new System.Drawing.Point(5, 20);
-            this.rb_emp_name.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_emp_name.Name = "rb_emp_name";
-            this.rb_emp_name.Size = new System.Drawing.Size(53, 17);
-            this.rb_emp_name.TabIndex = 0;
-            this.rb_emp_name.TabStop = true;
-            this.rb_emp_name.Text = "Name";
-            this.rb_emp_name.UseVisualStyleBackColor = true;
-            // 
-            // btn_add
-            // 
-            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_add.FlatAppearance.BorderSize = 0;
-            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
-            this.btn_add.Location = new System.Drawing.Point(9, 497);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(41, 44);
-            this.btn_add.TabIndex = 21;
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // pnl_top_side
-            // 
-            this.pnl_top_side.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.pnl_top_side.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_top_side.Controls.Add(this.btn_show_search_types);
-            this.pnl_top_side.Controls.Add(this.tb_search_emp);
-            this.pnl_top_side.Controls.Add(this.pic_logo);
-            this.pnl_top_side.Controls.Add(this.lbl_dep_name);
-            this.pnl_top_side.Location = new System.Drawing.Point(2, 5);
-            this.pnl_top_side.Name = "pnl_top_side";
-            this.pnl_top_side.Size = new System.Drawing.Size(794, 97);
-            this.pnl_top_side.TabIndex = 0;
-            // 
-            // btn_show_search_types
-            // 
-            this.btn_show_search_types.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_show_search_types.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_show_search_types.FlatAppearance.BorderSize = 0;
-            this.btn_show_search_types.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_show_search_types.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_show_search_types.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_search_types.ForeColor = System.Drawing.Color.White;
-            this.btn_show_search_types.Image = ((System.Drawing.Image)(resources.GetObject("btn_show_search_types.Image")));
-            this.btn_show_search_types.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_show_search_types.Location = new System.Drawing.Point(516, 62);
-            this.btn_show_search_types.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_show_search_types.Name = "btn_show_search_types";
-            this.btn_show_search_types.Size = new System.Drawing.Size(26, 29);
-            this.btn_show_search_types.TabIndex = 66;
-            this.btn_show_search_types.UseVisualStyleBackColor = true;
-            this.btn_show_search_types.Click += new System.EventHandler(this.btn_show_search_types_Click);
-            // 
-            // tb_search_emp
-            // 
-            this.tb_search_emp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_search_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_search_emp.ForeColor = System.Drawing.Color.Gray;
-            this.tb_search_emp.Location = new System.Drawing.Point(547, 65);
-            this.tb_search_emp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_search_emp.Name = "tb_search_emp";
-            this.tb_search_emp.Size = new System.Drawing.Size(235, 24);
-            this.tb_search_emp.TabIndex = 65;
-            this.tb_search_emp.Text = "Search an Employee";
-            this.tb_search_emp.TextChanged += new System.EventHandler(this.tb_search_user_TextChanged);
-            // 
-            // pic_logo
-            // 
-            this.pic_logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
-            this.pic_logo.Location = new System.Drawing.Point(9, 7);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
-            this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(92, 80);
-            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_logo.TabIndex = 22;
-            this.pic_logo.TabStop = false;
-            // 
-            // lbl_dep_name
-            // 
-            this.lbl_dep_name.AutoSize = true;
-            this.lbl_dep_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.lbl_dep_name.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbl_dep_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_dep_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_dep_name.Location = new System.Drawing.Point(114, 31);
-            this.lbl_dep_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_dep_name.Name = "lbl_dep_name";
-            this.lbl_dep_name.Size = new System.Drawing.Size(253, 33);
-            this.lbl_dep_name.TabIndex = 4;
-            this.lbl_dep_name.Text = "Department Name";
-            // 
             // pnl_employee_list
             // 
             this.pnl_employee_list.AutoScroll = true;
@@ -400,15 +420,6 @@ namespace Microwave_v1._0.Forms
             this.pnl_employee_list.Name = "pnl_employee_list";
             this.pnl_employee_list.Size = new System.Drawing.Size(746, 334);
             this.pnl_employee_list.TabIndex = 14;
-            // 
-            // pnl_seperater
-            // 
-            this.pnl_seperater.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.pnl_seperater.Location = new System.Drawing.Point(19, 152);
-            this.pnl_seperater.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_seperater.Name = "pnl_seperater";
-            this.pnl_seperater.Size = new System.Drawing.Size(746, 1);
-            this.pnl_seperater.TabIndex = 7;
             // 
             // ShowEmployee
             // 
@@ -427,13 +438,13 @@ namespace Microwave_v1._0.Forms
             this.Load += new System.EventHandler(this.ShowEmployee_Load);
             this.pnl_emp_tag.ResumeLayout(false);
             this.pnl_employee.ResumeLayout(false);
-            this.pnl_names.ResumeLayout(false);
-            this.pnl_names.PerformLayout();
             this.pnl_emp_st.ResumeLayout(false);
             this.pnl_emp_st.PerformLayout();
             this.pnl_top_side.ResumeLayout(false);
             this.pnl_top_side.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
+            this.pnl_names.ResumeLayout(false);
+            this.pnl_names.PerformLayout();
             this.ResumeLayout(false);
 
         }

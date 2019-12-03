@@ -88,7 +88,7 @@ namespace Microwave_v1._0.Model
                 return;
             }
 
-            info = new Employee_Info();
+            info = new Employee_Info(main_page.Main_employee_list,main_page.Emp_search_list,main_page.Main_tag, main_page.Pnl_employee_list);
             Take_Id_From_Database();
             Join_Tables();
 
@@ -130,10 +130,10 @@ namespace Microwave_v1._0.Model
                 MessageBox.Show("Delete is not valid");
             return;
         }
-        public void Set_Employee()
+        public void Set_Employee(Employee_List main_list,Employee_List search_list , Book_Tag main_tag,Panel main_panel)
         {
             Join_Tables();
-            info = new Employee_Info();
+            info = new Employee_Info(main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list);
             info.Initialize_Employee_Info(employee_id,department_name, name, surname, email, gender, birth_date,cover_path_file);
         }
         static public void Show_All_Employees(Department department)
@@ -157,7 +157,7 @@ namespace Microwave_v1._0.Model
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
            
-            main_page.Main_employee_list.Fill_Employee_List(dt);
+            main_page.Main_employee_list.Fill_Employee_List(dt,main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list);
             main_page.Main_employee_list.Draw_All_Employees();
 
         }
@@ -182,10 +182,49 @@ namespace Microwave_v1._0.Model
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.employee_id = id; 
             this.Info.Employee_id = id; 
-
-
-           
         }
+        static public DataTable Search_Employee_By_Name(string name)
+        {
+            string query = string.Format("Select * From Employee Where Employee.NAME Like '{0}%'", name);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Employee_By_Surname(string surname)
+        {
+            string query = string.Format("Select * From Employee Where Employee.SURNAME Like '{0}%'", surname);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Employee_By_ID(string id)
+        {
+            string query = string.Format("Select * From Employee Where Employee.EMPLOYEE_ID Like '{0}%'", id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Employee_By_Email(string email)
+        {
+            string query = string.Format("Select * From Employee Where Employee.EMAIL Like '{0}%'", email);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
 
+        }
+        static public DataTable Search_Employee_By_Birthdate(string birthdate)
+        {
+            string query = string.Format("Select * From Employee Where Employee.BIRTH_DATE Like '{0}%'", birthdate);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Employee_By_Gender(string gender)
+        {
+            string query = string.Format("Select * From Employee Where Employee.GENDER Like '{0}%'", gender);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
+        static public DataTable Search_Employee_By_Department(string department)
+        {
+            string query = string.Format("Select * From Employee Where Employee.DEPARTMENT_ID Like '{0}%'", department);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            return dt;
+        }
     }
 }

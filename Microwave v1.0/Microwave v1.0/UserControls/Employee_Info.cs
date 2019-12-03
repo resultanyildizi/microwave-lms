@@ -18,8 +18,11 @@ namespace Microwave_v1._0.UserControls
     {
         private Microwave_v1._0.Forms.ShowEmployee main_page;
         private Employee_List employee_list;
+        private Employee_List search_list;
         private AddEmployee edit_form = null;
         private Detail detail_form = null;
+        private Panel main_panel = null;
+        private Book_Tag main_tag = null;
 
         private int employee_id;
         private string department_name;
@@ -33,9 +36,14 @@ namespace Microwave_v1._0.UserControls
 
         public int Employee_id { get => employee_id; set => employee_id = value; }
 
-        public Employee_Info()
+        public Employee_Info(Employee_List main_list,Employee_List search_list, Book_Tag main_tag, Panel pnl)
         {
             InitializeComponent();
+            this.employee_list = main_list;
+            this.search_list = search_list;
+            this.main_panel = pnl;
+            this.main_tag = main_tag;
+
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
             employee_list = main_page.Main_employee_list;
             this.btn_edit.Hide();
@@ -71,6 +79,7 @@ namespace Microwave_v1._0.UserControls
         {
             main_page.Pnl_employee_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
+            this.SendToBack();
             y += 50;
         }
         public void Select_Employee_Info()

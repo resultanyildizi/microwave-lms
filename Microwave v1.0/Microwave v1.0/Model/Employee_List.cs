@@ -36,7 +36,7 @@ namespace Microwave_v1._0.Model
         {
             root = null;
         }
-        public void Fill_Employee_List(DataTable dt)
+        public void Fill_Employee_List(DataTable dt, Employee_List main_list, Employee_List search_list, Book_Tag main_tag, Panel main_panel)
         {
             int rows_count = dt.Rows.Count;
 
@@ -55,7 +55,7 @@ namespace Microwave_v1._0.Model
                 string pic_path_file = dt.Rows[i][8].ToString();
 
                 Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, birth_date, employee_email, employee_password, employee_gender, pic_path_file);
-                employee.Set_Employee();
+                employee.Set_Employee(main_list, search_list, main_tag, main_panel); 
                 this.Add_Employee_to_List(employee);
 
             }
@@ -124,6 +124,19 @@ namespace Microwave_v1._0.Model
                 iterator = iterator.next;
             }
         }
+        public void Delete_All_List()
+        {
+            employee_node iterator = root;
+            employee_node current;
+            while (iterator != null)
+            {
+                current = iterator.next;
+                iterator.employee.Info.Dispose();
+                iterator.employee = null;
+                iterator = current;
+            }
+            root = null;
+        }
         public void Hide_All_Employee_Objects()
         {
             employee_node iterator = root;
@@ -163,6 +176,8 @@ namespace Microwave_v1._0.Model
 
             return iterator.employee;
         }
+
+
     }
 }
 
