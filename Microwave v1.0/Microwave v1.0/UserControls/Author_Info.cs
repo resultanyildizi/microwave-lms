@@ -231,7 +231,6 @@ namespace Microwave_v1._0.UserControls
         {
             Author current = author_list.Find_Author_By_ID(author_id);
             Create_Author_Detail_Form(current);
-            detail_form.Choise = SELECTED.AUTHOR;
 
         }
 

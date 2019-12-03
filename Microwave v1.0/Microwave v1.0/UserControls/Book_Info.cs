@@ -208,7 +208,7 @@ namespace Microwave_v1._0
             main_page.Main_book_list.Draw_All_Books();
             main_page.Book_searched_already = false;
     }
-        private void Remove(bool delete_picture = true)
+        public void Remove(bool delete_picture = true)
         {
             Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
             main_page.Remove_Image_From_Cover_List(book_id);
@@ -367,8 +367,6 @@ namespace Microwave_v1._0
         {
             Book current = main_list.Find_Book_By_ID(book_id);
             Create_Book_Detail_Form(current);
-            detail_form.Choise = SELECTED.BOOK;
-
 
         }
     }

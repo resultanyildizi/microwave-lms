@@ -76,6 +76,8 @@ namespace Microwave_v1._0.Forms
             this.tb_6.Text = book.Count.ToString();
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(book.Cover_path_file);
+
+            choise = SELECTED.BOOK;
         }
 
         public Detail(User user)
@@ -116,6 +118,8 @@ namespace Microwave_v1._0.Forms
             this.tb_6.Text = user.Book_count.ToString();
 
             picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
+
+            choise = SELECTED.USER;
         }
 
         public Detail(Publisher publisher)
@@ -154,6 +158,8 @@ namespace Microwave_v1._0.Forms
             this.tb_6.Hide();
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
+
+            choise = SELECTED.PUBLISHER;
         }
 
         public Detail(Author author)
@@ -186,8 +192,10 @@ namespace Microwave_v1._0.Forms
             this.tb_4.Hide();
             this.tb_5.Hide();
             this.tb_6.Hide();
-
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
+
+            choise = SELECTED.AUTHOR;
+
         }
 
         public Detail(Employee employee)
@@ -225,6 +233,8 @@ namespace Microwave_v1._0.Forms
 
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
+
+            choise = SELECTED.EMPLOYEE;
 
         }
 
@@ -265,20 +275,30 @@ namespace Microwave_v1._0.Forms
                     if (edit_book == null)
                     {
                         edit_book = new AddBook(book);
-                        edit_book.Show();
+                        edit_book.ShowDialog();
+                        return;
                     }
                     try
                     {
-                        edit_book.Show();
+                        edit_book.ShowDialog();
                     }
                     catch (Exception)
                     {
                         edit_book = new AddBook(book);
-                        edit_book.Show();
+                        edit_book.ShowDialog();
                     }
-                }
+                    main_page.Warning_form.Refresh_Form();
 
-                main_page.Warning_form.Refresh_Form();
+                    this.lbl_name.Text = book.Name;
+                    this.tb_1.Text = book.Author_name;
+                    this.tb_2.Text = book.Publisher_name;
+                    this.tb_3.Text = book.Category_name;
+                    this.tb_4.Text = "#" + book.Shelf_name;
+                    this.tb_5.Text = book.Popularity_name + " ( " + book.Popularity_score + " )";
+                    this.tb_6.Text = book.Count.ToString();
+
+                    this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(book.Cover_path_file);
+                }
             }
             else if (choise == SELECTED.AUTHOR)
             {
@@ -289,18 +309,28 @@ namespace Microwave_v1._0.Forms
                     if (edit_author == null)
                     {
                         edit_author = new AddAuthor(author);
-                        edit_author.Show();
+                        edit_author.ShowDialog();
+                        return;
                     }
                     try
                     {
-                        edit_author.Show();
+                        edit_author.ShowDialog();
                     }
                     catch (Exception)
                     {
                         edit_author = new AddAuthor(author);
-                        edit_author.Show();
+                        edit_author.ShowDialog();
                     }
                 }
+
+                main_page.Warning_form.Refresh_Form();
+
+                this.lbl_name.Text = author.Author_name;
+                this.tb_1.Text = author.Author_country;
+                this.tb_2.Text = author.Author_gender;
+                this.tb_3.Text = author.Author_birthday;
+                picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
+        
             }
             else if (choise == SELECTED.EMPLOYEE)
             {
@@ -311,19 +341,32 @@ namespace Microwave_v1._0.Forms
                     if (edit_employee == null)
                     {
                         edit_employee = new AddEmployee(employee);
-                        edit_employee.Show();
+                        edit_employee.ShowDialog();
+
+                        return;
                     }
                     try
                     {
-                        edit_employee.Show();
+                        edit_employee.ShowDialog();
                     }
                     catch (Exception)
                     {
 
                         edit_employee = new AddEmployee(employee);
-                        edit_employee.Show();
+                        edit_employee.ShowDialog();
                     }
                 }
+                main_page.Warning_form.Refresh_Form();
+
+                this.lbl_name.Text = employee.Name;
+                this.tb_1.Text = employee.Email;
+                this.tb_2.Text = employee.Gender;
+                this.tb_3.Text = employee.Password;
+                this.tb_4.Text = employee.Age.ToString();
+                this.tb_5.Text = employee.Deparment_name;
+
+
+                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
             }
             else if (choise == SELECTED.PUBLISHER)
             {
@@ -334,19 +377,30 @@ namespace Microwave_v1._0.Forms
                     if (edit_publisher == null)
                     {
                         edit_publisher = new AddPublisher(publisher);
-                        edit_publisher.Show();
+                        edit_publisher.ShowDialog();
+
+                        return;
                     }
                     try
                     {
-                        edit_publisher.Show();
+                        edit_publisher.ShowDialog();
                     }
                     catch (Exception)
                     {
 
                         edit_publisher = new AddPublisher(publisher);
-                        edit_publisher.Show();
+                        edit_publisher.ShowDialog();
                     }
                 }
+                main_page.Warning_form.Refresh_Form();
+
+                this.lbl_name.Text = publisher.Pub_name;
+                this.tb_1.Text = publisher.Pub_name;
+                this.tb_2.Text = publisher.Pub_email;
+                this.tb_3.Text = publisher.Pub_phone_num;
+                this.tb_4.Text = publisher.Pub_date_of_est;
+
+                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
             }
             else if (choise == SELECTED.USER)
             {
@@ -357,18 +411,31 @@ namespace Microwave_v1._0.Forms
                     if (edit_user == null)
                     {
                         edit_user = new AddUser(user);
-                        edit_user.Show();
+                        edit_user.ShowDialog();
+
+                        return;
                     }
                     try
                     {
-                        edit_user.Show();
+                        edit_user.ShowDialog();
                     }
                     catch (Exception)
                     {
                         edit_user = new AddUser(user);
-                        edit_user.Show();
+                        edit_user.ShowDialog();
                     }
                 }
+                main_page.Warning_form.Refresh_Form();
+
+                this.lbl_name.Text = user.Name;
+                this.tb_1.Text = user.Email;
+                this.tb_2.Text = user.Gender;
+                this.tb_3.Text = user.Password;
+                this.tb_4.Text = user.Age.ToString();
+                this.tb_5.Text = "15₺";
+                this.tb_6.Text = user.Book_count.ToString();
+
+                picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
             }
         }
 
@@ -376,7 +443,20 @@ namespace Microwave_v1._0.Forms
         {
             if (choise == SELECTED.BOOK)
             {
+                Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
+                string message = "Do you want to delete this book?";
+                main_page.Create_Warning_Form(message, Color.DarkRed);
+                if (main_page.Warning_form.Result)
+                    book.Info.Remove();
 
+                main_page.Warning_form.Refresh_Form();
+
+                main_page.Pnl_book_list.VerticalScroll.Value = 0;
+                main_page.Book_search_list.Delete_All_List();
+                main_page.Main_book_list.Draw_All_Books();
+                main_page.Book_searched_already = false;
+
+                this.Close();
             }
             else if (choise == SELECTED.AUTHOR)
             {

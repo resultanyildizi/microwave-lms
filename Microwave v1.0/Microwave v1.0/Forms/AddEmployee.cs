@@ -107,7 +107,7 @@ namespace Microwave_v1._0.Forms
             name = tb_name.Text.Replace('\'',' ');
             surname = tb_surname.Text;
             email = tb_email.Text;
-            birth_date = dtp_time.Value.ToString();
+            birth_date = dtp_time.Value.ToString().Substring(0, 10);
             department_id = int.Parse(cb_department.SelectedIndex.ToString());
             password = Generate_Auto_Password();
 

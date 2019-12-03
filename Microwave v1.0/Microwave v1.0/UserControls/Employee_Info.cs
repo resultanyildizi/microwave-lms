@@ -217,7 +217,6 @@ namespace Microwave_v1._0.UserControls
         {
             Employee current = employee_list.Find_Employee_By_ID(employee_id);
             Create_Book_Detail_Form(current);
-            detail_form.Choise = SELECTED.EMPLOYEE;
 
 
         }
