@@ -22,6 +22,7 @@ namespace Microwave_v1._0
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
+            this.lbl_user_message.Text = "";
             this.rb_male.Checked = true;
             this.BringToFront();
         }
@@ -30,6 +31,8 @@ namespace Microwave_v1._0
         {
             InitializeComponent();
             this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.pencil__1_;
+            this.lbl_user_message.Text = "";
+
 
             main_page = (Microwave)Application.OpenForms["Microwave"];
             user_to_edit = user;

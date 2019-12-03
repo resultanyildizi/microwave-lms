@@ -51,6 +51,7 @@ namespace Microwave_v1._0.Forms
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, picture_default_file, ref this.pic_employee);
             pic_new_source_path = picture_event.Pic_source_file;
+            this.lbl_message.Text = "";
 
             Fill_Comboboxes();
 
@@ -75,8 +76,10 @@ namespace Microwave_v1._0.Forms
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, picture_default_file, ref this.pic_employee);
+            this.lbl_message.Text = "";
 
             employee_to_edit = employee;
+
 
             Fill_Comboboxes();
 
