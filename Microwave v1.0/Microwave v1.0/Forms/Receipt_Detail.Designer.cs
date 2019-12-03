@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt_Detail));
             this.pnl_main = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.lbl_message = new System.Windows.Forms.Label();
             this.tb_message = new System.Windows.Forms.RichTextBox();
             this.btn_remove = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.lbl_books_id = new System.Windows.Forms.Label();
             this.pb_book = new System.Windows.Forms.PictureBox();
             this.pnl_drag = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.dragControl1 = new Microwave_v1._0.DragControl();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_book)).BeginInit();
@@ -87,24 +87,6 @@
             this.pnl_main.Name = "pnl_main";
             this.pnl_main.Size = new System.Drawing.Size(600, 300);
             this.pnl_main.TabIndex = 25;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(566, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 34);
-            this.button1.TabIndex = 24;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_message
             // 
@@ -146,6 +128,7 @@
             this.btn_remove.Size = new System.Drawing.Size(39, 34);
             this.btn_remove.TabIndex = 21;
             this.btn_remove.UseVisualStyleBackColor = true;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
             // lbl_user_email_val
             // 
@@ -342,6 +325,24 @@
             this.pnl_drag.Name = "pnl_drag";
             this.pnl_drag.Size = new System.Drawing.Size(646, 59);
             this.pnl_drag.TabIndex = 25;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(566, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(39, 34);
+            this.button1.TabIndex = 24;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dragControl1
             // 

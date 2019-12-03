@@ -13,6 +13,8 @@ namespace Microwave_v1._0.Forms
 {
     public partial class Receipt_Detail : Form
     {
+        private Microwave main_page = null;
+        private Receipt_List main_receipt_list = null;
         private Receipt receipt;
         private Book book;
         private User user;
@@ -26,6 +28,8 @@ namespace Microwave_v1._0.Forms
         public Receipt_Detail(Receipt receipt, Book book, User user)
         {
             InitializeComponent();
+            main_page = (Microwave)Application.OpenForms["Microwave"];
+            main_receipt_list = main_page.Main_receipt_list;
             this.receipt = receipt;
             this.book = book;
             this.user = user;
@@ -54,5 +58,34 @@ namespace Microwave_v1._0.Forms
             this.Close();
         }
 
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure to delete that receipt?";
+            main_page.Create_Warning_Form(message, Color.DarkRed);
+
+            if (main_page.Warning_form.Result)
+                Remove();
+
+            main_page.Warning_form.Refresh_Form();
+
+            main_page.Pnl_receipt_list.VerticalScroll.Value = 0;
+            main_page.Receipt_search_list.Delete_All_List();
+            main_page.Main_receipt_list.Draw_All_Receipts();
+            main_page.Receipt_searched_already = false;
+
+            this.Close();
+        }
+
+        private void Remove()
+        {
+            receipt.Revert_Changes(book, user);
+            main_receipt_list.Delete_Receipt_from_List(receipt.Receipt_id);
+            receipt.Info.Dispose();
+
+            main_page.Pnl_receipt_list.VerticalScroll.Value = 0;
+            Receipt.point_x = 25;
+            Receipt.point_y = 25;
+            main_receipt_list.Draw_All_Receipts();
+        }
     }
 }

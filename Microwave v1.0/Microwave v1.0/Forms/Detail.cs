@@ -55,6 +55,19 @@ namespace Microwave_v1._0.Forms
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
 
+            DataTable dt = User.Show_All_Users(book);
+            dgw_users.DataSource = dt;
+
+            DataGridViewButtonColumn detail_dgw_btn = new DataGridViewButtonColumn();
+            detail_dgw_btn.HeaderText = "Detail";
+            detail_dgw_btn.Text = "Show";
+            detail_dgw_btn.Name = "detail_dgw_btn";
+            detail_dgw_btn.UseColumnTextForButtonValue = true;
+            detail_dgw_btn.DefaultCellStyle.BackColor = Color.FromArgb(32, 33, 38);
+            detail_dgw_btn.DefaultCellStyle.ForeColor = Color.White;
+
+            dgw_users.Columns.Add(detail_dgw_btn);
+
             this.btn_id.Text = book.Book_id.ToString();
             this.lbl_date.Text = book.Date.Substring(0, 10);
 
@@ -74,6 +87,7 @@ namespace Microwave_v1._0.Forms
             this.tb_4.Text = "#" + book.Shelf_name;
             this.tb_5.Text = book.Popularity_name + " ( " + book.Popularity_score + " )";
             this.tb_6.Text = book.Count.ToString();
+            this.tb_7.Hide();
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(book.Cover_path_file);
 
@@ -116,6 +130,7 @@ namespace Microwave_v1._0.Forms
             this.tb_4.Text = user.Age.ToString();
             this.tb_5.Text = "15₺";
             this.tb_6.Text = user.Book_count.ToString();
+            this.tb_7.Hide();
 
             picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
 
@@ -155,6 +170,7 @@ namespace Microwave_v1._0.Forms
             this.tb_4.Text = publisher.Pub_date_of_est;
             this.tb_5.Hide();
             this.tb_6.Hide();
+            this.tb_7.Hide();
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
 
@@ -182,11 +198,11 @@ namespace Microwave_v1._0.Forms
             this.lbl_1.Text = "Country:";
             this.lbl_2.Text = "Gender:";
             this.lbl_3.Text = "Birth Year:";
-            this.lbl_4.Hide();
+            this.lbl_4.Text = "Biography:";
             this.lbl_5.Hide();
             this.lbl_6.Hide();
 
-            this.lbl_desc.Text = "Biography";
+            this.lbl_desc.Text = "Books of " + author.Author_name + ": ";
 
             this.tb_1.Text = author.Author_country;
             this.tb_2.Text = author.Author_gender;
@@ -194,6 +210,8 @@ namespace Microwave_v1._0.Forms
             this.tb_4.Hide();
             this.tb_5.Hide();
             this.tb_6.Hide();
+            this.tb_7.Text = author.Author_biography;
+
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
 
             choise = SELECTED.AUTHOR;
@@ -232,6 +250,7 @@ namespace Microwave_v1._0.Forms
             this.tb_3.Text = employee.Password;
             this.tb_4.Text = employee.Age.ToString();
             this.tb_5.Text = employee.Deparment_name;
+            this.tb_7.Hide();
 
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
@@ -549,5 +568,22 @@ namespace Microwave_v1._0.Forms
                 this.Close();
             }
         }
+
+        private void dgw_users_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(choise == SELECTED.BOOK)
+            {
+                if(e.ColumnIndex == 0 && e.RowIndex >= 0)
+                {
+                    int user_id = int.Parse(dgw_users.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    User user = main_page.Main_user_list.Find_User_By_ID(user_id);
+
+                    user.Info.Create_User_Detail_Form(user);
+                }
+
+            }
+
+        }
+
     }
 }

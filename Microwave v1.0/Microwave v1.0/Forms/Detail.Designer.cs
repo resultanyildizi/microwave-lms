@@ -34,6 +34,7 @@ namespace Microwave_v1._0.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.tb_7 = new System.Windows.Forms.RichTextBox();
             this.btn_give_penalty = new System.Windows.Forms.Button();
             this.btn_give_book = new System.Windows.Forms.Button();
             this.btn_return_book = new System.Windows.Forms.Button();
@@ -67,6 +68,7 @@ namespace Microwave_v1._0.Forms
             // pnl_main
             // 
             this.pnl_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.pnl_main.Controls.Add(this.tb_7);
             this.pnl_main.Controls.Add(this.btn_give_penalty);
             this.pnl_main.Controls.Add(this.btn_give_book);
             this.pnl_main.Controls.Add(this.btn_return_book);
@@ -97,6 +99,20 @@ namespace Microwave_v1._0.Forms
             this.pnl_main.Size = new System.Drawing.Size(773, 471);
             this.pnl_main.TabIndex = 1;
             // 
+            // tb_7
+            // 
+            this.tb_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.tb_7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tb_7.ForeColor = System.Drawing.Color.White;
+            this.tb_7.Location = new System.Drawing.Point(460, 95);
+            this.tb_7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_7.Name = "tb_7";
+            this.tb_7.ReadOnly = true;
+            this.tb_7.Size = new System.Drawing.Size(303, 62);
+            this.tb_7.TabIndex = 55;
+            this.tb_7.Text = "";
+            // 
             // btn_give_penalty
             // 
             this.btn_give_penalty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -108,7 +124,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_penalty.ForeColor = System.Drawing.Color.White;
             this.btn_give_penalty.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_penalty.Image")));
             this.btn_give_penalty.Location = new System.Drawing.Point(513, 179);
-            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_give_penalty.Name = "btn_give_penalty";
             this.btn_give_penalty.Size = new System.Drawing.Size(46, 44);
             this.btn_give_penalty.TabIndex = 54;
@@ -125,7 +141,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_book.ForeColor = System.Drawing.Color.White;
             this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
             this.btn_give_book.Location = new System.Drawing.Point(563, 179);
-            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_give_book.Name = "btn_give_book";
             this.btn_give_book.Size = new System.Drawing.Size(46, 44);
             this.btn_give_book.TabIndex = 53;
@@ -143,7 +159,7 @@ namespace Microwave_v1._0.Forms
             this.btn_return_book.ForeColor = System.Drawing.Color.White;
             this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
             this.btn_return_book.Location = new System.Drawing.Point(613, 179);
-            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_return_book.Name = "btn_return_book";
             this.btn_return_book.Size = new System.Drawing.Size(46, 44);
             this.btn_return_book.TabIndex = 52;
@@ -160,7 +176,7 @@ namespace Microwave_v1._0.Forms
             this.btn_id.ForeColor = System.Drawing.Color.White;
             this.btn_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_id.Image")));
             this.btn_id.Location = new System.Drawing.Point(134, -1);
-            this.btn_id.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_id.Name = "btn_id";
             this.btn_id.Size = new System.Drawing.Size(46, 44);
             this.btn_id.TabIndex = 51;
@@ -243,7 +259,7 @@ namespace Microwave_v1._0.Forms
             // 
             this.pnl_sep2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_sep2.Location = new System.Drawing.Point(16, 227);
-            this.pnl_sep2.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_sep2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_sep2.Name = "pnl_sep2";
             this.pnl_sep2.Size = new System.Drawing.Size(743, 1);
             this.pnl_sep2.TabIndex = 42;
@@ -259,7 +275,7 @@ namespace Microwave_v1._0.Forms
             this.btn_remove.ForeColor = System.Drawing.Color.White;
             this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
             this.btn_remove.Location = new System.Drawing.Point(713, 179);
-            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(46, 44);
             this.btn_remove.TabIndex = 44;
@@ -277,7 +293,7 @@ namespace Microwave_v1._0.Forms
             this.btn_edit.ForeColor = System.Drawing.Color.White;
             this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
             this.btn_edit.Location = new System.Drawing.Point(663, 179);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(46, 44);
             this.btn_edit.TabIndex = 43;
@@ -300,7 +316,7 @@ namespace Microwave_v1._0.Forms
             // 
             this.pnl_sep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_sep1.Location = new System.Drawing.Point(134, 44);
-            this.pnl_sep1.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_sep1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_sep1.Name = "pnl_sep1";
             this.pnl_sep1.Size = new System.Drawing.Size(628, 1);
             this.pnl_sep1.TabIndex = 41;
@@ -315,16 +331,17 @@ namespace Microwave_v1._0.Forms
             this.dgw_users.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgw_users.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgw_users.ColumnHeadersHeight = 29;
             this.dgw_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.NullValue = null;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
@@ -337,10 +354,12 @@ namespace Microwave_v1._0.Forms
             this.dgw_users.Name = "dgw_users";
             this.dgw_users.ReadOnly = true;
             this.dgw_users.RowHeadersVisible = false;
+            this.dgw_users.RowHeadersWidth = 51;
             this.dgw_users.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgw_users.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgw_users.Size = new System.Drawing.Size(743, 223);
             this.dgw_users.TabIndex = 40;
+            this.dgw_users.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_users_CellClick);
             // 
             // lbl_date
             // 
@@ -495,6 +514,7 @@ namespace Microwave_v1._0.Forms
         private System.Windows.Forms.Button btn_give_penalty;
         private System.Windows.Forms.Button btn_give_book;
         private System.Windows.Forms.Button btn_return_book;
+        private RichTextBox tb_7;
 
         public PictureBox Picture_box { get => picture_box; set => picture_box = value; }
         public Panel Pnl_main { get => pnl_main; set => pnl_main = value; }
