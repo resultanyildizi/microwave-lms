@@ -122,6 +122,15 @@ namespace Microwave_v1._0
             main_page.Main_user_list.Fill_User_List(dt, INFO_COLOR_MODE.NORMAL);
             main_page.Main_user_list.Draw_All_Users();
         }
+        public static DataTable Show_All_Users(Book book)
+        {
+            string query = "Select Users.USER_ID As ID, Users.NAME As Name, " +
+                           "Users.SURNAME As Surname, Users.GENDER As Gender, Users.AGE As Age," +
+                           " Users.EMAIL As Email, Users.DATE As Date From Book_User " +
+                           "Join Users On Book_User.USER_ID = Users.USER_ID Where Book_User.BOOK_ID = " + book.Book_id;
+
+            return DataBaseEvents.ExecuteQuery(query, datasource);
+        }
         public void Set_Book(INFO_COLOR_MODE color_mode)
         {
             info = new UserInfo();

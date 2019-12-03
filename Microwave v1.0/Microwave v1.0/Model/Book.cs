@@ -172,10 +172,12 @@ namespace Microwave_v1._0
             main_page.Main_book_list.Draw_All_Books();
 
         }
+
+
         public static DataTable Show_All_Books(User user)
         {
             string query = "Select Books.BOOK_ID As ID, Books.Name As Book,Authors.NAME As Author, Publishers.NAME As Publisher, Categories.NAME As Category, " +
-                            "Shelves.NAME As Shelf, Popularity.NAME As Popularity, Books.POPULARITY_SCORE As Score, Books.DATE from Book_User " +
+                            "Shelves.NAME As Shelf, Popularity.NAME As Popularity, Books.POPULARITY_SCORE As Score, Books.DATE As Date From Book_User " +
                             "Join Books On Book_User.BOOK_ID = Books.BOOK_ID " +
                             "Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
                             "Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
@@ -186,7 +188,6 @@ namespace Microwave_v1._0
 
             return DataBaseEvents.ExecuteQuery(query, datasource);
         }
-
         public static DataTable Show_All_Books(Author author)
         {
             string query = "SELECT Books.BOOK_ID AS ID, Books.NAME AS Book, Authors.NAME AS Author, Publishers.NAME AS Publisher, Categories.NAME AS Category, " +
@@ -282,9 +283,11 @@ namespace Microwave_v1._0
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             return dt;
         }
+
         public void Calculate_Popularity_Score() { }
         public void Give_Book_To_User(User user) 
         {
+            this.count--;
             string query_insert = string.Format("Insert into Book_User(BOOK_ID, USER_ID) Values({0}, {1})", this.book_id, user.User_id);
 
             int result = DataBaseEvents.ExecuteNonQuery(query_insert, datasource);
@@ -300,7 +303,6 @@ namespace Microwave_v1._0
         private void Change_Popularity_Stat() { }
         public void Change_Count() 
         {
-            this.count--;
             this.info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
 
             string query = string.Format("Update Books Set COUNT = {0} Where Books.BOOK_ID = {1}", count, book_id);

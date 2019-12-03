@@ -85,22 +85,41 @@ namespace Microwave_v1._0.Model
             main_page.Pnl_receipt_list.VerticalScroll.Value = 0;
 
             info.Draw_Receipt_Obj(ref Receipt.point_x, ref Receipt.point_y);
+            main_page.Main_receipt_list.Deselect_All_Infos();
             info.Select_Receipt_Info();
         }
 
 
         public void Delete()
         {
+
             string query = "Delete From Receipt Where Receipt.RECEIPT_ID = " + receipt_id;
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             if(result <= 0)
             {
                 MessageBox.Show("Invalid delete event");
+                return;
             }
 
         }
 
+
+        public void Revert_Changes(Book book, User user)
+        {
+            book.Count++;
+            book.Change_Count();
+            //book.Popularity_score -= 5;
+
+            string query = string.Format("Delete From Book_User Where Book_User.BOOK_ID = '{0}' and Book_User.USER_ID = '{1}'", book.Book_id, user.User_id);
+
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if(result <= 0)
+            {
+                MessageBox.Show("Invalid delete operation");
+                return;
+            }
+        }
         static public void Show_All_Receipts(Microwave main_page)
         {
             string query = "Select * From Receipt";

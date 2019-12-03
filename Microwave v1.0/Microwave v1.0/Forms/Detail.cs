@@ -55,6 +55,19 @@ namespace Microwave_v1._0.Forms
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
 
+            DataTable dt = User.Show_All_Users(book);
+            dgw_users.DataSource = dt;
+
+            DataGridViewButtonColumn detail_dgw_btn = new DataGridViewButtonColumn();
+            detail_dgw_btn.HeaderText = "Detail";
+            detail_dgw_btn.Text = "Show";
+            detail_dgw_btn.Name = "detail_dgw_btn";
+            detail_dgw_btn.UseColumnTextForButtonValue = true;
+            detail_dgw_btn.DefaultCellStyle.BackColor = Color.FromArgb(32, 33, 38);
+            detail_dgw_btn.DefaultCellStyle.ForeColor = Color.White;
+
+            dgw_users.Columns.Add(detail_dgw_btn);
+
             this.btn_id.Text = book.Book_id.ToString();
             this.lbl_date.Text = book.Date.Substring(0, 10);
 
@@ -555,5 +568,22 @@ namespace Microwave_v1._0.Forms
                 this.Close();
             }
         }
+
+        private void dgw_users_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(choise == SELECTED.BOOK)
+            {
+                if(e.ColumnIndex == 0 && e.RowIndex >= 0)
+                {
+                    int user_id = int.Parse(dgw_users.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    User user = main_page.Main_user_list.Find_User_By_ID(user_id);
+
+                    user.Info.Create_User_Detail_Form(user);
+                }
+
+            }
+
+        }
+
     }
 }

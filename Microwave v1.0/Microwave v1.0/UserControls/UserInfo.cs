@@ -211,7 +211,7 @@ namespace Microwave_v1._0
                 }
             }
         }
-        private void Create_User_Detail_Form(User user)
+        public void Create_User_Detail_Form(User user)
         {
             if (detail_form == null)
             {
