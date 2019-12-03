@@ -121,7 +121,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Pnl_employee_list.VerticalScroll.Value = 0;
             main_page.Main_employee_list.Draw_All_Employees();
         }
-        private void Remove(bool delete_picture = true)
+        public void Remove(bool delete_picture = true)
         {
             main_page.Main_employee_list.Delete_Employee_from_List(employee_id, delete_picture);
             this.Dispose();

@@ -25,7 +25,7 @@ namespace Microwave_v1._0.Classes
         private string pub_phone_num;
         private string pub_date_of_est;
         private string pub_cover_path_file;
-        private Publisher_Info pub_info;
+        public Publisher_Info pub_info;
         private int book_count;
 
 

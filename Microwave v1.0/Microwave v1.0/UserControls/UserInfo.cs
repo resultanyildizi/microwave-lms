@@ -180,7 +180,7 @@ namespace Microwave_v1._0
             User current = main_list.Find_User_By_ID(user_id);
             Create_Add_User_Form_With_User(current);
         }
-        private void Remove()
+        public void Remove()
         {
             main_list.Delete_User_From_List(user_id);
             this.Dispose();

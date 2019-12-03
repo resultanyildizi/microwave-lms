@@ -460,19 +460,80 @@ namespace Microwave_v1._0.Forms
             }
             else if (choise == SELECTED.AUTHOR)
             {
+               
+                string message = "Do you want to delete this author?";
+                main_page.Create_Warning_Form(message, Color.DarkRed);
+                bool delete_pic = true;
 
+                if (author.Author_info.Pic_path_file == @"..\..\Resources\Author Covers\DefaultAuthor.jpg")
+                {
+                    delete_pic = false;
+                }
+
+                if (main_page.Warning_form.Result)
+                    author.Author_info.Remove(delete_pic);
+
+                main_page.Warning_form.Refresh_Form();
+
+                main_page.Pnl_author_list.VerticalScroll.Value = 0;
+                main_page.Author_search_list.Delete_All_List();
+                main_page.Main_author_list.Draw_All_Authors();
+                main_page.Author_searched_already = false;
+
+                this.Close();
             }
             else if (choise == SELECTED.EMPLOYEE)
             {
+                ShowEmployee main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
+                string message = "Do you want to delete this Employee";
+                main_page.Create_Warning_Form(message, Color.LimeGreen);
+                bool delete_pic = true;
+                if (main_page.Warning_form1.Result)
+                {
+                    employee.Info.Remove(delete_pic);
+                }
+                main_page.Warning_form1.Refresh_Form();
+                main_page.Pnl_employee_list.VerticalScroll.Value = 0;
+                main_page.Main_employee_list.Draw_All_Employees();
 
+                this.Close();
             }
             else if (choise == SELECTED.PUBLISHER)
             {
+                string message = "Do you want to delete this publisher?";
+                main_page.Create_Warning_Form(message, Color.DarkRed);
+                bool delete_pic = true;
+                if (publisher.Pub_info.Pub_pic_path_file == @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg")
+                {
+                    delete_pic = false;
+                }
 
+                if (main_page.Warning_form.Result)
+                    publisher.pub_info.Remove();
+
+                main_page.Warning_form.Refresh_Form();
+
+                main_page.Pnl_pub_list.VerticalScroll.Value = 0;
+                main_page.Publisher_search_list.Delete_All_List();
+                main_page.Main_pub_list.Draw_All_Publishers();
+                main_page.Publisher_searched_already = false;
+                this.Close();
             }
             else if (choise == SELECTED.USER)
             {
+                string message = "Do you want to delete that user?";
+                main_page.Create_Warning_Form(message, Color.DarkRed);
+                if (main_page.Warning_form.Result)
+                {
+                    user.Info.Remove();
+                }
+                main_page.Warning_form.Refresh_Form();
 
+                main_page.Pnl_user_list.VerticalScroll.Value = 0;
+                main_page.User_search_list.Delete_All_List();
+                main_page.Main_user_list.Draw_All_Users();
+                main_page.User_searched_already = false;
+                this.Close();
             }
         }
     }

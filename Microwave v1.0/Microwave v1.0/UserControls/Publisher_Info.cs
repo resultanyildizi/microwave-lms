@@ -27,6 +27,8 @@ namespace Microwave_v1._0.UserControls
         private bool chosen = false;
         private int publisher_id;
         public int Publisher_id { get => publisher_id; set => publisher_id = value; }
+        public string Pub_pic_path_file { get => pub_pic_path_file; set => pub_pic_path_file = value; }
+
         public Publisher_Info()
         {
             InitializeComponent();
@@ -122,7 +124,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Main_pub_list.Draw_All_Publishers();
             main_page.Publisher_searched_already = false;
         }
-        private void Remove(bool delete_picture = true)
+        public void Remove(bool delete_picture = true)
         {
             main_pub_list.Delete_Publisher_from_List(publisher_id, delete_picture);
             this.Dispose();

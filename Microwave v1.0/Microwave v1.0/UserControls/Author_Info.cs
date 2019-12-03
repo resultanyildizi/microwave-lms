@@ -27,6 +27,7 @@ namespace Microwave_v1._0.UserControls
         private bool chosen = false;
 
         public int Author_id { get => author_id; set => author_id = value; }
+        public string Pic_path_file { get => pic_path_file; set => pic_path_file = value; }
 
         public Author_Info()
         {
@@ -125,7 +126,7 @@ namespace Microwave_v1._0.UserControls
         }
 
 
-        private void Remove(bool delete_picture = true)
+        public void Remove(bool delete_picture = true)
         {
 
             author_list.Delete_Author_from_List(author_id, delete_picture);
