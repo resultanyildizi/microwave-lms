@@ -55,13 +55,13 @@
             this.dragControl1 = new Microwave_v1._0.DragControl();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_book)).BeginInit();
+            this.pnl_drag.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_main
             // 
             this.pnl_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.pnl_main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_main.Controls.Add(this.button1);
             this.pnl_main.Controls.Add(this.lbl_message);
             this.pnl_main.Controls.Add(this.tb_message);
             this.pnl_main.Controls.Add(this.btn_remove);
@@ -98,7 +98,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(544, 13);
+            this.button1.Location = new System.Drawing.Point(566, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 34);
@@ -337,6 +337,7 @@
             // 
             this.pnl_drag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
             this.pnl_drag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_drag.Controls.Add(this.button1);
             this.pnl_drag.Location = new System.Drawing.Point(-21, -9);
             this.pnl_drag.Name = "pnl_drag";
             this.pnl_drag.Size = new System.Drawing.Size(646, 59);
@@ -361,6 +362,7 @@
             this.pnl_main.ResumeLayout(false);
             this.pnl_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_book)).EndInit();
+            this.pnl_drag.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
