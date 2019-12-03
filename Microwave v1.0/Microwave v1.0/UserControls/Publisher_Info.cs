@@ -102,7 +102,6 @@ namespace Microwave_v1._0.UserControls
             main_page.Publisher_search_list.Deselect_All_Infos();
             this.Select_Publisher_Info();
         }
-
         private void Btn_remove_Click(object sender, EventArgs e)
         {
             string message = "Do you want to delete this publisher?";
@@ -123,7 +122,6 @@ namespace Microwave_v1._0.UserControls
             main_page.Main_pub_list.Draw_All_Publishers();
             main_page.Publisher_searched_already = false;
         }
-
         private void Remove(bool delete_picture = true)
         {
             main_pub_list.Delete_Publisher_from_List(publisher_id, delete_picture);
@@ -134,7 +132,6 @@ namespace Microwave_v1._0.UserControls
             Publisher.pub_point_x = 35;
             main_pub_list.Draw_All_Publishers();
         }
-
         private void btn_pub_edit_Click(object sender, EventArgs e)
         {
             string message = "Do you want to edit this publisher?";
@@ -144,7 +141,6 @@ namespace Microwave_v1._0.UserControls
 
             main_page.Warning_form.Refresh_Form();
         }
-
         private void Edit()
         {
             Publisher current = main_pub_list.Find_Publisher_By_ID(publisher_id);
@@ -172,7 +168,6 @@ namespace Microwave_v1._0.UserControls
                 }
             }
         }
-
         private void Create_Pub_Detail_Form(Publisher publisher)
         {
 
@@ -194,7 +189,6 @@ namespace Microwave_v1._0.UserControls
                 }
             }
         }
-
         public void Pub_Hover()
         {
             if (!chosen)
@@ -219,12 +213,10 @@ namespace Microwave_v1._0.UserControls
         {
             Pub_Mouse_Leave();
         }
-
         private void lbl_pub_name_MouseEnter(object sender, EventArgs e)
         {
             Pub_Hover();
         }
-
         private void Publisher_Info_DoubleClick(object sender, EventArgs e)
         {
             Publisher current = main_pub_list.Find_Publisher_By_ID(publisher_id);

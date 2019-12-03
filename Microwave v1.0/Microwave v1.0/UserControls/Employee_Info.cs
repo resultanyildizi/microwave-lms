@@ -27,6 +27,7 @@ namespace Microwave_v1._0.UserControls
         private string gender;
         private string birth_date;
         private string cover_path_file;
+        private bool chosen = false;
 
         public int Employee_id { get => employee_id; set => employee_id = value; }
 
@@ -60,33 +61,93 @@ namespace Microwave_v1._0.UserControls
             this.lbl_email.Text = email;
             this.lbl_birthdate.Text = birth_date;
         }
+        public void Hide_Info()
+        {
+            main_page.Pnl_employee_list.Controls.Remove(this);
+        }  
         public void Draw_Employee_obj(ref int y)
         {
             main_page.Pnl_employee_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
             y += 50;
         }
-
-        public void Hide_Info()
-        {
-            main_page.Pnl_employee_list.Controls.Remove(this);
-        }
-
         public void Select_Employee_Info()
         {
+            chosen = true;
             Book_Tag main_employee_tag = main_page.Main_tag;
             Color back_color = Color.FromArgb(33, 37, 48);
 
             main_employee_tag.Edit_Book_Tag_for_emp(name +" "+ surname , "\n" + gender + "\n" + birth_date + "\n" + email + "\n",cover_path_file);
-
+            main_page.Main_tag.pic_book.Visible = true;
             this.pnl_surname.BackColor = back_color;
             this.pnl_gender.BackColor = back_color;
             this.pnl_id.BackColor = back_color;
             this.pnl_name.BackColor = back_color;
             this.pnl_email.BackColor = back_color;
+            this.pnl_birthdate.BackColor = back_color;
+            this.pnl_department.BackColor = back_color;
 
             this.btn_edit.Show();
             this.btn_remove.Show();
+        }
+        public void Deselect_Employee_Info()
+        {
+            Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
+           
+            this.pnl_name.BackColor = back_color;
+            this.pnl_surname.BackColor = back_color;
+            this.pnl_gender.BackColor = back_color;
+            this.pnl_id.BackColor = back_color;
+            this.pnl_name.BackColor = back_color;
+            this.pnl_email.BackColor = back_color;
+            this.pnl_birthdate.BackColor = back_color;
+            this.pnl_department.BackColor = back_color;
+
+            this.btn_edit.Hide();
+            this.btn_remove.Hide();
+        }
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            ShowEmployee main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
+            string message = "Do you want to delete this Employee";
+            main_page.Create_Warning_Form(message, Color.LimeGreen);
+            bool delete_pic = true;
+            if (main_page.Warning_form1.Result)
+            {
+                Remove(delete_pic);
+            }
+            main_page.Warning_form1.Refresh_Form();
+            main_page.Pnl_employee_list.VerticalScroll.Value = 0;
+            main_page.Main_employee_list.Draw_All_Employees();
+        }
+        private void Remove(bool delete_picture = true)
+        {
+            main_page.Main_employee_list.Delete_Employee_from_List(employee_id, delete_picture);
+            this.Dispose();
+            main_page.Pnl_employee_list.VerticalScroll.Value = 0;
+            main_page.Main_employee_list.Draw_All_Employees();
+            main_page.Main_tag.lbl_author.Text = " ";
+            main_page.Main_tag.lbl_description.Text = " ";
+            main_page.Main_tag.lbl_bookname.Text = " ";
+            main_page.Main_tag.pic_book.Visible = false;
+
+        }
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            ShowEmployee main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
+            string message = "Do you want to edit this Employee";
+            main_page.Create_Warning_Form(message, Color.MidnightBlue);
+            if(main_page.Warning_form1.Result)
+            {
+                Edit();
+            }
+            main_page.Warning_form1.Refresh_Form();
+            
+        }
+        private void Edit()
+        {
+            Employee current = main_page.Main_employee_list.Find_Employee_By_ID(Employee_id);
+            Create_Add_Employee_Form_With_Employee(current);
         }
         private void Create_Add_Employee_Form_With_Employee(Employee employee)
         {
@@ -109,11 +170,49 @@ namespace Microwave_v1._0.UserControls
                 }
             }
         }
-
+        public void Employee_Hover()
+        {
+          if (!chosen)
+          {
+            Color back_color2 = Color.FromArgb(55, 57, 68);
+            this.BackColor = back_color2;
+            this.pnl_id.BackColor = back_color2;
+            this.pnl_name.BackColor = back_color2;
+            this.pnl_email.BackColor = back_color2;
+            this.pnl_gender.BackColor = back_color2;
+            this.pnl_department.BackColor = back_color2;
+            this.pnl_surname.BackColor = back_color2;
+            this.pnl_birthdate.BackColor = back_color2;
+          }
+        }
+        public void Employee_Mouse_Leave()
+        {
+            if (!chosen)
+            {
+                Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
+                Color back_color2 = Color.FromArgb(55, 57, 68);
+                this.BackColor = back_color2;
+                this.pnl_id.BackColor = back_color2;
+                this.pnl_name.BackColor = back_color2;
+                this.pnl_email.BackColor = back_color2;
+                this.pnl_gender.BackColor = back_color2;
+                this.pnl_department.BackColor = back_color2;
+                this.pnl_surname.BackColor = back_color2;
+                this.pnl_birthdate.BackColor = back_color2;
+            }
+        }
         private void Employee_Info_Click(object sender, EventArgs e)
         {
+            main_page.Main_employee_list.Deselect_All_Infos();
             this.Select_Employee_Info();
-
+        }
+        private void Employee_Info_MouseLeave(object sender, EventArgs e)
+        {
+            Employee_Mouse_Leave();
+        }
+        private void Employee_Info_MouseEnter(object sender, EventArgs e)
+        {
+            Employee_Hover();
         }
     }
 }

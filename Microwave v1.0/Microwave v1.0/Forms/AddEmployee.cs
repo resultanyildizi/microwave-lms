@@ -161,7 +161,7 @@ namespace Microwave_v1._0.Forms
 
 
 
-                //Clear();
+                Clear();
             }
             else
             {
@@ -177,22 +177,33 @@ namespace Microwave_v1._0.Forms
                 lbl_message.Text = "*Employee changed successfully";
                 lbl_message.ForeColor = Color.LightGreen;
 
-                //publisher_to_edit.Pub_name = name;
-                //publisher_to_edit.Pub_email = email;
-                //publisher_to_edit.Pub_phone_num = pub_phone_number;
-                //publisher_to_edit.Pub_date_of_est = pub_date_of_est;
-                //publisher_to_edit.Pub_cover_path_file = picture_event.Pic_source_file;
+                employee_to_edit.Name = name;
+                employee_to_edit.Surname = surname;
+                employee_to_edit.Gender = gender;
+                employee_to_edit.Email = email;
+                employee_to_edit.Age = birth_date;
+                employee_to_edit.Department_id = department_id;
 
                 employee_to_edit.Edit();
 
-                //main_page.Pnl_employee_list.VerticalScroll.Value = 0;
-                //main_page.Publisher_search_list.Delete_All_List();
-                //main_page.Main_pub_list.Draw_All_Publishers();
-                //main_page.Publisher_searched_already = false;
+                main_page.Pnl_employee_list.VerticalScroll.Value = 0;
+                main_page.Main_employee_list.Draw_All_Employees();
+               
             }
         }
 
-   
+        public void Clear()
+        {
+            this.cb_department.SelectedIndex = 0;
+            this.cb_department.ForeColor = Color.Gray;
+            tb_name.Text = "Employee's Name";
+            tb_surname.Text = "Employee's Surname";
+            tb_email.Text = "Employee's E-mail";
+            tb_name.ForeColor = Color.Gray;
+            tb_surname.ForeColor = Color.Gray;
+            tb_email.ForeColor = Color.Gray;
+            
+        }
 
         private void Fill_Comboboxes()
         {

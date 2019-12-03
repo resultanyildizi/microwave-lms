@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.UserControls;
 using System.Data;
+using System.Drawing;
 
 namespace Microwave_v1._0.Model
 {
@@ -32,6 +33,7 @@ namespace Microwave_v1._0.Model
 
         static Microwave_v1._0.Forms.ShowEmployee main_page = null;
         private Employee_Info info;
+       
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
@@ -44,6 +46,7 @@ namespace Microwave_v1._0.Model
         public Employee_Info Info { get => info; set => info = value; }
         public int Department_id { get => department_id; set => department_id = value; }
         public string Deparment_name { get => department_name; set => department_name = value; }
+        
 
         public Employee()
         {
@@ -99,7 +102,33 @@ namespace Microwave_v1._0.Model
         }
         public void Edit()
         {
+            string title = "UPDATE Employee ";
+            string query = title + string.Format(" SET DEPARTMENT_ID = '{0}', NAME = '{1}', SURNAME = '{2}', EMAIL = '{3}', GENDER = '{4}', " +
+                " BIRTH_DATE = '{5}', COVER_PATH = '{6}' Where Employee.EMPLOYEE_ID = '{7}'", department_id,name,surname,email,gender,birth_date,cover_path_file,employee_id);
 
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+            {
+                MessageBox.Show("Invalid update event");
+                return;
+            }
+
+            Join_Tables();
+
+            info.Initialize_Employee_Info(employee_id, department_name, name, surname, email, gender, birth_date, cover_path_file);
+            info.Select_Employee_Info();
+
+        }
+
+        public void Delete()
+        {
+            string title = "DELETE FROM Employee ";
+            string query = title + string.Format("Where EMPLOYEE_ID = '{0}'", employee_id);
+
+            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+                MessageBox.Show("Delete is not valid");
+            return;
         }
         public void Set_Employee()
         {

@@ -33,6 +33,14 @@ namespace Microwave_v1._0.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowEmployee));
             this.pnl_emp_tag = new System.Windows.Forms.Panel();
             this.pnl_employee = new System.Windows.Forms.Panel();
+            this.pnl_emp_st = new System.Windows.Forms.Panel();
+            this.lb_emp_search = new System.Windows.Forms.ListBox();
+            this.lbl_search_by = new System.Windows.Forms.Label();
+            this.rb_department = new System.Windows.Forms.RadioButton();
+            this.rb_email = new System.Windows.Forms.RadioButton();
+            this.rb_gender = new System.Windows.Forms.RadioButton();
+            this.rb_emp_id = new System.Windows.Forms.RadioButton();
+            this.rb_emp_name = new System.Windows.Forms.RadioButton();
             this.pnl_names = new System.Windows.Forms.Panel();
             this.lbl_dprt_name = new System.Windows.Forms.Label();
             this.lbl_employee_id = new System.Windows.Forms.Label();
@@ -48,21 +56,14 @@ namespace Microwave_v1._0.Forms
             this.lbl_dep_name = new System.Windows.Forms.Label();
             this.pnl_employee_list = new System.Windows.Forms.Panel();
             this.pnl_seperater = new System.Windows.Forms.Panel();
-            this.pnl_emp_st = new System.Windows.Forms.Panel();
-            this.lbl_search_by = new System.Windows.Forms.Label();
-            this.rb_department = new System.Windows.Forms.RadioButton();
-            this.rb_email = new System.Windows.Forms.RadioButton();
-            this.rb_gender = new System.Windows.Forms.RadioButton();
-            this.rb_emp_id = new System.Windows.Forms.RadioButton();
-            this.rb_emp_name = new System.Windows.Forms.RadioButton();
-            this.lb_emp_search = new System.Windows.Forms.ListBox();
+            this.lbl_birth_date = new System.Windows.Forms.Label();
             this.emp_tag = new Microwave_v1._0.Book_Tag();
             this.pnl_emp_tag.SuspendLayout();
             this.pnl_employee.SuspendLayout();
+            this.pnl_emp_st.SuspendLayout();
             this.pnl_names.SuspendLayout();
             this.pnl_top_side.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
-            this.pnl_emp_st.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_emp_tag
@@ -78,8 +79,8 @@ namespace Microwave_v1._0.Forms
             // pnl_employee
             // 
             this.pnl_employee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_employee.Controls.Add(this.pnl_emp_st);
             this.pnl_employee.Controls.Add(this.pnl_names);
+            this.pnl_employee.Controls.Add(this.pnl_emp_st);
             this.pnl_employee.Controls.Add(this.btn_add);
             this.pnl_employee.Controls.Add(this.pnl_top_side);
             this.pnl_employee.Controls.Add(this.pnl_employee_list);
@@ -91,9 +92,115 @@ namespace Microwave_v1._0.Forms
             this.pnl_employee.TabIndex = 18;
             this.pnl_employee.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_book_Paint);
             // 
+            // pnl_emp_st
+            // 
+            this.pnl_emp_st.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.pnl_emp_st.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_emp_st.Controls.Add(this.lb_emp_search);
+            this.pnl_emp_st.Controls.Add(this.lbl_search_by);
+            this.pnl_emp_st.Controls.Add(this.rb_department);
+            this.pnl_emp_st.Controls.Add(this.rb_email);
+            this.pnl_emp_st.Controls.Add(this.rb_gender);
+            this.pnl_emp_st.Controls.Add(this.rb_emp_id);
+            this.pnl_emp_st.Controls.Add(this.rb_emp_name);
+            this.pnl_emp_st.Location = new System.Drawing.Point(524, 101);
+            this.pnl_emp_st.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_emp_st.Name = "pnl_emp_st";
+            this.pnl_emp_st.Size = new System.Drawing.Size(261, 94);
+            this.pnl_emp_st.TabIndex = 67;
+            // 
+            // lb_emp_search
+            // 
+            this.lb_emp_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lb_emp_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_emp_search.ForeColor = System.Drawing.Color.White;
+            this.lb_emp_search.FormattingEnabled = true;
+            this.lb_emp_search.ItemHeight = 16;
+            this.lb_emp_search.Location = new System.Drawing.Point(24, -2);
+            this.lb_emp_search.Name = "lb_emp_search";
+            this.lb_emp_search.Size = new System.Drawing.Size(235, 68);
+            this.lb_emp_search.TabIndex = 68;
+            // 
+            // lbl_search_by
+            // 
+            this.lbl_search_by.AutoSize = true;
+            this.lbl_search_by.ForeColor = System.Drawing.Color.White;
+            this.lbl_search_by.Location = new System.Drawing.Point(3, 4);
+            this.lbl_search_by.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_search_by.Name = "lbl_search_by";
+            this.lbl_search_by.Size = new System.Drawing.Size(58, 13);
+            this.lbl_search_by.TabIndex = 7;
+            this.lbl_search_by.Text = "Search by:";
+            // 
+            // rb_department
+            // 
+            this.rb_department.AutoSize = true;
+            this.rb_department.ForeColor = System.Drawing.Color.White;
+            this.rb_department.Location = new System.Drawing.Point(133, 42);
+            this.rb_department.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_department.Name = "rb_department";
+            this.rb_department.Size = new System.Drawing.Size(80, 17);
+            this.rb_department.TabIndex = 5;
+            this.rb_department.TabStop = true;
+            this.rb_department.Text = "Department";
+            this.rb_department.UseVisualStyleBackColor = true;
+            // 
+            // rb_email
+            // 
+            this.rb_email.AutoSize = true;
+            this.rb_email.ForeColor = System.Drawing.Color.White;
+            this.rb_email.Location = new System.Drawing.Point(133, 20);
+            this.rb_email.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_email.Name = "rb_email";
+            this.rb_email.Size = new System.Drawing.Size(54, 17);
+            this.rb_email.TabIndex = 4;
+            this.rb_email.TabStop = true;
+            this.rb_email.Text = "E-Mail";
+            this.rb_email.UseVisualStyleBackColor = true;
+            // 
+            // rb_gender
+            // 
+            this.rb_gender.AutoSize = true;
+            this.rb_gender.ForeColor = System.Drawing.Color.White;
+            this.rb_gender.Location = new System.Drawing.Point(5, 64);
+            this.rb_gender.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_gender.Name = "rb_gender";
+            this.rb_gender.Size = new System.Drawing.Size(60, 17);
+            this.rb_gender.TabIndex = 2;
+            this.rb_gender.TabStop = true;
+            this.rb_gender.Text = "Gender";
+            this.rb_gender.UseVisualStyleBackColor = true;
+            // 
+            // rb_emp_id
+            // 
+            this.rb_emp_id.AutoSize = true;
+            this.rb_emp_id.ForeColor = System.Drawing.Color.White;
+            this.rb_emp_id.Location = new System.Drawing.Point(5, 42);
+            this.rb_emp_id.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_emp_id.Name = "rb_emp_id";
+            this.rb_emp_id.Size = new System.Drawing.Size(36, 17);
+            this.rb_emp_id.TabIndex = 1;
+            this.rb_emp_id.TabStop = true;
+            this.rb_emp_id.Text = "ID";
+            this.rb_emp_id.UseVisualStyleBackColor = true;
+            // 
+            // rb_emp_name
+            // 
+            this.rb_emp_name.AutoSize = true;
+            this.rb_emp_name.ForeColor = System.Drawing.Color.White;
+            this.rb_emp_name.Location = new System.Drawing.Point(5, 20);
+            this.rb_emp_name.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_emp_name.Name = "rb_emp_name";
+            this.rb_emp_name.Size = new System.Drawing.Size(53, 17);
+            this.rb_emp_name.TabIndex = 0;
+            this.rb_emp_name.TabStop = true;
+            this.rb_emp_name.Text = "Name";
+            this.rb_emp_name.UseVisualStyleBackColor = true;
+            // 
             // pnl_names
             // 
             this.pnl_names.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_names.Controls.Add(this.lbl_birth_date);
             this.pnl_names.Controls.Add(this.lbl_dprt_name);
             this.pnl_names.Controls.Add(this.lbl_employee_id);
             this.pnl_names.Controls.Add(this.lbl_gender);
@@ -110,7 +217,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_dprt_name.AutoSize = true;
             this.lbl_dprt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_dprt_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_dprt_name.Location = new System.Drawing.Point(577, 4);
+            this.lbl_dprt_name.Location = new System.Drawing.Point(620, 3);
             this.lbl_dprt_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_dprt_name.Name = "lbl_dprt_name";
             this.lbl_dprt_name.Size = new System.Drawing.Size(126, 26);
@@ -134,7 +241,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_gender.AutoSize = true;
             this.lbl_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_gender.ForeColor = System.Drawing.Color.White;
-            this.lbl_gender.Location = new System.Drawing.Point(442, 3);
+            this.lbl_gender.Location = new System.Drawing.Point(532, 3);
             this.lbl_gender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_gender.Name = "lbl_gender";
             this.lbl_gender.Size = new System.Drawing.Size(84, 26);
@@ -146,7 +253,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_email.AutoSize = true;
             this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_email.ForeColor = System.Drawing.Color.White;
-            this.lbl_email.Location = new System.Drawing.Point(326, 4);
+            this.lbl_email.Location = new System.Drawing.Point(286, 3);
             this.lbl_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(74, 26);
@@ -158,7 +265,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_employee_name.AutoSize = true;
             this.lbl_employee_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_employee_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_employee_name.Location = new System.Drawing.Point(89, 4);
+            this.lbl_employee_name.Location = new System.Drawing.Point(70, 4);
             this.lbl_employee_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_employee_name.Name = "lbl_employee_name";
             this.lbl_employee_name.Size = new System.Drawing.Size(71, 26);
@@ -170,7 +277,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_emp_surname.AutoSize = true;
             this.lbl_emp_surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_emp_surname.ForeColor = System.Drawing.Color.White;
-            this.lbl_emp_surname.Location = new System.Drawing.Point(181, 4);
+            this.lbl_emp_surname.Location = new System.Drawing.Point(181, 3);
             this.lbl_emp_surname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_emp_surname.Name = "lbl_emp_surname";
             this.lbl_emp_surname.Size = new System.Drawing.Size(101, 26);
@@ -282,110 +389,17 @@ namespace Microwave_v1._0.Forms
             this.pnl_seperater.Size = new System.Drawing.Size(746, 1);
             this.pnl_seperater.TabIndex = 7;
             // 
-            // pnl_emp_st
+            // lbl_birth_date
             // 
-            this.pnl_emp_st.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.pnl_emp_st.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnl_emp_st.Controls.Add(this.lb_emp_search);
-            this.pnl_emp_st.Controls.Add(this.lbl_search_by);
-            this.pnl_emp_st.Controls.Add(this.rb_department);
-            this.pnl_emp_st.Controls.Add(this.rb_email);
-            this.pnl_emp_st.Controls.Add(this.rb_gender);
-            this.pnl_emp_st.Controls.Add(this.rb_emp_id);
-            this.pnl_emp_st.Controls.Add(this.rb_emp_name);
-            this.pnl_emp_st.Location = new System.Drawing.Point(524, 101);
-            this.pnl_emp_st.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_emp_st.Name = "pnl_emp_st";
-            this.pnl_emp_st.Size = new System.Drawing.Size(261, 94);
-            this.pnl_emp_st.TabIndex = 67;
-            // 
-            // lbl_search_by
-            // 
-            this.lbl_search_by.AutoSize = true;
-            this.lbl_search_by.ForeColor = System.Drawing.Color.White;
-            this.lbl_search_by.Location = new System.Drawing.Point(3, 4);
-            this.lbl_search_by.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_search_by.Name = "lbl_search_by";
-            this.lbl_search_by.Size = new System.Drawing.Size(58, 13);
-            this.lbl_search_by.TabIndex = 7;
-            this.lbl_search_by.Text = "Search by:";
-            // 
-            // rb_department
-            // 
-            this.rb_department.AutoSize = true;
-            this.rb_department.ForeColor = System.Drawing.Color.White;
-            this.rb_department.Location = new System.Drawing.Point(133, 42);
-            this.rb_department.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_department.Name = "rb_department";
-            this.rb_department.Size = new System.Drawing.Size(80, 17);
-            this.rb_department.TabIndex = 5;
-            this.rb_department.TabStop = true;
-            this.rb_department.Text = "Department";
-            this.rb_department.UseVisualStyleBackColor = true;
-            // 
-            // rb_email
-            // 
-            this.rb_email.AutoSize = true;
-            this.rb_email.ForeColor = System.Drawing.Color.White;
-            this.rb_email.Location = new System.Drawing.Point(133, 20);
-            this.rb_email.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_email.Name = "rb_email";
-            this.rb_email.Size = new System.Drawing.Size(54, 17);
-            this.rb_email.TabIndex = 4;
-            this.rb_email.TabStop = true;
-            this.rb_email.Text = "E-Mail";
-            this.rb_email.UseVisualStyleBackColor = true;
-            // 
-            // rb_gender
-            // 
-            this.rb_gender.AutoSize = true;
-            this.rb_gender.ForeColor = System.Drawing.Color.White;
-            this.rb_gender.Location = new System.Drawing.Point(5, 64);
-            this.rb_gender.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_gender.Name = "rb_gender";
-            this.rb_gender.Size = new System.Drawing.Size(60, 17);
-            this.rb_gender.TabIndex = 2;
-            this.rb_gender.TabStop = true;
-            this.rb_gender.Text = "Gender";
-            this.rb_gender.UseVisualStyleBackColor = true;
-            // 
-            // rb_emp_id
-            // 
-            this.rb_emp_id.AutoSize = true;
-            this.rb_emp_id.ForeColor = System.Drawing.Color.White;
-            this.rb_emp_id.Location = new System.Drawing.Point(5, 42);
-            this.rb_emp_id.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_emp_id.Name = "rb_emp_id";
-            this.rb_emp_id.Size = new System.Drawing.Size(36, 17);
-            this.rb_emp_id.TabIndex = 1;
-            this.rb_emp_id.TabStop = true;
-            this.rb_emp_id.Text = "ID";
-            this.rb_emp_id.UseVisualStyleBackColor = true;
-            // 
-            // rb_emp_name
-            // 
-            this.rb_emp_name.AutoSize = true;
-            this.rb_emp_name.ForeColor = System.Drawing.Color.White;
-            this.rb_emp_name.Location = new System.Drawing.Point(5, 20);
-            this.rb_emp_name.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_emp_name.Name = "rb_emp_name";
-            this.rb_emp_name.Size = new System.Drawing.Size(53, 17);
-            this.rb_emp_name.TabIndex = 0;
-            this.rb_emp_name.TabStop = true;
-            this.rb_emp_name.Text = "Name";
-            this.rb_emp_name.UseVisualStyleBackColor = true;
-            // 
-            // lb_emp_search
-            // 
-            this.lb_emp_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.lb_emp_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_emp_search.ForeColor = System.Drawing.Color.White;
-            this.lb_emp_search.FormattingEnabled = true;
-            this.lb_emp_search.ItemHeight = 16;
-            this.lb_emp_search.Location = new System.Drawing.Point(24, -2);
-            this.lb_emp_search.Name = "lb_emp_search";
-            this.lb_emp_search.Size = new System.Drawing.Size(235, 68);
-            this.lb_emp_search.TabIndex = 68;
+            this.lbl_birth_date.AutoSize = true;
+            this.lbl_birth_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_birth_date.ForeColor = System.Drawing.Color.White;
+            this.lbl_birth_date.Location = new System.Drawing.Point(419, 3);
+            this.lbl_birth_date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_birth_date.Name = "lbl_birth_date";
+            this.lbl_birth_date.Size = new System.Drawing.Size(109, 26);
+            this.lbl_birth_date.TabIndex = 21;
+            this.lbl_birth_date.Text = "Birth Date";
             // 
             // emp_tag
             // 
@@ -412,13 +426,13 @@ namespace Microwave_v1._0.Forms
             this.Load += new System.EventHandler(this.ShowEmployee_Load);
             this.pnl_emp_tag.ResumeLayout(false);
             this.pnl_employee.ResumeLayout(false);
+            this.pnl_emp_st.ResumeLayout(false);
+            this.pnl_emp_st.PerformLayout();
             this.pnl_names.ResumeLayout(false);
             this.pnl_names.PerformLayout();
             this.pnl_top_side.ResumeLayout(false);
             this.pnl_top_side.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
-            this.pnl_emp_st.ResumeLayout(false);
-            this.pnl_emp_st.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -451,6 +465,7 @@ namespace Microwave_v1._0.Forms
         private Label lbl_dprt_name;
         private Panel pnl_names;
         private Book_Tag emp_tag;
+        private Label lbl_birth_date;
 
         public Panel Pnl_employee_list { get => pnl_employee_list; set => pnl_employee_list = value; }
     }

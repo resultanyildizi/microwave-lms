@@ -25,7 +25,7 @@ namespace Microwave_v1._0.Model
         }
     }
 
-   public class Employee_List
+    public class Employee_List
     {
         private int employee_count;
         employee_node root;
@@ -57,13 +57,13 @@ namespace Microwave_v1._0.Model
                 Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, birth_date, employee_email, employee_password, employee_gender, pic_path_file);
                 employee.Set_Employee();
                 this.Add_Employee_to_List(employee);
-                
+
             }
         }
 
         public void Add_Employee_to_List(Employee employee)
         {
-            if(root==null)
+            if (root == null)
             {
                 root = new employee_node(employee);
                 employee_count++;
@@ -78,6 +78,62 @@ namespace Microwave_v1._0.Model
             iterator.next = new employee_node(employee);
             employee_count++;
         }
+        public void Delete_Employee_from_List(int employee_id, bool delete_picture)
+        {
+            employee_node iterator = root;
+
+            if (root == null)
+            {
+                return;
+            }
+
+            if (root.employee.Employee_id == employee_id)
+            {
+                root.employee.Delete();
+                if (delete_picture == true)
+                    Picture_Events.Delete_The_Picture(root.employee.Cover_path_file);
+                root.employee = null;
+                root = root.next;
+                return;
+            }
+
+            while (iterator.next.employee.Employee_id != employee_id)
+            {
+                iterator = iterator.next;
+                if (iterator.next == null)
+                {
+                    MessageBox.Show("CANT FOUND");
+                    return;
+                }
+            }
+
+            iterator.next.employee.Delete();
+            if (delete_picture == true)
+                Picture_Events.Delete_The_Picture(iterator.next.employee.Cover_path_file);
+            iterator.next.employee = null;
+            iterator.next = iterator.next.next;
+            return;
+        }
+    
+        public void Deselect_All_Infos()
+        {
+            employee_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.employee.Info.Deselect_Employee_Info();
+                iterator = iterator.next;
+            }
+        }
+        public void Hide_All_Employee_Objects()
+        {
+            employee_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.employee.Info.Hide_Info();
+                iterator = iterator.next;
+            }
+        }
+
         public void Draw_All_Employees() 
         {
             Employee.point_y = 5;
@@ -90,7 +146,23 @@ namespace Microwave_v1._0.Model
                 iterator = iterator.next;
             }
         }
+        public Employee Find_Employee_By_ID(int employee_id)
+        {
+            if (root == null)
+                return null;
 
+            employee_node iterator = root;
+
+            while (iterator.employee.Employee_id != employee_id)
+            {
+                if (iterator.next == null)
+                    return null;
+
+                iterator = iterator.next;
+            }
+
+            return iterator.employee;
+        }
     }
 }
 
