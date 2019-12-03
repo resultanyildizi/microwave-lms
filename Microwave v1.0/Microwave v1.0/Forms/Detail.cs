@@ -16,7 +16,7 @@ namespace Microwave_v1._0.Forms
 {
     public enum SELECTED
     {
-        BOOK = 0, USER,AUTHOR, PUBLISHER,EMPLOYEE
+        BOOK = 0, USER, AUTHOR, PUBLISHER, EMPLOYEE
     }
     public partial class Detail : Form
     {
@@ -189,14 +189,14 @@ namespace Microwave_v1._0.Forms
 
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
         }
-        
+
         public Detail(Employee employee)
         {
             InitializeComponent();
 
             this.employee = employee;
-     
-            
+
+
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
@@ -376,11 +376,11 @@ namespace Microwave_v1._0.Forms
         {
             if (choise == SELECTED.BOOK)
             {
-                
+
             }
             else if (choise == SELECTED.AUTHOR)
             {
-             
+
             }
             else if (choise == SELECTED.EMPLOYEE)
             {
@@ -392,7 +392,7 @@ namespace Microwave_v1._0.Forms
             }
             else if (choise == SELECTED.USER)
             {
-            
+
             }
         }
     }
