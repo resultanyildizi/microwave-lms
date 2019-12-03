@@ -317,6 +317,7 @@ namespace Microwave_v1._0
         {
             User current = main_list.Find_User_By_ID(user_id);
             Create_User_Detail_Form(current);
+            detail_form.Choise = SELECTED.USER;
         }
 
     }

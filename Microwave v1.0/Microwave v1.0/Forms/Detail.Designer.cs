@@ -264,6 +264,7 @@ namespace Microwave_v1._0.Forms
             this.btn_remove.Size = new System.Drawing.Size(46, 44);
             this.btn_remove.TabIndex = 44;
             this.btn_remove.UseVisualStyleBackColor = true;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
             // btn_edit
             // 
@@ -281,6 +282,7 @@ namespace Microwave_v1._0.Forms
             this.btn_edit.Size = new System.Drawing.Size(46, 44);
             this.btn_edit.TabIndex = 43;
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // lbl_desc
             // 

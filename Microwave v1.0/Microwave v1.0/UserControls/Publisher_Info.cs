@@ -221,6 +221,8 @@ namespace Microwave_v1._0.UserControls
         {
             Publisher current = main_pub_list.Find_Publisher_By_ID(publisher_id);
             Create_Pub_Detail_Form(current);
+            detail_form.Choise = SELECTED.PUBLISHER;
+
         }
 
     }
