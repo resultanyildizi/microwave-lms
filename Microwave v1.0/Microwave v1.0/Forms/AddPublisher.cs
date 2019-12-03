@@ -41,6 +41,8 @@ namespace Microwave_v1._0.Forms
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_publisher);
             pic_new_source_path = picture_event.Pic_source_file;
+            this.lbl_pub_message.Text = "";
+
         }
 
         public AddPublisher(Publisher pub)
@@ -53,6 +55,7 @@ namespace Microwave_v1._0.Forms
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_publisher);
 
             publisher_to_edit = pub;
+            this.lbl_pub_message.Text = "";
 
 
             // Make other properties default

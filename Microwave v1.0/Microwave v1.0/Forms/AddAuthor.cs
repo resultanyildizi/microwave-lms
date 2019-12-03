@@ -41,6 +41,7 @@ namespace Microwave_v1._0.Forms
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_author);
             pic_new_source_path = picture_event.Pic_source_file;
+            this.lbl_message.Text = "";
 
             this.rdo_male.Checked = true;
             this.BringToFront();
@@ -54,6 +55,7 @@ namespace Microwave_v1._0.Forms
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_author);
+            this.lbl_message.Text = "";
 
             author_to_edit = author;
 

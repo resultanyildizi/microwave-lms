@@ -108,7 +108,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_5.Text = "Total Fee:";
             this.lbl_6.Text = "Book Count:";
 
-            this.lbl_desc.Text = "Books that user currently has:";
+            this.lbl_desc.Text = "Books that " + user.Name + " currently has:"; 
 
             this.tb_1.Text = user.Email;
             this.tb_2.Text = user.Gender;
@@ -276,17 +276,21 @@ namespace Microwave_v1._0.Forms
                     {
                         edit_book = new AddBook(book);
                         edit_book.ShowDialog();
-                        return;
                     }
-                    try
+                    else
                     {
-                        edit_book.ShowDialog();
+                        try
+                        {
+                            edit_book.ShowDialog();
+                        }
+                        catch (Exception)
+                        {
+                            edit_book = new AddBook(book);
+                            edit_book.ShowDialog();
+                        }
+
                     }
-                    catch (Exception)
-                    {
-                        edit_book = new AddBook(book);
-                        edit_book.ShowDialog();
-                    }
+                   
                     main_page.Warning_form.Refresh_Form();
 
                     this.lbl_name.Text = book.Name;
@@ -310,17 +314,20 @@ namespace Microwave_v1._0.Forms
                     {
                         edit_author = new AddAuthor(author);
                         edit_author.ShowDialog();
-                        return;
                     }
-                    try
+                    else
                     {
-                        edit_author.ShowDialog();
+                        try
+                        {
+                            edit_author.ShowDialog();
+                        }
+                        catch (Exception)
+                        {
+                            edit_author = new AddAuthor(author);
+                            edit_author.ShowDialog();
+                        }
                     }
-                    catch (Exception)
-                    {
-                        edit_author = new AddAuthor(author);
-                        edit_author.ShowDialog();
-                    }
+                  
                 }
 
                 main_page.Warning_form.Refresh_Form();
@@ -342,18 +349,19 @@ namespace Microwave_v1._0.Forms
                     {
                         edit_employee = new AddEmployee(employee);
                         edit_employee.ShowDialog();
-
-                        return;
                     }
-                    try
+                    else
                     {
-                        edit_employee.ShowDialog();
-                    }
-                    catch (Exception)
-                    {
+                        try
+                        {
+                            edit_employee.ShowDialog();
+                        }
+                        catch (Exception)
+                        {
 
-                        edit_employee = new AddEmployee(employee);
-                        edit_employee.ShowDialog();
+                            edit_employee = new AddEmployee(employee);
+                            edit_employee.ShowDialog();
+                        }
                     }
                 }
                 main_page.Warning_form.Refresh_Form();
@@ -378,18 +386,19 @@ namespace Microwave_v1._0.Forms
                     {
                         edit_publisher = new AddPublisher(publisher);
                         edit_publisher.ShowDialog();
-
-                        return;
                     }
-                    try
+                    else
                     {
-                        edit_publisher.ShowDialog();
-                    }
-                    catch (Exception)
-                    {
+                        try
+                        {
+                            edit_publisher.ShowDialog();
+                        }
+                        catch (Exception)
+                        {
 
-                        edit_publisher = new AddPublisher(publisher);
-                        edit_publisher.ShowDialog();
+                            edit_publisher = new AddPublisher(publisher);
+                            edit_publisher.ShowDialog();
+                        }
                     }
                 }
                 main_page.Warning_form.Refresh_Form();
@@ -412,19 +421,21 @@ namespace Microwave_v1._0.Forms
                     {
                         edit_user = new AddUser(user);
                         edit_user.ShowDialog();
-
-                        return;
                     }
-                    try
+                    else
                     {
-                        edit_user.ShowDialog();
-                    }
-                    catch (Exception)
-                    {
-                        edit_user = new AddUser(user);
-                        edit_user.ShowDialog();
+                        try
+                        {
+                            edit_user.ShowDialog();
+                        }
+                        catch (Exception)
+                        {
+                            edit_user = new AddUser(user);
+                            edit_user.ShowDialog();
+                        }
                     }
                 }
+
                 main_page.Warning_form.Refresh_Form();
 
                 this.lbl_name.Text = user.Name;

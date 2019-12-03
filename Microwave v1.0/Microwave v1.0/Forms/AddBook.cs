@@ -59,6 +59,8 @@ namespace Microwave_v1._0
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
             pic_new_source_path = picture_event.Pic_source_file;
+            this.lbl_message.Text = "";
+
 
             // Read Authors, Publishers, Categories, Shelves from Database
             Fill_Comboboxes();
@@ -83,6 +85,7 @@ namespace Microwave_v1._0
             main_page = (Microwave)Application.OpenForms["Microwave"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
             picture_event = new Picture_Events(pic_dest_path, pic_default_file, ref this.pic_book);
+            this.lbl_message.Text = "";
 
             book_to_edit = book;
 
