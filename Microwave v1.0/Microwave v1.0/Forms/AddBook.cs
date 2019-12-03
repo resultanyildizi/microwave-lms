@@ -97,6 +97,10 @@ namespace Microwave_v1._0
             this.cb_publisher.SelectedIndex = this.cb_publisher.Items.IndexOf(book.Publisher_name);
             this.cb_category.SelectedIndex = this.cb_category.Items.IndexOf(book.Category_name);
             this.cb_shelf.SelectedIndex = this.cb_shelf.Items.IndexOf(book.Shelf_name);
+            this.cb_author.ForeColor = Color.LightGray;
+            this.cb_publisher.ForeColor = Color.LightGray;
+            this.cb_category.ForeColor = Color.LightGray;
+            this.cb_shelf.ForeColor = Color.LightGray;
 
             // Make other properties default
             this.tb_name.Text = book.Name;

@@ -48,6 +48,8 @@ namespace Microwave_v1._0
             for(int i = 0; i < rows_count; i++)
             {
                 int user_id = int.Parse(dt.Rows[i][0].ToString());
+                if (user_id == 0)
+                    continue;
                 string name    = dt.Rows[i][1].ToString();
                 string surname = dt.Rows[i][2].ToString();
                 string gender = dt.Rows[i][3].ToString();

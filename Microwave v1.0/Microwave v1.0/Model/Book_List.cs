@@ -55,6 +55,8 @@ namespace Microwave_v1._0
             for(int i = 0; i < rows_count; i++)
             {
                 int book_id = int.Parse(dt.Rows[i][0].ToString());
+                if (book_id == 0)
+                    continue;
                 int author_id = int.Parse(dt.Rows[i][1].ToString());
                 int publisher_id = int.Parse(dt.Rows[i][2].ToString());
                 int category_id = int.Parse(dt.Rows[i][3].ToString());
