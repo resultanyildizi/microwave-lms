@@ -91,6 +91,7 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_name.TabIndex = 29;
             this.tb_pub_name.Text = "Publisher\'s Name";
             this.tb_pub_name.Enter += new System.EventHandler(this.tb_pub_name_Enter);
+            this.tb_pub_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
             this.tb_pub_name.Leave += new System.EventHandler(this.tb_pub_name_Leave);
             // 
             // btn_add_pic
@@ -145,6 +146,7 @@ namespace Microwave_v1._0.Forms
             this.dtp_publisher.Name = "dtp_publisher";
             this.dtp_publisher.Size = new System.Drawing.Size(206, 20);
             this.dtp_publisher.TabIndex = 32;
+            this.dtp_publisher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
             // 
             // lbl_pub_email
             // 
@@ -170,6 +172,7 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_email.TabIndex = 30;
             this.tb_pub_email.Text = "Publisher\'s Email";
             this.tb_pub_email.Enter += new System.EventHandler(this.tb_pub_email_Enter);
+            this.tb_pub_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
             this.tb_pub_email.Leave += new System.EventHandler(this.tb_pub_email_Leave);
             // 
             // lbl_pub_phone_num
@@ -196,6 +199,7 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_phone_num.TabIndex = 31;
             this.tb_pub_phone_num.Text = "Publisher\'s Phone Number";
             this.tb_pub_phone_num.Enter += new System.EventHandler(this.tb_pub_phone_num_Enter);
+            this.tb_pub_phone_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
             this.tb_pub_phone_num.Leave += new System.EventHandler(this.tb_pub_phone_num_Leave);
             // 
             // AddPublisher
@@ -224,6 +228,7 @@ namespace Microwave_v1._0.Forms
             this.Text = "AddPublisher";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddPublisher_FormClosed);
             this.Load += new System.EventHandler(this.AddPublisher_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pic_publisher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -9,16 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.Model;
+using Microwave_v1._0.UserControls;
 
 namespace Microwave_v1._0.Forms
 {
     public partial class Detail : Form
     {
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         GiveBook give_book_form = null;
 
         User user = null;
         Publisher publisher = null;
+
+        
+
 
         public Detail()
         {
@@ -34,7 +37,7 @@ namespace Microwave_v1._0.Forms
             this.btn_return_book.Hide();
 
             this.btn_id.Text = book.Book_id.ToString();
-            this.lbl_date.Text = book.Date.Substring(0,10);
+            this.lbl_date.Text = book.Date.Substring(0, 10);
 
             this.lbl_name.Text = book.Name; // Label for name
 
@@ -59,21 +62,21 @@ namespace Microwave_v1._0.Forms
         public Detail(User user)
         {
             InitializeComponent();
-            
+
             this.user = user;
 
 
             DataTable dt = Book.Show_All_Books(user);
             user.Book_count = dt.Rows.Count;
             dgw_users.DataSource = dt;
-            
+
 
             this.btn_give_book.Show();
             this.btn_give_penalty.Show();
             this.btn_return_book.Show();
 
             this.btn_id.Text = user.User_id.ToString();
-            
+
 
             this.lbl_name.Text = user.Name + " " + user.Surname;
 
@@ -117,7 +120,7 @@ namespace Microwave_v1._0.Forms
 
             this.lbl_1.Text = "Name:";
             this.lbl_2.Text = "Email:";
-            
+
             this.lbl_3.Text = "Phone:";
             this.lbl_4.Text = "Date:";
             this.lbl_5.Hide();
@@ -182,12 +185,12 @@ namespace Microwave_v1._0.Forms
             {
                 give_book_form.Show();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 give_book_form = new GiveBook(this, user);
                 give_book_form.Show();
             }
-            
+
         }
 
     }

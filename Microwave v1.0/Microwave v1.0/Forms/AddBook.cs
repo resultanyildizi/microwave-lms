@@ -571,5 +571,10 @@ namespace Microwave_v1._0
         {
             cb_shelf.ForeColor = Color.LightGray;
         }
+
+        private void pnl_main_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

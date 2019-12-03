@@ -18,6 +18,7 @@ namespace Microwave_v1._0.Forms
         private string pub_email;
         private string pub_phone_number;
         private string pub_date_of_est;
+        AddUser email_control = null;
         
         Microwave main_page;
         private Publisher_List main_pub_list;
@@ -96,6 +97,9 @@ namespace Microwave_v1._0.Forms
                 tb_pub_email.Focus();
                 return;
             }
+            if (!is_a_valid_email(pub_email))
+                return;
+            
             if (tb_pub_phone_num.Text.Trim() == "Publisher's Phone Number" || tb_pub_phone_num.Text.Trim() == "")
             {
                 lbl_pub_message.Text = "* Please enter publisher's phone number.";
@@ -149,6 +153,125 @@ namespace Microwave_v1._0.Forms
             }
         }
 
+        private bool is_a_valid_email(string email)
+        {
+            string[] invalid_ends = { ".", "_", "-", "!", "\"", "é", "'", "^", "+", "%",
+                                       "&", "/", "(", ")",  "=", "?", ",", ";", ":", "<",
+                                       ">", "|", "`", "#",  "$", "½", "{", "}", "[", "]",
+                                       "\\", "ç", "Ç", "~", "ş", "Ş", "ğ", "Ğ", "İ", "ü",
+                                       "Ü" , "ö", "Ö", "ı", "æ", "ß", "´", "₺", "€", "@",
+                                        " "};
+
+            string[] invalid_chars = { "!", "\"", "é","^", "+", "%","&", "/", "(", ")",
+                                       "=", "?", ",", ";", ":", "<",">", "|", "`", "#",
+                                       "$", "½", "{", "}", "[", "]","\\","ç", "Ç", "~",
+                                       "ş", "Ş", "ğ", "Ğ", "İ", "ü","Ü" ,"ö", "Ö", "ı",
+                                       "æ", "ß", "´", "₺", "€", "@", " "};
+
+            string[] invalid_chars_all = {"_", "-", "!", "\"", "é", "'", "^", "+", "%",
+                                            "&", "/", "(", ")",  "=", "?", ",", ";", ":", "<",
+                                         ">", "|", "`", "#",  "$", "½", "{", "}", "[", "]",
+                                         "\\", "ç", "Ç", "~", "ş", "Ş", "ğ", "Ğ", "İ", "ü",
+                                         "Ü" , "ö", "Ö", "ı", "æ", "ß", "´", "₺", "€", "@",
+                                        " "};
+
+            string message = "Please enter a valid email.";
+            lbl_pub_message.ForeColor = Color.Red;
+            int index_of_at = email.IndexOf('@');
+
+            // Checking for '@'
+            if (index_of_at == -1)
+            {
+                lbl_pub_message.Text = message;
+                return false;
+            }
+
+            // Substringing email
+            string head_email = email.Substring(0, index_of_at);
+            string tail_email = email.Substring(index_of_at + 1, email.Length - index_of_at - 1);
+
+            // Checking for invalid chars
+            for (int i = 0; i < invalid_chars.Length; i++)
+            {
+                if (!(head_email.IndexOf(invalid_chars[i]) == -1))
+                {
+                    lbl_pub_message.Text = message;
+                    return false;
+                }
+            }
+            // Checking for invalid end
+            if (head_email.EndsWith("."))
+            {
+                lbl_pub_message.Text = message;
+                return false;
+            }
+
+
+            // Checking for '.' after '@'
+            bool contains_dot = false;
+            int[] indexes_of_dots = new int[20];
+
+            int j = 0;
+            for (int i = 0; i < tail_email.Length; i++)
+            {
+                if (tail_email[i] == '.')
+                {
+                    indexes_of_dots[j] = i;
+                    j++;
+                }
+            }
+
+
+            // Checking for if the dots are next to each other
+            for (int i = 1; i < indexes_of_dots.Length; i++)
+            {
+                int a = indexes_of_dots[i - 1];
+                int b = indexes_of_dots[i];
+
+                if (b - a == 1)
+                {
+                    lbl_pub_message.Text = message;
+                    return false;
+                }
+            }
+
+            // Checking for if there is a dot or starts with dot
+            if (indexes_of_dots[0] == 0)
+            {
+                contains_dot = false;
+            }
+            else
+                contains_dot = true;
+
+            if (!contains_dot)
+            {
+                lbl_pub_message.Text = message;
+                return false;
+            }
+
+            // Checking for invalid chars - tail email - after dot
+            for (int i = 0; i < invalid_chars.Length; i++)
+            {
+                if (!(tail_email.IndexOf(invalid_chars_all[i]) == -1))
+                {
+                    lbl_pub_message.Text = message;
+                    return false;
+                }
+            }
+            // Checking for invalid ends
+            for (int i = 0; i < invalid_ends.Length; i++)
+            {
+                if (tail_email.EndsWith(invalid_ends[i]))
+                {
+                    lbl_pub_message.Text = message;
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
         private void Clear()
         {
             tb_pub_name.Text = "Publisher's Name";
@@ -164,13 +287,13 @@ namespace Microwave_v1._0.Forms
         {
             Pub_Add_Click_Func(is_edit);
         }
-
         private void btn_add_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Enter)
             {
                 Pub_Add_Click_Func(is_edit);
             }
+
         }
 
         private void Change_Image_Click(object sender, EventArgs e)
