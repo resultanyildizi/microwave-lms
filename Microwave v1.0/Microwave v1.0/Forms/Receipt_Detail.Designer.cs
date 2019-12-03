@@ -60,6 +60,7 @@
             // pnl_main
             // 
             this.pnl_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.pnl_main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_main.Controls.Add(this.button1);
             this.pnl_main.Controls.Add(this.lbl_message);
             this.pnl_main.Controls.Add(this.tb_message);
@@ -84,7 +85,7 @@
             this.pnl_main.Controls.Add(this.pnl_drag);
             this.pnl_main.Location = new System.Drawing.Point(0, 0);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(600, 301);
+            this.pnl_main.Size = new System.Drawing.Size(600, 300);
             this.pnl_main.TabIndex = 25;
             // 
             // button1
@@ -334,9 +335,11 @@
             // 
             // pnl_drag
             // 
-            this.pnl_drag.Location = new System.Drawing.Point(0, 3);
+            this.pnl_drag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
+            this.pnl_drag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_drag.Location = new System.Drawing.Point(-21, -9);
             this.pnl_drag.Name = "pnl_drag";
-            this.pnl_drag.Size = new System.Drawing.Size(597, 38);
+            this.pnl_drag.Size = new System.Drawing.Size(646, 59);
             this.pnl_drag.TabIndex = 25;
             // 
             // dragControl1
@@ -347,10 +350,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 298);
+            this.ClientSize = new System.Drawing.Size(600, 300);
             this.Controls.Add(this.pnl_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Receipt_Detail";
+            this.Opacity = 0.95D;
             this.Text = "Receipt_Detail";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Receipt_Detail_Load);

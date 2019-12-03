@@ -44,7 +44,7 @@
             this.btn_receipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_receipt.ForeColor = System.Drawing.Color.White;
             this.btn_receipt.Image = ((System.Drawing.Image)(resources.GetObject("btn_receipt.Image")));
-            this.btn_receipt.Location = new System.Drawing.Point(2, 4);
+            this.btn_receipt.Location = new System.Drawing.Point(1, 3);
             this.btn_receipt.Margin = new System.Windows.Forms.Padding(2);
             this.btn_receipt.Name = "btn_receipt";
             this.btn_receipt.Size = new System.Drawing.Size(44, 34);

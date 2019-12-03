@@ -174,8 +174,8 @@ namespace Microwave_v1._0
         }
         public static DataTable Show_All_Books(User user)
         {
-            string query = "Select Books.BOOK_ID, Books.Name,Authors.NAME, Publishers.NAME, Categories.NAME, " +
-                            "Shelves.NAME, Popularity.NAME, Books.POPULARITY_SCORE, Books.DATE from Book_User " +
+            string query = "Select Books.BOOK_ID As ID, Books.Name As Book,Authors.NAME As Author, Publishers.NAME As Publisher, Categories.NAME As Category, " +
+                            "Shelves.NAME As Shelf, Popularity.NAME As Popularity, Books.POPULARITY_SCORE As Score, Books.DATE from Book_User " +
                             "Join Books On Book_User.BOOK_ID = Books.BOOK_ID " +
                             "Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
                             "Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +

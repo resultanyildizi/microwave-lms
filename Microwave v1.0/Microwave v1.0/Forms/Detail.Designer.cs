@@ -305,6 +305,11 @@ namespace Microwave_v1._0.Forms
             // 
             // dgw_users
             // 
+            this.dgw_users.AllowUserToAddRows = false;
+            this.dgw_users.AllowUserToDeleteRows = false;
+            this.dgw_users.AllowUserToResizeColumns = false;
+            this.dgw_users.AllowUserToResizeRows = false;
+            this.dgw_users.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgw_users.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
@@ -314,7 +319,7 @@ namespace Microwave_v1._0.Forms
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgw_users.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgw_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -329,6 +334,8 @@ namespace Microwave_v1._0.Forms
             this.dgw_users.MaximumSize = new System.Drawing.Size(743, 223);
             this.dgw_users.Name = "dgw_users";
             this.dgw_users.ReadOnly = true;
+            this.dgw_users.RowHeadersVisible = false;
+            this.dgw_users.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgw_users.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgw_users.Size = new System.Drawing.Size(743, 223);
             this.dgw_users.TabIndex = 40;
