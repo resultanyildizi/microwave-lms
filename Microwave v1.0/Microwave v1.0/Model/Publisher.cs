@@ -26,8 +26,10 @@ namespace Microwave_v1._0.Classes
         private string pub_date_of_est;
         private string pub_cover_path_file;
         private Publisher_Info pub_info;
+        private int book_count;
 
-        
+
+
         public Publisher()
         {
 
@@ -53,7 +55,7 @@ namespace Microwave_v1._0.Classes
         public string Pub_date_of_est { get => pub_date_of_est; set => pub_date_of_est = value; }
         public string Pub_email { get => pub_email; set => pub_email = value; }
         public string Pub_phone_num { get => pub_phone_num; set => pub_phone_num = value; }
-
+        public int Book_count { get => book_count; set => book_count = value; }
 
         public void Add()
         {

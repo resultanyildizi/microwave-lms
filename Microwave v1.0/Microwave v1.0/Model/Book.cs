@@ -186,6 +186,21 @@ namespace Microwave_v1._0
 
             return DataBaseEvents.ExecuteQuery(query, datasource);
         }
+        public static DataTable Show_All_Books(Publisher publisher)
+        {
+            string query = "Select Books.BOOK_ID, Books.Name,Authors.NAME, Publishers.NAME, Categories.NAME, " +
+                            "Shelves.NAME, Popularity.NAME, Books.POPULARITY_SCORE, Books.DATE from Book_Publisher " +
+                            "Join Books On Book_Publisher.BOOK_ID = Books.BOOK_ID " +
+                            "Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
+                            "Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
+                            "Join Categories On Books.CATEGORY_ID = Categories.CATEGORY_ID " +
+                            "Join Shelves On Books.SHELF_ID = Shelves.SHELF_ID " +
+                            "Join Popularity On Books.POPULARITY_ID = Popularity.POPULARITY_ID " +
+                            "Where Book_Publisher.PUBLISHER_ID = " + publisher.Publisher_id;
+
+            return DataBaseEvents.ExecuteQuery(query, datasource);
+        }
+
         public void Set_Book(Book_List main_list, Book_List search_list, Book_Tag book_tag, Panel main_panel, INFO_COLOR_MODE color_mode)
         {
             Join_Tables_For_Names();

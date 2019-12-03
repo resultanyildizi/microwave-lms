@@ -18,6 +18,7 @@ namespace Microwave_v1._0.Forms
         GiveBook give_book_form = null;
 
         User user = null;
+        Publisher publisher = null;
 
         public Detail()
         {
@@ -98,7 +99,13 @@ namespace Microwave_v1._0.Forms
         public Detail(Publisher publisher)
         {
             InitializeComponent();
-            
+
+            this.publisher = publisher;
+
+            DataTable dt = Book.Show_All_Books(publisher);
+            publisher.Book_count = dt.Rows.Count;
+            dgw_users.DataSource = dt;
+
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
