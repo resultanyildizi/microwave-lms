@@ -186,19 +186,34 @@ namespace Microwave_v1._0
 
             return DataBaseEvents.ExecuteQuery(query, datasource);
         }
-        public static DataTable Show_All_Books(Publisher publisher)
+
+        public static DataTable Show_All_Books(Author author)
         {
-            string query = "Select Books.BOOK_ID, Books.Name,Authors.NAME, Publishers.NAME, Categories.NAME, " +
-                            "Shelves.NAME, Popularity.NAME, Books.POPULARITY_SCORE, Books.DATE from Book_Publisher " +
-                            "Join Books On Book_Publisher.BOOK_ID = Books.BOOK_ID " +
-                            "Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
-                            "Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
-                            "Join Categories On Books.CATEGORY_ID = Categories.CATEGORY_ID " +
-                            "Join Shelves On Books.SHELF_ID = Shelves.SHELF_ID " +
-                            "Join Popularity On Books.POPULARITY_ID = Popularity.POPULARITY_ID " +
-                            "Where Book_Publisher.PUBLISHER_ID = " + publisher.Publisher_id;
+            string query = "SELECT Books.BOOK_ID AS ID, Books.NAME AS Book, Authors.NAME AS Author, Publishers.NAME AS Publisher, Categories.NAME AS Category, " +
+                           "Shelves.NAME AS Shelf, Popularity.NAME AS Popularity, Books.POPULARITY_SCORE AS Score, Books.DATE AS Date FROM Books " +
+                           "JOIN Authors ON Books.AUTHOR_ID = Authors.AUTHOR_ID " +
+                           "JOIN Publishers ON Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
+                           "JOIN Categories ON Books.CATEGORY_ID = Categories.CATEGORY_ID " +
+                           "JOIN Shelves ON Books.SHELF_ID = Shelves.SHELF_ID " +
+                           "JOIN Popularity ON Books.POPULARITY_ID = Popularity.POPULARITY_ID " +
+                           "WHERE Authors.AUTHOR_ID = " + author.Author_id;
 
             return DataBaseEvents.ExecuteQuery(query, datasource);
+
+        }
+        public static DataTable Show_All_Books(Publisher publisher)
+        {
+            string query = "SELECT Books.BOOK_ID AS ID, Books.NAME AS Book, Authors.NAME AS Author, Publishers.NAME AS Publisher, Categories.NAME AS Category, " +
+                           "Shelves.NAME AS Shelf, Popularity.NAME AS Popularity, Books.POPULARITY_SCORE AS Score, Books.DATE AS Date FROM Books " +
+                           "JOIN Authors ON Books.AUTHOR_ID = Authors.AUTHOR_ID " +
+                           "JOIN Publishers ON Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
+                           "JOIN Categories ON Books.CATEGORY_ID = Categories.CATEGORY_ID " +
+                           "JOIN Shelves ON Books.SHELF_ID = Shelves.SHELF_ID " +
+                           "JOIN Popularity ON Books.POPULARITY_ID = Popularity.POPULARITY_ID " +
+                           "WHERE Publishers.PUBLISHER_ID = " + publisher.Publisher_id;
+
+            return DataBaseEvents.ExecuteQuery(query, datasource);
+
         }
 
         public void Set_Book(Book_List main_list, Book_List search_list, Book_Tag book_tag, Panel main_panel, INFO_COLOR_MODE color_mode)

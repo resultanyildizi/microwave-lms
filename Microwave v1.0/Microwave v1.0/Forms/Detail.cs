@@ -129,7 +129,6 @@ namespace Microwave_v1._0.Forms
             this.publisher = publisher;
 
             DataTable dt = Book.Show_All_Books(publisher);
-            publisher.Book_count = dt.Rows.Count;
             dgw_users.DataSource = dt;
 
             this.btn_give_book.Hide();
@@ -167,6 +166,9 @@ namespace Microwave_v1._0.Forms
             InitializeComponent();
 
             this.author = author;
+
+            DataTable dt = Book.Show_All_Books(author);
+            dgw_users.DataSource = dt;
 
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
