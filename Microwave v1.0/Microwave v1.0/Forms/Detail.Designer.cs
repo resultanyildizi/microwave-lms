@@ -209,7 +209,7 @@ namespace Microwave_v1._0.Forms
             this.tb_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_3.ForeColor = System.Drawing.Color.White;
-            this.tb_3.Location = new System.Drawing.Point(220, 135);
+            this.tb_3.Location = new System.Drawing.Point(236, 134);
             this.tb_3.Name = "tb_3";
             this.tb_3.ReadOnly = true;
             this.tb_3.Size = new System.Drawing.Size(187, 22);
@@ -221,7 +221,7 @@ namespace Microwave_v1._0.Forms
             this.tb_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_2.ForeColor = System.Drawing.Color.White;
-            this.tb_2.Location = new System.Drawing.Point(220, 102);
+            this.tb_2.Location = new System.Drawing.Point(236, 101);
             this.tb_2.Name = "tb_2";
             this.tb_2.ReadOnly = true;
             this.tb_2.Size = new System.Drawing.Size(187, 22);
@@ -233,7 +233,7 @@ namespace Microwave_v1._0.Forms
             this.tb_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_1.ForeColor = System.Drawing.Color.White;
-            this.tb_1.Location = new System.Drawing.Point(220, 68);
+            this.tb_1.Location = new System.Drawing.Point(236, 67);
             this.tb_1.Name = "tb_1";
             this.tb_1.ReadOnly = true;
             this.tb_1.Size = new System.Drawing.Size(187, 22);
@@ -357,7 +357,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_6.AutoSize = true;
             this.lbl_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_6.ForeColor = System.Drawing.Color.White;
-            this.lbl_6.Location = new System.Drawing.Point(478, 134);
+            this.lbl_6.Location = new System.Drawing.Point(456, 134);
             this.lbl_6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_6.Name = "lbl_6";
             this.lbl_6.Size = new System.Drawing.Size(56, 20);
@@ -379,7 +379,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_5.AutoSize = true;
             this.lbl_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_5.ForeColor = System.Drawing.Color.White;
-            this.lbl_5.Location = new System.Drawing.Point(478, 101);
+            this.lbl_5.Location = new System.Drawing.Point(456, 101);
             this.lbl_5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_5.Name = "lbl_5";
             this.lbl_5.Size = new System.Drawing.Size(82, 20);
@@ -403,7 +403,7 @@ namespace Microwave_v1._0.Forms
             this.lbl_4.AutoSize = true;
             this.lbl_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_4.ForeColor = System.Drawing.Color.White;
-            this.lbl_4.Location = new System.Drawing.Point(478, 67);
+            this.lbl_4.Location = new System.Drawing.Point(456, 67);
             this.lbl_4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_4.Name = "lbl_4";
             this.lbl_4.Size = new System.Drawing.Size(50, 20);

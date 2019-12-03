@@ -556,6 +556,7 @@ namespace Microwave_v1._0
             this.lb_publisher_search.Hide();
             this.lb_user_search.Hide();
             this.lb_author_search.Hide();
+            this.lb_receipt_search.Hide();
             this.pic_logo.Focus();
             this.pic_logo.Select();
         }
@@ -853,6 +854,8 @@ namespace Microwave_v1._0
             for(int i = 0; i < rows_count; i++)
             {
                 string item = dt.Rows[i][0].ToString();
+                if (lb_book_search.Items.Contains(item))
+                    continue;
                 lb_book_search.Items.Add(item);
             }
 
@@ -866,7 +869,6 @@ namespace Microwave_v1._0
                 {
                     tb_search_book.Text = "Search a book";
                     tb_search_book.ForeColor = Color.Gray;
-                    
                 }
             }
             else if (chosen == MENU_CHOSEN.USERS)
@@ -1048,6 +1050,8 @@ namespace Microwave_v1._0
             for (int i = 0; i < rows_count; i++)
             {
                 string item = dt.Rows[i][0].ToString();
+                if (lb_publisher_search.Items.Contains(item))
+                    continue;
                 lb_publisher_search.Items.Add(item);
             }
         }
@@ -1096,7 +1100,6 @@ namespace Microwave_v1._0
                 tb_search_author.Text = "Search an author";
                 tb_search_author.ForeColor = Color.Gray;
             }
-            lb_author_search.Hide();
         }
         private void tb_search_author_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1273,6 +1276,8 @@ namespace Microwave_v1._0
             for (int i = 0; i < rows_count; i++)
             {
                 string item = dt.Rows[i][0].ToString();
+                if (lb_author_search.Items.Contains(item))
+                    continue;
                 lb_author_search.Items.Add(item);
             }
         }
@@ -1460,7 +1465,7 @@ namespace Microwave_v1._0
         {
             tb_search_user.Focus();
             if (lb_user_search.SelectedItem != null)
-                tb_search_user.Text = lb_publisher_search.SelectedItem.ToString();
+                tb_search_user.Text = lb_user_search.SelectedItem.ToString();
             tb_search_user.Select(tb_search_user.Text.Length, 0);
         }
         private void Tb_search_user_Enter(object sender, EventArgs e)
@@ -1498,12 +1503,239 @@ namespace Microwave_v1._0
             for (int i = 0; i < rows_count; i++)
             {
                 string item = dt.Rows[i][0].ToString();
+                if (lb_user_search.Items.Contains(item))
+                    continue;
                 lb_user_search.Items.Add(item);
             }
         }
 
         // Searching events for receipts
+        private void RadioButtonReceipt_CheckedChanged(object sender, EventArgs e)
+        {
+            this.pnl_receipt_st.Hide();
+            this.show_pnl_rcpt_st = false;
+        }
+        private void Tb_search_receipt_TextChanged(object sender, EventArgs e)
+        {
+            string text = tb_search_receipt.Text.Trim();
+            receipt_searched_already = false;
 
+            if (chosen == MENU_CHOSEN.RECEIPTS)
+            {
+                if (text == "")
+                {
+                    lb_receipt_search.Hide();
+                    lb_receipt_search.Items.Clear();
+
+                    receipt_search_list.Delete_All_List();
+                    main_receipt_list.Draw_All_Receipts();
+                    return;
+                }
+                if (text == "Search a receipt")
+                {
+                    receipt_search_list.Delete_All_List();
+                    main_receipt_list.Draw_All_Receipts();
+                    return;
+                }
+                else
+                {
+                    this.pnl_receipt_list.VerticalScroll.Value = 0;
+
+                    if (rb_receipt_name.Checked)
+                    {
+                        string query = string.Format("Select Receipt.NAME From Receipt Where Receipt.NAME Like '{0}%'", text);
+                        Fill_Receipt_Search_List_Box(query);
+                        if (lb_receipt_search.Items.Count > 0)
+                            lb_receipt_search.Show();
+                        return;
+                    }
+                    if (rb_receipt_id.Checked)
+                    {
+                        string query = string.Format("Select Receipt.RECEIPT_ID From Receipt Where Receipt.RECEIPT_ID Like '{0}%'", text);
+                        Fill_Receipt_Search_List_Box(query);
+                        if (lb_receipt_search.Items.Count > 0)
+                            lb_receipt_search.Show();
+                        return;
+                    }
+                    if (rb_receipt_u_name.Checked)
+                    {
+                        string query = string.Format("Select Users.NAME from Receipt Join Users On Receipt.USER_ID = Users.USER_ID Where Users.NAME Like '{0}%'", text);
+                        Fill_Receipt_Search_List_Box(query);
+                        if (lb_receipt_search.Items.Count > 0)
+                            lb_receipt_search.Show();
+                        return;
+                    }
+                    if (rb_receipt_b_name.Checked)
+                    {
+                        string query = string.Format("Select Books.NAME from Receipt Join Books On Receipt.BOOK_ID = Books.BOOK_ID Where Books.NAME Like '{0}%'", text);
+
+
+                        Fill_Receipt_Search_List_Box(query);
+                        if (lb_receipt_search.Items.Count > 0)
+                            lb_receipt_search.Show();
+                        return;
+                    }
+                    if (rb_receipt_l_name.Checked)
+                    {
+                        /*string query = string.Format("Select Users.GENDER From Users Where Users.GENDER Like '{0}%'", text);
+                        Fill_User_Search_List_Box(query);
+                        if (lb_receipt_search.Items.Count > 0)
+                            lb_receip_search.Show();*/
+                        return;
+                    }
+                    if (rb_receipt_date.Checked)
+                    {
+                        string query = string.Format("Select Receipt.CREATION_DATE From Receipt Where Receipt.CREATION_DATE Like '{0}%'", text);
+                        Fill_Receipt_Search_List_Box(query);
+                        if (lb_receipt_search.Items.Count > 0)
+                            lb_receipt_search.Show();
+                        return;
+                    }
+                }
+
+            }
+
+        }
+        private void Tb_search_receipt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = tb_search_receipt.Text;
+
+            if (e.KeyChar == (char)Keys.Enter && !receipt_searched_already)
+            {
+                lb_receipt_search.Hide();
+                if (tb_search_receipt.Text == "")
+                {
+                    return;
+                }
+                main_receipt_list.Hide_All_Receipt_Objects();
+                receipt_search_list.Delete_All_List();
+                this.pnl_receipt_list.VerticalScroll.Value = 0;
+
+                if (rb_receipt_name.Checked)
+                {
+                    receipt_search_list.Fill_Receipt_List(Receipt.Search_Receipt_By_Name(text));
+                    receipt_search_list.Draw_All_Receipts();
+                    receipt_searched_already = true;
+                    return;
+                }
+                if (rb_receipt_id.Checked)
+                {
+                    receipt_search_list.Fill_Receipt_List(Receipt.Search_Receipt_By_ID(text));
+                    receipt_search_list.Draw_All_Receipts();
+                    receipt_searched_already = true;
+                    return;
+                }
+                if (rb_receipt_u_name.Checked)
+                {
+                    receipt_search_list.Fill_Receipt_List(Receipt.Search_Receipt_By_User_Name(text));
+                    receipt_search_list.Draw_All_Receipts();
+                    receipt_searched_already = true;
+                    return;
+                }
+                if (rb_receipt_b_name.Checked)
+                {
+                    receipt_search_list.Fill_Receipt_List(Receipt.Search_Receipt_By_Book_Name(text));
+                    receipt_search_list.Draw_All_Receipts();
+                    receipt_searched_already = true;
+                    return;
+                }
+                if (rb_receipt_l_name.Checked)
+                {
+                    /*receipt_search_list.Fill_receipt_List(receipt.Search_receipt_By_ID(text), INFO_COLOR_MODE.ID); ;
+                    receipt_search_list.Draw_All_receipts();
+                    receipt_searched_already = true*/
+                    return;
+                }
+                if (rb_receipt_date.Checked)
+                {
+                    receipt_search_list.Fill_Receipt_List(Receipt.Search_Receipt_By_Date(text));
+                    receipt_search_list.Draw_All_Receipts();
+                    receipt_searched_already = true;
+                    return;
+                }
+            }
+        }
+        private void Tb_search_receipt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                if (lb_receipt_search.Items.Count > 0)
+                {
+                    lb_receipt_search.Select();
+                    lb_receipt_search.SelectedIndex = 0;
+                }
+            }
+        }
+        private void Lb_receipt_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
+            {
+                if (e.KeyChar == (char)Keys.Back)
+                    tb_search_receipt.Text = tb_search_receipt.Text.Remove(tb_search_receipt.Text.Length - 1, 1);
+                else
+                    tb_search_receipt.Text += e.KeyChar;
+                tb_search_receipt.Focus();
+                tb_search_receipt.Select(tb_search_receipt.Text.Length, 0);
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                tb_search_receipt.Focus();
+                if (lb_receipt_search.SelectedItem != null)
+                    tb_search_receipt.Text = lb_receipt_search.SelectedItem.ToString();
+                tb_search_receipt.Select(tb_search_receipt.Text.Length, 0);
+            }
+        }
+        private void Lb_receipt_search_Leave(object sender, EventArgs e)
+        {
+            lb_receipt_search.Hide();
+        }
+        private void Lb_receipt_search_DoubleClick(object sender, EventArgs e)
+        {
+            tb_search_receipt.Focus();
+            if (lb_receipt_search.SelectedItem != null)
+                tb_search_receipt.Text = lb_receipt_search.SelectedItem.ToString();
+            tb_search_receipt.Select(tb_search_receipt.Text.Length, 0);
+        }
+        private void Tb_search_receipt_Enter(object sender, EventArgs e)
+        {
+            if (tb_search_receipt.Text == "Search a receipt")
+            {
+                tb_search_receipt.Text = "";
+            }
+
+            if (lb_receipt_search.Items.Count > 0)
+                lb_receipt_search.Show();
+
+            tb_search_receipt.ForeColor = Color.LightGray;
+
+        }
+        private void Tb_search_receipt_Leave(object sender, EventArgs e)
+        {
+            if (tb_search_receipt.Text == "")
+            {
+                tb_search_receipt.Text = "Search a receipt";
+                tb_search_receipt.ForeColor = Color.Gray;
+            }
+        }
+        private void Fill_Receipt_Search_List_Box(string query)
+        {
+            lb_receipt_search.Items.Clear();
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 0)
+                return;
+
+            for(int i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                if (lb_receipt_search.Items.Contains(item))
+                    continue;
+                lb_receipt_search.Items.Add(item);
+            }
+
+        }
 
 
 

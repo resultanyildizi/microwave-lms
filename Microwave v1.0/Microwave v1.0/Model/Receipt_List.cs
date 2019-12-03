@@ -105,7 +105,7 @@ namespace Microwave_v1._0.Model
                 iterator = iterator.next;
             }
         }
-        public void Hide_All_Publisher_Objects()
+        public void Hide_All_Receipt_Objects()
         {
             receipt_node iterator = root;
             while (iterator != null)
@@ -114,7 +114,7 @@ namespace Microwave_v1._0.Model
                 iterator = iterator.next;
             }
         }
-        public void Delete_Publisher_from_List(int receipt_id)
+        public void Delete_Receipt_from_List(int receipt_id)
         {
             receipt_node iterator = root;
 
@@ -164,7 +164,7 @@ namespace Microwave_v1._0.Model
 
             return iterator.receipt;
         }
-        public bool Is_Pub_List_Empty()
+        public bool Is_List_Empty()
         {
             if (root == null)
                 return true;

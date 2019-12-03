@@ -135,26 +135,35 @@ namespace Microwave_v1._0.Model
 
         static public DataTable Search_Receipt_By_Name(string name)
         {
-            return null;
+            string query = string.Format("Select * From Receipt Where Receipt.NAME Like '{0}%'", name);
+            return DataBaseEvents.ExecuteQuery(query, datasource);
         }
-        static public DataTable Search_Receipt_By_ID(int receipt_id)
+        static public DataTable Search_Receipt_By_ID(string receipt_id)
         {
-            return null;
+            string query = string.Format("Select * From Receipt Where Receipt.RECEIPT_ID Like '{0}%'", receipt_id);
+            return DataBaseEvents.ExecuteQuery(query, datasource);
         }
         static public DataTable Search_Receipt_By_User_Name(string u_name)
         {
-            return null;
-
+            string query = string.Format("Select Receipt.RECEIPT_ID, Receipt.BOOK_ID, Receipt.USER_ID, Receipt.LIBRARIAN_ID, Receipt.NAME, Receipt.MESSAGE, Receipt.CREATION_DATE, Receipt.RECEIVING_DATE " +
+                "from Receipt Join Users On Receipt.USER_ID = Users.USER_ID Where Users.NAME Like '{0}%'", u_name);
+            return DataBaseEvents.ExecuteQuery(query, datasource);
         }
         static public DataTable Search_Receipt_By_Book_Name(string b_name)
         {
-            return null;
-
+            string query = string.Format("Select Receipt.RECEIPT_ID, Receipt.BOOK_ID, Receipt.USER_ID, Receipt.LIBRARIAN_ID, Receipt.NAME, Receipt.MESSAGE, Receipt.CREATION_DATE, Receipt.RECEIVING_DATE " +
+                   "from Receipt Join Books On Receipt.BOOK_ID = Books.BOOK_ID Where Books.NAME Like '{0}%'", b_name);
+            return DataBaseEvents.ExecuteQuery(query, datasource);
         }
         static public DataTable Search_Receipt_By_Librarian_Name(string l_name)
         {
             return null;
 
+        }
+        static public DataTable Search_Receipt_By_Date(string date)
+        {
+            string query = string.Format("Select * From Receipt Where Receipt.CREATION_DATE Like '{0}%'", date);
+            return DataBaseEvents.ExecuteQuery(query, datasource);
         }
 
         private void Take_ID_From_Database()
