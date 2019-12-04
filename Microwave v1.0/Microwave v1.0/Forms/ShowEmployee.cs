@@ -237,16 +237,6 @@ namespace Microwave_v1._0.Forms
                         lb_emp_search.Show();
                     return;
                 }
-                if (rb_department.Checked)
-                { 
-                    
-                    this.pnl_employee_list.VerticalScroll.Value = 0;
-                    string query = string.Format("Select Employee.DEPARTMENT_ID from Employee Where Employee.DEPARTMENT_ID Like '{0}%'", text);
-                    Fill_Employee_Search_List_Box(query);
-                    if (lb_emp_search.Items.Count > 0)
-                        lb_emp_search.Show();
-                    return;
-                }
             }
         }
 
@@ -289,13 +279,6 @@ namespace Microwave_v1._0.Forms
                 if (rb_email.Checked)
                 {
                     emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list);
-                    emp_search_list.Draw_All_Employees();
-                    emp_searched_already = true;
-                    return;
-                }
-                if (rb_department.Checked)
-                {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Department(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
@@ -388,5 +371,7 @@ namespace Microwave_v1._0.Forms
                 tb_search_emp.Text = lb_emp_search.SelectedItem.ToString();
             tb_search_emp.Select(tb_search_emp.Text.Length, 0); 
         }
+
+
     }
 }

@@ -184,7 +184,7 @@ namespace Microwave_v1._0.UserControls
         {
           if (!chosen)
           {
-            Color back_color2 = Color.FromArgb(55, 57, 68);
+            Color back_color2 = Color.FromArgb(43, 47, 58);
             this.pnl_id.BackColor = back_color2;
             this.pnl_name.BackColor = back_color2;
             this.pnl_email.BackColor = back_color2;
@@ -198,7 +198,7 @@ namespace Microwave_v1._0.UserControls
         {
             if (!chosen)
             {
-                Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
+               
                 Color back_color2 = Color.FromArgb(55, 57, 68);
                 this.pnl_id.BackColor = back_color2;
                 this.pnl_name.BackColor = back_color2;
@@ -212,6 +212,8 @@ namespace Microwave_v1._0.UserControls
         private void Employee_Info_Click(object sender, EventArgs e)
         {
             main_page.Main_employee_list.Deselect_All_Infos();
+            employee_list.Deselect_All_Infos();
+            search_list.Deselect_All_Infos();
             this.Select_Employee_Info();
         }
         private void Employee_Info_MouseLeave(object sender, EventArgs e)
