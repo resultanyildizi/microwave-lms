@@ -7,6 +7,8 @@ using System.Data.SQLite;
 using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.UserControls;
+using Microwave_v1._0.Model;
+using Microwave_v1._0.Forms;
 using System.Data;
 using System.Drawing;
 
@@ -20,8 +22,8 @@ namespace Microwave_v1._0.Model
         
         private int department_id;
         private int employee_id;
-   
-        
+
+        DateTime birth_date_dt;
         private string name;
         private string surname;
         private string birth_date;
@@ -37,7 +39,6 @@ namespace Microwave_v1._0.Model
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
-        public string Age { get => birth_date; set => birth_date = value; }
         public int Employee_id { get => employee_id; set => employee_id = value; }
         public string Cover_path_file { get => cover_path_file; set => cover_path_file = value; }
         public string Email { get => email; set => email = value; }
@@ -46,14 +47,14 @@ namespace Microwave_v1._0.Model
         public Employee_Info Info { get => info; set => info = value; }
         public int Department_id { get => department_id; set => department_id = value; }
         public string Deparment_name { get => department_name; set => department_name = value; }
-        
+        public DateTime Birth_date_dt { get => birth_date_dt; set => birth_date_dt = value; }
 
         public Employee()
         {
 
         }
 
-        public Employee(int employee_id, int department_id,string name,string surname,string birth_date,string email,string password,string gender,string cover_path_file)
+        public Employee(int employee_id, int department_id,string name,string surname,DateTime birth_date,string email,string password,string gender,string cover_path_file)
         { 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];    
            
@@ -62,8 +63,8 @@ namespace Microwave_v1._0.Model
             this.department_id = department_id;
             this.name = name;
             this.surname = surname;
-            this.birth_date = birth_date;
-            this.email = email;
+            this.birth_date_dt = birth_date;
+            this.birth_date = birth_date_dt.Date.ToString();
             this.gender = gender;
             this.password = password;
             this.cover_path_file = cover_path_file;
@@ -92,7 +93,7 @@ namespace Microwave_v1._0.Model
             Take_Id_From_Database();
             Join_Tables();
 
-            info.Initialize_Employee_Info(employee_id,department_name,name,surname,email,gender,birth_date,cover_path_file);
+            info.Initialize_Employee_Info(employee_id,department_name,name,surname,email,birth_date.Substring(0,10),gender,cover_path_file, COLOR.NORMAL);
 
             main_page.Main_employee_list.Add_Employee_to_List(this);
             main_page.Pnl_employee_list.VerticalScroll.Value = 0;
@@ -115,7 +116,7 @@ namespace Microwave_v1._0.Model
 
             Join_Tables();
 
-            info.Initialize_Employee_Info(employee_id, department_name, name, surname, email, gender, birth_date, cover_path_file);
+            info.Initialize_Employee_Info(employee_id, department_name, name, surname, email, birth_date.Substring(0, 10), gender, cover_path_file, COLOR.NORMAL);
             info.Select_Employee_Info();
 
         }
@@ -130,11 +131,11 @@ namespace Microwave_v1._0.Model
                 MessageBox.Show("Delete is not valid");
             return;
         }
-        public void Set_Employee(Employee_List main_list,Employee_List search_list , Book_Tag main_tag,Panel main_panel)
+        public void Set_Employee(Employee_List main_list,Employee_List search_list , Book_Tag main_tag,Panel main_panel, COLOR color_mode)
         {
             Join_Tables();
             info = new Employee_Info(main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list);
-            info.Initialize_Employee_Info(employee_id,department_name, name, surname, email, gender, birth_date,cover_path_file);
+            info.Initialize_Employee_Info(employee_id,department_name, name, surname, email, birth_date.Substring(0, 10), gender,cover_path_file,color_mode);
         }
         static public void Show_All_Employees(Department department)
         {
@@ -157,7 +158,7 @@ namespace Microwave_v1._0.Model
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
            
-            main_page.Main_employee_list.Fill_Employee_List(dt,main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list);
+            main_page.Main_employee_list.Fill_Employee_List(dt,main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list, COLOR.NORMAL);
             main_page.Main_employee_list.Draw_All_Employees();
 
         }

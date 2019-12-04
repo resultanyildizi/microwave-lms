@@ -10,6 +10,7 @@ using Microwave_v1._0.Forms;
 using System.Data;
 using System.Data.SQLite;
 using System.Threading;
+using System.Drawing;
 
 namespace Microwave_v1._0.Model
 {
@@ -36,7 +37,7 @@ namespace Microwave_v1._0.Model
         {
             root = null;
         }
-        public void Fill_Employee_List(DataTable dt, Employee_List main_list, Employee_List search_list, Book_Tag main_tag, Panel main_panel)
+        public void Fill_Employee_List(DataTable dt, Employee_List main_list, Employee_List search_list, Book_Tag main_tag, Panel main_panel, COLOR color_mode)
         {
             int rows_count = dt.Rows.Count;
 
@@ -50,14 +51,15 @@ namespace Microwave_v1._0.Model
                 string employee_surname = dt.Rows[i][3].ToString();
                 string employee_email = dt.Rows[i][4].ToString();
                 string employee_password = dt.Rows[i][5].ToString();
-                string birth_date = dt.Rows[i][6].ToString();
-                string employee_gender = dt.Rows[i][7].ToString();
+                string employee_gender = dt.Rows[i][6].ToString();
+                string birth_date = dt.Rows[i][7].ToString();
                 string pic_path_file = dt.Rows[i][8].ToString();
 
-                Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, birth_date, employee_email, employee_password, employee_gender, pic_path_file);
-                employee.Set_Employee(main_list, search_list, main_tag, main_panel); 
+                DateTime bd = Convert.ToDateTime(birth_date);
+                Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, bd, employee_email, employee_password, employee_gender, pic_path_file);
+                employee.Set_Employee(main_list, search_list, main_tag, main_panel,color_mode); 
                 this.Add_Employee_to_List(employee);
-
+                
             }
         }
 

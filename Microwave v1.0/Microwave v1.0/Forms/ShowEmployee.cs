@@ -39,6 +39,7 @@ namespace Microwave_v1._0.Forms
         public Warning Warning_form1 { get => Warning_form; set => Warning_form = value; }
         public Employee_List Emp_search_list { get => emp_search_list; set => emp_search_list = value; }
         public bool Emp_searched_already { get => emp_searched_already; set => emp_searched_already = value; }
+        public Department Department { get => department; set => department = value; }
 
         private bool show_pnl_emp_st = false;
         public ShowEmployee(Department department)
@@ -257,28 +258,28 @@ namespace Microwave_v1._0.Forms
 
                 if (rb_emp_name.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.NAME);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_emp_id.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.ID);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_gender.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.GENDER);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_email.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.EMAIL);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;

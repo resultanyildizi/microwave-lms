@@ -40,18 +40,18 @@
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.lbl_gender = new System.Windows.Forms.Label();
-            this.pnl_gender = new System.Windows.Forms.Panel();
+            this.pnl_birthdate = new System.Windows.Forms.Panel();
             this.pnl_department = new System.Windows.Forms.Panel();
             this.lbl_department = new System.Windows.Forms.Label();
-            this.pnl_birthdate = new System.Windows.Forms.Panel();
+            this.pnl_gender = new System.Windows.Forms.Panel();
             this.lbl_birthdate = new System.Windows.Forms.Label();
             this.pnl_id.SuspendLayout();
             this.pnl_email.SuspendLayout();
             this.pnl_name.SuspendLayout();
             this.pnl_surname.SuspendLayout();
-            this.pnl_gender.SuspendLayout();
-            this.pnl_department.SuspendLayout();
             this.pnl_birthdate.SuspendLayout();
+            this.pnl_department.SuspendLayout();
+            this.pnl_gender.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_id
@@ -226,10 +226,10 @@
             this.lbl_gender.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_gender.ForeColor = System.Drawing.Color.White;
-            this.lbl_gender.Location = new System.Drawing.Point(2, 13);
+            this.lbl_gender.Location = new System.Drawing.Point(9, 11);
             this.lbl_gender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_gender.Name = "lbl_gender";
-            this.lbl_gender.Size = new System.Drawing.Size(68, 20);
+            this.lbl_gender.Size = new System.Drawing.Size(81, 20);
             this.lbl_gender.TabIndex = 3;
             this.lbl_gender.Text = "Erkek";
             this.lbl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
@@ -238,21 +238,21 @@
             this.lbl_gender.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_gender.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
-            // pnl_gender
+            // pnl_birthdate
             // 
-            this.pnl_gender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_gender.Controls.Add(this.lbl_gender);
-            this.pnl_gender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_gender.Location = new System.Drawing.Point(464, 0);
-            this.pnl_gender.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_gender.Name = "pnl_gender";
-            this.pnl_gender.Size = new System.Drawing.Size(85, 40);
-            this.pnl_gender.TabIndex = 10;
-            this.pnl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
-            this.pnl_gender.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
-            this.pnl_gender.Enter += new System.EventHandler(this.Employee_Info_MouseEnter);
-            this.pnl_gender.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
-            this.pnl_gender.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
+            this.pnl_birthdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.pnl_birthdate.Controls.Add(this.lbl_birthdate);
+            this.pnl_birthdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnl_birthdate.Location = new System.Drawing.Point(464, 0);
+            this.pnl_birthdate.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_birthdate.Name = "pnl_birthdate";
+            this.pnl_birthdate.Size = new System.Drawing.Size(85, 40);
+            this.pnl_birthdate.TabIndex = 10;
+            this.pnl_birthdate.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_birthdate.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
+            this.pnl_birthdate.Enter += new System.EventHandler(this.Employee_Info_MouseEnter);
+            this.pnl_birthdate.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
+            this.pnl_birthdate.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
             // pnl_department
             // 
@@ -288,21 +288,21 @@
             this.lbl_department.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
             this.lbl_department.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
-            // pnl_birthdate
+            // pnl_gender
             // 
-            this.pnl_birthdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
-            this.pnl_birthdate.Controls.Add(this.lbl_birthdate);
-            this.pnl_birthdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_birthdate.Location = new System.Drawing.Point(553, 0);
-            this.pnl_birthdate.Margin = new System.Windows.Forms.Padding(2);
-            this.pnl_birthdate.Name = "pnl_birthdate";
-            this.pnl_birthdate.Size = new System.Drawing.Size(92, 40);
-            this.pnl_birthdate.TabIndex = 14;
-            this.pnl_birthdate.Click += new System.EventHandler(this.Employee_Info_Click);
-            this.pnl_birthdate.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
-            this.pnl_birthdate.Enter += new System.EventHandler(this.Employee_Info_MouseEnter);
-            this.pnl_birthdate.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
-            this.pnl_birthdate.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
+            this.pnl_gender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(57)))), ((int)(((byte)(68)))));
+            this.pnl_gender.Controls.Add(this.lbl_gender);
+            this.pnl_gender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnl_gender.Location = new System.Drawing.Point(553, 0);
+            this.pnl_gender.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_gender.Name = "pnl_gender";
+            this.pnl_gender.Size = new System.Drawing.Size(92, 40);
+            this.pnl_gender.TabIndex = 14;
+            this.pnl_gender.Click += new System.EventHandler(this.Employee_Info_Click);
+            this.pnl_gender.DoubleClick += new System.EventHandler(this.Employee_Info_DoubleClick);
+            this.pnl_gender.Enter += new System.EventHandler(this.Employee_Info_MouseEnter);
+            this.pnl_gender.MouseEnter += new System.EventHandler(this.Employee_Info_MouseEnter);
+            this.pnl_gender.MouseLeave += new System.EventHandler(this.Employee_Info_MouseLeave);
             // 
             // lbl_birthdate
             // 
@@ -310,7 +310,7 @@
             this.lbl_birthdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_birthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_birthdate.ForeColor = System.Drawing.Color.White;
-            this.lbl_birthdate.Location = new System.Drawing.Point(2, 11);
+            this.lbl_birthdate.Location = new System.Drawing.Point(3, 11);
             this.lbl_birthdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_birthdate.Name = "lbl_birthdate";
             this.lbl_birthdate.Size = new System.Drawing.Size(80, 20);
@@ -327,9 +327,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.Controls.Add(this.pnl_birthdate);
-            this.Controls.Add(this.pnl_department);
             this.Controls.Add(this.pnl_gender);
+            this.Controls.Add(this.pnl_department);
+            this.Controls.Add(this.pnl_birthdate);
             this.Controls.Add(this.pnl_id);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_edit);
@@ -347,9 +347,9 @@
             this.pnl_email.ResumeLayout(false);
             this.pnl_name.ResumeLayout(false);
             this.pnl_surname.ResumeLayout(false);
-            this.pnl_gender.ResumeLayout(false);
-            this.pnl_department.ResumeLayout(false);
             this.pnl_birthdate.ResumeLayout(false);
+            this.pnl_department.ResumeLayout(false);
+            this.pnl_gender.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -366,10 +366,10 @@
         private System.Windows.Forms.Panel pnl_surname;
         private System.Windows.Forms.Label lbl_surname;
         private System.Windows.Forms.Label lbl_gender;
-        private System.Windows.Forms.Panel pnl_gender;
+        private System.Windows.Forms.Panel pnl_birthdate;
         private System.Windows.Forms.Panel pnl_department;
         private System.Windows.Forms.Label lbl_department;
-        private System.Windows.Forms.Panel pnl_birthdate;
+        private System.Windows.Forms.Panel pnl_gender;
         private System.Windows.Forms.Label lbl_birthdate;
     }
 }
