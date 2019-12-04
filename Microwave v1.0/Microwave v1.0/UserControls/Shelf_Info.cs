@@ -29,29 +29,29 @@ namespace Microwave_v1._0.UserControls
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
 
-            int x = 45;
-            Book_Info_For_Shelf bs = new Book_Info_For_Shelf();
-            bs.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            this.Controls.Add(bs);
-            x += 20;
-            Book_Info_For_Shelf bs1 = new Book_Info_For_Shelf();
-            bs1.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            this.Controls.Add(bs1);
-            x += 20;
+            //int x = 45;
+            //Book_Info_For_Shelf bs = new Book_Info_For_Shelf();
+            //bs.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
+            //this.Controls.Add(bs);
+            //x += 20;
+            //Book_Info_For_Shelf bs1 = new Book_Info_For_Shelf();
+            //bs1.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
+            //this.Controls.Add(bs1);
+            //x += 20;
 
-            Book_Info_For_Shelf bs2 = new Book_Info_For_Shelf();
-            bs2.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            this.Controls.Add(bs2);
-            x += 20;
+            //Book_Info_For_Shelf bs2 = new Book_Info_For_Shelf();
+            //bs2.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
+            //this.Controls.Add(bs2);
+            //x += 20;
 
-            Book_Info_For_Shelf bs3 = new Book_Info_For_Shelf();
-            bs3.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            this.Controls.Add(bs3);
-            x += 20;
+            //Book_Info_For_Shelf bs3 = new Book_Info_For_Shelf();
+            //bs3.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
+            //this.Controls.Add(bs3);
+            //x += 20;
 
-            Book_Info_For_Shelf bs4 = new Book_Info_For_Shelf();
-            bs4.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            this.Controls.Add(bs4);
+            //Book_Info_For_Shelf bs4 = new Book_Info_For_Shelf();
+            //bs4.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
+            //this.Controls.Add(bs4);
 
         }
 

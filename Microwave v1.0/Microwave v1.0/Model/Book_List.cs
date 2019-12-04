@@ -72,6 +72,7 @@ namespace Microwave_v1._0
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
                 book.Set_Book(main_list, search_list, main_tag, main_panel, color_mode);
+                book.Set_Book();
                 this.Add_Book_to_List(book);
             }
 
@@ -123,13 +124,13 @@ namespace Microwave_v1._0
 
         public void Draw_All_Books_For_Shelf()
         {
-            Book.point_y = 5;
-
+            Book.point_y = 45;
+            Book.point_x = 45;
             book_node iterator = root;
             while (iterator != null)
             {
-                iterator.book.Info.Draw_Book_Obj(ref Book.point_y);
-                iterator.book.Info.Show();
+                iterator.book.Book_shelf_info.Draw_Book_Obj(ref Book.point_x, ref Book.point_x);
+                iterator.book.Book_shelf_info.Show();
                 iterator = iterator.next;
             }
         }

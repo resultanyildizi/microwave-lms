@@ -25,7 +25,6 @@ namespace Microwave_v1._0.UserControls
         private int book_id;
         private string description;
         private string author;
-        private string pic_path_file;
         private string shelf;
         private string category;
         
@@ -35,21 +34,21 @@ namespace Microwave_v1._0.UserControls
             main_page = (Microwave)Application.OpenForms["Microwave"];
             main_shelf_list = main_page.Main_shelf_list;
 
-            Random random = new Random();
-            int pic_num = random.Next(0,60);
+            //Random random = new Random();
+            //int pic_num = random.Next(0,60);
             
-            if(pic_num <= 10)
-                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b1;
-            else if(pic_num <= 20)
-                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b2;
-            else if(pic_num <= 30)
-                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b3;
-            else if(pic_num <= 40)
-                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b4;
-            else if(pic_num <= 50)
-                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b5;
-            else
-                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b6;
+            //if(pic_num <= 10)
+            //    this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b1;
+            //else if(pic_num <= 20)
+            //    this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b2;
+            //else if(pic_num <= 30)
+            //    this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b3;
+            //else if(pic_num <= 40)
+            //    this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b4;
+            //else if(pic_num <= 50)
+            //    this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b5;
+            //else
+            //    this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b6;
 
         }
 
@@ -61,6 +60,19 @@ namespace Microwave_v1._0.UserControls
             this.book_name = name;
             this.shelf = shelf;
             this.category = category;
+        }
+
+        public void Draw_Book_Obj(ref int x, ref int y)
+        {
+            
+            if(shelf == "A02")
+            {
+                main_page.Pnl_shelf_list.Controls.Add(this);
+                this.Location = new System.Drawing.Point(x, y);
+                x += 20;
+                
+            }
+            
         }
     }
 }
