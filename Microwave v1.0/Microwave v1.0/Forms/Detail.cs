@@ -250,7 +250,7 @@ namespace Microwave_v1._0.Forms
             this.tb_1.Text = employee.Email;
             this.tb_2.Text = employee.Gender;
             this.tb_3.Text = employee.Password;
-            this.tb_4.Text = employee.Age.ToString();
+            this.tb_4.Text = employee.Birth_date_dt.ToString().Substring(0,10);
             this.tb_5.Text = employee.Deparment_name;
             this.tb_7.Hide();
 
@@ -393,7 +393,7 @@ namespace Microwave_v1._0.Forms
                 this.tb_1.Text = employee.Email;
                 this.tb_2.Text = employee.Gender;
                 this.tb_3.Text = employee.Password;
-                this.tb_4.Text = employee.Age.ToString();
+                this.tb_4.Text = employee.Birth_date_dt.ToString().Substring(0,10);
                 this.tb_5.Text = employee.Deparment_name;
 
 

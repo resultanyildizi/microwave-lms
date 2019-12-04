@@ -89,8 +89,15 @@ namespace Microwave_v1._0.Classes
             info = new Department_Info();
             info.Initialize_Department_Info(department_id,name, cover_path_file);
         }
+
       public void Delete()
         {
+
+            string title1 = "UPDATE Employee ";
+            string query1 = title1 + string.Format("SET DEPARTMENT_ID = 0 WHERE Employee.DEPARTMENT_ID = '{0}'", this.department_id);
+
+            DataBaseEvents.ExecuteNonQuery(query1, datasource);
+
             string title = "DELETE FROM Department ";
             string query = title + string.Format("Where DEPARTMENT_ID = '{0}' ;", department_id);
 
@@ -105,7 +112,7 @@ namespace Microwave_v1._0.Classes
     
         private void Take_Id_From_Database()
         {
-            // To take the id of new book.
+  
             string title = "SELECT Department.DEPARTMENT_ID FROM Department ";
             string query = title + string.Format("Where NAME = '{0}';", name);
 
@@ -114,9 +121,7 @@ namespace Microwave_v1._0.Classes
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.department_id = id;
 
-
-            // For user inteface
-            this.Info.Department_id = id; // IMPORTANT
+            this.Info.Department_id = id; 
         }
        static public void Show_All_Departments(Microwave main_page)
         {

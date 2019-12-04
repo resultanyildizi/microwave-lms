@@ -25,7 +25,6 @@ namespace Microwave_v1._0.Forms
         private string birth_date;
         private string gender;
         private string password;
-        
         private int employee_id;
         private int department_id;
         Employee employee;
@@ -71,7 +70,8 @@ namespace Microwave_v1._0.Forms
         public AddEmployee(Employee employee)
         {
             InitializeComponent();
-           
+
+          
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
@@ -91,6 +91,16 @@ namespace Microwave_v1._0.Forms
             this.tb_surname.ForeColor = Color.LightGray;
             this.tb_email.Text = employee.Email;
             this.tb_email.ForeColor = Color.LightGray;
+            this.dtp_time.Value = employee.Birth_date_dt;
+
+            if (employee.Gender == "Female")
+            {
+                rdo_female.Checked = true;
+            }
+            else
+            {
+                rdo_male.Checked = true;
+            }
             
 
 
@@ -110,7 +120,7 @@ namespace Microwave_v1._0.Forms
             name = tb_name.Text.Replace('\'',' ');
             surname = tb_surname.Text;
             email = tb_email.Text;
-            birth_date = dtp_time.Value.ToString().Substring(0, 10);
+            
             department_id = int.Parse(cb_department.SelectedIndex.ToString());
             password = Generate_Auto_Password();
 
@@ -168,7 +178,7 @@ namespace Microwave_v1._0.Forms
                 else
                     pic_new_source_path = picture_default_file;
 
-                Employee employee = new Employee(employee_id, department_id, name, surname, birth_date, email, password, gender, pic_new_source_path);
+                Employee employee = new Employee(employee_id, department_id, name, surname, dtp_time.Value , email, password, gender, pic_new_source_path);
                 employee.Add();
 
 
@@ -194,14 +204,15 @@ namespace Microwave_v1._0.Forms
                 employee_to_edit.Surname = surname;
                 employee_to_edit.Gender = gender;
                 employee_to_edit.Email = email;
-                employee_to_edit.Age = birth_date;
                 employee_to_edit.Department_id = department_id;
                 employee_to_edit.Cover_path_file = picture_event.Pic_source_file;
 
                 employee_to_edit.Edit();
 
                 main_page.Pnl_employee_list.VerticalScroll.Value = 0;
-                main_page.Main_employee_list.Draw_All_Employees();
+                main_page.Main_employee_list.Delete_All_List();
+                Employee.Show_All_Employees(main_page.Department);
+
                 Clear();
             }
         }
