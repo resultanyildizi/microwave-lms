@@ -70,7 +70,7 @@ namespace Microwave_v1._0.Model
 
         public void Draw_All_Shelf()
         {
-            Shelf.point_y = 5;
+            Shelf.point_y = 20;
             Shelf.point_x = 22;
 
             shelf_node iterator = root;

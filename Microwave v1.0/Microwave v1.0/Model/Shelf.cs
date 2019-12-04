@@ -17,8 +17,8 @@ namespace Microwave_v1._0.Model
 {
     public class Shelf
     {
-        public static int point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
-        public static int point_x = 22; // Book infoları ekrana çizdirirken kullanılan offset
+        public static int point_y = 5; 
+        public static int point_x = 22; 
         static Microwave main_page = null;
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 

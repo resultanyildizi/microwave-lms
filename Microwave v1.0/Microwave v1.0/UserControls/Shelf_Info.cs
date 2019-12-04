@@ -46,5 +46,9 @@ namespace Microwave_v1._0.UserControls
             y += 150;
         }
 
+        private void Shelf_Info_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
