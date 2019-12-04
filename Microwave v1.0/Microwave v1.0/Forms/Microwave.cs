@@ -37,7 +37,7 @@ namespace Microwave_v1._0
 {
     public enum MENU_CHOSEN
     {
-        BOOKS = 0,USERS,AUTHOR, PUBLISHER, DEPARTMENT,RECEIPTS, EMAIL, ABOUT_US,SHELF
+        BOOKS = 0, USERS, AUTHOR, PUBLISHER, DEPARTMENT, RECEIPTS, SHELF, CATEGORY, ABOUT_US
     }
     public partial class Microwave : Form
     {
@@ -48,8 +48,8 @@ namespace Microwave_v1._0
         private AddAuthor add_author = null;
         private AddPublisher add_publisher = null;
         private AddDepartment add_department = null;
+        private AddCategory add_category = null;
         private ShowEmployee show_employee = null;
-        private AddShelf add_shelf = null;
         
         private Book_List main_book_list = null;
         private User_List main_user_list = null;
@@ -58,6 +58,8 @@ namespace Microwave_v1._0
         private Department_List main_department_list = null;
         private Receipt_List main_receipt_list = null;
         private Shelf_List main_shelf_list = null;
+        private Category_List main_category_list = null;
+
 
         private Book_Tag main_tag = null;
 
@@ -80,6 +82,8 @@ namespace Microwave_v1._0
         private bool author_searched_already = false;
         private Receipt_List receipt_search_list = null;
         private bool receipt_searched_already = false;
+        private Category_List category_search_list = null;
+        private bool category_searched_already = false;
 
         // Getters and Setters
         public Warning Warning_form { get => warning_form; set => warning_form = value; }
@@ -89,7 +93,6 @@ namespace Microwave_v1._0
         public AddPublisher Add_publisher { get => add_publisher; set => add_publisher = value; }
         public AddDepartment Add_department { get => add_department; set => add_department = value; }
         public ShowEmployee Show_employee { get => show_employee; set => show_employee = value; }
-        public AddShelf Add_shelf { get => add_shelf; set => add_shelf = value; }
 
         
         public Book_List Main_book_list { get => main_book_list; set => main_book_list = value; }
@@ -115,6 +118,10 @@ namespace Microwave_v1._0
         public Receipt_List Receipt_search_list { get => receipt_search_list; set => receipt_search_list = value; }
         public bool Receipt_searched_already { get => receipt_searched_already; set => receipt_searched_already = value; }
         public Shelf_List Main_shelf_list { get => main_shelf_list; set => main_shelf_list = value; }
+        public Category_List Category_search_list { get => category_search_list; set => category_search_list = value; }
+        public bool Category_searched_already { get => category_searched_already; set => category_searched_already = value; }
+        public AddCategory Add_category { get => add_category; set => add_category = value; }
+        public Category_List Main_category_list { get => main_category_list; set => main_category_list = value; }
 
 
         // Booleans
@@ -136,6 +143,8 @@ namespace Microwave_v1._0
             main_author_list = new Author_List();
             main_receipt_list = new Receipt_List();
             main_shelf_list = new Shelf_List();
+            main_category_list = new Category_List();
+
 
             // Searching
             book_search_list = new Book_List();
@@ -143,22 +152,21 @@ namespace Microwave_v1._0
             publisher_search_list = new Publisher_List();
             author_search_list = new Author_List();
             receipt_search_list = new Receipt_List();
+            category_search_list = new Category_List();
+
 
             pnl_home.Show();
             pnl_tag.Hide();
-            pnl_user.Hide();
             pnl_book.Hide();
+            pnl_user.Hide();
+            pnl_authors.Hide();
             pnl_pub.Hide();
             pnl_department.Hide();
-            pnl_authors.Hide();
             pnl_receipt.Hide();
             pnl_shelf.Hide();
-            tb_search_book.Hide();
-            tb_search_publisher.Hide();
-            tb_search_user.Hide();
-            tb_search_author.Hide();    
+            pnl_categories.Hide();
+       
             btn_show_search_types.Hide();
-            
 
 
             tb_search_book.Hide();
@@ -166,6 +174,7 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
+            tb_search_category.Hide();
             btn_show_search_types.Hide();
             
             // Book search
@@ -204,7 +213,13 @@ namespace Microwave_v1._0
             tb_search_receipt.ForeColor = Color.Gray;
 
 
-            pnl_author_st.Hide();
+            // Category search
+
+            lb_category_search.Hide();
+            tb_search_category.Text = "Search a category";
+            tb_search_category.ForeColor = Color.Gray;
+
+
 
         }
 
@@ -219,6 +234,7 @@ namespace Microwave_v1._0
             this.pnl_pub_list.VerticalScroll.Value = 0;
             this.pnl_department_list.VerticalScroll.Value = 0;
             this.pnl_receipt_list.VerticalScroll.Value = 0;
+            this.pnl_categories_list.VerticalScroll.Value = 0;
             this.pnl_shelf_list.VerticalScroll.Value = 0;
 
             Book.Show_All_Books(this);
@@ -228,6 +244,7 @@ namespace Microwave_v1._0
             Author.Show_All_Authors(this);
             Receipt.Show_All_Receipts(this);
             Shelf.Show_All_Shelf(this);
+            Category.Show_All_Categories(this);
 
             pnl_home.BringToFront();
 
@@ -313,19 +330,19 @@ namespace Microwave_v1._0
 
                 warning_form.Refresh_Form();
             }
-            /*else if (chosen == MENU_CHOSEN.SHELF)
+            else if (chosen == MENU_CHOSEN.CATEGORY)
             {
-                 main_author_list.Deselect_All_Infos();
-
-
-                message = "Do you want to add a Shelf?";
-                color = Color.Chocolate;
+                message = "Do you want to add a Category?";
+                color = Color.Tan;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
-                    Create_Add_Department_Form();
-
+                {
+                    Create_Add_Category_Form();
+                }
                 warning_form.Refresh_Form();
-            }*/
+
+            }
+
         }
         public void Create_Warning_Form(string message, Color color)
         {
@@ -445,25 +462,25 @@ namespace Microwave_v1._0
             pic_logo.Focus();
             add_department.Focus();
         }
-        /*public void Create_Add_Shelf_Form()
+        public void Create_Add_Category_Form()
         {
-            if (ad == null)
+            if (add_category == null)
             {
-                add_department = new AddDepartment();
+                add_category = new AddCategory();
             }
             try
             {
-                add_department.Show();
+                add_category.Show();
             }
             catch (ObjectDisposedException)
             {
-                add_department = new AddDepartment();
-                add_department.Show();
+                add_category = new AddCategory();
+                add_category.Show();
             }
             this.Btn_add.Enabled = false;
             pic_logo.Focus();
-            add_department.Focus();
-        }*/
+            add_category.Focus();
+        }
 
         private void btn_book_Click(object sender, EventArgs e)
         {
@@ -479,13 +496,15 @@ namespace Microwave_v1._0
             pnl_department.Hide();
             pnl_receipt.Hide();
             pnl_shelf.Hide();
+            pnl_categories.Hide();
             btn_show_search_types.Show();
             tb_search_book.Show();
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
-        
+            tb_search_category.Hide();
+
             main_book_list.Deselect_All_Infos();
             main_book_list.Draw_All_Books();
             book_search_list.Delete_All_List();
@@ -505,12 +524,14 @@ namespace Microwave_v1._0
             pnl_department.Hide();
             pnl_receipt.Hide();
             pnl_shelf.Hide();
+            pnl_categories.Hide();
             btn_show_search_types.Show();
             tb_search_book.Hide();
             tb_search_user.Show();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
+            tb_search_category.Hide();
 
 
             main_user_list.Deselect_All_Infos();
@@ -532,6 +553,7 @@ namespace Microwave_v1._0
             pnl_department.Hide();
             pnl_receipt.Hide();
             pnl_authors.Show();
+            pnl_categories.Hide();
             pnl_shelf.Hide();
             btn_show_search_types.Show();
             tb_search_book.Hide();
@@ -539,6 +561,8 @@ namespace Microwave_v1._0
             tb_search_author.Show();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
+            tb_search_category.Hide();
+
 
             main_author_list.Deselect_All_Infos();
             author_search_list.Delete_All_List();
@@ -560,12 +584,14 @@ namespace Microwave_v1._0
             pnl_department.Hide();
             pnl_authors.Hide();
             pnl_receipt.Hide();
+            pnl_categories.Hide();
             pnl_shelf.Hide();
             btn_show_search_types.Show();
             tb_search_book.Hide();
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_receipt.Hide();
+            tb_search_category.Hide();
             tb_search_publisher.Show();
 
 
@@ -591,14 +617,16 @@ namespace Microwave_v1._0
             pnl_receipt.Hide();
             pnl_department.Show();
             pnl_shelf.Hide();
+            pnl_categories.Hide();
             btn_show_search_types.Hide();
             tb_search_book.Hide();
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
+            tb_search_category.Hide();
             tb_search_receipt.Hide();
 
-           
+
 
             main_department_list.Deselect_All_Infos();
 
@@ -617,6 +645,7 @@ namespace Microwave_v1._0
             pnl_authors.Hide();
             pnl_department.Hide();
             pnl_receipt.Show();
+            pnl_categories.Hide();
             pnl_shelf.Hide();
             btn_show_search_types.Show();
             tb_search_book.Hide();
@@ -624,6 +653,7 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Show();
+            tb_search_category.Hide();
 
             main_receipt_list.Deselect_All_Infos();
             receipt_search_list.Delete_All_List();
@@ -631,15 +661,6 @@ namespace Microwave_v1._0
             this.tb_search_receipt.Text = "Search a receipt";
 
         }
-        private void btn_about_us_Click(object sender, EventArgs e)
-        {
-            chosen = MENU_CHOSEN.ABOUT_US;
-            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_about.Location.Y);
-            pnl_stick.Show();
-
-
-        }
-
         private void btn_shelf_Click(object sender, EventArgs e)
         {
             chosen = MENU_CHOSEN.SHELF;
@@ -652,19 +673,44 @@ namespace Microwave_v1._0
             pnl_user.Hide();
             pnl_authors.Hide();
             pnl_department.Hide();
+            pnl_categories.Hide();
             pnl_receipt.Hide();
             btn_show_search_types.Hide();
             tb_search_book.Hide();
             tb_search_user.Hide();
             tb_search_author.Hide();
             tb_search_publisher.Hide();
+            tb_search_category.Hide();
             tb_search_receipt.Hide();
             pnl_shelf.Show();
           
 
 
         }
+        private void btn_categories_Click(object sender, EventArgs e)
+        {
+            chosen = MENU_CHOSEN.CATEGORY;
 
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_categories.Location.Y);
+            pnl_stick.Show();
+            pnl_pub.Hide();
+            pnl_book.Hide();
+            pnl_tag.Hide();
+            pnl_user.Hide();
+            pnl_authors.Hide();
+            pnl_department.Hide();
+            pnl_receipt.Hide();
+            pnl_shelf.Hide();
+            pnl_categories.Show();
+            btn_show_search_types.Hide();
+            tb_search_book.Hide();
+            tb_search_user.Hide();
+            tb_search_author.Hide();
+            tb_search_publisher.Hide();
+            tb_search_receipt.Hide();
+            tb_search_category.Show();
+
+        }
         private void General_Click(object sender, EventArgs e)
         {
             this.lb_book_search.Hide();
@@ -672,8 +718,17 @@ namespace Microwave_v1._0
             this.lb_user_search.Hide();
             this.lb_author_search.Hide();
             this.lb_receipt_search.Hide();
+            this.lb_category_search.Hide();
             this.pic_logo.Focus();
             this.pic_logo.Select();
+        }
+        private void btn_about_us_Click(object sender, EventArgs e)
+        {
+            chosen = MENU_CHOSEN.ABOUT_US;
+            pnl_stick.Location = new Point(pnl_stick.Location.X, btn_about.Location.Y);
+            pnl_stick.Show();
+
+
         }
 
         public void Remove_Image_From_Cover_List(int book_id)
@@ -1621,6 +1676,150 @@ namespace Microwave_v1._0
                 if (lb_user_search.Items.Contains(item))
                     continue;
                 lb_user_search.Items.Add(item);
+            }
+        }
+        // Searching events for category
+        private void tb_search_category_Enter(object sender, EventArgs e)
+        {
+            if (tb_search_category.Text == "Search a category")
+            {
+                tb_search_category.Text = "";
+            }
+
+            if (lb_category_search.Items.Count > 0)
+                lb_category_search.Show();
+
+            tb_search_author.ForeColor = Color.LightGray;
+        }
+        private void tb_search_category_Leave(object sender, EventArgs e)
+        {
+            if (tb_search_category.Text == "")
+            {
+                tb_search_category.Text = "Search a category";
+                tb_search_category.ForeColor = Color.Gray;
+            }
+        }
+        private void tb_search_category_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                if (lb_category_search.Items.Count > 0)
+                {
+                    lb_category_search.Select();
+                    lb_category_search.SelectedIndex = 0;
+                }
+            }
+        }
+        private void tb_search_category_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = tb_search_category.Text;
+
+            if (e.KeyChar == (char)Keys.Enter && !category_searched_already)
+            {
+                lb_category_search.Hide();
+                if (tb_search_category.Text == "")
+                {
+                    return;
+                }
+                main_category_list.Hide_All_Category_Objects();
+                category_search_list.Delete_All_List();
+                this.pnl_categories_list.VerticalScroll.Value = 0;
+
+
+                category_search_list.Fill_Category_List(Category.Search_Category_By_Name(text)); ;
+                category_search_list.Draw_All_Categories();
+                category_searched_already = true;
+                return;
+            }
+        }
+        private void tb_search_category_TextChanged(object sender, EventArgs e)
+        {
+            string text = tb_search_category.Text.Trim();
+            category_searched_already = false;
+
+            if (chosen == MENU_CHOSEN.CATEGORY)
+            {
+                if (text == "")
+                {
+                    lb_category_search.Hide();
+                    lb_category_search.Items.Clear();
+
+                    category_search_list.Delete_All_List();
+                    main_category_list.Draw_All_Categories();
+                    return;
+                }
+                if (text == "Search a category")
+                {
+                    category_search_list.Delete_All_List();
+                    main_category_list.Draw_All_Categories();
+                    return;
+                }
+                else
+                {
+                    this.pnl_categories_list.VerticalScroll.Value = 0;
+
+
+                    string query = string.Format("Select Categories.NAME From Categories Where Categories.NAME Like '{0}%'", text);
+                    Fill_Category_Search_List_Box(query);
+                    if (lb_category_search.Items.Count > 0)
+                        lb_category_search.Show();
+                    return;
+
+                }
+
+            }
+
+        }
+
+        private void lb_category_search_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
+            {
+                if (e.KeyChar == (char)Keys.Back)
+                    tb_search_category.Text = tb_search_category.Text.Remove(tb_search_category.Text.Length - 1, 1);
+                else
+                    tb_search_category.Text += e.KeyChar;
+                tb_search_category.Focus();
+                tb_search_category.Select(tb_search_category.Text.Length, 0);
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                tb_search_category.Focus();
+                if (lb_category_search.SelectedItem != null)
+                    tb_search_category.Text = lb_category_search.SelectedItem.ToString();
+                tb_search_category.Select(tb_search_category.Text.Length, 0);
+            }
+
+        }
+        private void lb_category_search_Leave(object sender, EventArgs e)
+        {
+            lb_category_search.Hide();
+        }
+        private void lb_category_search_DoubleClick(object sender, EventArgs e)
+        {
+            tb_search_category.Focus();
+            if (lb_category_search.SelectedItem != null)
+                tb_search_category.Text = lb_category_search.SelectedItem.ToString();
+            tb_search_category.Select(tb_search_category.Text.Length, 0);
+        }
+        private void Fill_Category_Search_List_Box(string query)
+
+        {
+            lb_category_search.Items.Clear();
+
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 0)
+                return;
+
+            for (int i = 0; i < rows_count; i++)
+            {
+                string item = dt.Rows[i][0].ToString();
+                if (lb_category_search.Items.Contains(item))
+                    continue;
+                lb_category_search.Items.Add(item);
             }
         }
 

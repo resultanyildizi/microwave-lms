@@ -16,7 +16,7 @@ namespace Microwave_v1._0.Forms
 {
     public enum SELECTED
     {
-        BOOK = 0, USER, AUTHOR, PUBLISHER, EMPLOYEE
+        BOOK = 0, USER, AUTHOR, PUBLISHER, EMPLOYEE, CATEGORY
     }
     public partial class Detail : Form
     {
@@ -27,6 +27,8 @@ namespace Microwave_v1._0.Forms
         Employee employee = null;
         Book book = null;
         Author author = null;
+        Category category = null;
+
 
         AddBook edit_book = null;
         AddAuthor edit_author = null;
@@ -258,6 +260,46 @@ namespace Microwave_v1._0.Forms
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
 
             choise = SELECTED.EMPLOYEE;
+
+        }
+        public Detail(Category category)
+        {
+            InitializeComponent();
+
+            this.category = category;
+
+            DataTable dt = Book.Show_All_Books(category);
+            dgw_users.DataSource = dt;
+
+            this.btn_give_book.Hide();
+            this.btn_give_penalty.Hide();
+            this.btn_return_book.Hide();
+
+            this.btn_id.Text = category.Category_id.ToString();
+            this.lbl_date.Hide();
+
+            this.lbl_name.Text = category.Category_name;
+
+            this.lbl_1.Text = "";
+            this.lbl_2.Text = "";
+            this.lbl_3.Text = "";
+            this.lbl_4.Text = "";
+            this.lbl_5.Hide();
+            this.lbl_6.Hide();
+
+            this.lbl_desc.Text = "Books in " + category.Category_name + " category : ";
+
+            this.tb_1.Hide();
+            this.tb_2.Hide();
+            this.tb_3.Hide();
+            this.tb_4.Hide();
+            this.tb_5.Hide();
+            this.tb_6.Hide();
+            this.tb_7.Hide();
+
+            picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(category.Category_cover_path_file);
+
+            choise = SELECTED.CATEGORY;
 
         }
 

@@ -265,3 +265,7 @@ C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Book_Info_For_Shelf.resources
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Book_Info_For_Shelf.resources
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Shelf_Info.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddCategory.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Book_Info_For_Shelf.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Category_Info.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Shelf_Info.resources

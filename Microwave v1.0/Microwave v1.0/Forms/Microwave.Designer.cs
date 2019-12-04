@@ -44,12 +44,14 @@ namespace Microwave_v1._0
             this.btn_user = new System.Windows.Forms.Button();
             this.pnl_stick = new System.Windows.Forms.Panel();
             this.btn_book = new System.Windows.Forms.Button();
+            this.btn_categories = new System.Windows.Forms.Button();
             this.pic_logo = new System.Windows.Forms.PictureBox();
             this.lbl_logo = new System.Windows.Forms.Label();
             this.lbl_logo_lms = new System.Windows.Forms.Label();
             this.pnl_header = new System.Windows.Forms.Panel();
             this.btn_show_search_types = new System.Windows.Forms.Button();
             this.btn_profil = new System.Windows.Forms.Button();
+            this.tb_search_category = new System.Windows.Forms.TextBox();
             this.btn_settings = new System.Windows.Forms.Button();
             this.tb_search_receipt = new System.Windows.Forms.TextBox();
             this.tb_search_user = new System.Windows.Forms.TextBox();
@@ -150,6 +152,11 @@ namespace Microwave_v1._0
             this.lbl_shelf_title = new System.Windows.Forms.Label();
             this.pnl_shelf_stick = new System.Windows.Forms.Panel();
             this.pnl_shelf_list = new System.Windows.Forms.Panel();
+            this.pnl_categories = new System.Windows.Forms.Panel();
+            this.lb_category_search = new System.Windows.Forms.ListBox();
+            this.lbl_categories_title = new System.Windows.Forms.Label();
+            this.pnl_categories_stick = new System.Windows.Forms.Panel();
+            this.pnl_categories_list = new System.Windows.Forms.Panel();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -168,6 +175,7 @@ namespace Microwave_v1._0
             this.pnl_receipt.SuspendLayout();
             this.pnl_receipt_st.SuspendLayout();
             this.pnl_shelf.SuspendLayout();
+            this.pnl_categories.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_left
@@ -199,6 +207,7 @@ namespace Microwave_v1._0
             this.pnl_menu.Controls.Add(this.btn_user);
             this.pnl_menu.Controls.Add(this.pnl_stick);
             this.pnl_menu.Controls.Add(this.btn_book);
+            this.pnl_menu.Controls.Add(this.btn_categories);
             this.pnl_menu.Location = new System.Drawing.Point(0, 106);
             this.pnl_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_menu.Name = "pnl_menu";
@@ -217,7 +226,7 @@ namespace Microwave_v1._0
             this.btn_shelf.ForeColor = System.Drawing.Color.White;
             this.btn_shelf.Image = ((System.Drawing.Image)(resources.GetObject("btn_shelf.Image")));
             this.btn_shelf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_shelf.Location = new System.Drawing.Point(29, 310);
+            this.btn_shelf.Location = new System.Drawing.Point(29, 302);
             this.btn_shelf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_shelf.Name = "btn_shelf";
             this.btn_shelf.Size = new System.Drawing.Size(160, 34);
@@ -237,7 +246,7 @@ namespace Microwave_v1._0
             this.btn_department.ForeColor = System.Drawing.Color.White;
             this.btn_department.Image = ((System.Drawing.Image)(resources.GetObject("btn_department.Image")));
             this.btn_department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_department.Location = new System.Drawing.Point(29, 214);
+            this.btn_department.Location = new System.Drawing.Point(29, 208);
             this.btn_department.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_department.Name = "btn_department";
             this.btn_department.Size = new System.Drawing.Size(160, 34);
@@ -257,7 +266,7 @@ namespace Microwave_v1._0
             this.btn_publisher.ForeColor = System.Drawing.Color.White;
             this.btn_publisher.Image = ((System.Drawing.Image)(resources.GetObject("btn_publisher.Image")));
             this.btn_publisher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_publisher.Location = new System.Drawing.Point(29, 166);
+            this.btn_publisher.Location = new System.Drawing.Point(29, 161);
             this.btn_publisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_publisher.Name = "btn_publisher";
             this.btn_publisher.Size = new System.Drawing.Size(160, 34);
@@ -277,7 +286,7 @@ namespace Microwave_v1._0
             this.btn_author.ForeColor = System.Drawing.Color.White;
             this.btn_author.Image = ((System.Drawing.Image)(resources.GetObject("btn_author.Image")));
             this.btn_author.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_author.Location = new System.Drawing.Point(29, 117);
+            this.btn_author.Location = new System.Drawing.Point(29, 114);
             this.btn_author.Margin = new System.Windows.Forms.Padding(2);
             this.btn_author.Name = "btn_author";
             this.btn_author.Size = new System.Drawing.Size(160, 34);
@@ -297,7 +306,7 @@ namespace Microwave_v1._0
             this.btn_about.ForeColor = System.Drawing.Color.White;
             this.btn_about.Image = ((System.Drawing.Image)(resources.GetObject("btn_about.Image")));
             this.btn_about.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_about.Location = new System.Drawing.Point(29, 355);
+            this.btn_about.Location = new System.Drawing.Point(29, 396);
             this.btn_about.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_about.Name = "btn_about";
             this.btn_about.Size = new System.Drawing.Size(160, 34);
@@ -332,7 +341,7 @@ namespace Microwave_v1._0
             this.btn_receipt.ForeColor = System.Drawing.Color.White;
             this.btn_receipt.Image = ((System.Drawing.Image)(resources.GetObject("btn_receipt.Image")));
             this.btn_receipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_receipt.Location = new System.Drawing.Point(29, 263);
+            this.btn_receipt.Location = new System.Drawing.Point(29, 255);
             this.btn_receipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_receipt.Name = "btn_receipt";
             this.btn_receipt.Size = new System.Drawing.Size(160, 34);
@@ -352,7 +361,7 @@ namespace Microwave_v1._0
             this.btn_user.ForeColor = System.Drawing.Color.White;
             this.btn_user.Image = ((System.Drawing.Image)(resources.GetObject("btn_user.Image")));
             this.btn_user.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_user.Location = new System.Drawing.Point(29, 68);
+            this.btn_user.Location = new System.Drawing.Point(29, 67);
             this.btn_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_user.Name = "btn_user";
             this.btn_user.Size = new System.Drawing.Size(160, 34);
@@ -364,7 +373,7 @@ namespace Microwave_v1._0
             // pnl_stick
             // 
             this.pnl_stick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.pnl_stick.Location = new System.Drawing.Point(-1, 18);
+            this.pnl_stick.Location = new System.Drawing.Point(-1, 20);
             this.pnl_stick.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_stick.Name = "pnl_stick";
             this.pnl_stick.Size = new System.Drawing.Size(8, 34);
@@ -389,6 +398,26 @@ namespace Microwave_v1._0
             this.btn_book.Text = "Book";
             this.btn_book.UseVisualStyleBackColor = true;
             this.btn_book.Click += new System.EventHandler(this.btn_book_Click);
+            // 
+            // btn_categories
+            // 
+            this.btn_categories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_categories.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_categories.FlatAppearance.BorderSize = 0;
+            this.btn_categories.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_categories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_categories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_categories.ForeColor = System.Drawing.Color.White;
+            this.btn_categories.Image = ((System.Drawing.Image)(resources.GetObject("btn_categories.Image")));
+            this.btn_categories.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_categories.Location = new System.Drawing.Point(29, 349);
+            this.btn_categories.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btn_categories.Name = "btn_categories";
+            this.btn_categories.Size = new System.Drawing.Size(160, 34);
+            this.btn_categories.TabIndex = 11;
+            this.btn_categories.Text = "     Categories";
+            this.btn_categories.UseVisualStyleBackColor = true;
+            this.btn_categories.Click += new System.EventHandler(this.btn_categories_Click);
             // 
             // pic_logo
             // 
@@ -435,6 +464,7 @@ namespace Microwave_v1._0
             this.pnl_header.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_header.Controls.Add(this.btn_show_search_types);
             this.pnl_header.Controls.Add(this.btn_profil);
+            this.pnl_header.Controls.Add(this.tb_search_category);
             this.pnl_header.Controls.Add(this.btn_settings);
             this.pnl_header.Controls.Add(this.tb_search_receipt);
             this.pnl_header.Controls.Add(this.tb_search_user);
@@ -480,6 +510,23 @@ namespace Microwave_v1._0
             this.btn_profil.Size = new System.Drawing.Size(42, 29);
             this.btn_profil.TabIndex = 2;
             this.btn_profil.UseVisualStyleBackColor = true;
+            // 
+            // tb_search_category
+            // 
+            this.tb_search_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_category.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_category.Location = new System.Drawing.Point(300, 8);
+            this.tb_search_category.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.tb_search_category.Name = "tb_search_category";
+            this.tb_search_category.Size = new System.Drawing.Size(235, 24);
+            this.tb_search_category.TabIndex = 69;
+            this.tb_search_category.Text = "Search a category";
+            this.tb_search_category.TextChanged += new System.EventHandler(this.tb_search_category_TextChanged);
+            this.tb_search_category.Enter += new System.EventHandler(this.tb_search_category_Enter);
+            this.tb_search_category.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_search_category_KeyDown);
+            this.tb_search_category.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_search_category_KeyPress);
+            this.tb_search_category.Leave += new System.EventHandler(this.tb_search_category_Leave);
             // 
             // btn_settings
             // 
@@ -1759,6 +1806,66 @@ namespace Microwave_v1._0
             this.pnl_shelf_list.Size = new System.Drawing.Size(775, 410);
             this.pnl_shelf_list.TabIndex = 14;
             // 
+            // pnl_categories
+            // 
+            this.pnl_categories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_categories.Controls.Add(this.lb_category_search);
+            this.pnl_categories.Controls.Add(this.lbl_categories_title);
+            this.pnl_categories.Controls.Add(this.pnl_categories_stick);
+            this.pnl_categories.Controls.Add(this.pnl_categories_list);
+            this.pnl_categories.Location = new System.Drawing.Point(215, 39);
+            this.pnl_categories.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_categories.Name = "pnl_categories";
+            this.pnl_categories.Size = new System.Drawing.Size(795, 570);
+            this.pnl_categories.TabIndex = 24;
+            // 
+            // lb_category_search
+            // 
+            this.lb_category_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.lb_category_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_category_search.ForeColor = System.Drawing.Color.White;
+            this.lb_category_search.FormattingEnabled = true;
+            this.lb_category_search.ItemHeight = 16;
+            this.lb_category_search.Location = new System.Drawing.Point(300, 0);
+            this.lb_category_search.Margin = new System.Windows.Forms.Padding(4);
+            this.lb_category_search.Name = "lb_category_search";
+            this.lb_category_search.Size = new System.Drawing.Size(235, 36);
+            this.lb_category_search.TabIndex = 22;
+            this.lb_category_search.DoubleClick += new System.EventHandler(this.lb_category_search_DoubleClick);
+            this.lb_category_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lb_category_search_KeyPress);
+            this.lb_category_search.Leave += new System.EventHandler(this.lb_category_search_Leave);
+            // 
+            // lbl_categories_title
+            // 
+            this.lbl_categories_title.AutoSize = true;
+            this.lbl_categories_title.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_categories_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_categories_title.ForeColor = System.Drawing.Color.White;
+            this.lbl_categories_title.Location = new System.Drawing.Point(25, 25);
+            this.lbl_categories_title.Name = "lbl_categories_title";
+            this.lbl_categories_title.Size = new System.Drawing.Size(243, 39);
+            this.lbl_categories_title.TabIndex = 4;
+            this.lbl_categories_title.Text = "CATEGORIES";
+            // 
+            // pnl_categories_stick
+            // 
+            this.pnl_categories_stick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.pnl_categories_stick.Location = new System.Drawing.Point(32, 142);
+            this.pnl_categories_stick.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_categories_stick.Name = "pnl_categories_stick";
+            this.pnl_categories_stick.Size = new System.Drawing.Size(728, 1);
+            this.pnl_categories_stick.TabIndex = 7;
+            // 
+            // pnl_categories_list
+            // 
+            this.pnl_categories_list.AutoScroll = true;
+            this.pnl_categories_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
+            this.pnl_categories_list.Location = new System.Drawing.Point(0, 146);
+            this.pnl_categories_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_categories_list.Name = "pnl_categories_list";
+            this.pnl_categories_list.Size = new System.Drawing.Size(775, 410);
+            this.pnl_categories_list.TabIndex = 14;
+            // 
             // Microwave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1768,6 +1875,7 @@ namespace Microwave_v1._0
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_header);
+            this.Controls.Add(this.pnl_categories);
             this.Controls.Add(this.pnl_shelf);
             this.Controls.Add(this.pnl_receipt);
             this.Controls.Add(this.pnl_authors);
@@ -1819,6 +1927,8 @@ namespace Microwave_v1._0
             this.pnl_receipt_st.PerformLayout();
             this.pnl_shelf.ResumeLayout(false);
             this.pnl_shelf.PerformLayout();
+            this.pnl_categories.ResumeLayout(false);
+            this.pnl_categories.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1944,6 +2054,13 @@ namespace Microwave_v1._0
         private Label lbl_shelf_title;
         private Panel pnl_shelf_stick;
         private Panel pnl_shelf_list;
+        private Panel pnl_categories;
+        private Label lbl_categories_title;
+        private Panel pnl_categories_stick;
+        private Panel pnl_categories_list;
+        private Button btn_categories;
+        private ListBox lb_category_search;
+        private TextBox tb_search_category;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
         public Panel Pnl_pub_list { get => pnl_pub_list; set => pnl_pub_list = value; }
@@ -1967,6 +2084,11 @@ namespace Microwave_v1._0
         public Panel Pnl_receipt_list { get => pnl_receipt_list; set => pnl_receipt_list = value; }
         public Panel Pnl_shelf_list { get => pnl_shelf_list; set => pnl_shelf_list = value; }
         public Button Btn_shelf { get => btn_shelf; set => btn_shelf = value; }
+        public Panel Pnl_categories { get => pnl_categories; set => pnl_categories = value; }
+        public Label Lbl_categories_title { get => lbl_categories_title; set => lbl_categories_title = value; }
+        public Panel Pnl_categories_stick { get => pnl_categories_stick; set => pnl_categories_stick = value; }
+        public Panel Pnl_categories_list { get => pnl_categories_list; set => pnl_categories_list = value; }
+        public Button Btn_categories { get => btn_categories; set => btn_categories = value; }
     }
 }
 

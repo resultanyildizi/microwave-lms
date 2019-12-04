@@ -72,8 +72,8 @@ namespace Microwave_v1._0.Model
             book_list.Draw_All_Books_For_Shelf();
         }
 
-        public static string Generate_Shelf_Name() { 
-
+        public static string Generate_Shelf_Name() {
+            return "";
         }
     }
 }
