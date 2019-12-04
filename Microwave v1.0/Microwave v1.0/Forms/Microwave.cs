@@ -485,14 +485,11 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
+        
             main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
-
-
+            main_book_list.Draw_All_Books();
+            book_search_list.Delete_All_List();
+            this.tb_search_book.Text = "Search a book";
         }
         private void btn_users_Click(object sender, EventArgs e)
         {
@@ -514,12 +511,13 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
+
+
             main_user_list.Deselect_All_Infos();
+            main_user_list.Draw_All_Users();
+            user_search_list.Delete_All_List();
+            this.tb_search_user.Text = "Search a user";
+
         }
         private void btn_author_Click(object sender, EventArgs e)
         {
@@ -541,13 +539,11 @@ namespace Microwave_v1._0
             tb_search_author.Show();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
 
+            main_author_list.Deselect_All_Infos();
+            author_search_list.Delete_All_List();
+            main_author_list.Draw_All_Authors();
+            this.tb_search_author.Text = "Search an author";
 
 
         }
@@ -571,12 +567,14 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_receipt.Hide();
             tb_search_publisher.Show();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
+
+
+
             main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
+            publisher_search_list.Delete_All_List();
+            main_pub_list.Draw_All_Publishers();
+            this.tb_search_publisher.Text = "Search a publisher";
+
 
         }
         private void btn_department_Click(object sender, EventArgs e)
@@ -599,12 +597,10 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
-            main_author_list.Deselect_All_Infos();
+
+           
+
             main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
 
 
         }
@@ -628,12 +624,11 @@ namespace Microwave_v1._0
             tb_search_author.Hide();
             tb_search_publisher.Hide();
             tb_search_receipt.Show();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
+
             main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
+            receipt_search_list.Delete_All_List();
+            main_receipt_list.Draw_All_Receipts();
+            this.tb_search_receipt.Text = "Search a receipt";
 
         }
         private void btn_about_us_Click(object sender, EventArgs e)
@@ -641,12 +636,7 @@ namespace Microwave_v1._0
             chosen = MENU_CHOSEN.ABOUT_US;
             pnl_stick.Location = new Point(pnl_stick.Location.X, btn_about.Location.Y);
             pnl_stick.Show();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
+
 
         }
 
@@ -670,12 +660,8 @@ namespace Microwave_v1._0
             tb_search_publisher.Hide();
             tb_search_receipt.Hide();
             pnl_shelf.Show();
-            main_author_list.Deselect_All_Infos();
-            main_department_list.Deselect_All_Infos();
-            main_pub_list.Deselect_All_Infos();
-            main_receipt_list.Deselect_All_Infos();
-            main_book_list.Deselect_All_Infos();
-            main_user_list.Deselect_All_Infos();
+          
+
 
         }
 
