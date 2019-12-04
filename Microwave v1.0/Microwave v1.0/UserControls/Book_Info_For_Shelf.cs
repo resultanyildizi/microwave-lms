@@ -34,6 +34,23 @@ namespace Microwave_v1._0.UserControls
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
             main_shelf_list = main_page.Main_shelf_list;
+
+            Random random = new Random();
+            int pic_num = random.Next(0,60);
+            
+            if(pic_num <= 10)
+                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b1;
+            else if(pic_num <= 20)
+                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b2;
+            else if(pic_num <= 30)
+                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b3;
+            else if(pic_num <= 40)
+                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b4;
+            else if(pic_num <= 50)
+                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b5;
+            else
+                this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b6;
+
         }
 
         public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string category, string shelf, string date, int count, string description)
@@ -44,7 +61,6 @@ namespace Microwave_v1._0.UserControls
             this.book_name = name;
             this.shelf = shelf;
             this.category = category;
-            this.btn_book_name.Text = name;
         }
     }
 }

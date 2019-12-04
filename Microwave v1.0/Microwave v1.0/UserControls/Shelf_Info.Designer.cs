@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shelf_Info));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_shelf = new System.Windows.Forms.Panel();
             this.btn_shelf_id = new System.Windows.Forms.Button();
             this.pnl_name = new System.Windows.Forms.Panel();
             this.lbl_name = new System.Windows.Forms.Label();
             this.pnl_name.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnl_shelf
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.panel1.Location = new System.Drawing.Point(9, 103);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 5);
-            this.panel1.TabIndex = 0;
+            this.pnl_shelf.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.pnl_shelf.Location = new System.Drawing.Point(9, 103);
+            this.pnl_shelf.Name = "pnl_shelf";
+            this.pnl_shelf.Size = new System.Drawing.Size(695, 5);
+            this.pnl_shelf.TabIndex = 0;
             // 
             // btn_shelf_id
             // 
@@ -94,7 +94,7 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.btn_shelf_id);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_shelf);
             this.Name = "Shelf_Info";
             this.Size = new System.Drawing.Size(713, 122);
             this.Load += new System.EventHandler(this.Shelf_Info_Load);
@@ -105,7 +105,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_shelf;
         private System.Windows.Forms.Button btn_shelf_id;
         private System.Windows.Forms.Panel pnl_name;
         private System.Windows.Forms.Label lbl_name;

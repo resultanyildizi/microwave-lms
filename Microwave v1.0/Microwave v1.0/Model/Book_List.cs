@@ -120,6 +120,20 @@ namespace Microwave_v1._0
                 iterator = iterator.next;
             }
         }
+
+        public void Draw_All_Books_For_Shelf()
+        {
+            Book.point_y = 5;
+
+            book_node iterator = root;
+            while (iterator != null)
+            {
+                iterator.book.Info.Draw_Book_Obj(ref Book.point_y);
+                iterator.book.Info.Show();
+                iterator = iterator.next;
+            }
+        }
+
         public void Hide_All_Book_Objects()
         {
             book_node iterator = root;
