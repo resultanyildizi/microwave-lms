@@ -541,7 +541,7 @@ namespace Microwave_v1._0.Forms
                 }
 
                 if (main_page.Warning_form.Result)
-                    publisher.pub_info.Remove();
+                    publisher.pub_info.Remove(delete_pic);
 
                 main_page.Warning_form.Refresh_Form();
 
