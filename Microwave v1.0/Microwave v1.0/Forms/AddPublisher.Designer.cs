@@ -194,12 +194,13 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_phone_num.ForeColor = System.Drawing.Color.DimGray;
             this.tb_pub_phone_num.Location = new System.Drawing.Point(135, 103);
             this.tb_pub_phone_num.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_pub_phone_num.MaxLength = 11;
             this.tb_pub_phone_num.Name = "tb_pub_phone_num";
             this.tb_pub_phone_num.Size = new System.Drawing.Size(206, 23);
             this.tb_pub_phone_num.TabIndex = 31;
             this.tb_pub_phone_num.Text = "Publisher\'s Phone Number";
             this.tb_pub_phone_num.Enter += new System.EventHandler(this.tb_pub_phone_num_Enter);
-            this.tb_pub_phone_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_add_KeyPress);
+            this.tb_pub_phone_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_pub_phone_num_KeyPress);
             this.tb_pub_phone_num.Leave += new System.EventHandler(this.tb_pub_phone_num_Leave);
             // 
             // AddPublisher

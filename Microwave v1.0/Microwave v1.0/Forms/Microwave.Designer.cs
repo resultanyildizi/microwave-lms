@@ -34,6 +34,7 @@ namespace Microwave_v1._0
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Microwave));
             this.pnl_left = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.btn_shelf = new System.Windows.Forms.Button();
             this.btn_department = new System.Windows.Forms.Button();
             this.btn_publisher = new System.Windows.Forms.Button();
             this.btn_author = new System.Windows.Forms.Button();
@@ -50,11 +51,11 @@ namespace Microwave_v1._0
             this.btn_show_search_types = new System.Windows.Forms.Button();
             this.btn_profil = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
-            this.tb_search_author = new System.Windows.Forms.TextBox();
-            this.tb_search_book = new System.Windows.Forms.TextBox();
             this.tb_search_receipt = new System.Windows.Forms.TextBox();
             this.tb_search_user = new System.Windows.Forms.TextBox();
             this.tb_search_publisher = new System.Windows.Forms.TextBox();
+            this.tb_search_author = new System.Windows.Forms.TextBox();
+            this.tb_search_book = new System.Windows.Forms.TextBox();
             this.pnl_authors = new System.Windows.Forms.Panel();
             this.lbl_author_title = new System.Windows.Forms.Label();
             this.lbl_authors_name = new System.Windows.Forms.Label();
@@ -138,13 +139,17 @@ namespace Microwave_v1._0
             this.pnl_receipt_list = new System.Windows.Forms.Panel();
             this.lb_receipt_search = new System.Windows.Forms.ListBox();
             this.pnl_receipt_st = new System.Windows.Forms.Panel();
+            this.rb_receipt_date = new System.Windows.Forms.RadioButton();
+            this.rb_receipt_l_name = new System.Windows.Forms.RadioButton();
+            this.rb_receipt_b_name = new System.Windows.Forms.RadioButton();
+            this.rb_receipt_u_name = new System.Windows.Forms.RadioButton();
+            this.rb_receipt_id = new System.Windows.Forms.RadioButton();
             this.search_by_2 = new System.Windows.Forms.Label();
             this.rb_receipt_name = new System.Windows.Forms.RadioButton();
-            this.rb_receipt_id = new System.Windows.Forms.RadioButton();
-            this.rb_receipt_u_name = new System.Windows.Forms.RadioButton();
-            this.rb_receipt_b_name = new System.Windows.Forms.RadioButton();
-            this.rb_receipt_l_name = new System.Windows.Forms.RadioButton();
-            this.rb_receipt_date = new System.Windows.Forms.RadioButton();
+            this.pnl_shelf = new System.Windows.Forms.Panel();
+            this.lbl_shelf_title = new System.Windows.Forms.Label();
+            this.pnl_shelf_stick = new System.Windows.Forms.Panel();
+            this.pnl_shelf_list = new System.Windows.Forms.Panel();
             this.pnl_left.SuspendLayout();
             this.pnl_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -162,6 +167,7 @@ namespace Microwave_v1._0
             ((System.ComponentModel.ISupportInitialize)(this.pb_welcome_logo)).BeginInit();
             this.pnl_receipt.SuspendLayout();
             this.pnl_receipt_st.SuspendLayout();
+            this.pnl_shelf.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_left
@@ -183,6 +189,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.pnl_menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_menu.Controls.Add(this.btn_shelf);
             this.pnl_menu.Controls.Add(this.btn_department);
             this.pnl_menu.Controls.Add(this.btn_publisher);
             this.pnl_menu.Controls.Add(this.btn_author);
@@ -198,6 +205,26 @@ namespace Microwave_v1._0
             this.pnl_menu.Size = new System.Drawing.Size(216, 502);
             this.pnl_menu.TabIndex = 9;
             this.pnl_menu.Click += new System.EventHandler(this.General_Click);
+            // 
+            // btn_shelf
+            // 
+            this.btn_shelf.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_shelf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_shelf.FlatAppearance.BorderSize = 0;
+            this.btn_shelf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_shelf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_shelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_shelf.ForeColor = System.Drawing.Color.White;
+            this.btn_shelf.Image = ((System.Drawing.Image)(resources.GetObject("btn_shelf.Image")));
+            this.btn_shelf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_shelf.Location = new System.Drawing.Point(29, 310);
+            this.btn_shelf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_shelf.Name = "btn_shelf";
+            this.btn_shelf.Size = new System.Drawing.Size(160, 34);
+            this.btn_shelf.TabIndex = 10;
+            this.btn_shelf.Text = "Shelf";
+            this.btn_shelf.UseVisualStyleBackColor = true;
+            this.btn_shelf.Click += new System.EventHandler(this.btn_shelf_Click);
             // 
             // btn_department
             // 
@@ -270,7 +297,7 @@ namespace Microwave_v1._0
             this.btn_about.ForeColor = System.Drawing.Color.White;
             this.btn_about.Image = ((System.Drawing.Image)(resources.GetObject("btn_about.Image")));
             this.btn_about.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_about.Location = new System.Drawing.Point(29, 312);
+            this.btn_about.Location = new System.Drawing.Point(29, 355);
             this.btn_about.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_about.Name = "btn_about";
             this.btn_about.Size = new System.Drawing.Size(160, 34);
@@ -468,40 +495,6 @@ namespace Microwave_v1._0
             this.btn_settings.TabIndex = 1;
             this.btn_settings.UseVisualStyleBackColor = true;
             // 
-            // tb_search_author
-            // 
-            this.tb_search_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_search_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_search_author.ForeColor = System.Drawing.Color.Gray;
-            this.tb_search_author.Location = new System.Drawing.Point(300, 8);
-            this.tb_search_author.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_search_author.Name = "tb_search_author";
-            this.tb_search_author.Size = new System.Drawing.Size(235, 24);
-            this.tb_search_author.TabIndex = 66;
-            this.tb_search_author.Text = "Search an author";
-            this.tb_search_author.TextChanged += new System.EventHandler(this.tb_search_author_TextChanged);
-            this.tb_search_author.Enter += new System.EventHandler(this.tb_search_author_Enter);
-            this.tb_search_author.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_search_author_KeyDown);
-            this.tb_search_author.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_search_author_KeyPress);
-            this.tb_search_author.Leave += new System.EventHandler(this.tb_search_author_Leave);
-            // 
-            // tb_search_book
-            // 
-            this.tb_search_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.tb_search_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_search_book.ForeColor = System.Drawing.Color.Gray;
-            this.tb_search_book.Location = new System.Drawing.Point(300, 8);
-            this.tb_search_book.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_search_book.Name = "tb_search_book";
-            this.tb_search_book.Size = new System.Drawing.Size(235, 24);
-            this.tb_search_book.TabIndex = 63;
-            this.tb_search_book.Text = "Search a book";
-            this.tb_search_book.TextChanged += new System.EventHandler(this.Tb_search_book_TextChanged);
-            this.tb_search_book.Enter += new System.EventHandler(this.Tb_search_Enter);
-            this.tb_search_book.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_search_book_KeyDown);
-            this.tb_search_book.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_search_book_KeyPress);
-            this.tb_search_book.Leave += new System.EventHandler(this.Tb_search_Leave);
-            // 
             // tb_search_receipt
             // 
             this.tb_search_receipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
@@ -552,6 +545,40 @@ namespace Microwave_v1._0
             this.tb_search_publisher.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_search_publisher_KeyDown);
             this.tb_search_publisher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_search_publisher_KeyPress);
             this.tb_search_publisher.Leave += new System.EventHandler(this.Tb_search_Leave);
+            // 
+            // tb_search_author
+            // 
+            this.tb_search_author.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_author.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_author.Location = new System.Drawing.Point(300, 8);
+            this.tb_search_author.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_author.Name = "tb_search_author";
+            this.tb_search_author.Size = new System.Drawing.Size(235, 24);
+            this.tb_search_author.TabIndex = 66;
+            this.tb_search_author.Text = "Search an author";
+            this.tb_search_author.TextChanged += new System.EventHandler(this.tb_search_author_TextChanged);
+            this.tb_search_author.Enter += new System.EventHandler(this.tb_search_author_Enter);
+            this.tb_search_author.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_search_author_KeyDown);
+            this.tb_search_author.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_search_author_KeyPress);
+            this.tb_search_author.Leave += new System.EventHandler(this.tb_search_author_Leave);
+            // 
+            // tb_search_book
+            // 
+            this.tb_search_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
+            this.tb_search_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_search_book.ForeColor = System.Drawing.Color.Gray;
+            this.tb_search_book.Location = new System.Drawing.Point(300, 8);
+            this.tb_search_book.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_search_book.Name = "tb_search_book";
+            this.tb_search_book.Size = new System.Drawing.Size(235, 24);
+            this.tb_search_book.TabIndex = 63;
+            this.tb_search_book.Text = "Search a book";
+            this.tb_search_book.TextChanged += new System.EventHandler(this.Tb_search_book_TextChanged);
+            this.tb_search_book.Enter += new System.EventHandler(this.Tb_search_Enter);
+            this.tb_search_book.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_search_book_KeyDown);
+            this.tb_search_book.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_search_book_KeyPress);
+            this.tb_search_book.Leave += new System.EventHandler(this.Tb_search_Leave);
             // 
             // pnl_authors
             // 
@@ -1593,6 +1620,76 @@ namespace Microwave_v1._0
             this.pnl_receipt_st.Size = new System.Drawing.Size(261, 116);
             this.pnl_receipt_st.TabIndex = 19;
             // 
+            // rb_receipt_date
+            // 
+            this.rb_receipt_date.AutoSize = true;
+            this.rb_receipt_date.ForeColor = System.Drawing.Color.White;
+            this.rb_receipt_date.Location = new System.Drawing.Point(133, 42);
+            this.rb_receipt_date.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_receipt_date.Name = "rb_receipt_date";
+            this.rb_receipt_date.Size = new System.Drawing.Size(90, 17);
+            this.rb_receipt_date.TabIndex = 12;
+            this.rb_receipt_date.TabStop = true;
+            this.rb_receipt_date.Text = "Creation Date";
+            this.rb_receipt_date.UseVisualStyleBackColor = true;
+            this.rb_receipt_date.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            // 
+            // rb_receipt_l_name
+            // 
+            this.rb_receipt_l_name.AutoSize = true;
+            this.rb_receipt_l_name.ForeColor = System.Drawing.Color.White;
+            this.rb_receipt_l_name.Location = new System.Drawing.Point(133, 20);
+            this.rb_receipt_l_name.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_receipt_l_name.Name = "rb_receipt_l_name";
+            this.rb_receipt_l_name.Size = new System.Drawing.Size(96, 17);
+            this.rb_receipt_l_name.TabIndex = 11;
+            this.rb_receipt_l_name.TabStop = true;
+            this.rb_receipt_l_name.Text = "Librarian Name";
+            this.rb_receipt_l_name.UseVisualStyleBackColor = true;
+            this.rb_receipt_l_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            // 
+            // rb_receipt_b_name
+            // 
+            this.rb_receipt_b_name.AutoSize = true;
+            this.rb_receipt_b_name.ForeColor = System.Drawing.Color.White;
+            this.rb_receipt_b_name.Location = new System.Drawing.Point(5, 83);
+            this.rb_receipt_b_name.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_receipt_b_name.Name = "rb_receipt_b_name";
+            this.rb_receipt_b_name.Size = new System.Drawing.Size(81, 17);
+            this.rb_receipt_b_name.TabIndex = 10;
+            this.rb_receipt_b_name.TabStop = true;
+            this.rb_receipt_b_name.Text = "Book Name";
+            this.rb_receipt_b_name.UseVisualStyleBackColor = true;
+            this.rb_receipt_b_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            // 
+            // rb_receipt_u_name
+            // 
+            this.rb_receipt_u_name.AutoSize = true;
+            this.rb_receipt_u_name.ForeColor = System.Drawing.Color.White;
+            this.rb_receipt_u_name.Location = new System.Drawing.Point(5, 62);
+            this.rb_receipt_u_name.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_receipt_u_name.Name = "rb_receipt_u_name";
+            this.rb_receipt_u_name.Size = new System.Drawing.Size(78, 17);
+            this.rb_receipt_u_name.TabIndex = 9;
+            this.rb_receipt_u_name.TabStop = true;
+            this.rb_receipt_u_name.Text = "User Name";
+            this.rb_receipt_u_name.UseVisualStyleBackColor = true;
+            this.rb_receipt_u_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            // 
+            // rb_receipt_id
+            // 
+            this.rb_receipt_id.AutoSize = true;
+            this.rb_receipt_id.ForeColor = System.Drawing.Color.White;
+            this.rb_receipt_id.Location = new System.Drawing.Point(5, 41);
+            this.rb_receipt_id.Margin = new System.Windows.Forms.Padding(2);
+            this.rb_receipt_id.Name = "rb_receipt_id";
+            this.rb_receipt_id.Size = new System.Drawing.Size(36, 17);
+            this.rb_receipt_id.TabIndex = 8;
+            this.rb_receipt_id.TabStop = true;
+            this.rb_receipt_id.Text = "ID";
+            this.rb_receipt_id.UseVisualStyleBackColor = true;
+            this.rb_receipt_id.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            // 
             // search_by_2
             // 
             this.search_by_2.AutoSize = true;
@@ -1618,75 +1715,49 @@ namespace Microwave_v1._0
             this.rb_receipt_name.UseVisualStyleBackColor = true;
             this.rb_receipt_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
             // 
-            // rb_receipt_id
+            // pnl_shelf
             // 
-            this.rb_receipt_id.AutoSize = true;
-            this.rb_receipt_id.ForeColor = System.Drawing.Color.White;
-            this.rb_receipt_id.Location = new System.Drawing.Point(5, 41);
-            this.rb_receipt_id.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_receipt_id.Name = "rb_receipt_id";
-            this.rb_receipt_id.Size = new System.Drawing.Size(36, 17);
-            this.rb_receipt_id.TabIndex = 8;
-            this.rb_receipt_id.TabStop = true;
-            this.rb_receipt_id.Text = "ID";
-            this.rb_receipt_id.UseVisualStyleBackColor = true;
-            this.rb_receipt_id.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            this.pnl_shelf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_shelf.Controls.Add(this.lbl_shelf_title);
+            this.pnl_shelf.Controls.Add(this.pnl_shelf_stick);
+            this.pnl_shelf.Controls.Add(this.pnl_shelf_list);
+            this.pnl_shelf.Location = new System.Drawing.Point(215, 39);
+            this.pnl_shelf.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_shelf.Name = "pnl_shelf";
+            this.pnl_shelf.Size = new System.Drawing.Size(795, 570);
+            this.pnl_shelf.TabIndex = 23;
             // 
-            // rb_receipt_u_name
+            // lbl_shelf_title
             // 
-            this.rb_receipt_u_name.AutoSize = true;
-            this.rb_receipt_u_name.ForeColor = System.Drawing.Color.White;
-            this.rb_receipt_u_name.Location = new System.Drawing.Point(5, 62);
-            this.rb_receipt_u_name.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_receipt_u_name.Name = "rb_receipt_u_name";
-            this.rb_receipt_u_name.Size = new System.Drawing.Size(78, 17);
-            this.rb_receipt_u_name.TabIndex = 9;
-            this.rb_receipt_u_name.TabStop = true;
-            this.rb_receipt_u_name.Text = "User Name";
-            this.rb_receipt_u_name.UseVisualStyleBackColor = true;
-            this.rb_receipt_u_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            this.lbl_shelf_title.AutoSize = true;
+            this.lbl_shelf_title.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_shelf_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_shelf_title.ForeColor = System.Drawing.Color.White;
+            this.lbl_shelf_title.Location = new System.Drawing.Point(19, 20);
+            this.lbl_shelf_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_shelf_title.Name = "lbl_shelf_title";
+            this.lbl_shelf_title.Size = new System.Drawing.Size(96, 39);
+            this.lbl_shelf_title.TabIndex = 4;
+            this.lbl_shelf_title.Text = "Shelf";
             // 
-            // rb_receipt_b_name
+            // pnl_shelf_stick
             // 
-            this.rb_receipt_b_name.AutoSize = true;
-            this.rb_receipt_b_name.ForeColor = System.Drawing.Color.White;
-            this.rb_receipt_b_name.Location = new System.Drawing.Point(5, 83);
-            this.rb_receipt_b_name.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_receipt_b_name.Name = "rb_receipt_b_name";
-            this.rb_receipt_b_name.Size = new System.Drawing.Size(81, 17);
-            this.rb_receipt_b_name.TabIndex = 10;
-            this.rb_receipt_b_name.TabStop = true;
-            this.rb_receipt_b_name.Text = "Book Name";
-            this.rb_receipt_b_name.UseVisualStyleBackColor = true;
-            this.rb_receipt_b_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            this.pnl_shelf_stick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.pnl_shelf_stick.Location = new System.Drawing.Point(24, 115);
+            this.pnl_shelf_stick.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_shelf_stick.Name = "pnl_shelf_stick";
+            this.pnl_shelf_stick.Size = new System.Drawing.Size(728, 1);
+            this.pnl_shelf_stick.TabIndex = 7;
             // 
-            // rb_receipt_l_name
+            // pnl_shelf_list
             // 
-            this.rb_receipt_l_name.AutoSize = true;
-            this.rb_receipt_l_name.ForeColor = System.Drawing.Color.White;
-            this.rb_receipt_l_name.Location = new System.Drawing.Point(133, 20);
-            this.rb_receipt_l_name.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_receipt_l_name.Name = "rb_receipt_l_name";
-            this.rb_receipt_l_name.Size = new System.Drawing.Size(96, 17);
-            this.rb_receipt_l_name.TabIndex = 11;
-            this.rb_receipt_l_name.TabStop = true;
-            this.rb_receipt_l_name.Text = "Librarian Name";
-            this.rb_receipt_l_name.UseVisualStyleBackColor = true;
-            this.rb_receipt_l_name.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
-            // 
-            // rb_receipt_date
-            // 
-            this.rb_receipt_date.AutoSize = true;
-            this.rb_receipt_date.ForeColor = System.Drawing.Color.White;
-            this.rb_receipt_date.Location = new System.Drawing.Point(133, 42);
-            this.rb_receipt_date.Margin = new System.Windows.Forms.Padding(2);
-            this.rb_receipt_date.Name = "rb_receipt_date";
-            this.rb_receipt_date.Size = new System.Drawing.Size(90, 17);
-            this.rb_receipt_date.TabIndex = 12;
-            this.rb_receipt_date.TabStop = true;
-            this.rb_receipt_date.Text = "Creation Date";
-            this.rb_receipt_date.UseVisualStyleBackColor = true;
-            this.rb_receipt_date.CheckedChanged += new System.EventHandler(this.RadioButtonReceipt_CheckedChanged);
+            this.pnl_shelf_list.AutoScroll = true;
+            this.pnl_shelf_list.AutoScrollMargin = new System.Drawing.Size(0, 2);
+            this.pnl_shelf_list.Location = new System.Drawing.Point(0, 119);
+            this.pnl_shelf_list.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_shelf_list.Name = "pnl_shelf_list";
+            this.pnl_shelf_list.Size = new System.Drawing.Size(775, 410);
+            this.pnl_shelf_list.TabIndex = 14;
             // 
             // Microwave
             // 
@@ -1697,6 +1768,7 @@ namespace Microwave_v1._0
             this.Controls.Add(this.pnl_left);
             this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_header);
+            this.Controls.Add(this.pnl_shelf);
             this.Controls.Add(this.pnl_receipt);
             this.Controls.Add(this.pnl_authors);
             this.Controls.Add(this.pnl_home);
@@ -1745,6 +1817,8 @@ namespace Microwave_v1._0
             this.pnl_receipt.PerformLayout();
             this.pnl_receipt_st.ResumeLayout(false);
             this.pnl_receipt_st.PerformLayout();
+            this.pnl_shelf.ResumeLayout(false);
+            this.pnl_shelf.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1865,6 +1939,11 @@ namespace Microwave_v1._0
         private RadioButton rb_receipt_b_name;
         private RadioButton rb_receipt_date;
         private RadioButton rb_receipt_l_name;
+        private Button btn_shelf;
+        private Panel pnl_shelf;
+        private Label lbl_shelf_title;
+        private Panel pnl_shelf_stick;
+        private Panel pnl_shelf_list;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
         public Panel Pnl_pub_list { get => pnl_pub_list; set => pnl_pub_list = value; }
@@ -1886,6 +1965,8 @@ namespace Microwave_v1._0
         public ListBox Lb_book_search { get => lb_book_search; set => lb_book_search = value; }
         public PictureBox Pic_logo { get => pic_logo; set => pic_logo = value; }
         public Panel Pnl_receipt_list { get => pnl_receipt_list; set => pnl_receipt_list = value; }
+        public Panel Pnl_shelf_list { get => pnl_shelf_list; set => pnl_shelf_list = value; }
+        public Button Btn_shelf { get => btn_shelf; set => btn_shelf = value; }
     }
 }
 

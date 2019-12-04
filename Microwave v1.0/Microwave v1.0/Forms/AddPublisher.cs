@@ -110,6 +110,8 @@ namespace Microwave_v1._0.Forms
                 tb_pub_phone_num.Focus();
                 return;
             }
+
+            
             if (is_edit == false)
             {
                 if (picture_event.Pic_source_file != null && picture_event.Pic_source_file != pic_default_file)
@@ -296,7 +298,6 @@ namespace Microwave_v1._0.Forms
             {
                 Pub_Add_Click_Func(is_edit);
             }
-
         }
 
         private void Change_Image_Click(object sender, EventArgs e)
@@ -390,5 +391,15 @@ namespace Microwave_v1._0.Forms
             this.tb_pub_name.Select();
         }
 
+        private void tb_pub_phone_num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Pub_Add_Click_Func(is_edit);
+            }
+            
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

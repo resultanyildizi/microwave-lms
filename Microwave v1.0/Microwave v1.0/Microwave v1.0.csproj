@@ -75,6 +75,12 @@
     <Compile Include="Forms\AddEmployee.designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddShelf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddShelf.Designer.cs">
+      <DependentUpon>AddShelf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Detail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +140,19 @@
     </Compile>
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\Receipt_List.cs" />
+    <Compile Include="Model\Shelf.cs" />
+    <Compile Include="Model\Shelf_List.cs" />
     <Compile Include="UserControls\Author_Info.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\Author_Info.designer.cs">
       <DependentUpon>Author_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Book_Info_For_Shelf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Book_Info_For_Shelf.Designer.cs">
+      <DependentUpon>Book_Info_For_Shelf.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Book_Tag.cs">
       <SubType>UserControl</SubType>
@@ -187,6 +201,12 @@
     </Compile>
     <Compile Include="UserControls\Receipt_Info.Designer.cs">
       <DependentUpon>Receipt_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Shelf_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Shelf_Info.Designer.cs">
+      <DependentUpon>Shelf_Info.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserInfo.cs">
       <SubType>UserControl</SubType>
@@ -241,6 +261,9 @@
     <EmbeddedResource Include="UserControls\Author_Info.resx">
       <DependentUpon>Author_Info.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Book_Info_For_Shelf.resx">
+      <DependentUpon>Book_Info_For_Shelf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Book_Tag.resx">
       <DependentUpon>Book_Tag.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Receipt_Info.resx">
       <DependentUpon>Receipt_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Shelf_Info.resx">
+      <DependentUpon>Shelf_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserInfo.resx">
       <DependentUpon>UserInfo.cs</DependentUpon>
