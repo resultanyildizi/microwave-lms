@@ -36,6 +36,8 @@ namespace Microwave_v1._0.Forms
 
         private Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
 
+        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+
         private SELECTED choise;
 
         public SELECTED Choise { get => choise; set => choise = value; }
@@ -539,6 +541,9 @@ namespace Microwave_v1._0.Forms
                 {
                     delete_pic = false;
                 }
+
+                string query = "UPDATE Books SET PUBLISHER_ID = 0 WHERE Books.PUBLISHER_ID = " + publisher.Publisher_id;
+                DataBaseEvents.ExecuteNonQuery(query, datasource);
 
                 if (main_page.Warning_form.Result)
                     publisher.pub_info.Remove(delete_pic);

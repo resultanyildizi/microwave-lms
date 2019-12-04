@@ -260,3 +260,4 @@ C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Receipt_Detail.resources
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Receipt_Info.resources
 C:\Users\Sude\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Receipt_Info.resources
+C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Receipt_Info.resources

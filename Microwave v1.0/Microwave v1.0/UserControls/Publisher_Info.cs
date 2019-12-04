@@ -19,6 +19,8 @@ namespace Microwave_v1._0.UserControls
         private Forms.AddPublisher edit_pub_form = null;
         private Detail detail_form = null;
 
+        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+
         private string pub_name;
         private string pub_email;
         private string pub_phone_number;
@@ -36,6 +38,7 @@ namespace Microwave_v1._0.UserControls
             main_pub_list = main_page.Main_pub_list;
             this.btn_pub_edit.Hide();
             this.btn_pub_remove.Hide();
+
         }
         public void Initialize_Publisher_Info(int publisher_id, string pub_name, string pub_email, string pub_phone_number, string pub_date_of_est, string pub_pic_path_file)
         {
@@ -113,6 +116,9 @@ namespace Microwave_v1._0.UserControls
             {
                 delete_pic = false;
             }
+
+            string query = "UPDATE Books SET PUBLISHER_ID = 0 WHERE Books.PUBLISHER_ID = " + publisher_id;
+            DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             if (main_page.Warning_form.Result)
                 Remove(delete_pic);
