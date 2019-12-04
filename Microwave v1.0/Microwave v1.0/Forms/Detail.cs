@@ -106,7 +106,15 @@ namespace Microwave_v1._0.Forms
 
 
             DataTable dt = Book.Show_All_Books(user);
-            user.Book_count = dt.Rows.Count;
+            int rows_count = dt.Rows.Count;
+
+            int user_book_count = 0;
+            for (int i = 0; i < rows_count; i++)
+            {
+                user_book_count += int.Parse(dt.Rows[i][9].ToString());
+            }
+            user.Book_count = user_book_count;
+
             dgw_users.DataSource = dt;
 
 
@@ -303,17 +311,26 @@ namespace Microwave_v1._0.Forms
 
         }
 
-        private void btn_give_book_Click(object sender, EventArgs e)
+        private void btn_return_book_Click(object sender, EventArgs e)
         {
-            Create_New_Give_Book_Form();
+            string query = "Select Books.BOOK_ID, Books.AUTHOR_ID, Books.PUBLISHER_ID, Books.CATEGORY_ID, Books.LIBRARIAN_ID, " +
+                           "Books.SHELF_ID, Books.POPULARITY_ID, Books.NAME, Books.DATE, Books.DESCRIPT, Book_User.COUNT, Books.COVER_PATH," +
+                           " Books.POPULARITY_SCORE From Book_User Join Books On Book_User.BOOK_ID = Books.BOOK_ID Where Book_User.USER_ID = " + user.User_id;
+            Create_New_Give_Book_Form(query);
         }
 
-        public void Create_New_Give_Book_Form()
+        private void btn_give_book_Click(object sender, EventArgs e)
+        {
+            string query = "Select * From Books";
+            Create_New_Give_Book_Form(query);
+        }
+
+        public void Create_New_Give_Book_Form(string query)
         {
 
             if (give_book_form == null)
             {
-                give_book_form = new GiveBook(this, user);
+                give_book_form = new GiveBook(this, user, query);
             }
 
             try
@@ -322,7 +339,7 @@ namespace Microwave_v1._0.Forms
             }
             catch (Exception)
             {
-                give_book_form = new GiveBook(this, user);
+                give_book_form = new GiveBook(this, user, query);
                 give_book_form.Show();
             }
 
@@ -632,5 +649,6 @@ namespace Microwave_v1._0.Forms
 
         }
 
+        
     }
 }

@@ -19,17 +19,21 @@ namespace Microwave_v1._0.Forms
         User user;
         Detail dt_form = null;
 
-        public GiveBook(Detail detail, User user)
+        public GiveBook(Detail detail, User user, string query)
         {
             InitializeComponent();
             dt_form = detail;
             this.lbl_message.Text = "";
 
+            if (query == "Select * From Books")
+                this.btn_return_book.Hide();
+            else
+                this.btn_give_book.Hide();
+
             book_list = new Book_List();
             search_list = new Book_List();
             this.user = user;
 
-            string query = "Select * From Books";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
             
 
@@ -68,7 +72,21 @@ namespace Microwave_v1._0.Forms
                 current.Give_Book_To_User(user);
                 current.Change_Count();
                 DataTable dt = Book.Show_All_Books(user);
-                user.Book_count = dt.Rows.Count;
+
+                int rows_count = dt.Rows.Count;
+                if (rows_count <= 0)
+                    user.Book_count = 0;
+                else
+                {
+                    int user_book_count = 0;
+                    for (int i = 0; i < rows_count; i++)
+                    {
+                        user_book_count += int.Parse(dt.Rows[i][9].ToString());
+                    }
+                    user.Book_count = user_book_count;
+                }
+
+                
 
                 dt_form.Tb_6.Text = user.Book_count.ToString();
                 dt_form.Dgw_users.DataSource = dt;
@@ -83,6 +101,42 @@ namespace Microwave_v1._0.Forms
                 return;
             }
             
+        }
+
+        private void btn_return_book_Click(object sender, EventArgs e)
+        {
+            Book current = book_list.Find_Book_By_Chosen();
+
+            if (current == null)
+            {
+                lbl_message.Text = "*Please choose a book to lend";
+                lbl_message.ForeColor = Color.Red;
+                return;
+            }
+
+            user.Give_Book_Back(current);
+            current.Change_Count();
+            DataTable dt = Book.Show_All_Books(user);
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 0)
+                user.Book_count = 0;
+            else
+            {
+                int user_book_count = 0;
+                for (int i = 0; i < rows_count; i++)
+                {
+                    user_book_count += int.Parse(dt.Rows[i][9].ToString());
+                }
+                user.Book_count = user_book_count;
+            }
+
+            dt_form.Tb_6.Text = user.Book_count.ToString();
+            dt_form.Dgw_users.DataSource = dt;
+
+            this.lbl_message.Text = "*Book has been returned successfully";
+            this.lbl_message.ForeColor = Color.LightGreen;
         }
     }
 }
