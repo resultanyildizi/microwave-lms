@@ -1,4 +1,6 @@
-﻿namespace Microwave_v1._0.UserControls
+﻿using System.Windows.Forms;
+
+namespace Microwave_v1._0.UserControls
 {
     partial class Shelf_Info
     {
@@ -109,5 +111,7 @@
         private System.Windows.Forms.Button btn_shelf_id;
         private System.Windows.Forms.Panel pnl_name;
         private System.Windows.Forms.Label lbl_name;
+
+        public Panel Pnl_shelf { get => pnl_shelf; set => pnl_shelf = value; }
     }
 }

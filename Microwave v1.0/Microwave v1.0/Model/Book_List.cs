@@ -10,6 +10,7 @@ using Microwave_v1._0.Classes;
 using System.Data;
 using System.Drawing;
 using Microwave_v1._0.Forms;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0
 {
@@ -34,7 +35,6 @@ namespace Microwave_v1._0
 
     public class Book_List
     {
-        int point_y = Book.point_y;
         static int book_count = 0;
         book_node root;
 
@@ -72,7 +72,6 @@ namespace Microwave_v1._0
 
                 Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
                 book.Set_Book(main_list, search_list, main_tag, main_panel, color_mode);
-                book.Set_Book();
                 this.Add_Book_to_List(book);
             }
 
@@ -80,6 +79,37 @@ namespace Microwave_v1._0
                 Fill_Cover_Image_List();
         }
 
+        public void Fill_Book_List(DataTable dt, Shelf shelf)
+        {
+            int rows_count = book_count = dt.Rows.Count;
+
+            // IMPORTANT
+            if (rows_count == 0)
+                return;
+
+            for (int i = 0; i < rows_count; i++)
+            {
+                int book_id = int.Parse(dt.Rows[i][0].ToString());
+                if (book_id == 0)
+                    continue;
+                int author_id = int.Parse(dt.Rows[i][1].ToString());
+                int publisher_id = int.Parse(dt.Rows[i][2].ToString());
+                int category_id = int.Parse(dt.Rows[i][3].ToString());
+                int librarian_id = int.Parse(dt.Rows[i][4].ToString());
+                int shelf_id = int.Parse(dt.Rows[i][5].ToString());
+                int popularity_id = int.Parse(dt.Rows[i][6].ToString());
+                string name = dt.Rows[i][7].ToString();
+                string date = dt.Rows[i][8].ToString();
+                string description = dt.Rows[i][9].ToString();
+                int count = int.Parse(dt.Rows[i][10].ToString());
+                string cover_path = dt.Rows[i][11].ToString();
+                int popularity_score = int.Parse(dt.Rows[i][12].ToString());
+
+                Book book = new Book(book_id, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, cover_path, popularity_id, popularity_score);
+                book.Set_Book(shelf);
+                this.Add_Book_to_List(book);
+            }
+        }
 
         public void Delete_All_List()
         {
@@ -124,12 +154,11 @@ namespace Microwave_v1._0
 
         public void Draw_All_Books_For_Shelf()
         {
-            Book.point_y = 45;
-            Book.point_x = 45;
+            Book.point_shelf_x = 65;
             book_node iterator = root;
             while (iterator != null)
             {
-                iterator.book.Book_shelf_info.Draw_Book_Obj(ref Book.point_x, ref Book.point_x);
+                iterator.book.Book_shelf_info.Draw_Book_Obj(ref Book.point_shelf_x);
                 iterator.book.Book_shelf_info.Show();
                 iterator = iterator.next;
             }

@@ -24,6 +24,7 @@ namespace Microwave_v1._0.Model
 
         private int shelf_id;
         private string shelf_name;
+        private Book_List book_list;
         private Shelf_Info shelf_ınfo;
 
 
@@ -43,33 +44,36 @@ namespace Microwave_v1._0.Model
             this.shelf_name = shelf_name;
         }
 
-        public void Add_Form()
-        {
-            string title;
-            string values;
-            title = "INSERT INTO Shelf (SHELF_ID,SHELF_NAME) ";
-            values = string.Format("VALUES ('{0}','{1}')",
-                                    shelf_id, shelf_name);
-
-            string query = title + values;
-
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
-        }
+     
         static public void Show_All_Shelf(Microwave main_page)
         {
-            string query = "Select * From Shelf ";
+            string query = "Select * From Shelves ";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
 
             main_page.Main_shelf_list.Fill_Shelf_List(dt);
             main_page.Main_shelf_list.Draw_All_Shelf();
-
         }
 
         public void Set_Shelf()
         {
             shelf_ınfo = new Shelf_Info();
             shelf_ınfo.Initialize_Shelf_Info(shelf_id,shelf_name);
+            Fill_Shelf();
         }
 
+        public void Fill_Shelf()
+        {
+            string query = "Select * From Books Where Books.SHELF_ID = " + shelf_id;
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+
+            book_list = new Book_List();
+            book_list.Fill_Book_List(dt, this);
+            book_list.Draw_All_Books_For_Shelf();
+        }
+
+        public static string Generate_Shelf_Name() { 
+
+        }
     }
 }

@@ -75,12 +75,6 @@
     <Compile Include="Forms\AddEmployee.designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddShelf.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddShelf.Designer.cs">
-      <DependentUpon>AddShelf.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Detail.cs">
       <SubType>Form</SubType>
     </Compile>

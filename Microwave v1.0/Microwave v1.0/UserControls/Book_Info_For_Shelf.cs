@@ -18,6 +18,7 @@ namespace Microwave_v1._0.UserControls
     {
         private Microwave main_page;
         private Shelf_List main_shelf_list;
+        private Shelf shelf;
 
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
@@ -25,15 +26,15 @@ namespace Microwave_v1._0.UserControls
         private int book_id;
         private string description;
         private string author;
-        private string shelf;
+        private int shelf_id;
         private string category;
         
-        public Book_Info_For_Shelf()
+        public Book_Info_For_Shelf(Shelf shelf)
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
             main_shelf_list = main_page.Main_shelf_list;
-
+            this.shelf = shelf;
             //Random random = new Random();
             //int pic_num = random.Next(0,60);
             
@@ -52,27 +53,17 @@ namespace Microwave_v1._0.UserControls
 
         }
 
-        public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string category, string shelf, string date, int count, string description)
+        public void Initialize_Book_Info(int book_id, string name)
         {
             this.book_id = book_id;
-            this.description = description;
-            this.author = author;
             this.book_name = name;
-            this.shelf = shelf;
-            this.category = category;
         }
 
-        public void Draw_Book_Obj(ref int x, ref int y)
+        public void Draw_Book_Obj(ref int x)
         {
-            
-            if(shelf == "A02")
-            {
-                main_page.Pnl_shelf_list.Controls.Add(this);
-                this.Location = new System.Drawing.Point(x, y);
-                x += 20;
-                
-            }
-            
+            shelf.Shelf_ınfo.Controls.Add(this);
+            this.Location = new System.Drawing.Point(x, shelf.Shelf_ınfo.Pnl_shelf.Location.Y - this.Height);
+            x += 20;
         }
     }
 }

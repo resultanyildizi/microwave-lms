@@ -22,7 +22,7 @@ namespace Microwave_v1._0
     {
         // Global
         public static int point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
-        public static int point_x = 5; // Book infoları ekrana çizdirirken kullanılan offset.
+        public static int point_shelf_x = 65; 
         static Microwave main_page = null;
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         // ID's
@@ -174,13 +174,7 @@ namespace Microwave_v1._0
             // Fills Book_List with DataTable
             main_page.Main_book_list.Fill_Book_List(dt, main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Draw_All_Books();
-            main_page.Main_book_list.Draw_All_Books_For_Shelf();
-
-
-
         }
-
-
         public static DataTable Show_All_Books(User user)
         {
             string query = "Select Books.BOOK_ID As ID, Books.Name As Book,Authors.NAME As Author, Publishers.NAME As Publisher, Categories.NAME As Category, " +
@@ -232,10 +226,10 @@ namespace Microwave_v1._0
             info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name,shelf_name, date, count, description, cover_path_file, color_mode);
         }
 
-        public void Set_Book()
+        public void Set_Book(Shelf shelf)
         {
-            book_shelf_info = new Book_Info_For_Shelf();
-            book_shelf_info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description);
+            book_shelf_info = new Book_Info_For_Shelf(shelf);
+            book_shelf_info.Initialize_Book_Info(book_id, name);
         }
 
 

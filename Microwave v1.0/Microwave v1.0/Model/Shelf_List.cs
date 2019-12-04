@@ -82,6 +82,24 @@ namespace Microwave_v1._0.Model
             }
         }
 
+        public Shelf Find_Shelf_By_ID(int shelf_id)
+        {
+            if (root == null)
+                return null;
+
+            shelf_node iterator = root;
+
+            while (iterator.shelf.Shelf_id != shelf_id)
+            {
+                if (iterator.next == null)
+                    return null;
+
+                iterator = iterator.next;
+            }
+
+            return iterator.shelf;
+        }
+
         //BOOK
 
     }
