@@ -323,6 +323,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon %282%29.ico" />
+    <None Include="Resources\Book_Shelf_Icons\b6.png" />
+    <None Include="Resources\Book_Shelf_Icons\b5.png" />
+    <None Include="Resources\Book_Shelf_Icons\b4.png" />
+    <None Include="Resources\Book_Shelf_Icons\b3.png" />
+    <None Include="Resources\Book_Shelf_Icons\b2.png" />
+    <None Include="Resources\Book_Shelf_Icons\b1.png" />
     <None Include="Resources\man-user %281%29.png" />
     <None Include="Resources\man-user %282%29.png" />
     <None Include="Resources\Icons\pencil %281%29.png" />

@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_book_name = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_book_name
+            // pictureBox1
             // 
-            this.btn_book_name.ForeColor = System.Drawing.Color.White;
-            this.btn_book_name.Location = new System.Drawing.Point(0, 0);
-            this.btn_book_name.Name = "btn_book_name";
-            this.btn_book_name.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_book_name.Size = new System.Drawing.Size(23, 100);
-            this.btn_book_name.TabIndex = 0;
-            this.btn_book_name.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = global::Microwave_v1._0.Properties.Resources.b2;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Book_Info_For_Shelf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
-            this.Controls.Add(this.btn_book_name);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Book_Info_For_Shelf";
-            this.Size = new System.Drawing.Size(23, 100);
+            this.Size = new System.Drawing.Size(20, 90);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btn_book_name;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
