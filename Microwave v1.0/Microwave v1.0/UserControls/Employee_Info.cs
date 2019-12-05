@@ -16,7 +16,7 @@ namespace Microwave_v1._0.UserControls
 {
     public enum COLOR
     {
-        NORMAL, ID, NAME, GENDER, EMAIL, BIRTH_DATE
+        NORMAL, ID, NAME, GENDER, EMAIL,BIRTH_DATE
     }
     public partial class Employee_Info : UserControl
     {
@@ -41,7 +41,7 @@ namespace Microwave_v1._0.UserControls
 
         public int Employee_id { get => employee_id; set => employee_id = value; }
 
-        public Employee_Info(Employee_List main_list, Employee_List search_list, Book_Tag main_tag, Panel pnl)
+        public Employee_Info(Employee_List main_list,Employee_List search_list, Book_Tag main_tag, Panel pnl)
         {
             InitializeComponent();
             this.employee_list = main_list;
@@ -54,9 +54,9 @@ namespace Microwave_v1._0.UserControls
             this.btn_edit.Hide();
             this.btn_remove.Hide();
 
-        }
+        } 
 
-        public void Initialize_Employee_Info(int employee_id, string department_name, string name, string surname, string email, string birth_date, string gender, string cover_path_file, COLOR mode)
+        public void Initialize_Employee_Info(int employee_id,string department_name,string name,string surname,string email, string birth_date,string gender,string cover_path_file,COLOR mode)
         {
 
             this.employee_id = employee_id;
@@ -73,9 +73,9 @@ namespace Microwave_v1._0.UserControls
             this.lbl_department.Text = department_name;
             this.lbl_name.Text = name;
             this.lbl_surname.Text = surname;
+            this.lbl_gender.Text = gender;
             this.lbl_email.Text = email;
             this.lbl_birthdate.Text = birth_date;
-            this.lbl_gender.Text = gender;
 
             Color new_color = Color.FromArgb(59, 180, 193);
 
@@ -95,7 +95,7 @@ namespace Microwave_v1._0.UserControls
         public void Hide_Info()
         {
             main_page.Pnl_employee_list.Controls.Remove(this);
-        }
+        }  
         public void Draw_Employee_obj(ref int y)
         {
             main_page.Pnl_employee_list.Controls.Add(this);
@@ -109,7 +109,7 @@ namespace Microwave_v1._0.UserControls
             Book_Tag main_employee_tag = main_page.Main_tag;
             Color back_color = Color.FromArgb(33, 37, 48);
 
-            main_employee_tag.Edit_Book_Tag_for_emp(name + " " + surname, "\n" + gender + "\n" + birth_date + "\n" + email + "\n", cover_path_file);
+            main_employee_tag.Edit_Book_Tag_for_emp(name +" "+ surname , "\n" + gender + "\n" + birth_date + "\n" + email + "\n",cover_path_file);
             main_page.Main_tag.pic_book.Visible = true;
             this.pnl_surname.BackColor = back_color;
             this.pnl_birthdate.BackColor = back_color;
@@ -137,9 +137,8 @@ namespace Microwave_v1._0.UserControls
         }
         public void Deselect_Employee_Info()
         {
-            chosen = false;
             Color back_color = System.Drawing.Color.FromArgb(55, 57, 68); // light gray
-
+           
             this.pnl_name.BackColor = back_color;
             this.pnl_surname.BackColor = back_color;
             this.pnl_birthdate.BackColor = back_color;
@@ -195,12 +194,12 @@ namespace Microwave_v1._0.UserControls
             ShowEmployee main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
             string message = "Do you want to edit this Employee";
             main_page.Create_Warning_Form(message, Color.MidnightBlue);
-            if (main_page.Warning_form1.Result)
+            if(main_page.Warning_form1.Result)
             {
                 Edit();
             }
             main_page.Warning_form1.Refresh_Form();
-
+            
         }
         private void Edit()
         {
@@ -209,7 +208,7 @@ namespace Microwave_v1._0.UserControls
         }
         private void Create_Add_Employee_Form_With_Employee(Employee employee)
         {
-            if (edit_form == null)
+            if(edit_form== null)
             {
                 edit_form = new AddEmployee(employee);
                 edit_form.Show();
@@ -230,16 +229,16 @@ namespace Microwave_v1._0.UserControls
         }
         public void Employee_Hover()
         {
-            if (!chosen)
-            {
-                Color back_color2 = Color.FromArgb(43, 47, 58);
-                this.pnl_id.BackColor = back_color2;
-                this.pnl_name.BackColor = back_color2;
-                this.pnl_email.BackColor = back_color2;
-                this.pnl_birthdate.BackColor = back_color2;
-                this.pnl_department.BackColor = back_color2;
-                this.pnl_surname.BackColor = back_color2;
-                this.pnl_gender.BackColor = back_color2;
+          if (!chosen)
+          {
+            Color back_color2 = Color.FromArgb(43, 47, 58);
+            this.pnl_id.BackColor = back_color2;
+            this.pnl_name.BackColor = back_color2;
+            this.pnl_email.BackColor = back_color2;
+            this.pnl_birthdate.BackColor = back_color2;
+            this.pnl_department.BackColor = back_color2;
+            this.pnl_surname.BackColor = back_color2;
+            this.pnl_gender.BackColor = back_color2;
 
                 Color new_color = Color.FromArgb(49, 170, 183);
 
@@ -260,7 +259,7 @@ namespace Microwave_v1._0.UserControls
         {
             if (!chosen)
             {
-
+               
                 Color back_color2 = Color.FromArgb(55, 57, 68);
                 this.pnl_id.BackColor = back_color2;
                 this.pnl_name.BackColor = back_color2;

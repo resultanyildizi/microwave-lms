@@ -52,8 +52,8 @@ namespace Microwave_v1._0.Forms
             main_tag.lbl_author.Text = " ";
             main_tag.lbl_description.Text = " ";
             main_tag.lbl_bookname.Text = " ";
-
-            if (department == null)
+           
+            if(department==null)
             {
                 lbl_dep_name.Text = "All Employees";
             }
@@ -110,7 +110,7 @@ namespace Microwave_v1._0.Forms
 
         private void btn_show_search_types_Click(object sender, EventArgs e)
         {
-            if (show_pnl_emp_st == false)
+            if(show_pnl_emp_st == false)
             {
                 this.pnl_emp_st.Show();
                 show_pnl_emp_st = true;
@@ -194,7 +194,7 @@ namespace Microwave_v1._0.Forms
                 main_employee_list.Draw_All_Employees();
                 return;
             }
-            if (text == "Search an Employee")
+            if(text == "Search an Employee")
             {
                 emp_search_list.Delete_All_List();
                 main_employee_list.Draw_All_Employees();
@@ -258,28 +258,28 @@ namespace Microwave_v1._0.Forms
 
                 if (rb_emp_name.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.NAME);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.NAME);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_emp_id.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.ID);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.ID);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_gender.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.GENDER);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.GENDER);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_email.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.EMAIL);
+                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list,COLOR.EMAIL);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
@@ -319,7 +319,7 @@ namespace Microwave_v1._0.Forms
         }
         private void Fill_Employee_Search_List_Box(string query)
         {
-            lb_emp_search.Items.Clear();
+            lb_emp_search.Items.Clear();  
 
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
@@ -335,7 +335,7 @@ namespace Microwave_v1._0.Forms
                 if (lb_emp_search.Items.Contains(item))
                     continue;
                 lb_emp_search.Items.Add(item);
-
+                
             }
         }
 
@@ -343,8 +343,8 @@ namespace Microwave_v1._0.Forms
         {
             if (tb_search_emp.Text == "")
             {
-                tb_search_emp.Text = "Search an Employee";
-                tb_search_emp.ForeColor = Color.Gray;
+            tb_search_emp.Text = "Search an Employee";
+            tb_search_emp.ForeColor = Color.Gray;
             }
         }
 
@@ -370,7 +370,7 @@ namespace Microwave_v1._0.Forms
             tb_search_emp.Focus();
             if (lb_emp_search.SelectedItem != null)
                 tb_search_emp.Text = lb_emp_search.SelectedItem.ToString();
-            tb_search_emp.Select(tb_search_emp.Text.Length, 0);
+            tb_search_emp.Select(tb_search_emp.Text.Length, 0); 
         }
 
 

@@ -23,8 +23,8 @@ namespace Microwave_v1._0.Classes
         private string cover_path_file;
         static Microwave main_page = null;
         private Department_Info info;
-
-
+        
+       
 
         public string Name { get => name; set => name = value; }
         public int Department_id { get => department_id; set => department_id = value; }
@@ -32,7 +32,7 @@ namespace Microwave_v1._0.Classes
         public string Cover_path_file { get => cover_path_file; set => cover_path_file = value; }
         public Department_Info Info { get => info; set => info = value; }
 
-        public Department(int department_id, string name, string Cover_path_file)
+        public Department(int department_id,string name,string Cover_path_file)
         {
             this.department_id = department_id;
             this.name = name;
@@ -57,11 +57,11 @@ namespace Microwave_v1._0.Classes
 
             info = new Department_Info();
             Take_Id_From_Database();
+            
 
+            info.Initialize_Department_Info(department_id,name, cover_path_file);
 
-            info.Initialize_Department_Info(department_id, name, cover_path_file);
-
-
+           
             main_page.Main_department_list.Add_Department_to_List(this);
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
             info.Draw_Department_Obj(ref Department.point_x, ref Department.point_y);
@@ -70,7 +70,7 @@ namespace Microwave_v1._0.Classes
         public void Edit()
         {
             string title = "UPDATE Department ";
-            string query = title + string.Format("SET NAME = '{0}', COVER_PATH = '{1}' WHERE DEPARTMENT_ID = '{2}'", name, cover_path_file, department_id);
+            string query = title + string.Format("SET NAME = '{0}', COVER_PATH = '{1}' WHERE DEPARTMENT_ID = '{2}'", name, cover_path_file,department_id); 
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
             if (result <= 0)
@@ -87,10 +87,10 @@ namespace Microwave_v1._0.Classes
         public void Set_Department()
         {
             info = new Department_Info();
-            info.Initialize_Department_Info(department_id, name, cover_path_file);
+            info.Initialize_Department_Info(department_id,name, cover_path_file);
         }
 
-        public void Delete()
+      public void Delete()
         {
 
             string title1 = "UPDATE Employee ";
@@ -103,16 +103,16 @@ namespace Microwave_v1._0.Classes
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
-            if (result <= 0)
+            if ( result <= 0)
             {
                 MessageBox.Show("Delete is not valid");
                 return;
             }
         }
-
+    
         private void Take_Id_From_Database()
         {
-
+  
             string title = "SELECT Department.DEPARTMENT_ID FROM Department ";
             string query = title + string.Format("Where NAME = '{0}';", name);
 
@@ -121,9 +121,9 @@ namespace Microwave_v1._0.Classes
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.department_id = id;
 
-            this.Info.Department_id = id;
+            this.Info.Department_id = id; 
         }
-        static public void Show_All_Departments(Microwave main_page)
+       static public void Show_All_Departments(Microwave main_page)
         {
             string query = "SELECT * FROM Department";
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
@@ -135,4 +135,4 @@ namespace Microwave_v1._0.Classes
         }
     }
 }
-
+    

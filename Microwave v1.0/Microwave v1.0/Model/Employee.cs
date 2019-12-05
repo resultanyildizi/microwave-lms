@@ -14,12 +14,12 @@ using System.Drawing;
 
 namespace Microwave_v1._0.Model
 {
-    public class Employee
+   public  class Employee
     {
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         public static int point_y = 5;
-
-
+        
+        
         private int department_id;
         private int employee_id;
 
@@ -35,7 +35,7 @@ namespace Microwave_v1._0.Model
 
         static Microwave_v1._0.Forms.ShowEmployee main_page = null;
         private Employee_Info info;
-
+       
 
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
@@ -54,30 +54,29 @@ namespace Microwave_v1._0.Model
 
         }
 
-        public Employee(int employee_id, int department_id, string name, string surname, string password, string email, string gender, DateTime birth_date, string cover_path_file)
-        {
-            main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
-
-
+        public Employee(int employee_id, int department_id,string name,string surname,DateTime birth_date,string email,string password,string gender,string cover_path_file)
+        { 
+            main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];    
+           
+            
             this.employee_id = employee_id;
             this.department_id = department_id;
             this.name = name;
             this.surname = surname;
-            this.email = email;
             this.birth_date_dt = birth_date;
             this.birth_date = birth_date_dt.Date.ToString();
             this.gender = gender;
             this.password = password;
             this.cover_path_file = cover_path_file;
         }
-
+       
         public void Add()
         {
             string title;
             string values;
 
             title = " INSERT INTO Employee (DEPARTMENT_ID , NAME, SURNAME, EMAIL, PASSWORD, GENDER, BIRTH_DATE,COVER_PATH)";
-            values = string.Format(" VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", department_id, name, surname, email, password, gender, birth_date, cover_path_file);
+            values = string.Format(" VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", department_id,name,surname,email,password,gender,birth_date,cover_path_file);
 
             string query = string.Concat(title, values);
 
@@ -90,11 +89,11 @@ namespace Microwave_v1._0.Model
                 return;
             }
 
-            info = new Employee_Info(main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list);
+            info = new Employee_Info(main_page.Main_employee_list,main_page.Emp_search_list,main_page.Main_tag, main_page.Pnl_employee_list);
             Take_Id_From_Database();
             Join_Tables();
 
-            info.Initialize_Employee_Info(employee_id, department_name, name, surname, email, birth_date.Substring(0, 10), gender, cover_path_file, COLOR.NORMAL);
+            info.Initialize_Employee_Info(employee_id,department_name,name,surname,email,birth_date.Substring(0,10),gender,cover_path_file, COLOR.NORMAL);
 
             main_page.Main_employee_list.Add_Employee_to_List(this);
             main_page.Pnl_employee_list.VerticalScroll.Value = 0;
@@ -104,10 +103,9 @@ namespace Microwave_v1._0.Model
         }
         public void Edit()
         {
-            birth_date = birth_date_dt.ToString();
             string title = "UPDATE Employee ";
             string query = title + string.Format(" SET DEPARTMENT_ID = '{0}', NAME = '{1}', SURNAME = '{2}', EMAIL = '{3}', GENDER = '{4}', " +
-                " BIRTH_DATE = '{5}', COVER_PATH = '{6}' Where Employee.EMPLOYEE_ID = '{7}'", department_id, name, surname, email, gender, birth_date, cover_path_file, employee_id);
+                " BIRTH_DATE = '{5}', COVER_PATH = '{6}' Where Employee.EMPLOYEE_ID = '{7}'", department_id,name,surname,email,gender,birth_date,cover_path_file,employee_id);
 
             int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
             if (result <= 0)
@@ -133,11 +131,11 @@ namespace Microwave_v1._0.Model
                 MessageBox.Show("Delete is not valid");
             return;
         }
-        public void Set_Employee(Employee_List main_list, Employee_List search_list, Book_Tag main_tag, Panel main_panel, COLOR color_mode)
+        public void Set_Employee(Employee_List main_list,Employee_List search_list , Book_Tag main_tag,Panel main_panel, COLOR color_mode)
         {
             Join_Tables();
             info = new Employee_Info(main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list);
-            info.Initialize_Employee_Info(employee_id, department_name, name, surname, email, birth_date.Substring(0, 10), gender, cover_path_file, color_mode);
+            info.Initialize_Employee_Info(employee_id,department_name, name, surname, email, birth_date.Substring(0, 10), gender,cover_path_file,color_mode);
         }
         static public void Show_All_Employees(Department department)
         {
@@ -146,25 +144,25 @@ namespace Microwave_v1._0.Model
 
             if (department != null)
             {
-                dep_id = department.Department_id;
-                query = "SELECT * FROM Employee WHERE Employee.DEPARTMENT_ID = " + dep_id;
+               dep_id = department.Department_id;
+               query = "SELECT * FROM Employee WHERE Employee.DEPARTMENT_ID = " + dep_id;
             }
             else
             {
                 query = "SELECT * FROM Employee";
             }
 
-
+     
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
-
+            
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
-
-            main_page.Main_employee_list.Fill_Employee_List(dt, main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list, COLOR.NORMAL);
+           
+            main_page.Main_employee_list.Fill_Employee_List(dt,main_page.Main_employee_list, main_page.Emp_search_list, main_page.Main_tag, main_page.Pnl_employee_list, COLOR.NORMAL);
             main_page.Main_employee_list.Draw_All_Employees();
 
         }
-
+        
         private void Join_Tables()
         {
             DataTable dt = null;
@@ -183,8 +181,8 @@ namespace Microwave_v1._0.Model
             DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
-            this.employee_id = id;
-            this.Info.Employee_id = id;
+            this.employee_id = id; 
+            this.Info.Employee_id = id; 
         }
         static public DataTable Search_Employee_By_Name(string name)
         {

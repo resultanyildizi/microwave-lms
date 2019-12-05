@@ -76,7 +76,7 @@
             this.pnl_main.Controls.Add(this.tb_name);
             this.pnl_main.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_main.Location = new System.Drawing.Point(0, -1);
-            this.pnl_main.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_main.Name = "pnl_main";
             this.pnl_main.Size = new System.Drawing.Size(341, 457);
             this.pnl_main.TabIndex = 1;
@@ -91,7 +91,7 @@
             this.cb_shelf.Items.AddRange(new object[] {
             "###"});
             this.cb_shelf.Location = new System.Drawing.Point(104, 317);
-            this.cb_shelf.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_shelf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_shelf.Name = "cb_shelf";
             this.cb_shelf.Size = new System.Drawing.Size(58, 25);
             this.cb_shelf.TabIndex = 6;
@@ -109,7 +109,7 @@
             this.cb_category.Items.AddRange(new object[] {
             "Category"});
             this.cb_category.Location = new System.Drawing.Point(104, 148);
-            this.cb_category.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_category.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(218, 25);
             this.cb_category.TabIndex = 4;
@@ -127,7 +127,7 @@
             this.cb_publisher.Items.AddRange(new object[] {
             "Publisher\'s Name"});
             this.cb_publisher.Location = new System.Drawing.Point(104, 110);
-            this.cb_publisher.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_publisher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_publisher.Name = "cb_publisher";
             this.cb_publisher.Size = new System.Drawing.Size(218, 25);
             this.cb_publisher.TabIndex = 3;
@@ -145,7 +145,7 @@
             this.cb_author.Items.AddRange(new object[] {
             "Author\'s Name"});
             this.cb_author.Location = new System.Drawing.Point(104, 73);
-            this.cb_author.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_author.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_author.Name = "cb_author";
             this.cb_author.Size = new System.Drawing.Size(218, 25);
             this.cb_author.TabIndex = 2;
@@ -184,6 +184,11 @@
             this.numUpDown_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.numUpDown_count.ForeColor = System.Drawing.Color.LightGray;
             this.numUpDown_count.Location = new System.Drawing.Point(104, 350);
+            this.numUpDown_count.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUpDown_count.Name = "numUpDown_count";
             this.numUpDown_count.Size = new System.Drawing.Size(57, 26);
             this.numUpDown_count.TabIndex = 7;
@@ -209,7 +214,7 @@
             this.btn_add_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_pic.Image")));
             this.btn_add_pic.Location = new System.Drawing.Point(170, 406);
-            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_add_pic.Name = "btn_add_pic";
             this.btn_add_pic.Size = new System.Drawing.Size(47, 42);
             this.btn_add_pic.TabIndex = 23;
@@ -234,7 +239,7 @@
             this.tb_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_description.ForeColor = System.Drawing.Color.DimGray;
             this.tb_description.Location = new System.Drawing.Point(104, 186);
-            this.tb_description.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_description.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_description.Multiline = true;
             this.tb_description.Name = "tb_description";
             this.tb_description.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -265,7 +270,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.correct_symbol__1_;
             this.btn_add.Location = new System.Drawing.Point(8, 403);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(41, 46);
             this.btn_add.TabIndex = 17;
@@ -277,7 +282,7 @@
             // 
             this.pic_book.Image = ((System.Drawing.Image)(resources.GetObject("pic_book.Image")));
             this.pic_book.Location = new System.Drawing.Point(222, 308);
-            this.pic_book.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pic_book.Name = "pic_book";
             this.pic_book.Size = new System.Drawing.Size(100, 137);
             this.pic_book.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -326,7 +331,7 @@
             this.tb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_name.ForeColor = System.Drawing.Color.DimGray;
             this.tb_name.Location = new System.Drawing.Point(104, 37);
-            this.tb_name.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(218, 23);
             this.tb_name.TabIndex = 1;
@@ -344,7 +349,7 @@
             this.Controls.Add(this.pnl_main);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "AddBook";
             this.Opacity = 0.95D;

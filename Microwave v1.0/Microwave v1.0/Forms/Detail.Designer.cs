@@ -106,7 +106,7 @@ namespace Microwave_v1._0.Forms
             this.tb_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.tb_7.ForeColor = System.Drawing.Color.White;
             this.tb_7.Location = new System.Drawing.Point(460, 95);
-            this.tb_7.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_7.Name = "tb_7";
             this.tb_7.ReadOnly = true;
             this.tb_7.Size = new System.Drawing.Size(303, 62);
@@ -124,7 +124,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_penalty.ForeColor = System.Drawing.Color.White;
             this.btn_give_penalty.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_penalty.Image")));
             this.btn_give_penalty.Location = new System.Drawing.Point(513, 179);
-            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_penalty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_give_penalty.Name = "btn_give_penalty";
             this.btn_give_penalty.Size = new System.Drawing.Size(46, 44);
             this.btn_give_penalty.TabIndex = 54;
@@ -141,7 +141,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_book.ForeColor = System.Drawing.Color.White;
             this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
             this.btn_give_book.Location = new System.Drawing.Point(563, 179);
-            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_give_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_give_book.Name = "btn_give_book";
             this.btn_give_book.Size = new System.Drawing.Size(46, 44);
             this.btn_give_book.TabIndex = 53;
@@ -159,12 +159,11 @@ namespace Microwave_v1._0.Forms
             this.btn_return_book.ForeColor = System.Drawing.Color.White;
             this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
             this.btn_return_book.Location = new System.Drawing.Point(613, 179);
-            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_return_book.Name = "btn_return_book";
             this.btn_return_book.Size = new System.Drawing.Size(46, 44);
             this.btn_return_book.TabIndex = 52;
             this.btn_return_book.UseVisualStyleBackColor = true;
-            this.btn_return_book.Click += new System.EventHandler(this.btn_return_book_Click);
             // 
             // btn_id
             // 
@@ -177,7 +176,7 @@ namespace Microwave_v1._0.Forms
             this.btn_id.ForeColor = System.Drawing.Color.White;
             this.btn_id.Image = ((System.Drawing.Image)(resources.GetObject("btn_id.Image")));
             this.btn_id.Location = new System.Drawing.Point(134, -1);
-            this.btn_id.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_id.Name = "btn_id";
             this.btn_id.Size = new System.Drawing.Size(46, 44);
             this.btn_id.TabIndex = 51;
@@ -260,7 +259,7 @@ namespace Microwave_v1._0.Forms
             // 
             this.pnl_sep2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_sep2.Location = new System.Drawing.Point(16, 227);
-            this.pnl_sep2.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_sep2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_sep2.Name = "pnl_sep2";
             this.pnl_sep2.Size = new System.Drawing.Size(743, 1);
             this.pnl_sep2.TabIndex = 42;
@@ -276,7 +275,7 @@ namespace Microwave_v1._0.Forms
             this.btn_remove.ForeColor = System.Drawing.Color.White;
             this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
             this.btn_remove.Location = new System.Drawing.Point(713, 179);
-            this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(46, 44);
             this.btn_remove.TabIndex = 44;
@@ -294,7 +293,7 @@ namespace Microwave_v1._0.Forms
             this.btn_edit.ForeColor = System.Drawing.Color.White;
             this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
             this.btn_edit.Location = new System.Drawing.Point(663, 179);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(46, 44);
             this.btn_edit.TabIndex = 43;
@@ -317,7 +316,7 @@ namespace Microwave_v1._0.Forms
             // 
             this.pnl_sep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
             this.pnl_sep1.Location = new System.Drawing.Point(134, 44);
-            this.pnl_sep1.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_sep1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_sep1.Name = "pnl_sep1";
             this.pnl_sep1.Size = new System.Drawing.Size(628, 1);
             this.pnl_sep1.TabIndex = 41;

@@ -45,7 +45,6 @@ namespace Microwave_v1._0.Forms
             this.btn_show_search_types = new System.Windows.Forms.Button();
             this.tb_search_book = new System.Windows.Forms.TextBox();
             this.lbl_message = new System.Windows.Forms.Label();
-            this.btn_return_book = new System.Windows.Forms.Button();
             this.pnl_book_list.SuspendLayout();
             this.pnl_book_st.SuspendLayout();
             this.SuspendLayout();
@@ -191,7 +190,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_give_book.ForeColor = System.Drawing.Color.White;
             this.btn_give_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_give_book.Image")));
-            this.btn_give_book.Location = new System.Drawing.Point(580, 10);
+            this.btn_give_book.Location = new System.Drawing.Point(581, 10);
             this.btn_give_book.Margin = new System.Windows.Forms.Padding(2);
             this.btn_give_book.Name = "btn_give_book";
             this.btn_give_book.Size = new System.Drawing.Size(46, 44);
@@ -240,31 +239,12 @@ namespace Microwave_v1._0.Forms
             this.lbl_message.TabIndex = 69;
             this.lbl_message.Text = "*Message";
             // 
-            // btn_return_book
-            // 
-            this.btn_return_book.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_return_book.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_return_book.FlatAppearance.BorderSize = 0;
-            this.btn_return_book.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_return_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_return_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_return_book.ForeColor = System.Drawing.Color.White;
-            this.btn_return_book.Image = ((System.Drawing.Image)(resources.GetObject("btn_return_book.Image")));
-            this.btn_return_book.Location = new System.Drawing.Point(580, 10);
-            this.btn_return_book.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_return_book.Name = "btn_return_book";
-            this.btn_return_book.Size = new System.Drawing.Size(46, 44);
-            this.btn_return_book.TabIndex = 70;
-            this.btn_return_book.UseVisualStyleBackColor = true;
-            this.btn_return_book.Click += new System.EventHandler(this.btn_return_book_Click);
-            // 
             // GiveBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(639, 351);
-            this.Controls.Add(this.btn_return_book);
             this.Controls.Add(this.lbl_message);
             this.Controls.Add(this.btn_show_search_types);
             this.Controls.Add(this.btn_give_book);
@@ -296,7 +276,6 @@ namespace Microwave_v1._0.Forms
         private System.Windows.Forms.Button btn_show_search_types;
         private System.Windows.Forms.TextBox tb_search_book;
         private Label lbl_message;
-        private Button btn_return_book;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
     }

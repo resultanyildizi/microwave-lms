@@ -127,6 +127,10 @@ namespace Microwave_v1._0
             this.rb_pub_name = new System.Windows.Forms.RadioButton();
             this.lbl_pub_title = new System.Windows.Forms.Label();
             this.pnl_pub_stick = new System.Windows.Forms.Panel();
+            this.pub_cover_image_list = new System.Windows.Forms.ImageList(this.components);
+            this.dep_cover_image_list = new System.Windows.Forms.ImageList(this.components);
+            this.author_cover_image_list = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnl_home = new System.Windows.Forms.Panel();
             this.lbl_microwave_welcome = new System.Windows.Forms.Label();
             this.pb_welcome_logo = new System.Windows.Forms.PictureBox();
@@ -1513,6 +1517,24 @@ namespace Microwave_v1._0
             this.pnl_pub_stick.Size = new System.Drawing.Size(750, 1);
             this.pnl_pub_stick.TabIndex = 7;
             // 
+            // pub_cover_image_list
+            // 
+            this.pub_cover_image_list.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.pub_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
+            this.pub_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // dep_cover_image_list
+            // 
+            this.dep_cover_image_list.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.dep_cover_image_list.ImageSize = new System.Drawing.Size(200, 225);
+            this.dep_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // author_cover_image_list
+            // 
+            this.author_cover_image_list.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.author_cover_image_list.ImageSize = new System.Drawing.Size(150, 226);
+            this.author_cover_image_list.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // pnl_home
             // 
             this.pnl_home.AutoScroll = true;
@@ -1953,6 +1975,7 @@ namespace Microwave_v1._0
         private Label lbl_pub_title;
         private Panel pnl_pub_stick;
         private Button btn_publisher;
+        private ImageList pub_cover_image_list;
 
         private TextBox tb_search_book;
         private Panel pnl_department_list;
@@ -1969,11 +1992,13 @@ namespace Microwave_v1._0
         private RadioButton rb_book_author;
         private RadioButton rb_book_id;
         private RadioButton rb_book_name;
+        private ImageList dep_cover_image_list;
         private Button btn_author;
         private Panel pnl_authors;
         private Label lbl_author_title;
         private Panel pnl_author_sep;
         private Panel pnl_author_list;
+        private ImageList author_cover_image_list;
         private Button btn_show_search_types;
         private Panel pnl_author_st;
         private Label search_by_3;
@@ -1993,6 +2018,7 @@ namespace Microwave_v1._0
         private Label lbl_search_by_1;
         private RadioButton rb_pub_id;
         private RadioButton rb_pub_name;
+        private Timer timer1;
         private TextBox tb_search_author;
         private TextBox tb_search_user;
         private Label lbl_book_id;
@@ -2048,7 +2074,10 @@ namespace Microwave_v1._0
         public Button Btn_email { get => btn_receipt; set => btn_receipt = value; }
         public Button Btn_user { get => btn_user; set => btn_user = value; }
         public ImageList Cover_image_list { get => cover_image_list; set => cover_image_list = value; }
+        public ImageList Pub_cover_image_list { get => pub_cover_image_list; set => pub_cover_image_list = value; }
         public Panel Pnl_department_list { get => pnl_department_list; set => pnl_department_list = value; }
+        public ImageList Dep_cover_image_list { get => dep_cover_image_list; set => dep_cover_image_list = value; }
+        public ImageList Author_cover_image_list { get => author_cover_image_list; set => author_cover_image_list = value; }
         public Panel Pnl_author_list { get => pnl_author_list; set => pnl_author_list = value; }
         public ListBox Lb_book_search { get => lb_book_search; set => lb_book_search = value; }
         public PictureBox Pic_logo { get => pic_logo; set => pic_logo = value; }

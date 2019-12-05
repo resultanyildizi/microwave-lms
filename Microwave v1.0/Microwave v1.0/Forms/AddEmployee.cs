@@ -31,7 +31,7 @@ namespace Microwave_v1._0.Forms
         Microwave_v1._0.Forms.ShowEmployee main_page;
 
         Picture_Events picture_event;
-        private string picture_default_file = @"..\..\Resources\Employee Covers\Employee.jpg";
+        private string picture_default_file = @"..\..\Resources\Employee Covers\Employee.png";
         private string pic_dest_path = @"..\..\Resources\Employee\";
         private string pic_new_source_path = "";
 
@@ -55,12 +55,11 @@ namespace Microwave_v1._0.Forms
             Fill_Comboboxes();
 
 
-            if (dprt != null)
+            if(dprt != null)
             {
                 this.cb_department.SelectedIndex = cb_department.Items.IndexOf(dprt.Name);
                 this.cb_department.Enabled = false;
-            }
-            else
+            }else
             {
                 this.cb_department.SelectedIndex = 0;
                 this.cb_department.Enabled = true;
@@ -72,7 +71,7 @@ namespace Microwave_v1._0.Forms
         {
             InitializeComponent();
 
-
+          
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
             System.IO.Directory.CreateDirectory(pic_dest_path);
@@ -102,7 +101,7 @@ namespace Microwave_v1._0.Forms
             {
                 rdo_male.Checked = true;
             }
-
+            
 
 
 
@@ -118,10 +117,10 @@ namespace Microwave_v1._0.Forms
         }
         private void Add_Click_Func(bool is_edit)
         {
-            name = tb_name.Text.Replace('\'', ' ');
+            name = tb_name.Text.Replace('\'',' ');
             surname = tb_surname.Text;
             email = tb_email.Text;
-
+            
             department_id = int.Parse(cb_department.SelectedIndex.ToString());
             password = Generate_Auto_Password();
 
@@ -179,7 +178,7 @@ namespace Microwave_v1._0.Forms
                 else
                     pic_new_source_path = picture_default_file;
 
-                Employee employee = new Employee(employee_id, department_id, name, surname, password, email, gender, dtp_time.Value, pic_new_source_path);
+                Employee employee = new Employee(employee_id, department_id, name, surname, dtp_time.Value , email, password, gender, pic_new_source_path);
                 employee.Add();
 
 
@@ -207,18 +206,14 @@ namespace Microwave_v1._0.Forms
                 employee_to_edit.Email = email;
                 employee_to_edit.Department_id = department_id;
                 employee_to_edit.Cover_path_file = picture_event.Pic_source_file;
-                employee_to_edit.Birth_date_dt = dtp_time.Value;
 
                 employee_to_edit.Edit();
 
                 main_page.Pnl_employee_list.VerticalScroll.Value = 0;
                 main_page.Main_employee_list.Delete_All_List();
                 Employee.Show_All_Employees(main_page.Department);
-                main_page.Main_tag.lbl_author.Text = " ";
-                main_page.Main_tag.lbl_bookname.Text = " ";
-                main_page.Main_tag.pic_book.Visible = false;
-                main_page.Main_tag.lbl_description.Text = " ";
 
+                Clear();
             }
         }
 
@@ -232,7 +227,7 @@ namespace Microwave_v1._0.Forms
             tb_name.ForeColor = Color.Gray;
             tb_surname.ForeColor = Color.Gray;
             tb_email.ForeColor = Color.Gray;
-
+            
         }
 
         private void Fill_Comboboxes()
@@ -382,26 +377,26 @@ namespace Microwave_v1._0.Forms
 
         }
         private string Generate_Auto_Password()
-        {
-            Random r = new Random();
+            {
+                Random r = new Random();
 
-            string pass = "";
-            pass += (char)r.Next(65, 90);
-            pass += (char)r.Next(97, 122);
-            pass += (char)r.Next(65, 90);
-            pass += (char)r.Next(97, 122);
-            pass += r.Next(1001, 9998);
+                string pass = "";
+                pass += (char)r.Next(65, 90);
+                pass += (char)r.Next(97, 122);
+                pass += (char)r.Next(65, 90);
+                pass += (char)r.Next(97, 122);
+                pass += r.Next(1001, 9998);
 
 
-            return pass;
-        }
+                return pass;
+            }
 
         private void AddEmployee_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 Add_Click_Func(is_edit);
-            }
+            } 
 
         }
 
