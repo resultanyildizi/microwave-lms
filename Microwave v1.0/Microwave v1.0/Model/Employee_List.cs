@@ -56,10 +56,10 @@ namespace Microwave_v1._0.Model
                 string pic_path_file = dt.Rows[i][8].ToString();
 
                 DateTime bd = Convert.ToDateTime(birth_date);
-                Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, bd, employee_email, employee_password, employee_gender, pic_path_file);
-                employee.Set_Employee(main_list, search_list, main_tag, main_panel,color_mode); 
+                Employee employee = new Employee(employee_id, department_id, employee_name, employee_surname, employee_password, employee_email, employee_gender, bd, pic_path_file);
+                employee.Set_Employee(main_list, search_list, main_tag, main_panel, color_mode);
                 this.Add_Employee_to_List(employee);
-                
+
             }
         }
 
@@ -116,7 +116,7 @@ namespace Microwave_v1._0.Model
             iterator.next = iterator.next.next;
             return;
         }
-    
+
         public void Deselect_All_Infos()
         {
             employee_node iterator = root;
@@ -149,12 +149,12 @@ namespace Microwave_v1._0.Model
             }
         }
 
-        public void Draw_All_Employees() 
+        public void Draw_All_Employees()
         {
             Employee.point_y = 5;
             employee_node iterator = root;
 
-            while(iterator != null)
+            while (iterator != null)
             {
                 iterator.employee.Info.Draw_Employee_obj(ref Employee.point_y);
                 iterator.employee.Info.Show();

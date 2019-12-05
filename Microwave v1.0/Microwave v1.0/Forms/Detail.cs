@@ -250,9 +250,9 @@ namespace Microwave_v1._0.Forms
             this.lbl_name.Text = employee.Name + " " + employee.Surname;
 
             this.lbl_1.Text = "Email:";
-            this.lbl_2.Text = "Birth Date:";
+            this.lbl_4.Text = "Birth Date:";
             this.lbl_3.Text = "Password:";
-            this.lbl_4.Text = "Gender:";
+            this.lbl_2.Text = "Gender:";
             this.lbl_5.Text = "Department:";
 
             this.lbl_desc.Text = " ";
