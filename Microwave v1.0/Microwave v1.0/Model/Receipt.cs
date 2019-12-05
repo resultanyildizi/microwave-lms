@@ -150,19 +150,20 @@ namespace Microwave_v1._0.Model
                 DataTable dt = DataBaseEvents.ExecuteQuery(query_select, datasource);
 
                 if (dt.Rows.Count <= 0)
-                    return;
-
-                int current_count = int.Parse(dt.Rows[0][0].ToString());
-                if (current_count > 0)
                 {
-                    current_count++;
-                    string query_update = string.Format("Update Book_User Set COUNT = {0} Where Book_User.BOOK_ID = {1} and Book_User.USER_ID = {2}", current_count, book.Book_id, this.user_id);
-                    DataBaseEvents.ExecuteNonQuery(query_update, datasource);
+
+                    string query_delete = string.Format("Insert Into Book_User(BOOK_ID, USER_ID, COUNT) Values({0},{1},{2})", book.Book_id, this.user_id, 1);
+                    DataBaseEvents.ExecuteNonQuery(query_delete, datasource);
                 }
                 else
                 {
-                    string query_delete = string.Format("Insert Into Book_User(BOOK_ID, USER_ID, COUNT) Values({0},{1},{2})",book.Book_id, this.user_id, 1);
-                    DataBaseEvents.ExecuteNonQuery(query_delete, datasource);
+                    int current_count = int.Parse(dt.Rows[0][0].ToString());
+                    if (current_count > 0)
+                    {
+                        current_count++;
+                        string query_update = string.Format("Update Book_User Set COUNT = {0} Where Book_User.BOOK_ID = {1} and Book_User.USER_ID = {2}", current_count, book.Book_id, this.user_id);
+                        DataBaseEvents.ExecuteNonQuery(query_update, datasource);
+                    }
                 }
             }
             

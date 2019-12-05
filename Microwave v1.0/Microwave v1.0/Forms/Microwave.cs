@@ -1770,7 +1770,6 @@ namespace Microwave_v1._0
             }
 
         }
-
         private void lb_category_search_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == (char)Keys.Back)
@@ -1822,7 +1821,6 @@ namespace Microwave_v1._0
                 lb_category_search.Items.Add(item);
             }
         }
-
         // Searching events for receipts
         private void RadioButtonReceipt_CheckedChanged(object sender, EventArgs e)
         {
@@ -2050,11 +2048,6 @@ namespace Microwave_v1._0
             }
 
         }
-
-
-
-
-
         // Initilaze page
         private void pictureBox1_Click(object sender, EventArgs e)
         {

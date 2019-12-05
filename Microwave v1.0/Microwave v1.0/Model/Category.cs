@@ -36,7 +36,6 @@ namespace Microwave_v1._0.Model
 
         public Category(int category_id, string category_name, int popularity_id, int popularity_score, string category_cover_path_file)
         {
-
             main_page = (Microwave)Application.OpenForms["Microwave"];
             this.category_id = category_id;
             this.popularity_id = popularity_id;
@@ -47,7 +46,6 @@ namespace Microwave_v1._0.Model
 
         public Category()
         {
-
         }
 
         public void Add()
@@ -65,9 +63,7 @@ namespace Microwave_v1._0.Model
             info = new Category_Info();
             Take_Id_From_Database();
 
-
             Info.Initialize_Category_Info(category_id, category_name, category_cover_path_file);
-
 
             main_page.Main_category_list.Add_Category_to_List(this);
             main_page.Pnl_categories_list.VerticalScroll.Value = 0;
@@ -78,7 +74,6 @@ namespace Microwave_v1._0.Model
 
         private void Take_Id_From_Database()
         {
-            
             string title = "SELECT Categories.CATEGORY_ID FROM Categories ";
             string query = title + string.Format("Where NAME = '{0}';", category_name);
 
@@ -86,7 +81,6 @@ namespace Microwave_v1._0.Model
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.category_id = this.info.Category_id = id;
-
         }
 
         public void Edit()
@@ -101,10 +95,8 @@ namespace Microwave_v1._0.Model
                 return;
             }
 
-
             info.Initialize_Category_Info(category_id, category_name, category_cover_path_file);
             info.Select_Category_Info();
-
         }
         public void Set_Categories()
         {
@@ -113,7 +105,6 @@ namespace Microwave_v1._0.Model
         }
 
         //Search Method
-
         static public DataTable Search_Category_By_Name(string category_name)
         {
             string query = string.Format("Select * From Categories Where Categories.NAME Like '{0}%'", category_name);
@@ -142,7 +133,6 @@ namespace Microwave_v1._0.Model
             main_page.Pnl_categories_list.VerticalScroll.Value = 0;
             main_page.Main_category_list.Fill_Category_List(dt);
             main_page.Main_category_list.Draw_All_Categories();
-
         }
     }
 }

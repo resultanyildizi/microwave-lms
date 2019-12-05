@@ -196,6 +196,7 @@ namespace Microwave_v1._0
             main_page.Main_book_list.Fill_Book_List(dt, main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Draw_All_Books();
         }
+
         public static DataTable Show_All_Books(User user)
         {
             string query = "Select Books.BOOK_ID As ID, Books.Name As Book,Authors.NAME As Author, Publishers.NAME As Publisher, Categories.NAME As Category, " +
@@ -265,7 +266,6 @@ namespace Microwave_v1._0
             book_shelf_info = new Book_Info_For_Shelf(shelf);
             book_shelf_info.Initialize_Book_Info(book_id, name);
         }
-
 
         static public DataTable Search_Book_By_Name(string name)
         {
@@ -378,8 +378,6 @@ namespace Microwave_v1._0
 
         }
 
-
-
         // Background Database Events
         private void Join_Tables_For_Names()
         {
@@ -420,9 +418,6 @@ namespace Microwave_v1._0
         public void Cover_Pic_to_Image_List()
         {
             main_page.Cover_image_list.Images.Add(this.book_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.cover_path_file));
-        }
-
-
-        
+        } 
     }
 }

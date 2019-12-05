@@ -221,8 +221,19 @@ namespace Microwave_v1._0.UserControls
                 this.pnl_category_name.BackColor = back_color2;
             }
         }
+        private void lbl_category_name_MouseLeave(object sender, EventArgs e)
+        {
+            Category_Mouse_Leave();
+        }
+        private void lbl_category_name_MouseEnter(object sender, EventArgs e)
+        {
+            Category_Hover();
+        }
+        private void Category_Info_DoubleClick(object sender, EventArgs e)
+        {
+            Category current = category_list.Find_Category_By_ID(category_id);
+            Create_Category_Detail_Form(current);
 
-       
-
+        }
     }
 }
