@@ -83,7 +83,6 @@ namespace Microwave_v1._0
                 Increase(name, pic_target_file);
             }
         }
-
         private void Increase(string name, string pic_target_file)
         {
             name = this.name;
@@ -101,7 +100,6 @@ namespace Microwave_v1._0
             }
             pic_source_file = pic_target_file;
         }
-
         public static void Delete_The_Picture(string pic_source_file)
         {
             try
@@ -117,7 +115,6 @@ namespace Microwave_v1._0
                 MessageBox.Show(d.Message);
             }
         }
-
         public static Image Get_Copy_Image_Bitmap(string path)
         {
             using (Image im = Image.FromFile(path))

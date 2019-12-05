@@ -162,10 +162,31 @@ namespace Microwave_v1._0
         }
         public void Delete()
         {
-            string title = "DELETE FROM Books ";
-            string query = title + string.Format("Where BOOK_ID = '{0}';", book_id);
+            string query;
+            int result;
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            query = "Delete From Receipt Where Receipt.BOOK_ID = " + book_id;
+            result  = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+            { 
+                MessageBox.Show("Invalid delete operation");
+                return;
+            }
+
+            main_page.Main_receipt_list.Delete_All_List();
+            Receipt.Show_All_Receipts(main_page);
+
+            query = "Delete From Book_User Where Book_User.BOOK_ID = " + book_id;
+            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+            {
+                MessageBox.Show("Invalid delete operation");
+                return;
+            }
+
+            query = "Delete From Books Where Books.BOOK_ID = " + book_id;
+
+            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
             if (result <= 0)
                 MessageBox.Show("Delete is not valid");
             return;
@@ -179,10 +200,11 @@ namespace Microwave_v1._0
             main_page.Main_book_list.Fill_Book_List(dt, main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list, INFO_COLOR_MODE.NORMAL);
             main_page.Main_book_list.Draw_All_Books();
         }
+
         public static DataTable Show_All_Books(User user)
         {
             string query = "Select Books.BOOK_ID As ID, Books.Name As Book,Authors.NAME As Author, Publishers.NAME As Publisher, Categories.NAME As Category, " +
-                            "Shelves.NAME As Shelf, Popularity.NAME As Popularity, Books.POPULARITY_SCORE As Score, Books.DATE As Date From Book_User " +
+                            "Shelves.NAME As Shelf, Popularity.NAME As Popularity, Books.POPULARITY_SCORE As Score, Books.DATE As Date, Book_User.COUNT as Count From Book_User " +
                             "Join Books On Book_User.BOOK_ID = Books.BOOK_ID " +
                             "Join Authors On Books.AUTHOR_ID = Authors.AUTHOR_ID " +
                             "Join Publishers On Books.PUBLISHER_ID = Publishers.PUBLISHER_ID " +
@@ -243,7 +265,6 @@ namespace Microwave_v1._0
             info = new Book_Info(main_list, search_list, book_tag, main_panel);
             info.Initialize_Book_Info(book_id, shelf_id, name, author_name, publisher_name,category_name,shelf_name, date, count, description, cover_path_file, color_mode);
         }
-
         public void Set_Book(Shelf shelf)
         {
             Join_Tables_For_Names();
@@ -251,7 +272,6 @@ namespace Microwave_v1._0
             book_shelf_info = new Book_Info_For_Shelf(shelf);
             book_shelf_info.Initialize_Book_Info(book_id,name,author_name,publisher_name,category_name,count);
         }
-
 
         static public DataTable Search_Book_By_Name(string name)
         {
@@ -315,16 +335,37 @@ namespace Microwave_v1._0
         public void Give_Book_To_User(User user) 
         {
             this.count--;
-            string query_insert = string.Format("Insert into Book_User(BOOK_ID, USER_ID) Values({0}, {1})", this.book_id, user.User_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query_insert, datasource);
-            if(result <= 0)
+            string query_select = string.Format("Select * From Book_User Where Book_User.BOOK_ID = '{0}' and Book_User.USER_ID = '{1}'", this.book_id, user.User_id);
+
+            DataTable dt = DataBaseEvents.ExecuteQuery(query_select, datasource);
+            
+            if(dt.Rows.Count > 0)
             {
-                MessageBox.Show("Invalid insert operation");
-                return;
+                int count = int.Parse(dt.Rows[0][3].ToString());
+                count++;
+
+                string query_update = string.Format("Update Book_User Set Count = '{0}' Where Book_User.BOOK_ID = '{1}' and Book_User.USER_ID = '{2}'", count, this.book_id, user.User_id);
+                DataBaseEvents.ExecuteNonQuery(query_update, datasource);
+            }
+            else
+            {
+                string query_insert = string.Format("Insert into Book_User(BOOK_ID, USER_ID, COUNT) Values({0}, {1}, {2})", this.book_id, user.User_id, 1);
+                int result = DataBaseEvents.ExecuteNonQuery(query_insert, datasource);
+                if (result <= 0)
+                {
+                    MessageBox.Show("Invalid insert operation");
+                    return;
+                }
             }
 
-            Receipt receipt = new Receipt(0, this.book_id, user.User_id, 0, "CHECKED IN");
+            Book exact = main_page.Main_book_list.Find_Book_By_ID(this.book_id);
+            exact.Count--;
+            exact.Change_Count();
+
+           
+
+            Receipt receipt = new Receipt(0, this.book_id, user.User_id, 0, "CHECKED IN", MODE.GIVE);
             receipt.Add();
         }
         private void Change_Popularity_Stat() { }
@@ -342,8 +383,6 @@ namespace Microwave_v1._0
             }
 
         }
-
-
 
         // Background Database Events
         private void Join_Tables_For_Names()
@@ -385,9 +424,6 @@ namespace Microwave_v1._0
         public void Cover_Pic_to_Image_List()
         {
             main_page.Cover_image_list.Images.Add(this.book_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.cover_path_file));
-        }
-
-
-        
+        } 
     }
 }

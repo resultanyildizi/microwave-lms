@@ -73,7 +73,7 @@ namespace Microwave_v1._0.Forms
             main_page.Main_receipt_list.Draw_All_Receipts();
             main_page.Receipt_searched_already = false;
 
-            this.Close();
+            this.Dispose();
         }
 
         private void Remove()

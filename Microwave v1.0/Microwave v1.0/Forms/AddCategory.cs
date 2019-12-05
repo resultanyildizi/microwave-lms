@@ -28,7 +28,6 @@ namespace Microwave_v1._0.Forms
         private string pic_dest_path = @"..\..\Resources\Category Covers\";
         private string pic_new_source_path = "";
 
-
         private bool is_edit = false;
         private bool change_image = false;
         private Category category_to_edit = null;
@@ -68,7 +67,6 @@ namespace Microwave_v1._0.Forms
 
             is_edit = true;
         }
-
         private void Add_Click_Function(bool is_edit)
         {
             category_name = (tb_category_name.Text.Trim()).Replace('\'', ' ');
@@ -121,45 +119,38 @@ namespace Microwave_v1._0.Forms
 
             }
         }
-
         private void btn_add_Click(object sender, EventArgs e)
         {
             Add_Click_Function(is_edit);
         }
-
         private void btn_add_pic_Click(object sender, EventArgs e)
         {
             change_image = true;
             picture_event.Choose_Image();
 
         }
-
         private void AddCategory_FormClosed(object sender, FormClosedEventArgs e)
         {
             main_page.Btn_add.Enabled = true;
         }
-
         private void AddCategory_FormClosing(object sender, FormClosingEventArgs e)
         {
             main_page.Btn_add.Enabled = true;
         }
-
         private void AddCategory_Load(object sender, EventArgs e)
         {
             this.Activate();
             this.tb_category_name.Select();
 
         }
-
         private void tb_category_name_Enter(object sender, EventArgs e)
         {
-            if (tb_category_name.Text == "category's Name")
+            if (tb_category_name.Text == "Category's Name")
             {
                 tb_category_name.Text = "";
                 tb_category_name.ForeColor = Color.LightGray;
             }
         }
-
         private void tb_category_name_Leave(object sender, EventArgs e)
         {
             if (tb_category_name.Text == "")
@@ -168,9 +159,12 @@ namespace Microwave_v1._0.Forms
                 tb_category_name.ForeColor = Color.Gray;
             }
         }
-
-        
-
-
+        private void btn_add_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Add_Click_Function(is_edit);
+            }
+        }
     }
 }

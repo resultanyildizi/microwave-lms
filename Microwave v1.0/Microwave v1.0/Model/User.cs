@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.Windows.Forms;
 using Microwave_v1._0.Classes;
 using System.Data;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0
 {
@@ -103,9 +104,31 @@ namespace Microwave_v1._0
         }
         public void Delete()
         {
-            string query = "Delete From Users Where USER_ID = " + user_id;
+            string query;
+            int result;
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            query = "Delete From Receipt Where Receipt.USER_ID = " + user_id;
+            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+            {
+                MessageBox.Show("Invalid delete operation");
+                return;
+            }
+
+            main_page.Main_receipt_list.Delete_All_List();
+            Receipt.Show_All_Receipts(main_page);
+
+            query = "Delete From Book_User Where Book_User.USER_ID = " + user_id;
+            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            if (result <= 0)
+            {
+                MessageBox.Show("Invalid delete operation");
+                return;
+            }
+
+            query = "Delete From Users Where USER_ID = " + user_id;
+
+            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
             if(result <= 0)
             {
                 MessageBox.Show("Invalid delete event");
@@ -135,6 +158,35 @@ namespace Microwave_v1._0
         {
             info = new UserInfo();
             info.Initialize_User_Info(user_id, name, surname, gender, age, email, date, color_mode);
+        }
+        public void Give_Book_Back(Book book)
+        {     
+            string query_select = string.Format("Select Book_User.COUNT From Book_User Where Book_User.BOOK_ID = {0} and Book_User.USER_ID = {1}", book.Book_id, this.User_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query_select, datasource);
+
+            if (dt.Rows.Count <= 0)
+                return;
+
+            int current_count = int.Parse(dt.Rows[0][0].ToString());
+            if ( current_count > 1)
+            {
+                current_count--;
+                string query_update = string.Format("Update Book_User Set COUNT = {0} Where Book_User.BOOK_ID = {1} and Book_User.USER_ID = {2}", current_count, book.Book_id, this.user_id);
+                DataBaseEvents.ExecuteNonQuery(query_update, datasource);
+            }
+            else
+            {
+                string query_delete = string.Format("Delete From Book_User Where Book_User.BOOK_ID = {0} and Book_User.USER_ID = {1}", book.Book_id, this.user_id);
+                DataBaseEvents.ExecuteNonQuery(query_delete, datasource);
+            }
+
+            Book exact = main_page.Main_book_list.Find_Book_By_ID(book.Book_id);
+            exact.Count++;
+            exact.Change_Count();
+
+            book.Count--;
+            Receipt receipt = new Receipt(0, book.Book_id, this.user_id, 0, "RETURN", MODE.RETURN);
+            receipt.Add();
         }
 
         static public DataTable Search_User_By_Name(string name)

@@ -45,9 +45,6 @@ namespace Microwave_v1._0.Classes
             this.author_birthday = author_birthday;
             this.author_biography = author_biography;
             this.author_cover_path_file = author_cover_path_file;
-            
-            
-
         }
 
         public Author()
@@ -186,12 +183,6 @@ namespace Microwave_v1._0.Classes
             DataTable db = DataBaseEvents.ExecuteQuery(query, datasource);
             author_popularity_name = db.Rows[0][0].ToString();
         }
-        
-        /*public void Cover_Pic_to_Image_List()
-        {
-            main_page.Author_cover_image_list.Images.Add(this.Author_id.ToString(), Picture_Events.Get_Copy_Image_Bitmap(this.Author_cover_path_file));
-        }*/
-
 
     }
 }
