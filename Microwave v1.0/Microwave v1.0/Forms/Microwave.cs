@@ -342,6 +342,19 @@ namespace Microwave_v1._0
                 warning_form.Refresh_Form();
 
             }
+            else if (chosen == MENU_CHOSEN.SHELF)
+            {
+                message = "Do you want to add a new Shelf?";
+                color = Color.Tan;
+                Create_Warning_Form(message, color);
+                if (warning_form.Result == true)
+                {
+                    string shelf_name = Shelf.Generate_Shelf_Name();
+                    Shelf shelf = new Shelf(0, shelf_name);
+                    shelf.Add();
+                }
+                warning_form.Refresh_Form();
+            }
 
         }
         public void Create_Warning_Form(string message, Color color)

@@ -17,7 +17,7 @@ namespace Microwave_v1._0.UserControls
     {
         private Microwave main_page;
         private Shelf_List main_shelf_list;
-        
+
 
         private int shelf_id;
         private string shelf_name;
@@ -28,45 +28,22 @@ namespace Microwave_v1._0.UserControls
         {
             InitializeComponent();
             main_page = (Microwave)Application.OpenForms["Microwave"];
-
-            //int x = 45;
-            //Book_Info_For_Shelf bs = new Book_Info_For_Shelf();
-            //bs.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            //this.Controls.Add(bs);
-            //x += 20;
-            //Book_Info_For_Shelf bs1 = new Book_Info_For_Shelf();
-            //bs1.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            //this.Controls.Add(bs1);
-            //x += 20;
-
-            //Book_Info_For_Shelf bs2 = new Book_Info_For_Shelf();
-            //bs2.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            //this.Controls.Add(bs2);
-            //x += 20;
-
-            //Book_Info_For_Shelf bs3 = new Book_Info_For_Shelf();
-            //bs3.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            //this.Controls.Add(bs3);
-            //x += 20;
-
-            //Book_Info_For_Shelf bs4 = new Book_Info_For_Shelf();
-            //bs4.Location = new System.Drawing.Point(x, this.pnl_shelf.Location.Y - bs.Height);
-            //this.Controls.Add(bs4);
+            this.pnl_book_detail.Hide();
 
         }
 
-        public void Initialize_Shelf_Info(int shelf_id,string shelf_name)
+        public void Initialize_Shelf_Info(int shelf_id, string shelf_name)
         {
             this.shelf_id = shelf_id;
             this.shelf_name = shelf_name;
             this.btn_shelf_id.Text = shelf_id.ToString();
-            this.lbl_name.Text = shelf_name;
+            this.lbl_name.Text = "#" + shelf_name;
         }
 
-        public void Draw_Shelf_Obj(int x,ref int y)
+        public void Draw_Shelf_Obj(ref int y)
         {
             main_page.Pnl_shelf_list.Controls.Add(this);
-            this.Location = new System.Drawing.Point(x, y);
+            this.Location = new System.Drawing.Point(22, y);
             y += 150;
         }
 

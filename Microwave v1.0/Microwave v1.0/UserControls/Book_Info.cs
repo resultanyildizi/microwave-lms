@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microwave_v1._0.Forms;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0
 {
@@ -37,6 +38,7 @@ namespace Microwave_v1._0
         private string shelf;
         private string category;
         private int book_id;
+        private int shelf_id;
         private bool chosen = false;
         private INFO_COLOR_MODE color_mode;
 
@@ -53,9 +55,10 @@ namespace Microwave_v1._0
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
-        public void Initialize_Book_Info(int book_id, string name, string author, string publisher, string category, string shelf, string date, int count, string description, string pic_path_file, INFO_COLOR_MODE mode)
+        public void Initialize_Book_Info(int book_id, int shelf_id, string name, string author, string publisher, string category, string shelf, string date, int count, string description, string pic_path_file, INFO_COLOR_MODE mode)
         {
             this.book_id = book_id;
+            this.shelf_id = shelf_id;
             this.lbl_id.Text = book_id.ToString(); ;
             this.lbl_name.Text = name;
             this.lbl_author.Text = author;
@@ -211,10 +214,15 @@ namespace Microwave_v1._0
         public void Remove(bool delete_picture = true)
         {
             Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
+            Shelf shelf = main_page.Main_shelf_list.Find_Shelf_By_ID(shelf_id);
+            Book current = shelf.Book_list.Find_Book_By_ID(book_id);
+            current.Book_shelf_info.Remove();
+
             main_page.Remove_Image_From_Cover_List(book_id);
             main_page.Book_tag.Edit_Book_Tag("Select A Book to Show", "Select A Book to Show", "", "0");
             main_list.Delete_Book_from_List(book_id, delete_picture);
             this.Dispose();
+
 
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
             Book.point_y = 5;

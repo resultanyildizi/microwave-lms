@@ -47,7 +47,7 @@ namespace Microwave_v1._0.Model
                     continue;
                 string shelf_name = dt.Rows[i][1].ToString();
 
-                Shelf shelf = new Shelf(shelf_id,shelf_name);
+                Shelf shelf = new Shelf(shelf_id, shelf_name);
                 shelf.Set_Shelf();
                 this.Add_Shelf_to_List(shelf);
             }
@@ -71,12 +71,11 @@ namespace Microwave_v1._0.Model
         public void Draw_All_Shelf()
         {
             Shelf.point_y = 20;
-            Shelf.point_x = 22;
 
             shelf_node iterator = root;
             while (iterator != null)
             {
-                iterator.shelf.Shelf_ınfo.Draw_Shelf_Obj(Shelf.point_x,ref Shelf.point_y);
+                iterator.shelf.Shelf_ınfo.Draw_Shelf_Obj(ref Shelf.point_y);
                 iterator.shelf.Shelf_ınfo.Show();
                 iterator = iterator.next;
             }
@@ -100,7 +99,22 @@ namespace Microwave_v1._0.Model
             return iterator.shelf;
         }
 
-        //BOOK
+        public void Delete_All_List()
+        {
+            shelf_node iterator = root;
+            shelf_node current;
+
+            while (iterator != null)
+            {
+                current = iterator.next;
+                iterator.shelf.Book_list.Delete_All_Books_From_Shelf();
+                iterator.shelf.Shelf_ınfo.Dispose();
+                iterator.shelf = null;
+                iterator = current;
+
+            }
+            root = null;
+        }
 
     }
 }

@@ -41,6 +41,8 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // Book_Info_For_Shelf
             // 
@@ -50,6 +52,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Book_Info_For_Shelf";
             this.Size = new System.Drawing.Size(20, 90);
+            this.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

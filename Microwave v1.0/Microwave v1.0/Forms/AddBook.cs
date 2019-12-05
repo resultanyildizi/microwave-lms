@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SQLite;
 using Microwave_v1._0.Classes;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0
 {
@@ -225,6 +226,9 @@ namespace Microwave_v1._0
                 main_page.Book_search_list.Delete_All_List();
                 main_page.Main_book_list.Draw_All_Books();
                 main_page.Book_searched_already = false;
+
+                main_page.Main_shelf_list.Delete_All_List();
+                Shelf.Show_All_Shelf(main_page);
 
             }
 
@@ -454,7 +458,7 @@ namespace Microwave_v1._0
             }
 
             else
-                cb_publisher.ForeColor = Color.LightGray;
+                cb_author.ForeColor = Color.LightGray;
         }
         private void Cb_author_KeyDown(object sender, KeyEventArgs e)
         {

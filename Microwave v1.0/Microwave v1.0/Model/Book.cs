@@ -22,7 +22,6 @@ namespace Microwave_v1._0
     {
         // Global
         public static int point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
-        public static int point_shelf_x = 65; 
         static Microwave main_page = null;
         static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
         // ID's
@@ -111,7 +110,7 @@ namespace Microwave_v1._0
             title = "INSERT INTO Books (AUTHOR_ID,PUBLISHER_ID, CATEGORY_ID, LIBRARIAN_ID, SHELF_ID, " +
                     "POPULARITY_ID, NAME, DATE, DESCRIPT, COUNT, COVER_PATH, POPULARITY_SCORE) ";
 
-            values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}')", 
+            values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}', '{7}','{8}','{9}','{10}', '{11}')",
                                     author_id, publisher_id, category_id, librarian_id, shelf_id, popularity_id, name, date,
                                     description, count, cover_path_file, popularity_score);
 
@@ -121,18 +120,23 @@ namespace Microwave_v1._0
 
             // Take book id which is given by database automatically
             info = new Book_Info(main_page.Main_book_list, main_page.Book_search_list, main_page.Book_tag, main_page.Pnl_book_list);
+            Shelf current = main_page.Main_shelf_list.Find_Shelf_By_ID(shelf_id);
+            book_shelf_info = new Book_Info_For_Shelf(current);
             Take_Id_From_Database();
 
             Join_Tables_For_Names();
 
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
+            info.Initialize_Book_Info(book_id, shelf_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
+            book_shelf_info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, count);
 
             Cover_Pic_to_Image_List();
             main_page.Main_book_list.Add_Book_to_List(this);
+            current.Book_list.Add_Book_to_List(this);
 
             main_page.Pnl_book_list.VerticalScroll.Value = 0;
 
             Info.Draw_Book_Obj(ref Book.point_y);
+            book_shelf_info.Draw_Book_Obj(ref current.point_book_x);
             Info.Select_Book_Info();
         }
         public void Edit()
@@ -153,7 +157,7 @@ namespace Microwave_v1._0
             Join_Tables_For_Names();
 
             // For user interface
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
+            info.Initialize_Book_Info(book_id, shelf_id, name, author_name, publisher_name,category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
             info.Select_Book_Info();
         }
         public void Delete()
@@ -259,12 +263,14 @@ namespace Microwave_v1._0
             Join_Tables_For_Names();
 
             info = new Book_Info(main_list, search_list, book_tag, main_panel);
-            info.Initialize_Book_Info(book_id, name, author_name, publisher_name,category_name,shelf_name, date, count, description, cover_path_file, color_mode);
+            info.Initialize_Book_Info(book_id, shelf_id, name, author_name, publisher_name,category_name,shelf_name, date, count, description, cover_path_file, color_mode);
         }
         public void Set_Book(Shelf shelf)
         {
+            Join_Tables_For_Names();
+
             book_shelf_info = new Book_Info_For_Shelf(shelf);
-            book_shelf_info.Initialize_Book_Info(book_id, name);
+            book_shelf_info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, count);
         }
 
         static public DataTable Search_Book_By_Name(string name)
@@ -365,7 +371,7 @@ namespace Microwave_v1._0
         private void Change_Popularity_Stat() { }
         public void Change_Count() 
         {
-            this.info.Initialize_Book_Info(book_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
+            this.info.Initialize_Book_Info(book_id, shelf_id, name, author_name, publisher_name, category_name, shelf_name, date, count, description, cover_path_file, INFO_COLOR_MODE.NORMAL);
 
             string query = string.Format("Update Books Set COUNT = {0} Where Books.BOOK_ID = {1}", count, book_id);
             
