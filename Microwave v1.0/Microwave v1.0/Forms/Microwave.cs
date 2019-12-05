@@ -264,7 +264,7 @@ namespace Microwave_v1._0
 
                 book_searched_already = false;
 
-                message = "Do you want to add a book?";
+                message = "Do you want to add a new book?";
                 color = Color.DarkGreen;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -279,7 +279,7 @@ namespace Microwave_v1._0
 
                 user_searched_already = false;
 
-                message = "Do you want to add a user?";
+                message = "Do you want to add a new user?";
                 color = Color.Bisque;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -295,7 +295,7 @@ namespace Microwave_v1._0
                 author_searched_already = false;
 
 
-                message = "Do you want to add an author?";
+                message = "Do you want to add a new author?";
                 color = Color.BlueViolet;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -310,7 +310,7 @@ namespace Microwave_v1._0
                 main_pub_list.Draw_All_Publishers();
                 publisher_searched_already = false;
 
-                message = "Do you want to add a publisher?";
+                message = "Do you want to add a new publisher?";
                 color = Color.DarkCyan;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -322,7 +322,7 @@ namespace Microwave_v1._0
             {
 
 
-                message = "Do you want to add a Department?";
+                message = "Do you want to add a new Department?";
                 color = Color.Chocolate;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -332,7 +332,7 @@ namespace Microwave_v1._0
             }
             else if (chosen == MENU_CHOSEN.CATEGORY)
             {
-                message = "Do you want to add a Category?";
+                message = "Do you want to add a new Category?";
                 color = Color.Tan;
                 Create_Warning_Form(message, color);
                 if (warning_form.Result == true)
@@ -341,6 +341,19 @@ namespace Microwave_v1._0
                 }
                 warning_form.Refresh_Form();
 
+            }
+            else if (chosen == MENU_CHOSEN.SHELF)
+            {
+                message = "Do you want to add a new Shelf?";
+                color = Color.Tan;
+                Create_Warning_Form(message, color);
+                if (warning_form.Result == true)
+                {
+                    string shelf_name = Shelf.Generate_Shelf_Name();
+                    Shelf shelf = new Shelf(0,shelf_name);
+                    shelf.Add();
+                }
+                warning_form.Refresh_Form();
             }
 
         }

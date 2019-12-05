@@ -35,7 +35,13 @@ namespace Microwave_v1._0.UserControls
             this.btn_shelf_id = new System.Windows.Forms.Button();
             this.pnl_name = new System.Windows.Forms.Panel();
             this.lbl_name = new System.Windows.Forms.Label();
+            this.pnl_book_detail = new System.Windows.Forms.Panel();
+            this.lbl_category = new System.Windows.Forms.Label();
+            this.lbl_publisher = new System.Windows.Forms.Label();
+            this.lbl_author = new System.Windows.Forms.Label();
+            this.lbl_book_name = new System.Windows.Forms.Label();
             this.pnl_name.SuspendLayout();
+            this.pnl_book_detail.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_shelf
@@ -88,12 +94,70 @@ namespace Microwave_v1._0.UserControls
             this.lbl_name.TabIndex = 0;
             this.lbl_name.Text = "#A01";
             // 
+            // pnl_book_detail
+            // 
+            this.pnl_book_detail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.pnl_book_detail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_book_detail.Controls.Add(this.lbl_category);
+            this.pnl_book_detail.Controls.Add(this.lbl_publisher);
+            this.pnl_book_detail.Controls.Add(this.lbl_author);
+            this.pnl_book_detail.Controls.Add(this.lbl_book_name);
+            this.pnl_book_detail.Location = new System.Drawing.Point(431, 7);
+            this.pnl_book_detail.Name = "pnl_book_detail";
+            this.pnl_book_detail.Size = new System.Drawing.Size(146, 68);
+            this.pnl_book_detail.TabIndex = 20;
+            // 
+            // lbl_category
+            // 
+            this.lbl_category.AutoEllipsis = true;
+            this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_category.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_category.Location = new System.Drawing.Point(3, 48);
+            this.lbl_category.Name = "lbl_category";
+            this.lbl_category.Size = new System.Drawing.Size(140, 15);
+            this.lbl_category.TabIndex = 3;
+            this.lbl_category.Text = "label1";
+            // 
+            // lbl_publisher
+            // 
+            this.lbl_publisher.AutoEllipsis = true;
+            this.lbl_publisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_publisher.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_publisher.Location = new System.Drawing.Point(3, 33);
+            this.lbl_publisher.Name = "lbl_publisher";
+            this.lbl_publisher.Size = new System.Drawing.Size(140, 15);
+            this.lbl_publisher.TabIndex = 2;
+            this.lbl_publisher.Text = "label1";
+            // 
+            // lbl_author
+            // 
+            this.lbl_author.AutoEllipsis = true;
+            this.lbl_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_author.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_author.Location = new System.Drawing.Point(3, 17);
+            this.lbl_author.Name = "lbl_author";
+            this.lbl_author.Size = new System.Drawing.Size(140, 15);
+            this.lbl_author.TabIndex = 1;
+            this.lbl_author.Text = "label1";
+            // 
+            // lbl_book_name
+            // 
+            this.lbl_book_name.AutoEllipsis = true;
+            this.lbl_book_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_book_name.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_book_name.Location = new System.Drawing.Point(3, 1);
+            this.lbl_book_name.Name = "lbl_book_name";
+            this.lbl_book_name.Size = new System.Drawing.Size(140, 15);
+            this.lbl_book_name.TabIndex = 0;
+            this.lbl_book_name.Text = "label1";
+            // 
             // Shelf_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.pnl_book_detail);
             this.Controls.Add(this.pnl_name);
             this.Controls.Add(this.btn_shelf_id);
             this.Controls.Add(this.pnl_shelf);
@@ -101,6 +165,7 @@ namespace Microwave_v1._0.UserControls
             this.Size = new System.Drawing.Size(713, 122);
             this.Load += new System.EventHandler(this.Shelf_Info_Load);
             this.pnl_name.ResumeLayout(false);
+            this.pnl_book_detail.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -111,7 +176,17 @@ namespace Microwave_v1._0.UserControls
         private System.Windows.Forms.Button btn_shelf_id;
         private System.Windows.Forms.Panel pnl_name;
         private System.Windows.Forms.Label lbl_name;
+        private Panel pnl_book_detail;
+        private Label lbl_publisher;
+        private Label lbl_author;
+        private Label lbl_book_name;
+        private Label lbl_category;
 
         public Panel Pnl_shelf { get => pnl_shelf; set => pnl_shelf = value; }
+        public Panel Pnl_book_detail { get => pnl_book_detail; set => pnl_book_detail = value; }
+        public Label Lbl_publisher { get => lbl_publisher; set => lbl_publisher = value; }
+        public Label Lbl_author { get => lbl_author; set => lbl_author = value; }
+        public Label Lbl_book_name { get => lbl_book_name; set => lbl_book_name = value; }
+        public Label Lbl_category { get => lbl_category; set => lbl_category = value; }
     }
 }

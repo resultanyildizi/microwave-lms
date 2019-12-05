@@ -119,12 +119,16 @@ namespace Microwave_v1._0
             while(iterator != null)
             {
                 current = iterator.next;
-                iterator.book.Info.Dispose();
+                if (iterator.book.Info != null)
+                    iterator.book.Info.Dispose();
+                else
+                    iterator.book.Book_shelf_info.Dispose();
                 iterator.book = null;
                 iterator = current;
             }
             root = null;
         }
+        
         public void Add_Book_to_List(Book book)
         {
             if (root == null)
@@ -152,13 +156,13 @@ namespace Microwave_v1._0
             }
         }
 
-        public void Draw_All_Books_For_Shelf()
+        public void Draw_All_Books_For_Shelf(ref int point_x)
         {
-            Book.point_shelf_x = 65;
+            point_x = 65;
             book_node iterator = root;
             while (iterator != null)
             {
-                iterator.book.Book_shelf_info.Draw_Book_Obj(ref Book.point_shelf_x);
+                iterator.book.Book_shelf_info.Draw_Book_Obj(ref point_x);
                 iterator.book.Book_shelf_info.Show();
                 iterator = iterator.next;
             }

@@ -62,18 +62,9 @@ namespace Microwave_v1._0.Classes
             string title;
             string values;
 
-            if (main_page.Main_pub_list.Is_Pub_List_Empty())
-            {
-                title = "INSERT INTO Publishers(PUBLISHER_ID, NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
-                
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", publisher_id, pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
-            }
-            else
-            {
-                title = "INSERT INTO Publishers(NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
-                values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}')", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
-
-            }
+            title = "INSERT INTO Publishers(NAME, EMAIL, PHONE_NUMBER, DATE_OF_EST, PICTURE_PATH) ";
+            values = string.Format("VALUES ('{0}','{1}','{2}','{3}','{4}')", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file);
+            
             string query = title + values;
 
             DataBaseEvents.ExecuteNonQuery(query, datasource);
