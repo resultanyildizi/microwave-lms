@@ -73,6 +73,9 @@ namespace Microwave_v1._0.Model
                     iterator = current;
                 }
                 root = null;
+
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
             }
 
             public void Add_Category_to_List(Category category)

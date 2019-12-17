@@ -139,6 +139,9 @@ namespace Microwave_v1._0
                 iterator = current;
             }
             root = null;
+
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
         public void Add_Book_to_List(Book book)
         {

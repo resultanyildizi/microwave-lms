@@ -19,8 +19,6 @@ namespace Microwave_v1._0.UserControls
         private Forms.AddPublisher edit_pub_form = null;
         private Detail detail_form = null;
 
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
-
         private string pub_name;
         private string pub_email;
         private string pub_phone_number;
@@ -71,13 +69,7 @@ namespace Microwave_v1._0.UserControls
             {
                 x += 180;
             }
-            pb_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(pub_pic_path_file);
-        }
-        public void Draw_Publisher_Detail_Obj(ref int y)
-        {
-            main_page.Pnl_pub_list.Controls.Add(this);
-            this.Location = new System.Drawing.Point(0, y);
-            y += 50;
+            pb_publisher.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + pub_pic_path_file);
         }
         public void Select_Publisher_Info()
         {
@@ -112,33 +104,33 @@ namespace Microwave_v1._0.UserControls
             string message = "Do you want to delete this publisher?";
             main_page.Create_Warning_Form(message, Color.DarkRed);
             bool delete_pic = true;
-            if(pub_pic_path_file == @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg")
+
+            if(pub_pic_path_file == System.Configuration.ConfigurationManager.AppSettings["def_pb_path"])
             {
                 delete_pic = false;
             }
-
-            string query = "UPDATE Books SET PUBLISHER_ID = 0 WHERE Books.PUBLISHER_ID = " + publisher_id;
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
 
             if (main_page.Warning_form.Result)
                 Remove(delete_pic);
 
             main_page.Warning_form.Refresh_Form();
 
-            main_page.Pnl_pub_list.VerticalScroll.Value = 0;
-            main_page.Publisher_search_list.Delete_All_List();
-            main_page.Main_pub_list.Draw_All_Publishers();
-            main_page.Publisher_searched_already = false;
+           
         }
         public void Remove(bool delete_picture = true)
         {
             main_pub_list.Delete_Publisher_from_List(publisher_id, delete_picture);
             this.Dispose();
 
-            main_page.Pnl_pub_list.VerticalScroll.Value = 0;
             Publisher.pub_point_y = 5;
             Publisher.pub_point_x = 35;
-            main_pub_list.Draw_All_Publishers();
+            main_page.Pnl_pub_list.VerticalScroll.Value = 0;
+            main_page.Publisher_search_list.Delete_All_List();
+            main_page.Main_pub_list.Draw_All_Publishers();
+            main_page.Publisher_searched_already = false;
+
+            main_page.Main_book_list.Delete_All_List();
+            Book.Show_All_Books(main_page);
         }
         private void btn_pub_edit_Click(object sender, EventArgs e)
         {

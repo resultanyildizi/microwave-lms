@@ -20,7 +20,8 @@ namespace Microwave_v1._0.Model
         public static int point_y = 5;
         public int point_book_x = 65;
         static Microwave main_page = null;
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
 
         private int shelf_id;
         private string shelf_name;
@@ -55,7 +56,7 @@ namespace Microwave_v1._0.Model
 
             string query = title + values;
 
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
 
             shelf_ınfo = new Shelf_Info();
             Take_Pub_Id_From_Database();
@@ -72,7 +73,7 @@ namespace Microwave_v1._0.Model
         static public void Show_All_Shelf(Microwave main_page)
         {
             string query = "Select * From Shelves ";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
 
             main_page.Main_shelf_list.Fill_Shelf_List(dt);
@@ -89,7 +90,7 @@ namespace Microwave_v1._0.Model
         public void Fill_Shelf()
         {
             string query = "Select * From Books Where Books.SHELF_ID = " + shelf_id;
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             book_list = new Book_List();
             book_list.Fill_Book_List(dt, this);
@@ -99,7 +100,7 @@ namespace Microwave_v1._0.Model
         public static string Generate_Shelf_Name()
         {
             string query = "SELECT Shelves.NAME From Shelves ";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             if (dt.Rows.Count <= 0)
             {
@@ -128,7 +129,7 @@ namespace Microwave_v1._0.Model
             string title = "SELECT Shelves.SHELF_ID FROM Shelves ";
             string query = title + string.Format("Where NAME = '{0}'", shelf_name);
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.shelf_id = id;

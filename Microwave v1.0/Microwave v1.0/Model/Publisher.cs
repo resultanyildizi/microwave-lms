@@ -17,7 +17,8 @@ namespace Microwave_v1._0.Classes
         public static int pub_point_y = 5; // Book infoları ekrana çizdirirken kullanılan offset.
         public static int pub_point_x = 35;
         static Microwave main_page = null;
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
 
         private int publisher_id;
         private string pub_name;
@@ -76,7 +77,7 @@ namespace Microwave_v1._0.Classes
             }
             string query = title + values;
 
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
 
             pub_info = new Publisher_Info();
             Take_Pub_Id_From_Database();
@@ -97,7 +98,7 @@ namespace Microwave_v1._0.Classes
             string query = title + string.Format(" SET NAME = '{0}',EMAIL = '{1}',PHONE_NUMBER = '{2}',DATE_OF_EST = '{3}',PICTURE_PATH = '{4}'" +
             "Where PUBLISHER_ID = '{5}'", pub_name, pub_email, pub_phone_num, pub_date_of_est, pub_cover_path_file, publisher_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
@@ -111,10 +112,14 @@ namespace Microwave_v1._0.Classes
 
         public void Delete()
         {
+            string title1 = "UPDATE Books ";
+            string query1 = title1 + string.Format("SET PUBLISHER_ID = 0 WHERE Books.PUBLISHER_ID = '{0}'", this.publisher_id);
+            DataBaseEvents.ExecuteNonQuery(query1, data_source);
+
             string title = "DELETE FROM Publishers ";
             string query = title + string.Format("Where PUBLISHER_ID = '{0}'", publisher_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
                 MessageBox.Show("Delete is not valid");
             return;
@@ -123,7 +128,7 @@ namespace Microwave_v1._0.Classes
         static public void Show_All_Publishers(Microwave main_page)
         {
             string query = "SELECT * FROM Publishers ";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
 
             main_page.Main_pub_list.Fill_Pub_List(dt);
@@ -143,13 +148,13 @@ namespace Microwave_v1._0.Classes
         static public DataTable Search_Publisher_By_Name(string name)
         {
             string query = string.Format("Select * From Publishers Where Publishers.NAME Like '{0}%'",name);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_Publisher_By_ID(string publisher_id)
         {
             string query = string.Format("Select * From Publishers Where Publishers.PUBLISHER_ID Like '{0}%'",publisher_id);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
 
@@ -158,7 +163,7 @@ namespace Microwave_v1._0.Classes
             string title = "SELECT Publishers.PUBLISHER_ID FROM Publishers ";
             string query = title + string.Format("Where NAME = '{0}'",Pub_name);
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.publisher_id = id;

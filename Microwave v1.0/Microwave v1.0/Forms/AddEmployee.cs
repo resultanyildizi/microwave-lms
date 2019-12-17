@@ -14,6 +14,7 @@ using Microwave_v1._0.Model;
 using Microwave_v1._0.Forms;
 using Microwave_v1._0.UserControls;
 using Microwave_v1._0.Properties;
+using System.Configuration;
 
 namespace Microwave_v1._0.Forms
 {
@@ -22,20 +23,17 @@ namespace Microwave_v1._0.Forms
         private string name;
         private string surname;
         private string email;
-        private string birth_date;
         private string gender;
         private string password;
-        private int employee_id;
         private int department_id;
-        Employee employee;
         Microwave_v1._0.Forms.ShowEmployee main_page;
 
         Picture_Events picture_event;
-        private string picture_default_file = @"..\..\Resources\Employee Covers\Employee.jpg";
-        private string pic_dest_path = @"..\..\Resources\Employee\";
+        private string picture_default_file = ConfigurationManager.AppSettings["def_em_path"];
+        private string pic_dest_path = ConfigurationManager.AppSettings["em_dest_path"];
         private string pic_new_source_path = "";
 
-        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private string datasource = ConfigurationManager.AppSettings["data_source"];
 
         private bool is_edit = false;
         private bool change_image = false;
@@ -163,7 +161,7 @@ namespace Microwave_v1._0.Forms
             }
             else
             {
-                lbl_message.Text = "* Please select gender";
+                lbl_message.Text = "*Please select gender";
                 lbl_message.ForeColor = Color.Red;
                 return;
             }
@@ -179,7 +177,19 @@ namespace Microwave_v1._0.Forms
                 else
                     pic_new_source_path = picture_default_file;
 
-                Employee employee = new Employee(employee_id, department_id, name, surname, password, email, gender, dtp_time.Value, pic_new_source_path);
+
+                if(Employee.Contains_Email(email) != -1)
+                {
+                    lbl_message.Text = "*That email is used by another employee";
+                    lbl_message.ForeColor = Color.Red;
+                    return;
+                }
+
+
+                lbl_message.Text = "*Employee added successfully";
+                lbl_message.ForeColor = Color.Green;
+
+                Employee employee = new Employee(0, department_id, name, surname, password, email, gender, dtp_time.Value, pic_new_source_path);
                 employee.Add();
 
 
@@ -188,6 +198,14 @@ namespace Microwave_v1._0.Forms
             }
             else
             {
+
+                if(Employee.Contains_Email(email) != employee_to_edit.Employee_id && Employee.Contains_Email(email) != -1)
+                {
+                    lbl_message.Text = "*That email is used by another employee";
+                    lbl_message.ForeColor = Color.Red;
+                    return;
+                }
+
                 if (change_image)
                 {
                     if (employee_to_edit.Cover_path_file != picture_default_file)

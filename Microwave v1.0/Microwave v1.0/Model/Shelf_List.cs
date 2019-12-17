@@ -114,6 +114,8 @@ namespace Microwave_v1._0.Model
 
             }
             root = null;
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
     }

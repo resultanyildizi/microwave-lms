@@ -9,6 +9,7 @@ using Microwave_v1._0.UserControls;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.Forms;
 using System.Data;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0.Classes
 {
@@ -18,7 +19,8 @@ namespace Microwave_v1._0.Classes
         public static int author_point_x = 35;
 
         static Microwave main_page = null;
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
 
         private int author_id;
         private int popularity_id;
@@ -76,7 +78,7 @@ namespace Microwave_v1._0.Classes
             
 
             string query = title + values;
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
             author_info = new Author_Info();
             Take_ID_From_Database();
             author_info.Initialize_Author_Info(author_id,author_name, author_cover_path_file);
@@ -95,7 +97,7 @@ namespace Microwave_v1._0.Classes
             string query = title + string.Format("SET POPULARITY_ID = '{0}', NAME = '{1}', COUNTRY = '{2}', GENDER = '{3}', BIRTHDAY = '{4}', " +
                 " BIOGRAPHY = '{5}', PICTURE_PATH = '{6}' Where Authors.AUTHOR_ID = '{7}'", popularity_id, author_name, author_country, author_gender, author_birthday, author_biography, author_cover_path_file, author_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
@@ -110,10 +112,14 @@ namespace Microwave_v1._0.Classes
 
         public void Delete()
         {
+            string title1 = "UPDATE Books ";
+            string query1 = title1 + string.Format("SET AUTHOR_ID = 0 WHERE Books.AUTHOR_ID = '{0}'", this.author_id);
+
+            DataBaseEvents.ExecuteNonQuery(query1, data_source);
             string title = "DELETE FROM Authors ";
             string query = title + string.Format("Where AUTHOR_ID = '{0}' ;", author_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Delete is not valid");
@@ -124,12 +130,9 @@ namespace Microwave_v1._0.Classes
         static public void Show_All_Authors(Microwave main_page)
         {
             string query = "SELECT * FROM Authors";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
-
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             main_page.Main_author_list.Fill_Author_List(dt);
-            main_page.Main_author_list.Draw_All_Authors();
-
         }
 
         public void Set_Author()
@@ -144,33 +147,78 @@ namespace Microwave_v1._0.Classes
         static public DataTable Search_Author_By_Name(string name)
         {
             string query = string.Format("Select * From Authors Where Authors.NAME Like '{0}%'", name);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_Author_By_Country(string country)
         {
             string query = string.Format("Select * From Authors Where Authors.COUNTRY Like '{0}%'", country);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_Author_By_ID(string id)
         {
             string query = string.Format("Select * From Authors Where Authors.AUTHOR_ID Like '{0}%'", id);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_Author_By_Gender(string gender)
         {
             string query = string.Format("Select * From Authors Where Authors.GENDER Like '{0}%'", gender);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
 
+
+        public void Change_Popularity_Score()
+        {
+            string query = string.Format("Update Authors Set POPULARITY_SCORE = '{0}' Where AUTHOR_ID = '{1}'", popularity_score, author_id);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
+
+            Change_Popularity_Stat();
+            Join_Tables();
+        }
+        private void Change_Popularity_Stat()
+        {
+            string query = string.Format("Select * From Popularity Order By SCORE");
+
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
+
+            List<Popularity> pop_list = new List<Popularity>();
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 1)
+                this.popularity_id = 0;
+            else
+            {
+                for (int i = 0; i < rows_count; i++)
+                {
+                    int id = int.Parse(dt.Rows[i][0].ToString());
+                    string name = dt.Rows[i][1].ToString();
+                    int score = int.Parse(dt.Rows[i][2].ToString());
+
+                    Popularity curr_pop = new Popularity(id, name, score);
+
+                    pop_list.Add(curr_pop);
+                }
+            }
+
+            for (int i = 0; i < pop_list.Count; i++)
+            {
+                if (this.popularity_score >= pop_list[i].Base_score)
+                    this.popularity_id = pop_list[i].Pop_id;
+            }
+
+
+            string query_edit = string.Format("Update Authors Set POPULARITY_ID = '{0}' where AUTHOR_ID = '{1}'", this.popularity_id, this.author_id);
+            DataBaseEvents.ExecuteNonQuery(query_edit, data_source);
+        }
         private void Take_ID_From_Database()
         {
             string title = "SELECT AUTHORS.AUTHOR_ID FROM AUTHORS ";
             string query = title + string.Format(" WHERE Authors.NAME = '{0}' and Authors.COUNTRY = '{1}'", author_name, author_country);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.author_id = this.author_info.Author_id = id;
@@ -180,7 +228,7 @@ namespace Microwave_v1._0.Classes
         private void Join_Tables()
         {
             string query = "SELECT Popularity.name FROM Authors JOIN POPULARITY ON AUTHORS.POPULARITY_ID = POPULARITY.POPULARITY_ID WHERE AUTHORS.AUTHOR_ID = " + author_id;
-            DataTable db = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable db = DataBaseEvents.ExecuteQuery(query, data_source);
             author_popularity_name = db.Rows[0][0].ToString();
         }
 

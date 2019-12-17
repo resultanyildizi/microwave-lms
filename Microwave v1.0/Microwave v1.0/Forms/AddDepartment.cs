@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SQLite;
 using Microwave_v1._0.Classes;
+using System.Configuration;
 
 namespace Microwave_v1._0.Forms
 {
@@ -19,11 +20,10 @@ namespace Microwave_v1._0.Forms
         Microwave main_page;
 
         Picture_Events picture_event;
-        private string pic_default_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
-        private string pic_dest_path = @"..\..\Resources\Department Covers\";
+        private string pic_default_file = ConfigurationManager.AppSettings["def_ct_path"];
+        private string pic_dest_path = ConfigurationManager.AppSettings["dp_dest_path"];
         private string pic_new_source_path = "";
 
-        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
         private bool is_edit = false;
         private bool change_image = false;

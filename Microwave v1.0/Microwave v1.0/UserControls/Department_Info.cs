@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microwave_v1._0.Forms;
 using Microwave_v1._0.Classes;
+using Microwave_v1._0.Model;
 
 namespace Microwave_v1._0.UserControls
 {
@@ -18,7 +19,6 @@ namespace Microwave_v1._0.UserControls
         private Department_List department_list;
         private AddDepartment edit_form = null;
         private ShowEmployee show_employee = null;
-        private Detail detail_form ;
 
         private string name;
         private string pic_path_file;
@@ -39,10 +39,16 @@ namespace Microwave_v1._0.UserControls
             this.department_id = department_id;
             this.name = name;
             this.pic_path_file = pic_path_file;
-            //pb_department.Image = main_page.Dep_cover_image_list.Images[department_id.ToString()];
-            pb_department.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
+            pb_department.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + pic_path_file);
             this.lbl_department_name.Text = name;
             this.btn_dep_id.Text = department_id.ToString();
+
+            if (name == "System Manager")
+            {
+                this.Controls.Remove(btn_dprt_edit);
+                this.Controls.Remove(btn_dprt_remove);
+            }
+
         }
         public void Draw_Department_Obj(ref int x, ref int y)
         {
@@ -180,19 +186,20 @@ namespace Microwave_v1._0.UserControls
 
         private void pb_department_DoubleClick(object sender, EventArgs e)
         {
+            SystemManager manager = main_page.Manager;
             Department current = department_list.Find_Department_By_ID(department_id);
             if (show_employee == null)
             {
-                show_employee = new ShowEmployee(current);
+                show_employee = new ShowEmployee(current, manager);
             }
 
             try
             {
                 show_employee.Show();
             }
-            catch (ObjectDisposedException d)
+            catch (ObjectDisposedException)
             {
-                show_employee = new ShowEmployee(current);
+                show_employee = new ShowEmployee(current, manager);
                 show_employee.Show();
             }
             

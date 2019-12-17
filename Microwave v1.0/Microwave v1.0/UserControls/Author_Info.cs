@@ -18,13 +18,11 @@ namespace Microwave_v1._0.UserControls
         private Author_List author_list;
         private AddAuthor edit_form;
         private Detail detail_form;
-
-        public System.Windows.CornerRadius CornerRadius { get; set; }
-
         private string name;
         private string pic_path_file;
         private int author_id;
         private bool chosen = false;
+
 
         public int Author_id { get => author_id; set => author_id = value; }
         public string Pic_path_file { get => pic_path_file; set => pic_path_file = value; }
@@ -45,12 +43,12 @@ namespace Microwave_v1._0.UserControls
             this.pic_path_file = pic_path_file;
             this.lbl_author.Text = name;
             this.btn_author_id.Text = author_id.ToString();
-            this.pb_author.Image = Picture_Events.Get_Copy_Image_Bitmap(pic_path_file);
+            this.pb_author.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + pic_path_file);
         }
 
         public void Hide_Info()
         {
-            main_page.Pnl_author_list.Controls.Remove(this);
+            this.Dispose();
         }
 
         public void Draw_Author_Obj(ref int x, ref int y)
@@ -109,7 +107,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Create_Warning_Form(message, Color.DarkRed);
             bool delete_pic = true;
 
-            if (pic_path_file == @"..\..\Resources\Author Covers\DefaultAuthor.jpg")
+            if (pic_path_file == System.Configuration.ConfigurationManager.AppSettings["def_aut_path"])
             {
                 delete_pic = false;
             }
@@ -119,10 +117,8 @@ namespace Microwave_v1._0.UserControls
 
             main_page.Warning_form.Refresh_Form();
 
-            main_page.Pnl_author_list.VerticalScroll.Value = 0;
-            main_page.Author_search_list.Delete_All_List();
-            main_page.Main_author_list.Draw_All_Authors();
-            main_page.Author_searched_already = false;
+            
+
         }
 
 
@@ -131,10 +127,18 @@ namespace Microwave_v1._0.UserControls
 
             author_list.Delete_Author_from_List(author_id, delete_picture);
             this.Dispose();
-            main_page.Pnl_author_list.VerticalScroll.Value = 0;
+
             Author.author_point_y = 5;
             Author.author_point_x = 35;
-            author_list.Draw_All_Authors();
+
+            main_page.Pnl_author_list.VerticalScroll.Value = 0;
+            main_page.Author_search_list.Delete_All_List();
+            main_page.Main_author_list.Hide_All_Author_Objects();
+            main_page.Main_author_list.Draw_All_Authors();
+            main_page.Author_searched_already = false;
+
+            main_page.Main_book_list.Delete_All_List();
+            Book.Show_All_Books(main_page);
         }
 
         private void btn_edit_Click(object sender, EventArgs e)

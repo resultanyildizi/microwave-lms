@@ -40,9 +40,10 @@
             // 
             // btn_no
             // 
-            this.btn_no.Location = new System.Drawing.Point(225, 177);
+            this.btn_no.Location = new System.Drawing.Point(204, 144);
+            this.btn_no.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_no.Name = "btn_no";
-            this.btn_no.Size = new System.Drawing.Size(91, 36);
+            this.btn_no.Size = new System.Drawing.Size(68, 29);
             this.btn_no.TabIndex = 0;
             this.btn_no.Text = "No";
             this.btn_no.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             // btn_yes
             // 
-            this.btn_yes.Location = new System.Drawing.Point(55, 177);
+            this.btn_yes.Location = new System.Drawing.Point(41, 144);
+            this.btn_yes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_yes.Name = "btn_yes";
-            this.btn_yes.Size = new System.Drawing.Size(91, 36);
+            this.btn_yes.Size = new System.Drawing.Size(68, 29);
             this.btn_yes.TabIndex = 2;
             this.btn_yes.Text = "Yes";
             this.btn_yes.UseVisualStyleBackColor = true;
@@ -63,9 +65,10 @@
             this.lbl_message.AutoSize = true;
             this.lbl_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_message.ForeColor = System.Drawing.Color.White;
-            this.lbl_message.Location = new System.Drawing.Point(21, 41);
+            this.lbl_message.Location = new System.Drawing.Point(16, 33);
+            this.lbl_message.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_message.Name = "lbl_message";
-            this.lbl_message.Size = new System.Drawing.Size(87, 24);
+            this.lbl_message.Size = new System.Drawing.Size(69, 18);
             this.lbl_message.TabIndex = 2;
             this.lbl_message.Text = "Message";
             // 
@@ -74,9 +77,10 @@
             this.lbl_admin.AutoSize = true;
             this.lbl_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_admin.ForeColor = System.Drawing.Color.White;
-            this.lbl_admin.Location = new System.Drawing.Point(22, 89);
+            this.lbl_admin.Location = new System.Drawing.Point(16, 72);
+            this.lbl_admin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_admin.Name = "lbl_admin";
-            this.lbl_admin.Size = new System.Drawing.Size(53, 18);
+            this.lbl_admin.Size = new System.Drawing.Size(45, 15);
             this.lbl_admin.TabIndex = 3;
             this.lbl_admin.Text = "Admin:";
             // 
@@ -85,18 +89,20 @@
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_password.ForeColor = System.Drawing.Color.White;
-            this.lbl_password.Location = new System.Drawing.Point(23, 121);
+            this.lbl_password.Location = new System.Drawing.Point(17, 98);
+            this.lbl_password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(79, 18);
+            this.lbl_password.Size = new System.Drawing.Size(64, 15);
             this.lbl_password.TabIndex = 4;
             this.lbl_password.Text = "Password:";
             // 
             // tb_password
             // 
             this.tb_password.BackColor = System.Drawing.Color.DimGray;
-            this.tb_password.Location = new System.Drawing.Point(129, 117);
+            this.tb_password.Location = new System.Drawing.Point(97, 95);
+            this.tb_password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_password.Name = "tb_password";
-            this.tb_password.Size = new System.Drawing.Size(187, 22);
+            this.tb_password.Size = new System.Drawing.Size(175, 20);
             this.tb_password.TabIndex = 1;
             this.tb_password.UseSystemPasswordChar = true;
             this.tb_password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_password_KeyPress);
@@ -105,9 +111,10 @@
             // 
             this.lbl_email.AutoSize = true;
             this.lbl_email.ForeColor = System.Drawing.Color.White;
-            this.lbl_email.Location = new System.Drawing.Point(126, 89);
+            this.lbl_email.Location = new System.Drawing.Point(94, 72);
+            this.lbl_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(20, 17);
+            this.lbl_email.Size = new System.Drawing.Size(16, 13);
             this.lbl_email.TabIndex = 6;
             this.lbl_email.Text = "...";
             // 
@@ -115,18 +122,17 @@
             // 
             this.lbl_error.AutoSize = true;
             this.lbl_error.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_error.Location = new System.Drawing.Point(22, 151);
-            this.lbl_error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_error.Location = new System.Drawing.Point(16, 123);
             this.lbl_error.Name = "lbl_error";
-            this.lbl_error.Size = new System.Drawing.Size(0, 20);
+            this.lbl_error.Size = new System.Drawing.Size(0, 16);
             this.lbl_error.TabIndex = 25;
             // 
             // Warning
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(377, 237);
+            this.ClientSize = new System.Drawing.Size(315, 193);
             this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.tb_password);
@@ -136,6 +142,7 @@
             this.Controls.Add(this.btn_yes);
             this.Controls.Add(this.btn_no);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "Warning";
             this.Opacity = 0.9D;

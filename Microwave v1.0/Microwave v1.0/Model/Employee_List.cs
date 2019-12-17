@@ -138,6 +138,8 @@ namespace Microwave_v1._0.Model
                 iterator = current;
             }
             root = null;
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
         public void Hide_All_Employee_Objects()
         {

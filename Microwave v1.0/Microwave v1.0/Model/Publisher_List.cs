@@ -64,7 +64,6 @@ namespace Microwave_v1._0.Classes
                 publisher.Set_Publisher();
                 this.Add_Publisher_to_List(publisher);
             }
-            Fill_Cover_Image_List();
         }
 
         public void Delete_All_List()
@@ -80,6 +79,9 @@ namespace Microwave_v1._0.Classes
                 iterator = current;
             }
             root = null;
+
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
         public void Add_Publisher_to_List(Publisher pub)

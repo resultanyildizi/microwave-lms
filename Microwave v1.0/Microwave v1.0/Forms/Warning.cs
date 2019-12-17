@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microwave_v1._0.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,21 +15,19 @@ namespace Microwave_v1._0
     public partial class Warning : Form
     {
         private Microwave main_page;
+        SystemManager manager = null;
         private string message;
-        private string password = "admin";
-        private string email = "deneme@gmail.com";
         private bool result = false;
         public static Color Default_Color = Color.FromArgb(32, 33, 38);
 
         
         public string Message { get => message; set => message = value; }
-        public string Password { get => password; set => password = value; }
-        public string Email { get => email; set => email = value; }
         public bool Result { get => result; set => result = value; }
 
-        public Warning()
+        public Warning(SystemManager manager)
         {
             InitializeComponent();
+            this.manager = manager;
             main_page = (Microwave)Application.OpenForms["Microwave"];
         }
 
@@ -36,7 +35,7 @@ namespace Microwave_v1._0
         public void Initialize_Warning(string message, Color color)
         {
             this.BackColor = color;
-            this.lbl_email.Text = email;
+            this.lbl_email.Text = manager.Email; ;
             this.message = message;
             this.lbl_message.Text = this.message;
             this.tb_password.Select();
@@ -44,7 +43,7 @@ namespace Microwave_v1._0
 
         private void Yes()
         {
-            if (tb_password.Text == password)
+            if (tb_password.Text == manager.Password)
             {
                 result = true;
                 this.Close();

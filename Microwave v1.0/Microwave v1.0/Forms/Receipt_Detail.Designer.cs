@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt_Detail));
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.lbl_message = new System.Windows.Forms.Label();
             this.tb_message = new System.Windows.Forms.RichTextBox();
             this.btn_remove = new System.Windows.Forms.Button();
@@ -44,15 +45,18 @@
             this.lbl_libs_name = new System.Windows.Forms.Label();
             this.lbl_users_name = new System.Windows.Forms.Label();
             this.lbl_books_name = new System.Windows.Forms.Label();
-            this.lbl_date = new System.Windows.Forms.Label();
-            this.lbl_rcpt_name = new System.Windows.Forms.Label();
             this.lbl_libs_id = new System.Windows.Forms.Label();
             this.lbl_users_id = new System.Windows.Forms.Label();
             this.lbl_books_id = new System.Windows.Forms.Label();
             this.pb_book = new System.Windows.Forms.PictureBox();
             this.pnl_drag = new System.Windows.Forms.Panel();
+            this.lbl_pt_name = new System.Windows.Forms.Label();
+            this.lbl_rcpt_name = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dragControl1 = new Microwave_v1._0.DragControl();
+            this.lbl_date = new System.Windows.Forms.Label();
+            this.print_document = new System.Drawing.Printing.PrintDocument();
+            this.print_prev = new System.Windows.Forms.PrintPreviewDialog();
+            this.drag_control = new Microwave_v1._0.DragControl();
             this.pnl_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_book)).BeginInit();
             this.pnl_drag.SuspendLayout();
@@ -62,6 +66,7 @@
             // 
             this.pnl_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.pnl_main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_main.Controls.Add(this.button2);
             this.pnl_main.Controls.Add(this.lbl_message);
             this.pnl_main.Controls.Add(this.tb_message);
             this.pnl_main.Controls.Add(this.btn_remove);
@@ -76,8 +81,6 @@
             this.pnl_main.Controls.Add(this.lbl_libs_name);
             this.pnl_main.Controls.Add(this.lbl_users_name);
             this.pnl_main.Controls.Add(this.lbl_books_name);
-            this.pnl_main.Controls.Add(this.lbl_date);
-            this.pnl_main.Controls.Add(this.lbl_rcpt_name);
             this.pnl_main.Controls.Add(this.lbl_libs_id);
             this.pnl_main.Controls.Add(this.lbl_users_id);
             this.pnl_main.Controls.Add(this.lbl_books_id);
@@ -87,6 +90,25 @@
             this.pnl_main.Name = "pnl_main";
             this.pnl_main.Size = new System.Drawing.Size(600, 300);
             this.pnl_main.TabIndex = 25;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(546, 211);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(39, 34);
+            this.button2.TabIndex = 26;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // lbl_message
             // 
@@ -122,7 +144,7 @@
             this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_remove.ForeColor = System.Drawing.Color.White;
             this.btn_remove.Image = ((System.Drawing.Image)(resources.GetObject("btn_remove.Image")));
-            this.btn_remove.Location = new System.Drawing.Point(546, 228);
+            this.btn_remove.Location = new System.Drawing.Point(546, 252);
             this.btn_remove.Margin = new System.Windows.Forms.Padding(2);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(39, 34);
@@ -251,28 +273,6 @@
             this.lbl_books_name.TabIndex = 6;
             this.lbl_books_name.Text = "Book\'s Name:";
             // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.ForeColor = System.Drawing.Color.White;
-            this.lbl_date.Location = new System.Drawing.Point(423, 23);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(80, 16);
-            this.lbl_date.TabIndex = 5;
-            this.lbl_date.Text = "02.12.2019";
-            // 
-            // lbl_rcpt_name
-            // 
-            this.lbl_rcpt_name.AutoSize = true;
-            this.lbl_rcpt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_rcpt_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_rcpt_name.Location = new System.Drawing.Point(12, 17);
-            this.lbl_rcpt_name.Name = "lbl_rcpt_name";
-            this.lbl_rcpt_name.Size = new System.Drawing.Size(163, 24);
-            this.lbl_rcpt_name.TabIndex = 4;
-            this.lbl_rcpt_name.Text = "RECEIPT NAME";
-            // 
             // lbl_libs_id
             // 
             this.lbl_libs_id.AutoSize = true;
@@ -320,11 +320,35 @@
             // 
             this.pnl_drag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
             this.pnl_drag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_drag.Controls.Add(this.lbl_pt_name);
+            this.pnl_drag.Controls.Add(this.lbl_rcpt_name);
             this.pnl_drag.Controls.Add(this.button1);
-            this.pnl_drag.Location = new System.Drawing.Point(-21, -9);
+            this.pnl_drag.Controls.Add(this.lbl_date);
+            this.pnl_drag.Location = new System.Drawing.Point(-1, -1);
             this.pnl_drag.Name = "pnl_drag";
-            this.pnl_drag.Size = new System.Drawing.Size(646, 59);
+            this.pnl_drag.Size = new System.Drawing.Size(600, 50);
             this.pnl_drag.TabIndex = 25;
+            // 
+            // lbl_pt_name
+            // 
+            this.lbl_pt_name.AutoSize = true;
+            this.lbl_pt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pt_name.ForeColor = System.Drawing.Color.Red;
+            this.lbl_pt_name.Location = new System.Drawing.Point(122, 18);
+            this.lbl_pt_name.Name = "lbl_pt_name";
+            this.lbl_pt_name.Size = new System.Drawing.Size(0, 24);
+            this.lbl_pt_name.TabIndex = 25;
+            // 
+            // lbl_rcpt_name
+            // 
+            this.lbl_rcpt_name.AutoSize = true;
+            this.lbl_rcpt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rcpt_name.ForeColor = System.Drawing.Color.White;
+            this.lbl_rcpt_name.Location = new System.Drawing.Point(12, 18);
+            this.lbl_rcpt_name.Name = "lbl_rcpt_name";
+            this.lbl_rcpt_name.Size = new System.Drawing.Size(163, 24);
+            this.lbl_rcpt_name.TabIndex = 4;
+            this.lbl_rcpt_name.Text = "RECEIPT NAME";
             // 
             // button1
             // 
@@ -336,7 +360,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(566, 15);
+            this.button1.Location = new System.Drawing.Point(548, 6);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 34);
@@ -344,9 +368,35 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dragControl1
+            // lbl_date
             // 
-            this.dragControl1.SelectControl = this.pnl_drag;
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_date.ForeColor = System.Drawing.Color.White;
+            this.lbl_date.Location = new System.Drawing.Point(421, 24);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(80, 16);
+            this.lbl_date.TabIndex = 5;
+            this.lbl_date.Text = "02.12.2019";
+            // 
+            // print_document
+            // 
+            this.print_document.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.print_document_PrintPage);
+            // 
+            // print_prev
+            // 
+            this.print_prev.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.print_prev.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.print_prev.ClientSize = new System.Drawing.Size(400, 300);
+            this.print_prev.Enabled = true;
+            this.print_prev.Icon = ((System.Drawing.Icon)(resources.GetObject("print_prev.Icon")));
+            this.print_prev.Name = "print_prev";
+            this.print_prev.ShowIcon = false;
+            this.print_prev.Visible = false;
+            // 
+            // drag_control
+            // 
+            this.drag_control.SelectControl = this.pnl_drag;
             // 
             // Receipt_Detail
             // 
@@ -355,15 +405,16 @@
             this.ClientSize = new System.Drawing.Size(600, 300);
             this.Controls.Add(this.pnl_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Receipt_Detail";
             this.Opacity = 0.95D;
             this.Text = "Receipt_Detail";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Receipt_Detail_Load);
             this.pnl_main.ResumeLayout(false);
             this.pnl_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_book)).EndInit();
             this.pnl_drag.ResumeLayout(false);
+            this.pnl_drag.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -392,7 +443,11 @@
         private System.Windows.Forms.Label lbl_books_id;
         private System.Windows.Forms.PictureBox pb_book;
         private System.Windows.Forms.Button button1;
-        private DragControl dragControl1;
+        private DragControl drag_control;
         private System.Windows.Forms.Panel pnl_drag;
+        private System.Windows.Forms.Button button2;
+        private System.Drawing.Printing.PrintDocument print_document;
+        private System.Windows.Forms.PrintPreviewDialog print_prev;
+        private System.Windows.Forms.Label lbl_pt_name;
     }
 }

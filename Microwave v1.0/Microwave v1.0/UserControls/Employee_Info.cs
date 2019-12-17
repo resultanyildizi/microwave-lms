@@ -86,9 +86,9 @@ namespace Microwave_v1._0.UserControls
             else if (mode == COLOR.EMAIL)
                 this.pnl_email.BackColor = new_color;
             else if (mode == COLOR.GENDER)
-                this.pnl_birthdate.BackColor = new_color;
-            else if (mode == COLOR.BIRTH_DATE)
                 this.pnl_gender.BackColor = new_color;
+            else if (mode == COLOR.BIRTH_DATE)
+                this.pnl_birthdate.BackColor = new_color;
 
 
         }
@@ -101,7 +101,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Pnl_employee_list.Controls.Add(this);
             this.Location = new System.Drawing.Point(0, y);
             this.SendToBack();
-            y += 50;
+            y += 45;
         }
         public void Select_Employee_Info()
         {
@@ -128,9 +128,9 @@ namespace Microwave_v1._0.UserControls
             else if (color_mode == COLOR.EMAIL)
                 this.pnl_email.BackColor = new_color;
             else if (color_mode == COLOR.GENDER)
-                this.pnl_birthdate.BackColor = new_color;
-            else if (color_mode == COLOR.BIRTH_DATE)
                 this.pnl_gender.BackColor = new_color;
+            else if (color_mode == COLOR.BIRTH_DATE)
+                this.pnl_birthdate.BackColor = new_color;
 
             this.btn_edit.Show();
             this.btn_remove.Show();
@@ -157,9 +157,9 @@ namespace Microwave_v1._0.UserControls
             else if (color_mode == COLOR.EMAIL)
                 this.pnl_email.BackColor = new_color;
             else if (color_mode == COLOR.GENDER)
-                this.pnl_birthdate.BackColor = new_color;
-            else if (color_mode == COLOR.BIRTH_DATE)
                 this.pnl_gender.BackColor = new_color;
+            else if (color_mode == COLOR.BIRTH_DATE)
+                this.pnl_birthdate.BackColor = new_color;
 
             this.btn_edit.Hide();
             this.btn_remove.Hide();
@@ -220,7 +220,7 @@ namespace Microwave_v1._0.UserControls
                 {
                     edit_form.Show();
                 }
-                catch (Exception d)
+                catch (Exception)
                 {
 
                     edit_form = new AddEmployee(employee);
@@ -251,9 +251,9 @@ namespace Microwave_v1._0.UserControls
                 else if (color_mode == COLOR.EMAIL)
                     this.pnl_email.BackColor = new_color;
                 else if (color_mode == COLOR.GENDER)
-                    this.pnl_birthdate.BackColor = new_color;
-                else if (color_mode == COLOR.BIRTH_DATE)
                     this.pnl_gender.BackColor = new_color;
+                else if (color_mode == COLOR.BIRTH_DATE)
+                    this.pnl_birthdate.BackColor = new_color;
             }
         }
         public void Employee_Mouse_Leave()
@@ -279,9 +279,9 @@ namespace Microwave_v1._0.UserControls
                 else if (color_mode == COLOR.EMAIL)
                     this.pnl_email.BackColor = new_color;
                 else if (color_mode == COLOR.GENDER)
-                    this.pnl_birthdate.BackColor = new_color;
-                else if (color_mode == COLOR.BIRTH_DATE)
                     this.pnl_gender.BackColor = new_color;
+                else if (color_mode == COLOR.BIRTH_DATE)
+                    this.pnl_birthdate.BackColor = new_color;
             }
         }
         private void Employee_Info_Click(object sender, EventArgs e)
@@ -311,7 +311,7 @@ namespace Microwave_v1._0.UserControls
 
             if (detail_form == null)
             {
-                detail_form = new Detail(employee);
+                detail_form = new Detail(employee, false);
                 detail_form.Show();
             }
             else
@@ -322,7 +322,7 @@ namespace Microwave_v1._0.UserControls
                 }
                 catch (Exception)
                 {
-                    detail_form = new Detail(employee);
+                    detail_form = new Detail(employee, false);
                     detail_form.Show();
                 }
             }

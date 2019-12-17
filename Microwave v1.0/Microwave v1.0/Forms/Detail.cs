@@ -21,7 +21,7 @@ namespace Microwave_v1._0.Forms
     public partial class Detail : Form
     {
         GiveBook give_book_form = null;
-
+        GivePenalty give_penalty_form = null;
         User user = null;
         Publisher publisher = null;
         Employee employee = null;
@@ -36,12 +36,18 @@ namespace Microwave_v1._0.Forms
         AddPublisher edit_publisher = null;
         AddUser edit_user = null;
 
-        private Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
+        // For system manager
+        private bool change_pass_clicked = false;
+        private string password = "";
+        private string password_confirm = "";
+        private int pass_strength_score = 0;
+        private bool show_pass_clicked = false;
 
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private Microwave main_page = (Microwave)Application.OpenForms["Microwave"];
+        static private string datasource = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
 
         private SELECTED choise;
-
         public SELECTED Choise { get => choise; set => choise = value; }
 
         public Detail()
@@ -58,6 +64,7 @@ namespace Microwave_v1._0.Forms
             this.btn_give_book.Hide();
             this.btn_give_penalty.Hide();
             this.btn_return_book.Hide();
+            this.btn_change_pass.Hide();
 
             DataTable dt = User.Show_All_Users(book);
             dgw_users.DataSource = dt;
@@ -92,6 +99,9 @@ namespace Microwave_v1._0.Forms
             this.tb_5.Text = book.Popularity_name + " ( " + book.Popularity_score + " )";
             this.tb_6.Text = book.Count.ToString();
             this.tb_7.Hide();
+            this.btn_change_pass.Hide();
+            this.pnl_change_pass.Hide();
+            this.btn_show_pass.Hide();
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(book.Cover_path_file);
 
@@ -101,6 +111,7 @@ namespace Microwave_v1._0.Forms
         public Detail(User user)
         {
             InitializeComponent();
+            this.btn_change_pass.Hide();
 
             this.user = user;
 
@@ -140,11 +151,14 @@ namespace Microwave_v1._0.Forms
             this.tb_2.Text = user.Gender;
             this.tb_3.Text = user.Password;
             this.tb_4.Text = user.Age.ToString();
-            this.tb_5.Text = "15₺";
+            this.tb_5.Text = user.Fee + "₺";
             this.tb_6.Text = user.Book_count.ToString();
             this.tb_7.Hide();
+            this.btn_change_pass.Hide();
+            this.pnl_change_pass.Hide();
+            this.btn_show_pass.Hide();
 
-            picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
+            picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__1_1;
 
             choise = SELECTED.USER;
         }
@@ -152,6 +166,8 @@ namespace Microwave_v1._0.Forms
         public Detail(Publisher publisher)
         {
             InitializeComponent();
+            this.btn_change_pass.Hide();
+
 
             this.publisher = publisher;
 
@@ -183,6 +199,9 @@ namespace Microwave_v1._0.Forms
             this.tb_5.Hide();
             this.tb_6.Hide();
             this.tb_7.Hide();
+            this.btn_change_pass.Hide();
+            this.pnl_change_pass.Hide();
+            this.btn_show_pass.Hide();
 
             this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
 
@@ -192,6 +211,8 @@ namespace Microwave_v1._0.Forms
         public Detail(Author author)
         {
             InitializeComponent();
+            this.btn_change_pass.Hide();
+
 
             this.author = author;
 
@@ -223,6 +244,10 @@ namespace Microwave_v1._0.Forms
             this.tb_5.Hide();
             this.tb_6.Hide();
             this.tb_7.Text = author.Author_biography;
+            this.btn_change_pass.Hide();
+            this.pnl_change_pass.Hide();
+            this.btn_show_pass.Hide();
+
 
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
 
@@ -230,9 +255,28 @@ namespace Microwave_v1._0.Forms
 
         }
 
-        public Detail(Employee employee)
+        public Detail(Employee employee, bool change_pass)
         {
             InitializeComponent();
+
+            if (change_pass)
+            {
+                this.btn_change_pass.Show();
+                this.btn_show_pass.Show();
+            }
+            else
+            {
+                this.btn_change_pass.Hide();
+                this.btn_show_pass.Hide();
+            }
+
+            this.pnl_change_pass.Hide();
+
+            this.pnl_pow1.Hide();
+            this.pnl_pow2.Hide();
+            this.pnl_pow3.Hide();
+            this.lbl_power.Hide();
+            this.lbl_matched.Hide();
 
             this.employee = employee;
 
@@ -262,6 +306,10 @@ namespace Microwave_v1._0.Forms
             this.tb_3.Text = employee.Password;
             this.tb_4.Text = employee.Birth_date_dt.ToString().Substring(0,10);
             this.tb_5.Text = employee.Deparment_name;
+
+            if (this.employee.Deparment_name == "System Manager")
+                this.tb_3.UseSystemPasswordChar = true;
+
             this.tb_7.Hide();
 
 
@@ -273,6 +321,7 @@ namespace Microwave_v1._0.Forms
         public Detail(Category category)
         {
             InitializeComponent();
+            this.btn_change_pass.Hide();
 
             this.category = category;
 
@@ -304,6 +353,8 @@ namespace Microwave_v1._0.Forms
             this.tb_5.Hide();
             this.tb_6.Hide();
             this.tb_7.Hide();
+            this.btn_show_pass.Hide();
+
 
             picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(category.Category_cover_path_file);
 
@@ -343,6 +394,23 @@ namespace Microwave_v1._0.Forms
                 give_book_form.Show();
             }
 
+        }
+        public void Create_New_Give_Penalty_Form(Book selected)
+        {
+            if (give_penalty_form == null)
+            {
+                give_penalty_form = new GivePenalty(main_page.Manager, this, selected, user);
+            }
+
+            try
+            {
+                give_penalty_form.Show();
+            }
+            catch (Exception)
+            {
+                give_penalty_form = new GivePenalty(main_page.Manager, this, selected, user);
+                give_penalty_form.Show();
+            }
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -528,7 +596,7 @@ namespace Microwave_v1._0.Forms
                 this.tb_5.Text = "15₺";
                 this.tb_6.Text = user.Book_count.ToString();
 
-                picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__2_;
+                picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__1_;
             }
         }
 
@@ -553,12 +621,12 @@ namespace Microwave_v1._0.Forms
             }
             else if (choise == SELECTED.AUTHOR)
             {
-               
+
                 string message = "Do you want to delete this author?";
                 main_page.Create_Warning_Form(message, Color.DarkRed);
                 bool delete_pic = true;
 
-                if (author.Author_info.Pic_path_file == @"..\..\Resources\Author Covers\DefaultAuthor.jpg")
+                if (author.Author_info.Pic_path_file == System.Configuration.ConfigurationManager.AppSettings["def_aut_path"])
                 {
                     delete_pic = false;
                 }
@@ -570,6 +638,7 @@ namespace Microwave_v1._0.Forms
 
                 main_page.Pnl_author_list.VerticalScroll.Value = 0;
                 main_page.Author_search_list.Delete_All_List();
+                main_page.Main_author_list.Hide_All_Author_Objects();
                 main_page.Main_author_list.Draw_All_Authors();
                 main_page.Author_searched_already = false;
 
@@ -596,7 +665,7 @@ namespace Microwave_v1._0.Forms
                 string message = "Do you want to delete this publisher?";
                 main_page.Create_Warning_Form(message, Color.DarkRed);
                 bool delete_pic = true;
-                if (publisher.Pub_info.Pub_pic_path_file == @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg")
+                if (publisher.Pub_info.Pub_pic_path_file == System.Configuration.ConfigurationManager.AppSettings["def_pb_path"])
                 {
                     delete_pic = false;
                 }
@@ -649,6 +718,131 @@ namespace Microwave_v1._0.Forms
 
         }
 
-        
+        private void btn_give_penalty_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgw_users.SelectedRows[0].Cells[0].Value.ToString());
+
+            Book selected = main_page.Main_book_list.Find_Book_By_ID(id);
+            Create_New_Give_Penalty_Form(selected);
+        }
+
+        private void btn_change_pass_Click(object sender, EventArgs e)
+        {
+            if (change_pass_clicked)
+                this.pnl_change_pass.Hide();
+            else
+                this.pnl_change_pass.Show();
+
+            change_pass_clicked = !change_pass_clicked;
+        }
+
+        private void tb_new_pass_TextChanged(object sender, EventArgs e)
+        {
+            password = tb_new_pass.Text.Trim();
+            pass_strength_score = Password_Events.GetPasswordStrength(password);
+
+            
+
+            if(pass_strength_score <= 1)
+            {
+                this.pnl_pow1.Show();
+                this.pnl_pow1.BackColor = Color.FromArgb(211, 86, 86);
+                this.pnl_pow2.Hide();
+                this.pnl_pow3.Hide();
+                this.lbl_power.Show();
+                this.lbl_power.Text = "Weak";
+                this.lbl_power.ForeColor = Color.FromArgb(211, 86, 86);
+            }
+            if (password == "")
+            {
+                this.lbl_power.Text = "";
+                this.pnl_pow1.Hide();
+                this.pnl_pow2.Hide();
+                this.pnl_pow3.Hide();
+            }
+            else if(pass_strength_score > 1 && pass_strength_score <= 3)
+            {
+                this.pnl_pow1.Show();
+                this.pnl_pow1.BackColor = Color.FromArgb(255, 215, 0);
+                this.pnl_pow2.Show();
+                this.pnl_pow2.BackColor = Color.FromArgb(255, 215, 0);
+                this.pnl_pow3.Hide();
+                this.lbl_power.Show();
+                this.lbl_power.Text = "Fine";
+                this.lbl_power.ForeColor = Color.FromArgb(255, 215, 0);
+            }
+            else if(pass_strength_score > 3)
+            {
+                this.pnl_pow1.Show();
+                this.pnl_pow1.BackColor = Color.FromArgb(152, 251, 152);
+                this.pnl_pow2.Show();
+                this.pnl_pow2.BackColor = Color.FromArgb(152, 251, 152);
+                this.pnl_pow3.Show();
+                this.pnl_pow2.BackColor = Color.FromArgb(152, 251, 152);
+                this.lbl_power.Show();
+                this.lbl_power.Text = "Fine";
+                this.lbl_power.ForeColor = Color.FromArgb(152, 251, 152);
+            }
+        }
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            this.lbl_msg.Text = "";
+            if(pass_strength_score == 0)
+            {
+                this.lbl_msg.Text = "*Password should have more than 5 characters.";
+                this.lbl_msg.ForeColor = Color.FromArgb(211, 86, 86);
+                this.tb_new_pass.Focus();
+                return;
+            }
+
+            if(pass_strength_score == 1)
+            {
+                this.lbl_msg.Text = "*Password can't include only low letters.";
+                this.lbl_msg.ForeColor = Color.FromArgb(211, 86, 86);
+                this.tb_new_pass.Focus();
+                return;
+            }
+
+            if(password != password_confirm)
+            {
+                this.lbl_msg.Text = "Password doesn't match";
+                this.lbl_msg.ForeColor = Color.FromArgb(211, 86, 86);
+                this.tb_pass_confirm.Focus();
+                return;
+            }
+
+            this.employee.Change_Password(password);
+            this.lbl_msg.Text = "Password changed successfully";
+            this.lbl_msg.ForeColor = Color.FromArgb(152, 251, 152);
+            this.lbl_msg.Show();
+
+        }
+
+        private void tb_pass_confirm_TextChanged(object sender, EventArgs e)
+        {
+            this.password_confirm = this.tb_pass_confirm.Text.Trim();
+            if (pass_strength_score > 1 && password_confirm == password)
+                lbl_matched.Show();
+            else
+                lbl_matched.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            show_pass_clicked = !show_pass_clicked;
+
+            if (show_pass_clicked)
+            {
+                this.tb_3.UseSystemPasswordChar = false;
+                this.btn_show_pass.Image = global::Microwave_v1._0.Properties.Resources.visibility_off;
+            }
+            else
+            {
+                this.tb_3.UseSystemPasswordChar = true;
+                this.btn_show_pass.Image = global::Microwave_v1._0.Properties.Resources.visibility_on;
+            }
+
+        }
     }
 }

@@ -143,9 +143,9 @@ namespace Microwave_v1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap man_user__2_ {
+        internal static System.Drawing.Bitmap man_user__1_1 {
             get {
-                object obj = ResourceManager.GetObject("man-user (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("man-user (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +156,46 @@ namespace Microwave_v1._0.Properties {
         internal static System.Drawing.Bitmap pencil__1_ {
             get {
                 object obj = ResourceManager.GetObject("pencil (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencil__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("pencil (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view__1_ {
+            get {
+                object obj = ResourceManager.GetObject("view (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visibility_off {
+            get {
+                object obj = ResourceManager.GetObject("visibility-off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visibility_on {
+            get {
+                object obj = ResourceManager.GetObject("visibility-on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

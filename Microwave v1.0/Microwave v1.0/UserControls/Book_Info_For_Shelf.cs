@@ -20,9 +20,6 @@ namespace Microwave_v1._0.UserControls
         private Shelf_List main_shelf_list;
         private Shelf shelf;
 
-
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
-
         private string book_name;
         private int book_id;
         private string publisher;

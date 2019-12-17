@@ -30,6 +30,7 @@ namespace Microwave_v1._0.Classes
         int author_count = 0;
 
         author_node root;
+        public bool info_exist = false;
 
         public int Author_count { get => author_count; set => author_count = value; }
 
@@ -42,6 +43,9 @@ namespace Microwave_v1._0.Classes
         public void Fill_Author_List(DataTable dt)
         {
             int rows_count = dt.Rows.Count;
+
+            if (rows_count == 0)
+                return;
 
             for (int i = 0; i < rows_count; i++)
             {
@@ -57,7 +61,6 @@ namespace Microwave_v1._0.Classes
                 string author_cover_path_file = dt.Rows[i][7].ToString();
 
                 Author author = new Author(author_id, popularity_id, author_name, author_country, author_gender, author_birthday, author_biography, author_cover_path_file);
-                author.Set_Author();
                 this.Add_Author_to_List(author);
             }
 
@@ -76,6 +79,9 @@ namespace Microwave_v1._0.Classes
                 iterator = current;
             }
             root = null;
+
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
         public void Add_Author_to_List(Author author)
@@ -83,7 +89,6 @@ namespace Microwave_v1._0.Classes
             if (root == null)
             {
                 root = new author_node(author);
-                author_count++;
                 return;
             }
 
@@ -92,7 +97,6 @@ namespace Microwave_v1._0.Classes
                 iterator = iterator.next;
 
             iterator.next = new author_node(author);
-            author_count++ ;
         }
 
         public void Draw_All_Authors()
@@ -103,10 +107,12 @@ namespace Microwave_v1._0.Classes
             author_node iterator = root;
             while (iterator != null)
             {
+                iterator.author.Set_Author();
                 iterator.author.Author_info.Draw_Author_Obj(ref Author.author_point_x, ref Author.author_point_y);
                 iterator.author.Author_info.Show();
                 iterator = iterator.next;
             }
+            info_exist = true;
         }
 
         public void Deselect_All_Infos()
@@ -125,8 +131,13 @@ namespace Microwave_v1._0.Classes
             while (iterator != null)
             {
                 iterator.author.Author_info.Hide_Info();
+                iterator.author.Author_info = null;
                 iterator = iterator.next;
             }
+
+            info_exist = false;
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
         public void Delete_Author_from_List(int author_id, bool delete_picture)

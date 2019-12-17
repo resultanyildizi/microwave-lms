@@ -48,7 +48,7 @@ namespace Microwave_v1._0.UserControls
             this.category_cover_path_file = category_cover_path_file;
             this.lbl_category.Text = category_name;
             this.btn_category_id.Text = category_id.ToString();
-            this.pb_category.Image = Picture_Events.Get_Copy_Image_Bitmap(category_cover_path_file);
+            this.pb_category.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + category_cover_path_file);
         }
 
         public void Hide_Info()
@@ -112,7 +112,7 @@ namespace Microwave_v1._0.UserControls
             main_page.Create_Warning_Form(message, Color.DarkRed);
             bool delete_pic = true;
 
-            if (category_cover_path_file == @"..\..\Resources\Category Covers\DefaultCategory.jpg")
+            if (category_cover_path_file == System.Configuration.ConfigurationManager.AppSettings["def_ct_path"])
             {
                 delete_pic = false;
             }
@@ -122,10 +122,7 @@ namespace Microwave_v1._0.UserControls
 
             main_page.Warning_form.Refresh_Form();
 
-            main_page.Pnl_categories_list.VerticalScroll.Value = 0;
-            main_page.Category_search_list.Delete_All_List();
-            main_page.Main_category_list.Draw_All_Categories();
-            main_page.Category_searched_already = false;
+            
         }
 
 
@@ -134,10 +131,14 @@ namespace Microwave_v1._0.UserControls
 
             category_list.Delete_Category_from_List(category_id, delete_picture);
             this.Dispose();
-            main_page.Pnl_categories_list.VerticalScroll.Value = 0;
+
             Category.category_point_y = 5;
             Category.category_point_x = 35;
-            category_list.Draw_All_Categories();
+            main_page.Pnl_categories_list.VerticalScroll.Value = 0;
+            main_page.Category_search_list.Delete_All_List();
+            main_page.Main_category_list.Draw_All_Categories();
+            main_page.Category_searched_already = false;
+            Book.Show_All_Books(main_page);
         }
 
         private void btn_edit_Click(object sender, EventArgs e)

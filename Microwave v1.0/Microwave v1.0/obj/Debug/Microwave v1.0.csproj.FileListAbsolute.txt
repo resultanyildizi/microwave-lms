@@ -255,7 +255,6 @@ C:\Users\Sude\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Receipt_Info.resources
 C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Receipt_Detail.resources
 C:\Users\Sude\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Receipt_Detail.resources
-C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave v1.0.csprojAssemblyReference.cache
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Receipt_Detail.resources
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Receipt_Detail.resources
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Receipt_Info.resources
@@ -273,3 +272,44 @@ C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj
 C:\Users\Dell\Desktop\repos\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Category_Info.resources
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AddCategory.resources
 C:\Users\Selim\Documents\GitHub\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.UserControls.Category_Info.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Login.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.AboutUs.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.Popularity_Form.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\obj\Debug\Microwave_v1._0.Forms.GivePenalty.resources
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Identity.Core.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Buffers.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Memory.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Identity.Core.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Buffers.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Memory.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\firatoyp\source\repos\Microwave LMS\Microwave-LMS-v1.0\Microwave v1.0\Microwave v1.0\bin\Debug\System.Threading.Tasks.Extensions.xml

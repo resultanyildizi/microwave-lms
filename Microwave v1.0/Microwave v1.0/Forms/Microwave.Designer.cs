@@ -34,6 +34,7 @@ namespace Microwave_v1._0
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Microwave));
             this.pnl_left = new System.Windows.Forms.Panel();
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.btn_popularity = new System.Windows.Forms.Button();
             this.btn_shelf = new System.Windows.Forms.Button();
             this.btn_department = new System.Windows.Forms.Button();
             this.btn_publisher = new System.Windows.Forms.Button();
@@ -193,6 +194,7 @@ namespace Microwave_v1._0
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.pnl_menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_menu.Controls.Add(this.btn_popularity);
             this.pnl_menu.Controls.Add(this.btn_shelf);
             this.pnl_menu.Controls.Add(this.btn_department);
             this.pnl_menu.Controls.Add(this.btn_publisher);
@@ -211,6 +213,26 @@ namespace Microwave_v1._0
             this.pnl_menu.TabIndex = 9;
             this.pnl_menu.Click += new System.EventHandler(this.General_Click);
             // 
+            // btn_popularity
+            // 
+            this.btn_popularity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_popularity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_popularity.FlatAppearance.BorderSize = 0;
+            this.btn_popularity.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_popularity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_popularity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_popularity.ForeColor = System.Drawing.Color.White;
+            this.btn_popularity.Image = ((System.Drawing.Image)(resources.GetObject("btn_popularity.Image")));
+            this.btn_popularity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_popularity.Location = new System.Drawing.Point(29, 380);
+            this.btn_popularity.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btn_popularity.Name = "btn_popularity";
+            this.btn_popularity.Size = new System.Drawing.Size(160, 34);
+            this.btn_popularity.TabIndex = 12;
+            this.btn_popularity.Text = "        Popularity";
+            this.btn_popularity.UseVisualStyleBackColor = true;
+            this.btn_popularity.Click += new System.EventHandler(this.btn_popularity_Click);
+            // 
             // btn_shelf
             // 
             this.btn_shelf.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -222,7 +244,7 @@ namespace Microwave_v1._0
             this.btn_shelf.ForeColor = System.Drawing.Color.White;
             this.btn_shelf.Image = ((System.Drawing.Image)(resources.GetObject("btn_shelf.Image")));
             this.btn_shelf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_shelf.Location = new System.Drawing.Point(29, 302);
+            this.btn_shelf.Location = new System.Drawing.Point(29, 290);
             this.btn_shelf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_shelf.Name = "btn_shelf";
             this.btn_shelf.Size = new System.Drawing.Size(160, 34);
@@ -242,12 +264,12 @@ namespace Microwave_v1._0
             this.btn_department.ForeColor = System.Drawing.Color.White;
             this.btn_department.Image = ((System.Drawing.Image)(resources.GetObject("btn_department.Image")));
             this.btn_department.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_department.Location = new System.Drawing.Point(29, 208);
+            this.btn_department.Location = new System.Drawing.Point(29, 200);
             this.btn_department.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_department.Name = "btn_department";
             this.btn_department.Size = new System.Drawing.Size(160, 34);
             this.btn_department.TabIndex = 9;
-            this.btn_department.Text = "       Department";
+            this.btn_department.Text = "         Department";
             this.btn_department.UseVisualStyleBackColor = true;
             this.btn_department.Click += new System.EventHandler(this.btn_department_Click);
             // 
@@ -262,12 +284,12 @@ namespace Microwave_v1._0
             this.btn_publisher.ForeColor = System.Drawing.Color.White;
             this.btn_publisher.Image = ((System.Drawing.Image)(resources.GetObject("btn_publisher.Image")));
             this.btn_publisher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_publisher.Location = new System.Drawing.Point(29, 161);
+            this.btn_publisher.Location = new System.Drawing.Point(29, 155);
             this.btn_publisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_publisher.Name = "btn_publisher";
             this.btn_publisher.Size = new System.Drawing.Size(160, 34);
             this.btn_publisher.TabIndex = 8;
-            this.btn_publisher.Text = "      Publishers";
+            this.btn_publisher.Text = "        Publishers";
             this.btn_publisher.UseVisualStyleBackColor = true;
             this.btn_publisher.Click += new System.EventHandler(this.btn_publisher_Click);
             // 
@@ -282,7 +304,7 @@ namespace Microwave_v1._0
             this.btn_author.ForeColor = System.Drawing.Color.White;
             this.btn_author.Image = ((System.Drawing.Image)(resources.GetObject("btn_author.Image")));
             this.btn_author.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_author.Location = new System.Drawing.Point(29, 114);
+            this.btn_author.Location = new System.Drawing.Point(29, 110);
             this.btn_author.Margin = new System.Windows.Forms.Padding(2);
             this.btn_author.Name = "btn_author";
             this.btn_author.Size = new System.Drawing.Size(160, 34);
@@ -302,7 +324,7 @@ namespace Microwave_v1._0
             this.btn_about.ForeColor = System.Drawing.Color.White;
             this.btn_about.Image = ((System.Drawing.Image)(resources.GetObject("btn_about.Image")));
             this.btn_about.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_about.Location = new System.Drawing.Point(29, 396);
+            this.btn_about.Location = new System.Drawing.Point(29, 425);
             this.btn_about.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_about.Name = "btn_about";
             this.btn_about.Size = new System.Drawing.Size(160, 34);
@@ -337,12 +359,12 @@ namespace Microwave_v1._0
             this.btn_receipt.ForeColor = System.Drawing.Color.White;
             this.btn_receipt.Image = ((System.Drawing.Image)(resources.GetObject("btn_receipt.Image")));
             this.btn_receipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_receipt.Location = new System.Drawing.Point(29, 255);
+            this.btn_receipt.Location = new System.Drawing.Point(29, 245);
             this.btn_receipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_receipt.Name = "btn_receipt";
             this.btn_receipt.Size = new System.Drawing.Size(160, 34);
             this.btn_receipt.TabIndex = 6;
-            this.btn_receipt.Text = "Receipt";
+            this.btn_receipt.Text = "  Receipt";
             this.btn_receipt.UseVisualStyleBackColor = true;
             this.btn_receipt.Click += new System.EventHandler(this.btn_email_Click);
             // 
@@ -357,7 +379,7 @@ namespace Microwave_v1._0
             this.btn_user.ForeColor = System.Drawing.Color.White;
             this.btn_user.Image = ((System.Drawing.Image)(resources.GetObject("btn_user.Image")));
             this.btn_user.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_user.Location = new System.Drawing.Point(29, 67);
+            this.btn_user.Location = new System.Drawing.Point(29, 65);
             this.btn_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_user.Name = "btn_user";
             this.btn_user.Size = new System.Drawing.Size(160, 34);
@@ -406,12 +428,12 @@ namespace Microwave_v1._0
             this.btn_categories.ForeColor = System.Drawing.Color.White;
             this.btn_categories.Image = ((System.Drawing.Image)(resources.GetObject("btn_categories.Image")));
             this.btn_categories.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_categories.Location = new System.Drawing.Point(29, 349);
+            this.btn_categories.Location = new System.Drawing.Point(29, 335);
             this.btn_categories.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_categories.Name = "btn_categories";
             this.btn_categories.Size = new System.Drawing.Size(160, 34);
             this.btn_categories.TabIndex = 11;
-            this.btn_categories.Text = "     Categories";
+            this.btn_categories.Text = "        Categories";
             this.btn_categories.UseVisualStyleBackColor = true;
             this.btn_categories.Click += new System.EventHandler(this.btn_categories_Click);
             // 
@@ -506,6 +528,7 @@ namespace Microwave_v1._0
             this.btn_profil.Size = new System.Drawing.Size(42, 29);
             this.btn_profil.TabIndex = 2;
             this.btn_profil.UseVisualStyleBackColor = true;
+            this.btn_profil.Click += new System.EventHandler(this.btn_profil_Click);
             // 
             // tb_search_category
             // 
@@ -1851,17 +1874,17 @@ namespace Microwave_v1._0
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(1199, 609);
             this.Controls.Add(this.pnl_left);
-            this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_header);
+            this.Controls.Add(this.pnl_department);
+            this.Controls.Add(this.pnl_user);
             this.Controls.Add(this.pnl_categories);
             this.Controls.Add(this.pnl_shelf);
             this.Controls.Add(this.pnl_receipt);
             this.Controls.Add(this.pnl_authors);
             this.Controls.Add(this.pnl_home);
             this.Controls.Add(this.pnl_book);
+            this.Controls.Add(this.pnl_tag);
             this.Controls.Add(this.pnl_pub);
-            this.Controls.Add(this.pnl_department);
-            this.Controls.Add(this.pnl_user);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -1869,8 +1892,9 @@ namespace Microwave_v1._0
             this.MinimumSize = new System.Drawing.Size(18, 45);
             this.Name = "Microwave";
             this.Opacity = 0.96D;
-            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Microwave";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Microwave_FormClosing);
             this.Load += new System.EventHandler(this.Microwave_Load);
             this.Click += new System.EventHandler(this.General_Click);
             this.pnl_left.ResumeLayout(false);
@@ -1919,7 +1943,6 @@ namespace Microwave_v1._0
         private System.Windows.Forms.Button btn_receipt;
         private System.Windows.Forms.Button btn_user;
         private System.Windows.Forms.Button btn_profil;
-        private System.Windows.Forms.Button btn_settings;
         private System.Windows.Forms.Label lbl_user_surname;
         private System.Windows.Forms.Label lbl_user_name;
         private System.Windows.Forms.Label lbl_user_date;
@@ -2035,6 +2058,8 @@ namespace Microwave_v1._0
         private Button btn_categories;
         private ListBox lb_category_search;
         private TextBox tb_search_category;
+        private Button btn_settings;
+        private Button btn_popularity;
 
         public Panel Pnl_book_list { get => pnl_book_list; set => pnl_book_list = value; }
         public Panel Pnl_pub_list { get => pnl_pub_list; set => pnl_pub_list = value; }

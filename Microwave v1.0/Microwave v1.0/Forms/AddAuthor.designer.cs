@@ -74,7 +74,7 @@
             this.tb_biography.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_biography.ForeColor = System.Drawing.Color.DimGray;
             this.tb_biography.Location = new System.Drawing.Point(105, 184);
-            this.tb_biography.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_biography.Margin = new System.Windows.Forms.Padding(2);
             this.tb_biography.Multiline = true;
             this.tb_biography.Name = "tb_biography";
             this.tb_biography.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -102,7 +102,7 @@
             this.tb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_name.ForeColor = System.Drawing.Color.DimGray;
             this.tb_name.Location = new System.Drawing.Point(105, 35);
-            this.tb_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_name.Margin = new System.Windows.Forms.Padding(2);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(218, 23);
             this.tb_name.TabIndex = 1;
@@ -128,7 +128,7 @@
             this.tb_country.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_country.ForeColor = System.Drawing.Color.DimGray;
             this.tb_country.Location = new System.Drawing.Point(105, 74);
-            this.tb_country.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_country.Margin = new System.Windows.Forms.Padding(2);
             this.tb_country.Name = "tb_country";
             this.tb_country.Size = new System.Drawing.Size(218, 23);
             this.tb_country.TabIndex = 2;
@@ -191,7 +191,7 @@
             this.btn_add_pic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add_pic.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_pic.Image")));
             this.btn_add_pic.Location = new System.Drawing.Point(171, 405);
-            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add_pic.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_pic.Name = "btn_add_pic";
             this.btn_add_pic.Size = new System.Drawing.Size(47, 42);
             this.btn_add_pic.TabIndex = 7;
@@ -206,7 +206,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Image = global::Microwave_v1._0.Properties.Resources.correct_symbol__1_;
             this.btn_add.Location = new System.Drawing.Point(9, 401);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(41, 46);
             this.btn_add.TabIndex = 8;
@@ -218,7 +218,7 @@
             // 
             this.pic_author.Image = ((System.Drawing.Image)(resources.GetObject("pic_author.Image")));
             this.pic_author.Location = new System.Drawing.Point(223, 306);
-            this.pic_author.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pic_author.Margin = new System.Windows.Forms.Padding(2);
             this.pic_author.Name = "pic_author";
             this.pic_author.Size = new System.Drawing.Size(100, 137);
             this.pic_author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -259,12 +259,14 @@
             this.Controls.Add(this.pic_author);
             this.Controls.Add(this.lbl_fullname);
             this.Controls.Add(this.tb_name);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddAuthor";
             this.Opacity = 0.95D;
             this.Text = "AddAuthor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddAuthor_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddAuthor_FormClosed);
+            this.Load += new System.EventHandler(this.AddAuthor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_author)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

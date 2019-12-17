@@ -52,6 +52,8 @@ namespace Microwave_v1._0
             this.search_list = search_list;
             this.main_panel = pnl;
             this.main_tag = main_tag;
+            if(main_tag == null)
+                this.Scale_All();
             this.btn_edit.Hide();
             this.btn_remove.Hide();
         }
@@ -102,8 +104,9 @@ namespace Microwave_v1._0
             }
             else
             {
-                this.Scale_All();
                 main_panel.Controls.Add(this);
+                this.Controls.Remove(btn_edit);
+                this.Controls.Remove(btn_remove);
                 this.Location = new System.Drawing.Point(-3, y);
                 y += 35;
             }

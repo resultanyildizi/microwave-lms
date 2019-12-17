@@ -57,8 +57,9 @@ namespace Microwave_v1._0
                 string email = dt.Rows[i][5].ToString();
                 string password = dt.Rows[i][6].ToString();
                 string date = dt.Rows[i][7].ToString();
+                int fee = int.Parse(dt.Rows[i][8].ToString());
 
-                User user = new User(user_id, name, surname, gender, age, email, password, date);
+                User user = new User(user_id, name, surname, gender, age, email, password, date, fee);
                 user.Set_Book(color_mode);
                 this.Add_User_to_List(user);
             }
@@ -76,6 +77,8 @@ namespace Microwave_v1._0
                 iterator = current;
             }
             root = null;
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
         public void Draw_All_Users()
         {

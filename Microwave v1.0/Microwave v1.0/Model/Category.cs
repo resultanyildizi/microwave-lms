@@ -18,7 +18,8 @@ namespace Microwave_v1._0.Model
         public static int category_point_x = 35;
 
         static Microwave main_page = null;
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
 
         private int category_id;
         private int popularity_id;
@@ -58,7 +59,7 @@ namespace Microwave_v1._0.Model
 
             string query = title + values;
 
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
 
             info = new Category_Info();
             Take_Id_From_Database();
@@ -77,7 +78,7 @@ namespace Microwave_v1._0.Model
             string title = "SELECT Categories.CATEGORY_ID FROM Categories ";
             string query = title + string.Format("Where NAME = '{0}';", category_name);
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.category_id = this.info.Category_id = id;
@@ -88,7 +89,7 @@ namespace Microwave_v1._0.Model
             string title = "UPDATE Categories ";
             string query = title + string.Format("SET NAME = '{0}', COVER_PATH_FILE = '{1}' WHERE CATEGORY_ID = '{2}'", category_name, category_cover_path_file, category_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
@@ -108,15 +109,20 @@ namespace Microwave_v1._0.Model
         static public DataTable Search_Category_By_Name(string category_name)
         {
             string query = string.Format("Select * From Categories Where Categories.NAME Like '{0}%'", category_name);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         public void Delete()
         {
+            string title1 = "Update Books ";
+            string query1 = title1 + string.Format("Set CATEGORY_ID = 0 Where Books.CATEGORY_ID = '{0}'", this.category_id);
+
+            DataBaseEvents.ExecuteNonQuery(query1, data_source);
+
             string title = "DELETE FROM Categories ";
             string query = title + string.Format("Where CATEGORY_ID = '{0}' ;", category_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             main_page.Pnl_categories_list.VerticalScroll.Value = 0;
             if (result <= 0)
             {
@@ -124,11 +130,54 @@ namespace Microwave_v1._0.Model
                 return;
             }
         }
-        
+
+        public void Change_Popularity_Score()
+        {
+            string query = string.Format("Update Categories Set POPULARITY_SCORE = '{0}' Where CATEGORY_ID = '{1}'", popularity_score, category_id);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
+
+            Change_Popularity_Stat();
+
+        }
+        private void Change_Popularity_Stat()
+        {
+            string query = string.Format("Select * From Popularity Order By SCORE");
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
+
+            List<Popularity> pop_list = new List<Popularity>();
+
+            int rows_count = dt.Rows.Count;
+
+            if (rows_count <= 1)
+                this.popularity_id = 0;
+            else
+            {
+                for (int i = 0; i < rows_count; i++)
+                {
+                    int id = int.Parse(dt.Rows[i][0].ToString());
+                    string name = dt.Rows[i][1].ToString();
+                    int score = int.Parse(dt.Rows[i][2].ToString());
+                    Popularity curr_pop = new Popularity(id, name, score);
+
+                    pop_list.Add(curr_pop);
+                }
+            }
+
+            for (int i = 0; i < pop_list.Count; i++)
+            {
+                if (this.popularity_score >= pop_list[i].Base_score)
+                    this.popularity_id = pop_list[i].Pop_id;
+            }
+
+
+            string query_edit = string.Format("Update Categories Set POPULARITY_ID = '{0}' where CATEGORY_ID = '{1}'", this.popularity_id, this.category_id);
+            DataBaseEvents.ExecuteNonQuery(query_edit, data_source);
+        }
+
         static public void Show_All_Categories(Microwave main_page)
         {
             string query = "SELECT * FROM Categories";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             main_page.Pnl_categories_list.VerticalScroll.Value = 0;
             main_page.Main_category_list.Fill_Category_List(dt);

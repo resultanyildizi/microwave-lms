@@ -17,7 +17,7 @@ namespace Microwave_v1._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Microwave());
+            Application.Run(new Login());
         }
     }
 }

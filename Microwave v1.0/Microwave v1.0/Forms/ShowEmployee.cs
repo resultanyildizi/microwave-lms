@@ -24,11 +24,9 @@ namespace Microwave_v1._0.Forms
         private AddEmployee addEmployee = null;
         private Book_Tag main_tag = null;
         private Warning Warning_form = null;
+        private SystemManager manager = null;
 
-
-        private SQLiteConnection connection = new SQLiteConnection(@"data source = ..\..\Resources\Databases\LMS_Database.db");
-        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
-        private string path_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
+        private string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
 
         private Employee_List emp_search_list = null;
         private bool emp_searched_already = false;
@@ -42,10 +40,11 @@ namespace Microwave_v1._0.Forms
         public Department Department { get => department; set => department = value; }
 
         private bool show_pnl_emp_st = false;
-        public ShowEmployee(Department department)
+        public ShowEmployee(Department department, SystemManager manager)
         {
 
             InitializeComponent();
+            this.manager = manager;
             main_employee_list = new Employee_List();
             main_tag = this.emp_tag;
             this.department = department;
@@ -126,7 +125,7 @@ namespace Microwave_v1._0.Forms
         {
             if (Warning_form == null)
             {
-                Warning_form = new Warning();
+                Warning_form = new Warning(manager);
             }
             try
             {
@@ -135,7 +134,7 @@ namespace Microwave_v1._0.Forms
             }
             catch (ObjectDisposedException)
             {
-                Warning_form = new Warning();
+                Warning_form = new Warning(manager);
                 Warning_form.Initialize_Warning(message, color);
                 Warning_form.ShowDialog();
             }
@@ -205,7 +204,13 @@ namespace Microwave_v1._0.Forms
                 if (rb_emp_name.Checked)
                 {
                     this.pnl_employee_list.VerticalScroll.Value = 0;
-                    string query = string.Format("Select Employee.NAME from Employee Where Employee.NAME Like '{0}%'", text);
+                    string query;
+
+                    if(department != null)
+                        query = string.Format("Select Employee.NAME from Employee Where Employee.NAME Like '{0}%' and DEPARTMENT_ID = '{1}'", text, department.Department_id);
+                    else
+                        query = string.Format("Select Employee.NAME from Employee Where Employee.NAME Like '{0}%'", text);
+                    
                     Fill_Employee_Search_List_Box(query);
                     if (lb_emp_search.Items.Count > 0)
                         lb_emp_search.Show();
@@ -214,7 +219,13 @@ namespace Microwave_v1._0.Forms
                 if (rb_emp_id.Checked)
                 {
                     this.pnl_employee_list.VerticalScroll.Value = 0;
-                    string query = string.Format("Select Employee.EMPLOYEE_ID from Employee Where Employee.EMPLOYEE_ID Like '{0}%'", text);
+                    string query;
+
+                    if(department != null)
+                        query = string.Format("Select Employee.EMPLOYEE_ID from Employee Where Employee.EMPLOYEE_ID Like '{0}%' and DEPARTMENT_ID = '{1}'", text, department.Department_id);
+                    else
+                        query = string.Format("Select Employee.EMPLOYEE_ID from Employee Where Employee.EMPLOYEE_ID Like '{0}%'", text);
+                    
                     Fill_Employee_Search_List_Box(query);
                     if (lb_emp_search.Items.Count > 0)
                         lb_emp_search.Show();
@@ -223,7 +234,12 @@ namespace Microwave_v1._0.Forms
                 if (rb_gender.Checked)
                 {
                     this.pnl_employee_list.VerticalScroll.Value = 0;
-                    string query = string.Format("Select Employee.GENDER from Employee Where Employee.GENDER Like '{0}%'", text);
+                    string query;
+                    if(department != null)
+                        query = string.Format("Select Employee.GENDER from Employee Where Employee.GENDER Like '{0}%' and DEPARTMENT_ID = '{1}'", text, department.Department_id);
+                    else
+                        query = string.Format("Select Employee.GENDER from Employee Where Employee.GENDER Like '{0}%'", text);
+
                     Fill_Employee_Search_List_Box(query);
                     if (lb_emp_search.Items.Count > 0)
                         lb_emp_search.Show();
@@ -232,7 +248,12 @@ namespace Microwave_v1._0.Forms
                 if (rb_email.Checked)
                 {
                     this.pnl_employee_list.VerticalScroll.Value = 0;
-                    string query = string.Format("Select Employee.EMAIL from Employee Where Employee.EMAIL Like '{0}%'", text);
+                    string query;
+                    if(department != null)
+                        query = string.Format("Select Employee.EMAIL from Employee Where Employee.EMAIL Like '{0}%' and DEPARTMENT_ID = '{1}'", text, department.Department_id);
+                    else
+                        query = string.Format("Select Employee.EMAIL from Employee Where Employee.EMAIL Like '{0}%'", text);
+
                     Fill_Employee_Search_List_Box(query);
                     if (lb_emp_search.Items.Count > 0)
                         lb_emp_search.Show();
@@ -258,28 +279,42 @@ namespace Microwave_v1._0.Forms
 
                 if (rb_emp_name.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.NAME);
+                    if(department != null)
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text, department.Department_id.ToString()), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.NAME);
+                    else
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Name(text, "-1"), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.NAME);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_emp_id.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.ID);
+                    if(department != null)
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text, department.Department_id.ToString()), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.ID);
+                    else
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_ID(text, "-1"), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.ID);
+
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_gender.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.GENDER);
+                    if(department != null)
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text, department.Department_id.ToString()), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.GENDER);
+                    else
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Gender(text, "-1"), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.GENDER);
+
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
                 }
                 if (rb_email.Checked)
                 {
-                    emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.EMAIL);
+                    if(department != null)
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text, department.Department_id.ToString()), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.EMAIL);
+                    else
+                        emp_search_list.Fill_Employee_List(Employee.Search_Employee_By_Email(text, "-1"), main_employee_list, emp_search_list, main_tag, pnl_employee_list, COLOR.EMAIL);
                     emp_search_list.Draw_All_Employees();
                     emp_searched_already = true;
                     return;
@@ -321,7 +356,7 @@ namespace Microwave_v1._0.Forms
         {
             lb_emp_search.Items.Clear();
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int rows_count = dt.Rows.Count;
 

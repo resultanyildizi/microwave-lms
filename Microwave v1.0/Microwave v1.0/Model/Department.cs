@@ -14,7 +14,8 @@ namespace Microwave_v1._0.Classes
 {
     public class Department
     {
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
         public static int point_y = 5;
         public static int point_x = 35;
         private string name;
@@ -53,7 +54,7 @@ namespace Microwave_v1._0.Classes
 
             string query = title + values;
 
-            DataBaseEvents.ExecuteNonQuery(query, datasource);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
 
             info = new Department_Info();
             Take_Id_From_Database();
@@ -72,7 +73,7 @@ namespace Microwave_v1._0.Classes
             string title = "UPDATE Department ";
             string query = title + string.Format("SET NAME = '{0}', COVER_PATH = '{1}' WHERE DEPARTMENT_ID = '{2}'", name, cover_path_file, department_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
@@ -96,12 +97,12 @@ namespace Microwave_v1._0.Classes
             string title1 = "UPDATE Employee ";
             string query1 = title1 + string.Format("SET DEPARTMENT_ID = 0 WHERE Employee.DEPARTMENT_ID = '{0}'", this.department_id);
 
-            DataBaseEvents.ExecuteNonQuery(query1, datasource);
+            DataBaseEvents.ExecuteNonQuery(query1, data_source);
 
             string title = "DELETE FROM Department ";
             string query = title + string.Format("Where DEPARTMENT_ID = '{0}' ;", department_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
             if (result <= 0)
             {
@@ -116,7 +117,7 @@ namespace Microwave_v1._0.Classes
             string title = "SELECT Department.DEPARTMENT_ID FROM Department ";
             string query = title + string.Format("Where NAME = '{0}';", name);
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.department_id = id;
@@ -126,7 +127,7 @@ namespace Microwave_v1._0.Classes
         static public void Show_All_Departments(Microwave main_page)
         {
             string query = "SELECT * FROM Department";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             main_page.Pnl_department_list.VerticalScroll.Value = 0;
             main_page.Main_department_list.Fill_Department_list(dt);

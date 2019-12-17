@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SQLite;
+using System.Configuration;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.Model;
 
@@ -38,18 +39,17 @@ namespace Microwave_v1._0
 
 
         Picture_Events picture_event;
-        private string pic_default_file = @"..\..\Resources\Book Covers\TheSunInHisEyes.jpg";
-        private string pic_dest_path = @"..\..\Resources\Book Covers\";
+        private string pic_default_file = ConfigurationManager.AppSettings["def_bk_path"];
+        private string pic_dest_path = ConfigurationManager.AppSettings["bk_dest_path"];
         private string pic_new_source_path = "";
 
 
-        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private string data_source = ConfigurationManager.AppSettings["data_source"];
 
 
         private bool is_edit = false;
         private bool change_image = false;
         private Book book_to_edit = null;
-        private Publisher_List pub_list = null;
 
 
 
@@ -190,9 +190,8 @@ namespace Microwave_v1._0
             {
                 picture_event.Copy_The_Picture(name);
                 pic_new_source_path = picture_event.Pic_source_file;
-                /* ONEMLI */
-                int librarian_id = 0;
-                Book book = new Book(0, author_id, publisher_id, category_id, librarian_id, shelf_id, name, count, date, description, pic_new_source_path, 1, 0);
+
+                Book book = new Book(0, author_id, publisher_id, category_id, main_page.Manager.Employee_id, shelf_id, name, count, date, description, pic_new_source_path, 0, 0);
                 book.Add();
 
                 Clear();
@@ -246,13 +245,13 @@ namespace Microwave_v1._0
             string que_shelf = string.Format("Select Shelves.SHELF_ID from Shelves where Shelves.NAME= '{0}'", shelf);
 
 
-            dt = DataBaseEvents.ExecuteQuery(que_author, datasource);
+            dt = DataBaseEvents.ExecuteQuery(que_author, data_source);
             author_id = int.Parse(dt.Rows[0][0].ToString());
-            dt = DataBaseEvents.ExecuteQuery(que_publisher, datasource);
+            dt = DataBaseEvents.ExecuteQuery(que_publisher, data_source);
             publisher_id = int.Parse(dt.Rows[0][0].ToString());
-            dt = DataBaseEvents.ExecuteQuery(que_category, datasource);
+            dt = DataBaseEvents.ExecuteQuery(que_category, data_source);
             category_id = int.Parse(dt.Rows[0][0].ToString());
-            dt = DataBaseEvents.ExecuteQuery(que_shelf, datasource);
+            dt = DataBaseEvents.ExecuteQuery(que_shelf, data_source);
             shelf_id = int.Parse(dt.Rows[0][0].ToString());
 
         }
@@ -266,7 +265,7 @@ namespace Microwave_v1._0
 
             
             query = string.Format("Select {0}.NAME From {0}", "Authors");
-            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            dt = DataBaseEvents.ExecuteQuery(query, data_source);
             rows_count = dt.Rows.Count;
             if (rows_count <= 0)
             {
@@ -281,7 +280,7 @@ namespace Microwave_v1._0
             
             
             query = string.Format("Select {0}.NAME From {0}", "Publishers");
-            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            dt = DataBaseEvents.ExecuteQuery(query, data_source);
             rows_count = dt.Rows.Count;
             if (rows_count <= 0)
             {
@@ -297,7 +296,7 @@ namespace Microwave_v1._0
             
 
             query = string.Format("Select {0}.NAME From {0}", "Categories");
-            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            dt = DataBaseEvents.ExecuteQuery(query, data_source);
             rows_count = dt.Rows.Count;
             if (rows_count <= 0)
             {
@@ -312,7 +311,7 @@ namespace Microwave_v1._0
 
 
             query = string.Format("Select {0}.NAME From {0}", "Shelves");
-            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            dt = DataBaseEvents.ExecuteQuery(query, data_source);
             rows_count = dt.Rows.Count;
             if (rows_count <= 0)
             {
@@ -323,7 +322,6 @@ namespace Microwave_v1._0
                 string item = dt.Rows[i][0].ToString();
                 cb_shelf.Items.Add(item);
             }
-            cb_shelf.Items.Add("Add new Shelf");
         }
         // Clears all textboxes and comboboxes
         private void Clear()
@@ -436,7 +434,7 @@ namespace Microwave_v1._0
                 main_page.Create_Add_Author_Form();
 
                 string query = string.Format("Select {0}.NAME From {0}", "Authors");
-                DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+                DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
                 int rows_count = dt.Rows.Count;
 
                 if (rows_count <= 0)
@@ -485,7 +483,7 @@ namespace Microwave_v1._0
                 main_page.Create_Add_Publisher_Form();
                 
                 string query = string.Format("Select {0}.NAME From {0}", "Publishers");
-                DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+                DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
                 int rows_count = dt.Rows.Count;
 
                 if(rows_count <= 0)
@@ -527,7 +525,30 @@ namespace Microwave_v1._0
             if (cb_category.SelectedIndex == 0)
                 cb_category.ForeColor = Color.Gray;
             else if (cb_category.SelectedIndex == last_index)
-                MessageBox.Show("AddCategory Form");
+            {
+                main_page.Create_Add_Category_Form();
+
+                string query = string.Format("Select {0}.NAME From {0}", "Categories");
+                DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
+                int rows_count = dt.Rows.Count;
+
+                if (rows_count <= 0)
+                {
+                    return;
+                }
+
+                cb_category.Items.Clear();
+
+                cb_category.Items.Add("Category's Name");
+
+                for (int i = 0; i < rows_count; i++)
+                {
+                    string item = dt.Rows[i][0].ToString();
+                    cb_category.Items.Add(item);
+                }
+                cb_category.Items.Add("Add new Category");
+                cb_category.SelectedIndex = 0;
+            }
             else
                 cb_category.ForeColor = Color.LightGray;
         }
@@ -549,8 +570,6 @@ namespace Microwave_v1._0
 
             if (cb_shelf.SelectedIndex == 0)
                 cb_shelf.ForeColor = Color.Gray;
-            else if (cb_shelf.SelectedIndex == last_index)
-                MessageBox.Show("AddShelf Form");
             else
                 cb_shelf.ForeColor = Color.LightGray;
         }

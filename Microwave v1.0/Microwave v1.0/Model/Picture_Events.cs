@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Microwave_v1._0
 {
@@ -123,7 +124,6 @@ namespace Microwave_v1._0
                 return bm;
             }
         }
-
     }
     
    

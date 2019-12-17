@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Configuration;
 using Microwave_v1._0.Classes;
 using Microwave_v1._0.Model;
 
@@ -16,16 +17,13 @@ namespace Microwave_v1._0.Forms
     public partial class AddCategory : Form
     {
         private string category_name;
-        private string category_description;
-        private int popularity_id;
-        private int popularity_score;
+        private int popularity_score = 0;
 
         Microwave main_page;
-        private Category_List main_category_list;
 
         Picture_Events picture_event;
-        private string pic_default_file = @"..\..\Resources\Category Covers\DefaultCategory.jpg";
-        private string pic_dest_path = @"..\..\Resources\Category Covers\";
+        private string pic_default_file = ConfigurationManager.AppSettings["def_ct_path"];
+        private string pic_dest_path = ConfigurationManager.AppSettings["ct_dest_path"];
         private string pic_new_source_path = "";
 
         private bool is_edit = false;
@@ -93,7 +91,7 @@ namespace Microwave_v1._0.Forms
             {
                 picture_event.Copy_The_Picture(category_name);
                 pic_new_source_path = picture_event.Pic_source_file;
-                Category category = new Category(0, category_name, popularity_id, popularity_score, pic_new_source_path);
+                Category category = new Category(0, category_name, 0, popularity_score, pic_new_source_path);
                 category.Add();
 
                 tb_category_name.Text = "Category's Name";
@@ -117,6 +115,8 @@ namespace Microwave_v1._0.Forms
 
                 category_to_edit.Edit();
 
+                main_page.Main_book_list.Delete_All_List();
+                Book.Show_All_Books(main_page);
             }
         }
         private void btn_add_Click(object sender, EventArgs e)

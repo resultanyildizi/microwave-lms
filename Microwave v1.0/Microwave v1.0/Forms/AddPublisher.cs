@@ -18,17 +18,14 @@ namespace Microwave_v1._0.Forms
         private string pub_email;
         private string pub_phone_number;
         private string pub_date_of_est;
-        AddUser email_control = null;
         
         Microwave main_page;
-        private Publisher_List main_pub_list;
 
         Picture_Events picture_event;
-        private string pic_default_file = @"..\..\Resources\Publisher Covers\DefaultPublisher.jpg";
-        private string pic_dest_path = @"..\..\Resources\Publisher Covers\";
+        private string pic_default_file = System.Configuration.ConfigurationManager.AppSettings["def_pb_path"];
+        private string pic_dest_path = System.Configuration.ConfigurationManager.AppSettings["pb_dest_path"];
         private string pic_new_source_path = "";
 
-        private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
 
         private bool is_edit = false;
         private bool change_image = false;
@@ -155,6 +152,9 @@ namespace Microwave_v1._0.Forms
                 main_page.Publisher_search_list.Delete_All_List();
                 main_page.Main_pub_list.Draw_All_Publishers();
                 main_page.Publisher_searched_already = false;
+
+                main_page.Main_book_list.Delete_All_List();
+                Book.Show_All_Books(main_page);
             }
         }
 

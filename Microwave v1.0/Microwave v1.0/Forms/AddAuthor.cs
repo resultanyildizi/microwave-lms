@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Configuration;
 using Microwave_v1._0.Classes;
 
 namespace Microwave_v1._0.Forms
@@ -21,11 +22,10 @@ namespace Microwave_v1._0.Forms
         private string biography;
    
         Microwave main_page;
-        private Author_List main_author_list;
 
         Picture_Events picture_event;
-        private string pic_default_file = @"..\..\Resources\Author Covers\DefaultAuthor.jpg";
-        private string pic_dest_path = @"..\..\Resources\Author Covers\";
+        private string pic_default_file = ConfigurationManager.AppSettings["def_aut_path"];
+        private string pic_dest_path = ConfigurationManager.AppSettings["aut_dest_path"];
         private string pic_new_source_path = "";
 
 
@@ -153,7 +153,7 @@ namespace Microwave_v1._0.Forms
                 else
                     pic_new_source_path = pic_default_file;
 
-                Author author = new Author(0, 1, name, country, gender, year, biography, pic_new_source_path);               
+                Author author = new Author(0, 0, name, country, gender, year, biography, pic_new_source_path);               
                 author.Add();
 
                 Clear();
@@ -183,8 +183,12 @@ namespace Microwave_v1._0.Forms
 
                 main_page.Pnl_author_list.VerticalScroll.Value = 0;
                 main_page.Author_search_list.Delete_All_List();
+                main_page.Main_author_list.Hide_All_Author_Objects();
                 main_page.Main_author_list.Draw_All_Authors();
                 main_page.Author_searched_already = false;
+
+                main_page.Main_book_list.Delete_All_List();
+                Book.Show_All_Books(main_page);
             }
 
 
@@ -227,8 +231,6 @@ namespace Microwave_v1._0.Forms
         {
             main_page.Btn_add.Enabled = true;
         }
-
-
         private void AddAuthor_FormClosed(object sender, FormClosedEventArgs e)
         {
             main_page.Btn_add.Enabled = true;
@@ -286,6 +288,11 @@ namespace Microwave_v1._0.Forms
                 tb_biography.Text = "Biography...";
                 tb_biography.ForeColor = Color.DimGray;
             }
+        }
+
+        private void AddAuthor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

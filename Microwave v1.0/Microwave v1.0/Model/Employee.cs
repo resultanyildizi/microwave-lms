@@ -16,7 +16,8 @@ namespace Microwave_v1._0.Model
 {
     public class Employee
     {
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
         public static int point_y = 5;
 
 
@@ -82,7 +83,7 @@ namespace Microwave_v1._0.Model
             string query = string.Concat(title, values);
 
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
 
             if (result <= 0)
             {
@@ -109,7 +110,7 @@ namespace Microwave_v1._0.Model
             string query = title + string.Format(" SET DEPARTMENT_ID = '{0}', NAME = '{1}', SURNAME = '{2}', EMAIL = '{3}', GENDER = '{4}', " +
                 " BIRTH_DATE = '{5}', COVER_PATH = '{6}' Where Employee.EMPLOYEE_ID = '{7}'", department_id, name, surname, email, gender, birth_date, cover_path_file, employee_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid update event");
@@ -128,7 +129,7 @@ namespace Microwave_v1._0.Model
             string title = "DELETE FROM Employee ";
             string query = title + string.Format("Where EMPLOYEE_ID = '{0}'", employee_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
                 MessageBox.Show("Delete is not valid");
             return;
@@ -155,7 +156,7 @@ namespace Microwave_v1._0.Model
             }
 
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
 
             main_page = (Microwave_v1._0.Forms.ShowEmployee)Application.OpenForms["ShowEmployee"];
@@ -165,12 +166,12 @@ namespace Microwave_v1._0.Model
 
         }
 
-        private void Join_Tables()
+        protected void Join_Tables()
         {
             DataTable dt = null;
             string query = string.Format("SELECT Department.name FROM Employee JOIN Department ON Department.DEPARTMENT_ID = Employee.DEPARTMENT_ID WHERE EMPLOYEE_ID = '{0}'", employee_id);
 
-            dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             department_name = dt.Rows[0][0].ToString();
         }
@@ -180,54 +181,87 @@ namespace Microwave_v1._0.Model
             string title = "SELECT Employee.EMPLOYEE_ID FROM Employee ";
             string query = title + string.Format("Where NAME = '{0}';", name);
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.employee_id = id;
             this.Info.Employee_id = id;
         }
-        static public DataTable Search_Employee_By_Name(string name)
+        static public DataTable Search_Employee_By_Name(string name, string dep_id)
         {
-            string query = string.Format("Select * From Employee Where Employee.NAME Like '{0}%'", name);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            string query;
+            if(dep_id == "-1")
+                query = string.Format("Select * From Employee Where Employee.NAME Like '{0}%'", name);
+            else
+                query = string.Format("Select * From Employee Where Employee.NAME Like '{0}%' and DEPARTMENT_ID = '{1}'", name, dep_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
-        static public DataTable Search_Employee_By_Surname(string surname)
+        static public DataTable Search_Employee_By_ID(string id, string dep_id)
         {
-            string query = string.Format("Select * From Employee Where Employee.SURNAME Like '{0}%'", surname);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            string query;
+            if(dep_id == "-1")
+                query = string.Format("Select * From Employee Where Employee.EMPLOYEE_ID Like '{0}%'", id);
+            else
+                query = string.Format("Select * From Employee Where Employee.EMPLOYEE_ID Like '{0}%' and DEPARTMENT_ID = '{1}'", id, dep_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
-        static public DataTable Search_Employee_By_ID(string id)
+        static public DataTable Search_Employee_By_Email(string email, string dep_id)
         {
-            string query = string.Format("Select * From Employee Where Employee.EMPLOYEE_ID Like '{0}%'", id);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
-            return dt;
-        }
-        static public DataTable Search_Employee_By_Email(string email)
-        {
-            string query = string.Format("Select * From Employee Where Employee.EMAIL Like '{0}%'", email);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            string query;
+            if (dep_id == "-1")
+                query = string.Format("Select * From Employee Where Employee.EMAIL Like '{0}%'", email);
+            else
+                query = string.Format("Select * From Employee Where Employee.EMAIL Like '{0}%' and DEPARTMENT_ID = '{1}'", email, dep_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
 
         }
-        static public DataTable Search_Employee_By_Birthdate(string birthdate)
+        static public DataTable Search_Employee_By_Gender(string gender, string dep_id)
         {
-            string query = string.Format("Select * From Employee Where Employee.BIRTH_DATE Like '{0}%'", birthdate);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            string query;
+            if(dep_id == "-1")
+                query = string.Format("Select * From Employee Where Employee.GENDER Like '{0}%'", gender);
+            else
+                query = string.Format("Select * From Employee Where Employee.GENDER Like '{0}%' and DEPARTMENT_ID = '{1}'", gender, dep_id);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
-        static public DataTable Search_Employee_By_Gender(string gender)
+
+        static public int Contains_Email(string email)
         {
-            string query = string.Format("Select * From Employee Where Employee.GENDER Like '{0}%'", gender);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
-            return dt;
+            string query = string.Format("Select Employee.EMPLOYEE_ID From Employee Where Employee.EMAIL = '{0}'", email);
+
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
+
+            if (dt.Rows.Count <= 0)
+                return -1;
+
+            int id = int.Parse(dt.Rows[0][0].ToString());
+            return id;
         }
-        static public DataTable Search_Employee_By_Department(string department)
+
+        public void Change_Password(string password)
         {
-            string query = string.Format("Select * From Employee Where Employee.DEPARTMENT_ID Like '{0}%'", department);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
-            return dt;
+            this.password = password;
+
+            string query = string.Format("Update Employee Set PASSWORD = '{0}' Where Employee.EMPLOYEE_ID = '{1}'", password, this.employee_id);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
+
+            if(result > 0)
+            {
+                MessageBox.Show("Program neeeds to restart", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Microwave app= (Microwave)Application.OpenForms["Microwave"];
+                app.Close();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Invalid change operation", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
         }
     }
 }

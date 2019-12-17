@@ -23,11 +23,13 @@ namespace Microwave_v1._0
         private string date;
         private int book_count;
         private int age;
+        private int fee;
         private UserInfo info;
 
         public static int point_y = 5;
         static private Microwave main_page = null;
-        static private string datasource = @"data source = ..\..\Resources\Databases\LMS_Database.db";
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
+
 
         // Getters and setters
         public string Name { get => name; set => name = value; }
@@ -40,6 +42,7 @@ namespace Microwave_v1._0
         public UserInfo Info { get => info; set => info = value; }
         public string Password { get => password; set => password = value; }
         public int Book_count { get => book_count; set => book_count = value; }
+        public int Fee { get => fee; set => fee = value; }
 
         // Constructors
 
@@ -48,7 +51,7 @@ namespace Microwave_v1._0
 
         }
 
-        public User(int user_id, string name, string surname, string gender, int age, string email, string password, string date)
+        public User(int user_id, string name, string surname, string gender, int age, string email, string password, string date, int fee)
         {
             main_page = (Microwave)Application.OpenForms["Microwave"];
             this.user_id = user_id;
@@ -59,17 +62,18 @@ namespace Microwave_v1._0
             this.email = email;
             this.password = password;
             this.date = date;
+            this.fee = fee;
         }
 
 
         // Methods
         public void Add()
         {
-            string title  = "Insert Into Users(NAME, SURNAME, GENDER, AGE, EMAIL, PASSWORD, DATE) ";
-            string values = string.Format("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", name, surname, gender, age, email, password, date);
+            string title  = "Insert Into Users(NAME, SURNAME, GENDER, AGE, EMAIL, PASSWORD, DATE, FEE) ";
+            string values = string.Format("Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", name, surname, gender, age, email, password, date, fee);
             string query = string.Concat(title, values);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             
             if(result <= 0)
             {
@@ -92,7 +96,7 @@ namespace Microwave_v1._0
             string query = title + string.Format("Set NAME = '{0}', SURNAME = '{1}', GENDER = '{2}', " +
                 "AGE = '{3}', EMAIL = '{4}' Where Users.USER_ID = '{5}'", name, surname, gender, age, email, user_id);
 
-            int result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            int result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if(result <= 0)
             {
                 MessageBox.Show("Invalid update event");
@@ -108,7 +112,7 @@ namespace Microwave_v1._0
             int result;
 
             query = "Delete From Receipt Where Receipt.USER_ID = " + user_id;
-            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid delete operation");
@@ -119,7 +123,7 @@ namespace Microwave_v1._0
             Receipt.Show_All_Receipts(main_page);
 
             query = "Delete From Book_User Where Book_User.USER_ID = " + user_id;
-            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if (result <= 0)
             {
                 MessageBox.Show("Invalid delete operation");
@@ -128,7 +132,7 @@ namespace Microwave_v1._0
 
             query = "Delete From Users Where USER_ID = " + user_id;
 
-            result = DataBaseEvents.ExecuteNonQuery(query, datasource);
+            result = DataBaseEvents.ExecuteNonQuery(query, data_source);
             if(result <= 0)
             {
                 MessageBox.Show("Invalid delete event");
@@ -140,7 +144,7 @@ namespace Microwave_v1._0
         public static void Show_All_Users(Microwave main_page)
         {
             string query = "Select * From Users ";
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             main_page.Main_user_list.Fill_User_List(dt, INFO_COLOR_MODE.NORMAL);
             main_page.Main_user_list.Draw_All_Users();
@@ -152,7 +156,7 @@ namespace Microwave_v1._0
                            " Users.EMAIL As Email, Users.DATE As Date From Book_User " +
                            "Join Users On Book_User.USER_ID = Users.USER_ID Where Book_User.BOOK_ID = " + book.Book_id;
 
-            return DataBaseEvents.ExecuteQuery(query, datasource);
+            return DataBaseEvents.ExecuteQuery(query, data_source);
         }
         public void Set_Book(INFO_COLOR_MODE color_mode)
         {
@@ -162,7 +166,7 @@ namespace Microwave_v1._0
         public void Give_Book_Back(Book book)
         {     
             string query_select = string.Format("Select Book_User.COUNT From Book_User Where Book_User.BOOK_ID = {0} and Book_User.USER_ID = {1}", book.Book_id, this.User_id);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query_select, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query_select, data_source);
 
             if (dt.Rows.Count <= 0)
                 return;
@@ -172,12 +176,12 @@ namespace Microwave_v1._0
             {
                 current_count--;
                 string query_update = string.Format("Update Book_User Set COUNT = {0} Where Book_User.BOOK_ID = {1} and Book_User.USER_ID = {2}", current_count, book.Book_id, this.user_id);
-                DataBaseEvents.ExecuteNonQuery(query_update, datasource);
+                DataBaseEvents.ExecuteNonQuery(query_update, data_source);
             }
             else
             {
                 string query_delete = string.Format("Delete From Book_User Where Book_User.BOOK_ID = {0} and Book_User.USER_ID = {1}", book.Book_id, this.user_id);
-                DataBaseEvents.ExecuteNonQuery(query_delete, datasource);
+                DataBaseEvents.ExecuteNonQuery(query_delete, data_source);
             }
 
             Book exact = main_page.Main_book_list.Find_Book_By_ID(book.Book_id);
@@ -185,48 +189,75 @@ namespace Microwave_v1._0
             exact.Change_Count();
 
             book.Count--;
-            Receipt receipt = new Receipt(0, book.Book_id, this.user_id, 0, "RETURN", MODE.RETURN);
+            Receipt receipt = new Informer(0, book.Book_id, this.user_id, main_page.Manager.Employee_id, "RETURN", MODE.RETURN);
             receipt.Add();
         }
+
+        public void Change_Fee()
+        {
+            string query = string.Format("Update Users Set FEE = '{0}' Where Users.USER_ID = '{1}'", fee, user_id);
+            DataBaseEvents.ExecuteNonQuery(query, data_source);
+        }
+
+        public DataTable Show_All_Penalties()
+        {
+            string query = string.Format("Select Receipt.RECEIPT_ID As 'Penalty ID', Books.NAME As 'Book', Receipt.PENALTY_NAME As 'Penalty',Receipt.FEE As 'Fee', Receipt.CREATION_DATE As 'Date' " +
+                           "From Receipt Join Books On Receipt.BOOK_ID = Books.BOOK_ID Where Receipt.USER_ID = '{0}' and Receipt.NAME = 'PENALTY'", this.user_id);
+
+            return DataBaseEvents.ExecuteQuery(query, data_source);
+        }
+
 
         static public DataTable Search_User_By_Name(string name)
         {
             string query = string.Format("Select * From Users Where Users.NAME Like '{0}%'", name);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_User_By_Surname(string surname)
         {
             string query = string.Format("Select * From Users Where Users.SURNAME Like '{0}%'", surname);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_User_By_ID(string id)
         {
             string query = string.Format("Select * From Users Where Users.USER_ID Like '{0}%'", id);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_User_By_Email(string email)
         {
             string query = string.Format("Select * From Users Where Users.EMAIL Like '{0}%'", email);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
 
         }
         static public DataTable Search_User_By_Age(string age)
         {
             string query = string.Format("Select * From Users Where Users.AGE Like '{0}%'", age);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
         static public DataTable Search_User_By_Gender(string gender)
         {
             string query = string.Format("Select * From Users Where Users.GENDER Like '{0}%'", gender);
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
             return dt;
         }
 
+        public static int Contains_Email(string email)
+        {
+            string query = string.Format("Select Users.USER_ID From Users Where Users.EMAIL = '{0}'", email);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
+
+            if (dt.Rows.Count <= 0)
+                return -1;
+
+            int id = int.Parse(dt.Rows[0][0].ToString());
+
+            return id;
+        }
 
         // Background Database Events
         private void Take_Id_From_Database()
@@ -234,7 +265,7 @@ namespace Microwave_v1._0
             string title = "Select Users.USER_ID from Users ";
             string query = title + string.Format("Where Users.NAME = '{0}' and Users.SURNAME = '{1}' and Users.EMAIL = '{2}'", name, surname, email);
 
-            DataTable dt = DataBaseEvents.ExecuteQuery(query, datasource);
+            DataTable dt = DataBaseEvents.ExecuteQuery(query, data_source);
 
             int id = int.Parse(dt.Rows[0][0].ToString());
             this.user_id = id;

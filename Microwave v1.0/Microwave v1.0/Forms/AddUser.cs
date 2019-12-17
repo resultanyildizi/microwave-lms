@@ -114,12 +114,29 @@ namespace Microwave_v1._0
 
             if(is_edit == false)
             {
-                User user = new User(0, name, surname, gender, age, email, password, date);
+                if(User.Contains_Email(email) != -1)
+                {
+                    lbl_user_message.Text = "That email is used by another user.";
+                    lbl_user_message.ForeColor = Color.Red;
+                    return;
+                }
+
+                lbl_user_message.Text = "*User added successfully";
+                lbl_user_message.ForeColor = Color.LightGreen;
+
+                User user = new User(0, name, surname, gender, age, email, password, date,0);
                 user.Add();
                 Clear();
             }
             else
             {
+                if (User.Contains_Email(email) != user_to_edit.User_id && User.Contains_Email(email) != -1)
+                {
+                    lbl_user_message.Text = "That email is used by another user.";
+                    lbl_user_message.ForeColor = Color.Red;
+                    return;
+                }
+
                 lbl_user_message.Text = "*User changed successfully";
                 lbl_user_message.ForeColor = Color.LightGreen;
 

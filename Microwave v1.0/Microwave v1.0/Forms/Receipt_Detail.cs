@@ -1,4 +1,5 @@
-﻿using Microwave_v1._0.Model;
+﻿using Microwave_v1._0.Classes;
+using Microwave_v1._0.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,12 @@ namespace Microwave_v1._0.Forms
         private Receipt receipt;
         private Book book;
         private User user;
-        // private Employee librarian;
+        Bitmap bitmap;
+
+        private string manager_name;
+        private int manager_id;
+
+        private static string data_source = System.Configuration.ConfigurationManager.AppSettings["data_source"];
 
         public Receipt_Detail()
         {
@@ -33,6 +39,9 @@ namespace Microwave_v1._0.Forms
             this.receipt = receipt;
             this.book = book;
             this.user = user;
+
+            this.manager_id = receipt.Librarian_id;
+            this.manager_name = DataBaseEvents.ExecuteQuery("Select ( NAME || ' ' || SURNAME) From Employee Where EMPLOYEE_ID = " + receipt.Librarian_id, data_source).Rows[0][0].ToString();
         }
 
         private void Receipt_Detail_Load(object sender, EventArgs e)
@@ -46,11 +55,16 @@ namespace Microwave_v1._0.Forms
             this.lbl_user_email_val.Text = user.Email;
             this.lbl_user_id_val.Text = user.User_id.ToString();
 
-            this.lbl_lib_id_val.Text = "1";
-            this.lbl_lib_name_val.Text = "Nurettin Resul Tanyıldızı";
+            this.lbl_lib_id_val.Text = manager_id.ToString();
+            this.lbl_lib_name_val.Text = manager_name;
 
             this.lbl_date.Text = receipt.Creation_date.Substring(0, 10);
             this.tb_message.Text = receipt.Message;
+
+            if (receipt.Pt_name != "NONE")
+                this.lbl_pt_name.Text = receipt.Pt_name;
+            else
+                this.lbl_pt_name.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,6 +88,8 @@ namespace Microwave_v1._0.Forms
             main_page.Receipt_searched_already = false;
 
             this.Dispose();
+            MessageBox.Show("That operation has been canceled.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void Remove()
@@ -86,6 +102,22 @@ namespace Microwave_v1._0.Forms
             Receipt.point_x = 25;
             Receipt.point_y = 25;
             main_receipt_list.Draw_All_Receipts();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            print_document.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Receipt", this.Width + 25, this.Height + 10);
+            print_document.DocumentName = receipt.Name + "_" + receipt.Receipt_id;
+            print_prev.Document = print_document;
+            print_prev.ShowDialog();
+        }
+
+        private void print_document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            bitmap = new Bitmap(this.Width, this.Height);
+            this.lbl_books_name.Select();
+            this.DrawToBitmap(bitmap, new Rectangle(0, 0, this.Width, this.Height));
+            e.Graphics.DrawImage(bitmap, 0, 0);
         }
     }
 }

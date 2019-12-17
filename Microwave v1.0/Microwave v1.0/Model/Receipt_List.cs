@@ -45,8 +45,14 @@ namespace Microwave_v1._0.Model
                 string msg = dt.Rows[i][5].ToString();
                 string cr_date = dt.Rows[i][6].ToString();
                 string rc_date = dt.Rows[i][7].ToString();
+                string pt_name = dt.Rows[i][8].ToString();
+                int fee = int.Parse(dt.Rows[i][9].ToString());
+                Receipt receipt;
 
-                Receipt receipt = new Receipt(receipt_id, book_id, user_id, lib_id, name, msg, cr_date, rc_date);
+                if (name != "PENALTY")
+                    receipt = new Informer(receipt_id, book_id, user_id, lib_id, name, msg, cr_date, rc_date);
+                else
+                    receipt = new Penalty(receipt_id, book_id, user_id, lib_id, msg, cr_date, rc_date, pt_name, fee);
                 receipt.Set_Receipt();
                 this.Add_Receipt_to_List(receipt);
 
@@ -66,6 +72,9 @@ namespace Microwave_v1._0.Model
                 iterator = current;
             }
             root = null;
+
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
         public void Add_Receipt_to_List(Receipt receipt)

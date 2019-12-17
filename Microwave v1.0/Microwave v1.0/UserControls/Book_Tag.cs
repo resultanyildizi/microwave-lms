@@ -48,7 +48,7 @@ namespace Microwave_v1._0
             lbl_description.Text = description;
             lbl_author.Text = " ";
         
-            this.pic_book.Image = Picture_Events.Get_Copy_Image_Bitmap(cover_path_file);
+            this.pic_book.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + cover_path_file);
         }
 
     }
