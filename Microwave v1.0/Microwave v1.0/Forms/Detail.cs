@@ -35,6 +35,7 @@ namespace Microwave_v1._0.Forms
         AddEmployee edit_employee = null;
         AddPublisher edit_publisher = null;
         AddUser edit_user = null;
+        AddCategory edit_category = null;
 
         // For system manager
         private bool change_pass_clicked = false;
@@ -203,7 +204,7 @@ namespace Microwave_v1._0.Forms
             this.pnl_change_pass.Hide();
             this.btn_show_pass.Hide();
 
-            this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
+            this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + publisher.Pub_cover_path_file);
 
             choise = SELECTED.PUBLISHER;
         }
@@ -249,7 +250,7 @@ namespace Microwave_v1._0.Forms
             this.btn_show_pass.Hide();
 
 
-            picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
+            picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + author.Author_cover_path_file);
 
             choise = SELECTED.AUTHOR;
 
@@ -313,7 +314,7 @@ namespace Microwave_v1._0.Forms
             this.tb_7.Hide();
 
 
-            this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
+            this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + employee.Cover_path_file);
 
             choise = SELECTED.EMPLOYEE;
 
@@ -321,7 +322,6 @@ namespace Microwave_v1._0.Forms
         public Detail(Category category)
         {
             InitializeComponent();
-            this.btn_change_pass.Hide();
 
             this.category = category;
 
@@ -353,10 +353,12 @@ namespace Microwave_v1._0.Forms
             this.tb_5.Hide();
             this.tb_6.Hide();
             this.tb_7.Hide();
+
             this.btn_show_pass.Hide();
+            this.pnl_change_pass.Hide();
+            this.btn_change_pass.Hide();
 
-
-            picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(category.Category_cover_path_file);
+            picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + category.Category_cover_path_file);
 
             choise = SELECTED.CATEGORY;
 
@@ -451,7 +453,7 @@ namespace Microwave_v1._0.Forms
                     this.tb_5.Text = book.Popularity_name + " ( " + book.Popularity_score + " )";
                     this.tb_6.Text = book.Count.ToString();
 
-                    this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(book.Cover_path_file);
+                    this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + book.Cover_path_file);
                 }
             }
             else if (choise == SELECTED.AUTHOR)
@@ -486,7 +488,7 @@ namespace Microwave_v1._0.Forms
                 this.tb_1.Text = author.Author_country;
                 this.tb_2.Text = author.Author_gender;
                 this.tb_3.Text = author.Author_birthday;
-                picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(author.Author_cover_path_file);
+                picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + author.Author_cover_path_file);
         
             }
             else if (choise == SELECTED.EMPLOYEE)
@@ -524,7 +526,7 @@ namespace Microwave_v1._0.Forms
                 this.tb_5.Text = employee.Deparment_name;
 
 
-                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(employee.Cover_path_file);
+                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + employee.Cover_path_file);
             }
             else if (choise == SELECTED.PUBLISHER)
             {
@@ -559,7 +561,7 @@ namespace Microwave_v1._0.Forms
                 this.tb_3.Text = publisher.Pub_phone_num;
                 this.tb_4.Text = publisher.Pub_date_of_est;
 
-                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(publisher.Pub_cover_path_file);
+                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + publisher.Pub_cover_path_file);
             }
             else if (choise == SELECTED.USER)
             {
@@ -593,10 +595,40 @@ namespace Microwave_v1._0.Forms
                 this.tb_2.Text = user.Gender;
                 this.tb_3.Text = user.Password;
                 this.tb_4.Text = user.Age.ToString();
-                this.tb_5.Text = "15₺";
+                this.tb_5.Text = "0₺";
                 this.tb_6.Text = user.Book_count.ToString();
 
                 picture_box.Image = global::Microwave_v1._0.Properties.Resources.man_user__1_;
+            }
+            else if(choise == SELECTED.CATEGORY)
+            {
+                string message = "Do you want to edit this category?";
+                main_page.Create_Warning_Form(message, Color.DarkKhaki);
+                if (main_page.Warning_form.Result)
+                {
+                    if (edit_category == null)
+                    {
+                        edit_category = new AddCategory(category);
+                        edit_category.ShowDialog();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            edit_category.ShowDialog();
+                        }
+                        catch (Exception)
+                        {
+
+                            edit_category = new AddCategory(category);
+                            edit_category.ShowDialog();
+                        }
+                    }
+                }
+                main_page.Warning_form.Refresh_Form();
+
+                this.lbl_name.Text = category.Category_name;
+                this.picture_box.Image = Picture_Events.Get_Copy_Image_Bitmap(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + category.Category_cover_path_file);
             }
         }
 
@@ -720,7 +752,15 @@ namespace Microwave_v1._0.Forms
 
         private void btn_give_penalty_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgw_users.SelectedRows[0].Cells[0].Value.ToString());
+            int id;
+            try
+            {
+                id = int.Parse(dgw_users.SelectedRows[0].Cells[0].Value.ToString());
+            }
+            catch(System.ArgumentOutOfRangeException)
+            {
+                return;
+            }
 
             Book selected = main_page.Main_book_list.Find_Book_By_ID(id);
             Create_New_Give_Penalty_Form(selected);

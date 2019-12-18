@@ -22,6 +22,7 @@ namespace Microwave_v1._0.UserControls
         private int receipt_id;
         private string receipt_name;
         private bool chosen = false;
+        private Color color = Color.White;
 
         public int Receipt_id { get => receipt_id; set => receipt_id = value; }
 
@@ -38,6 +39,16 @@ namespace Microwave_v1._0.UserControls
             this.receipt_name = receipt_name;
             this.lbl_receipt_name.Text = receipt_name;
             this.lbl_receipt_id.Text = "#" + receipt_id.ToString();
+
+            if (this.receipt_name == "CHECKED IN")
+                this.color = Color.Gold;
+            else if (this.receipt_name == "RETURN")
+                this.color = Color.PaleGreen;
+            else if (this.receipt_name == "PENALTY")
+                this.color = Color.Red;
+
+            this.lbl_receipt_name.ForeColor = color;
+            this.lbl_receipt_id.ForeColor = color;
         }
 
         public void Hide_Info()
